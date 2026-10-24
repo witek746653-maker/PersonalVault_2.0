@@ -1,0 +1,608 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-background":"#111d23","tertiary-fixed":"#d7e5e4","surface-container-highest":"#d7e4ec","on-tertiary":"#ffffff","tertiary":"#515e5e","inverse-primary":"#79d6cf","tertiary-fixed-dim":"#bbc9c8","inverse-on-surface":"#e6f3fb","surface-container-lowest":"#ffffff","on-primary":"#ffffff","on-error":"#ffffff","primary-fixed":"#95f3eb","surface-variant":"#d7e4ec","surface-container":"#e3f0f8","inverse-surface":"#263238","on-primary-container":"#f3fffd","background":"#f4faff","error":"#ba1a1a","secondary-container":"#d6e5ec","on-error-container":"#93000a","tertiary-container":"#6a7777","secondary-fixed":"#d6e5ec","primary-container":"#12827c","on-tertiary-container":"#f3fffe","surface-dim":"#cfdce4","error-container":"#ffdad6","outline-variant":"#bdc9c7","on-primary-fixed-variant":"#00504c","primary-fixed-dim":"#79d6cf","surface-tint":"#006a65","on-secondary-fixed-variant":"#3b494e","surface-container-low":"#e9f6fd","on-secondary":"#ffffff","on-surface-variant":"#3e4948","secondary":"#536166","surface":"#f4faff","on-secondary-container":"#59676c","on-tertiary-fixed":"#111e1d","outline":"#6e7978","primary":"#006763","surface-bright":"#f4faff","on-primary-fixed":"#00201e","on-secondary-fixed":"#101d22","secondary-fixed-dim":"#bac9cf","on-tertiary-fixed-variant":"#3c4949","surface-container-high":"#ddeaf2","on-surface":"#111d23"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-sm":"0.375rem","gutter":"0.75rem","margin":"1rem","space-xl":"1rem","space-lg":"0.75rem","space-xs":"0.25rem","space-md":"0.5rem"},"fontFamily":{"body-sm":["Segoe UI"],"headline-sm":["Segoe UI"],"code":["JetBrains Mono"],"body-md":["Segoe UI"],"body-lg":["Segoe UI"],"label-sm":["Segoe UI"],"headline-md":["Segoe UI"],"headline-lg":["Segoe UI"],"label-md":["Segoe UI"]},"fontSize":{"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-sm":["15px",{"lineHeight":"20px","fontWeight":"600"}],"code":["12px",{"lineHeight":"16px","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"body-lg":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["18px",{"lineHeight":"24px","fontWeight":"600"}],"headline-lg":["22px",{"lineHeight":"28px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased select-none"><header class="fixed top-0 left-0 right-0 h-9 z-50 bg-surface-container-high flex items-center justify-between px-space-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs text-primary"><span class="material-symbols-outlined text-[16px]">lock</span><span class="font-label-md text-label-md text-on-surface">PersonalVault 2.0 • Локальный архив</span></div><div class="flex items-center gap-space-xs px-space-sm py-[2px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="">Локально</span></div></div><div class="flex items-center gap-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-2 text-[14px] text-on-surface-variant">search</span><input class="w-60 h-[26px] pl-7 pr-space-md rounded bg-surface-container-lowest font-body-sm text-body-sm text-on-surface placeholder:text-outline outline-none focus:ring-1 focus:ring-primary" placeholder="Быстрый поиск (Ctrl+K)..." type="text"></div><div class="flex items-center"><button class="w-7 h-[26px] flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface rounded" type="button"><span class="material-symbols-outlined text-[14px]">remove</span></button><button class="w-7 h-[26px] flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface rounded" type="button"><span class="material-symbols-outlined text-[14px]">check_box_outline_blank</span></button><button class="w-7 h-[26px] flex items-center justify-center text-on-surface-variant hover:bg-error hover:text-on-error rounded" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><aside class="fixed left-0 top-9 bottom-0 w-64 bg-surface-container-low z-40 flex flex-col justify-between py-space-sm shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex-1 overflow-y-auto"><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">ДОКУМЕНТЫ</span></div><nav class="flex flex-col gap-[2px] px-space-xs mb-space-md"><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="zhurnal" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">history_edu</span><span class="">Журнал</span></div></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="vkhodyashchie" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">inbox</span><span class="">Входящие</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">8 файлов · 3 набора</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded bg-surface-container-high text-primary font-bold font-body-sm text-body-sm" data-path="chernoviki" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">edit_note</span><span class="">Черновики</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">3</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="plany" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">event_upcoming</span><span class="">Планы</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">2</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="ubrannye" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">archive</span><span class="">Убранные</span></div></a></nav><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">СПРАВОЧНИКИ</span></div><nav class="flex flex-col gap-[2px] px-space-xs mb-space-md"><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="moi-dannye" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">dataset</span><span class="">Мои данные</span></div></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="shablony" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">dashboard_customize</span><span class="">Шаблоны</span></div></a></nav><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">ДОПОЛНИТЕЛЬНО</span></div><nav class="flex flex-col gap-[2px] px-space-xs"><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="svodka-zdorovya" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">monitor_heart</span><span class="">Сводка здоровья</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">В разработке</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="pomoshchnik" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">smart_toy</span><span class="">Помощник</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">В разработке</span></a></nav></div><div class="pt-space-xs px-space-xs flex flex-col gap-[2px]"><nav class="flex flex-col gap-[2px]"><a class="flex items-center h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm gap-space-xs" data-path="obsluzhivanie" href="#"><span class="material-symbols-outlined text-[16px]">build_circle</span><span class="">Обслуживание архива</span></a><a class="flex items-center h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm gap-space-xs" data-path="nastrojki" href="#"><span class="material-symbols-outlined text-[16px]">settings</span><span class="">Настройки</span></a></nav><div class="px-space-sm py-space-xs mt-space-xs rounded bg-surface-container-highest"><div class="flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[14px]">hard_drive</span><span class="font-label-sm text-label-sm text-on-surface">Локальный диск: 4.2 ГБ свободно</span></div></div></div></aside><div class="pl-64"><main class="w-full pt-9 px-space-xl bg-surface min-h-screen"><div class="flex flex-col w-full text-on-surface select-none pb-8">
+<!-- Top State Emulator Bar (Prototype Switcher) -->
+<div class="w-full bg-surface-container-high px-space-md py-space-xs mb-space-md rounded-lg shadow-sm flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">science</span>
+<span class="font-label-md text-label-md text-on-surface">Состояние стенда (SCR-10):</span>
+</div>
+<div class="flex flex-wrap items-center gap-[2px] bg-surface-container-lowest p-[2px] rounded border-0" id="state-switcher">
+<button class="proto-btn px-space-sm py-[3px] rounded bg-primary text-on-primary font-label-sm text-label-sm flex items-center gap-1 transition-colors" id="btn-state-normal" onclick="switchProtoState('normal')">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+<span class="">1. Штатный список (3)</span>
+</button>
+<button class="proto-btn px-space-sm py-[3px] rounded text-on-surface-variant hover:bg-surface-container-high font-label-sm text-label-sm transition-colors" id="btn-state-empty" onclick="switchProtoState('empty')">
+        2. Пустой список
+      </button>
+<button class="proto-btn px-space-sm py-[3px] rounded text-on-surface-variant hover:bg-surface-container-high font-label-sm text-label-sm transition-colors" id="btn-state-interrupted" onclick="switchProtoState('interrupted')">
+        3. Прерванная сессия
+      </button>
+<button class="proto-btn px-space-sm py-[3px] rounded text-on-surface-variant hover:bg-surface-container-high font-label-sm text-label-sm transition-colors" id="btn-state-conflict" onclick="switchProtoState('conflict')">
+        4. Конфликт ревизий
+      </button>
+<button class="proto-btn px-space-sm py-[3px] rounded text-on-surface-variant hover:bg-surface-container-high font-label-sm text-label-sm transition-colors" id="btn-state-error" onclick="switchProtoState('error')">
+        5. Ошибка сохранения
+      </button>
+<button class="proto-btn px-space-sm py-[3px] rounded text-on-surface-variant hover:bg-surface-container-high font-label-sm text-label-sm transition-colors" id="btn-state-secret" onclick="switchProtoState('secret_locked')">
+        6. Secret недоступен
+      </button>
+<button class="proto-btn px-space-sm py-[3px] rounded text-on-surface-variant hover:bg-surface-container-high font-label-sm text-label-sm flex items-center gap-1 transition-colors" id="btn-state-compact" onclick="toggleCompactMode()">
+<span class="material-symbols-outlined text-[12px]">aspect_ratio</span>
+<span class="">7. Компакт (900px)</span>
+</button>
+</div>
+</div>
+<!-- Screen Header & Context Banner -->
+<div class="flex flex-col gap-space-xs mb-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded bg-primary-fixed text-primary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+</div>
+<div>
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-md text-headline-md text-on-surface">Черновики и незавершённые сессии (SCR-10)</h1>
+<span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+              Изолированная память
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">
+            Временные рабочие состояния документов. Черновики не зафиксированы в архиве и физически изолированы от Журнала.
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+<span class="">Без синхронизации с облаком · Только локальное ОЗУ/SQLite</span>
+</div>
+</div>
+</div>
+<!-- Operational Filter / Action Bar -->
+<div class="w-full bg-surface-container-low p-space-sm rounded-lg shadow-sm flex flex-wrap items-center justify-between gap-space-md mb-space-md">
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Quick Filter Search -->
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2 text-[14px] text-on-surface-variant">search</span>
+<input class="w-56 h-[30px] pl-7 pr-space-md rounded bg-surface-container-lowest font-body-sm text-body-sm text-on-surface placeholder:text-outline outline-none focus:ring-1 focus:ring-primary shadow-sm" placeholder="Поиск по черновикам (Ctrl+F)..." type="text">
+</div>
+<!-- Category Filter -->
+<div class="flex items-center gap-1 bg-surface-container-lowest px-space-sm h-[30px] rounded shadow-sm">
+<span class="font-label-sm text-label-sm text-secondary">Категория:</span>
+<select class="bg-transparent font-body-sm text-body-sm text-on-surface outline-none cursor-pointer">
+<option>Все категории</option>
+<option>Жильё</option>
+<option>Бизнес / Сделки</option>
+<option>Коммунальные</option>
+</select>
+</div>
+<!-- Zone Filter -->
+<div class="flex items-center gap-1 bg-surface-container-lowest px-space-sm h-[30px] rounded shadow-sm">
+<span class="font-label-sm text-label-sm text-secondary">Зона:</span>
+<select class="bg-transparent font-body-sm text-body-sm text-on-surface outline-none cursor-pointer">
+<option>Все зоны</option>
+<option>Open (Общая)</option>
+<option>Secret (Криптохранилище)</option>
+</select>
+</div>
+<!-- State Filter -->
+<div class="flex items-center gap-1 bg-surface-container-lowest px-space-sm h-[30px] rounded shadow-sm">
+<span class="font-label-sm text-label-sm text-secondary">Статус:</span>
+<select class="bg-transparent font-body-sm text-body-sm text-on-surface outline-none cursor-pointer">
+<option>Все статусы</option>
+<option>Сохранён штатно</option>
+<option>Конфликт ревизий</option>
+<option>Требует восстановления</option>
+</select>
+</div>
+</div>
+<!-- Actions Right -->
+<div class="flex items-center gap-space-xs">
+<button class="h-[30px] px-space-md rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-high font-label-md text-label-md flex items-center gap-space-xs shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[15px] text-secondary">refresh</span>
+<span class="">Обновить</span>
+</button>
+<button class="h-[30px] px-space-md rounded bg-surface-container-lowest text-error hover:bg-error-container font-label-md text-label-md flex items-center gap-space-xs shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[15px]">cleaning_services</span>
+<span class="">Очистить устаревшие</span>
+</button>
+</div>
+</div>
+<!-- Notification Banner for Interrupted / Alert States -->
+<div class="hidden w-full mb-space-md p-space-sm rounded-lg flex items-center justify-between" id="dynamic-alert-banner">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px]" id="alert-icon">info</span>
+<div>
+<p class="font-label-md text-label-md" id="alert-title">Уведомление</p>
+<p class="font-body-sm text-body-sm" id="alert-desc">Описание состояния системы</p>
+</div>
+</div>
+<button class="h-[26px] px-space-sm rounded font-label-sm text-label-sm font-semibold" id="alert-action-btn" onclick="switchProtoState('conflict')">Сравнить изменения</button>
+</div>
+<!-- MAIN WORKSPACE: TWO-COLUMN LAYOUT -->
+<div class="w-full grid grid-cols-12 gap-space-md items-start" id="workspace-container">
+<!-- LEFT PANEL: Drafts Table / List (7 cols) -->
+<div class="col-span-12 xl:col-span-7 flex flex-col gap-space-sm">
+<!-- Table Header & Selection Status Bar -->
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm text-secondary">
+<span class="font-semibold text-on-surface" id="drafts-count-header">3 активных черновика</span>
+<span class="">•</span>
+<span class="">Все изменения кэшируются мгновенно</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-secondary">
+<span class="">Сортировка:</span>
+<span class="text-primary font-semibold cursor-pointer">По времени изменения ↓</span>
+</div>
+</div>
+<!-- Main Data Table Container -->
+<div class="w-full bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden flex flex-col">
+<!-- Table Column Headers -->
+<div class="w-full bg-surface-container-high flex items-center px-space-sm h-[32px] font-label-sm text-label-sm text-secondary uppercase tracking-wider">
+<div class="w-8 flex items-center justify-center">
+<input class="w-3.5 h-3.5 rounded accent-primary cursor-pointer" type="checkbox">
+</div>
+<div class="flex-1 min-w-[140px] px-space-xs">Наименование черновика</div>
+<div class="w-28 px-space-xs hidden md:block">Категория</div>
+<div class="w-16 px-space-xs text-center">Зона</div>
+<div class="w-24 px-space-xs text-right">Сохранено</div>
+<div class="w-32 px-space-xs text-right">Состояние</div>
+</div>
+<!-- Table Body Rows -->
+<div class="flex flex-col" id="table-body-container">
+<!-- ROW 1: Active Selected Row (Акт жилья) -->
+<div class="draft-row group w-full flex items-center px-space-sm h-[44px] bg-secondary-container/40 hover:bg-secondary-container/70 cursor-pointer transition-colors" id="draft-row-1" onclick="selectDraftRow(1)">
+<div class="w-8 flex items-center justify-center">
+<input checked="" class="w-3.5 h-3.5 rounded accent-primary cursor-pointer" type="checkbox">
+</div>
+<div class="flex-1 min-w-[140px] px-space-xs flex flex-col justify-center overflow-hidden">
+<span class="font-label-md text-label-md text-on-surface truncate font-semibold">Акт приёма-передачи жилого помещения № 42</span>
+<span class="font-body-sm text-body-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">draw</span>
+<span class="">Этап: Редактор данных (SCR-06)</span>
+</span>
+</div>
+<div class="w-28 px-space-xs hidden md:flex items-center text-secondary font-body-sm text-body-sm truncate">
+              Жильё / Акт
+            </div>
+<div class="w-16 px-space-xs flex items-center justify-center">
+<span class="px-1.5 py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-medium">
+                Open
+              </span>
+</div>
+<div class="w-24 px-space-xs flex flex-col items-end justify-center font-body-sm text-body-sm text-secondary">
+<span class="text-on-surface font-medium">14:22</span>
+<span class="text-[10px] leading-3 text-secondary">10 мин назад</span>
+</div>
+<div class="w-32 px-space-xs flex items-center justify-end">
+<span class="px-space-xs py-[2px] rounded bg-secondary-container text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="">Сохранён</span>
+</span>
+</div>
+</div>
+<!-- ROW 2: Secret Zone Draft (Оборудование) -->
+<div class="draft-row group w-full flex items-center px-space-sm h-[44px] bg-surface-container-lowest hover:bg-surface-container-low cursor-pointer transition-colors" id="draft-row-2" onclick="selectDraftRow(2)">
+<div class="w-8 flex items-center justify-center">
+<input class="w-3.5 h-3.5 rounded accent-primary cursor-pointer" type="checkbox">
+</div>
+<div class="flex-1 min-w-[140px] px-space-xs flex flex-col justify-center overflow-hidden">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-tertiary">lock</span>
+<span class="font-label-md text-label-md text-on-surface truncate row-secret-title">Договор купли-продажи оборудования № 88</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">compare</span>
+<span class="">Этап: Сверка со сканом (SCR-07)</span>
+</span>
+</div>
+<div class="w-28 px-space-xs hidden md:flex items-center text-secondary font-body-sm text-body-sm truncate">
+              Бизнес / Сделки
+            </div>
+<div class="w-16 px-space-xs flex items-center justify-center">
+<span class="px-1.5 py-[1px] rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">
+                Secret
+              </span>
+</div>
+<div class="w-24 px-space-xs flex flex-col items-end justify-center font-body-sm text-body-sm text-secondary">
+<span class="text-on-surface font-medium">Вчера</span>
+<span class="text-[10px] leading-3 text-secondary">18:40</span>
+</div>
+<div class="w-32 px-space-xs flex items-center justify-end">
+<span class="px-space-xs py-[2px] rounded bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="">В процессе</span>
+</span>
+</div>
+</div>
+<!-- ROW 3: Revision Conflict Draft (Коммунальные) -->
+<div class="draft-row group w-full flex items-center px-space-sm h-[44px] bg-surface-container-lowest hover:bg-surface-container-low cursor-pointer transition-colors" id="draft-row-3" onclick="selectDraftRow(3)">
+<div class="w-8 flex items-center justify-center">
+<input class="w-3.5 h-3.5 rounded accent-primary cursor-pointer" type="checkbox">
+</div>
+<div class="flex-1 min-w-[140px] px-space-xs flex flex-col justify-center overflow-hidden">
+<span class="font-label-md text-label-md text-on-surface truncate">Квитанция об оплате комм. услуг (май 2026)</span>
+<span class="font-body-sm text-body-sm text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">warning</span>
+<span class="">Этап: Итог перед сохранением (SCR-08)</span>
+</span>
+</div>
+<div class="w-28 px-space-xs hidden md:flex items-center text-secondary font-body-sm text-body-sm truncate">
+              Коммунальные
+            </div>
+<div class="w-16 px-space-xs flex items-center justify-center">
+<span class="px-1.5 py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-medium">
+                Open
+              </span>
+</div>
+<div class="w-24 px-space-xs flex flex-col items-end justify-center font-body-sm text-body-sm text-secondary">
+<span class="text-on-surface font-medium">12 окт</span>
+<span class="text-[10px] leading-3 text-secondary">09:15</span>
+</div>
+<div class="w-32 px-space-xs flex items-center justify-end">
+<span class="px-space-xs py-[2px] rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">sync_problem</span>
+<span class="">Конфликт</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Empty State Container (Hidden by default, triggered by State 2) -->
+<div class="hidden flex-col items-center justify-center py-12 px-space-md text-center bg-surface-container-lowest" id="table-empty-state">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-secondary mb-space-sm">
+<span class="material-symbols-outlined text-[24px]">drafts</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface">Нет активных черновиков</p>
+<p class="font-body-sm text-body-sm text-secondary max-w-sm mt-1">
+            Все начатые документы были успешно завершены и перенесены в Журнал, либо временные сессии были удалены.
+          </p>
+<button class="mt-space-md h-[30px] px-space-md rounded bg-primary text-on-primary font-label-md text-label-md flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span class="">Создать новый документ</span>
+</button>
+</div>
+</div>
+<!-- Batch Table Bottom Bar -->
+<div class="flex items-center justify-between px-space-xs py-space-xs text-secondary font-label-sm text-label-sm">
+<div class="flex items-center gap-space-sm">
+<span class="">Выбрано строк: <strong class="text-on-surface" id="selected-rows-count">1</strong> из 3</span>
+<span class="">•</span>
+<button class="text-primary hover:underline">Экспорт метаданных сессии</button>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="">Автосохранение ОЗУ активно (каждые 15 с)</span>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL: Draft Inspector (5 cols) -->
+<div class="col-span-12 xl:col-span-5 flex flex-col gap-space-sm" id="inspector-panel">
+<!-- Inspector Card -->
+<div class="w-full bg-surface-container-lowest rounded-lg shadow-md p-space-md flex flex-col gap-space-md">
+<!-- Inspector Title Header -->
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+                Инспектор сессии
+              </span>
+<span class="font-code text-code text-secondary" id="insp-session-id">DRAFT-2026-089</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mt-1" id="insp-title">
+              Акт приёма-передачи жилого помещения № 42
+            </h2>
+</div>
+<button class="w-7 h-7 flex items-center justify-center rounded text-secondary hover:bg-surface-container-high transition-colors" title="Свернуть инспектор">
+<span class="material-symbols-outlined text-[18px]">vertical_split</span>
+</button>
+</div>
+<!-- Document Preview & Snapshot Badge -->
+<div class="relative w-full h-44 rounded-lg overflow-hidden bg-surface-container-high shadow-inner flex items-center justify-center group">
+<!-- Placeholder Document Image with Rich Prompt -->
+<img class="w-full h-full object-cover opacity-90 transition-transform duration-300 group-hover:scale-105" data-alt="High contrast architectural draft document and apartment acceptance checklist lying flat on a calm workstation desk, clean typography in Russian, cool daylight illumination with soft teal accents and crisp paper textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgUlODGsciIoxhLkCV9OZF0ID1vZ-EVGunrwMy_9HtjSDt9Ya85l9fz9ka2CY-ksyX4ra-GOgb0sCwMXKMC451lZk94qcM5YIcb5dFzD1ATuGgToARG3QJKva-T3IIxcVq4AyYbG_L4WW5d_4kKOQE7iREFH2RAFczdh4vqHZxHrI69ycASXbOLtPdkpAVLII0DGXWVI3WAQemQZbdctsrvlPoW4wwkq3ubO7M2iRKIY5s6PKqCPVcKQ">
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-inverse-surface/20 to-transparent flex flex-col justify-between p-space-sm text-surface">
+<div class="flex items-center justify-between">
+<span class="px-space-xs py-[2px] rounded bg-inverse-surface/70 backdrop-blur-sm text-[11px] font-semibold text-inverse-on-surface flex items-center gap-1 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+<span class="">Временный снимок рабочей сессии</span>
+</span>
+<span class="text-surface font-code text-[11px] bg-inverse-surface/60 px-1 rounded">4 скана привязано</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-[12px] text-surface font-medium">Страница 1 из 4 (Превью)</span>
+<button class="h-[24px] px-space-xs rounded bg-surface/90 hover:bg-surface text-on-surface font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[13px]">zoom_in</span>
+<span class="">Развернуть</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Meta Specification Grid -->
+<div class="grid grid-cols-3 gap-space-xs bg-surface-container-low p-space-sm rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">Зона защиты:</span>
+<span class="font-label-md text-label-md text-on-surface" id="insp-zone">Open (Общая)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">Категория:</span>
+<span class="font-label-md text-label-md text-on-surface" id="insp-cat">Жильё / Акт</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">Шаблон:</span>
+<span class="font-label-md text-label-md text-on-surface truncate" title="Акт приёма-передачи (v1.2)">Акт (v1.2)</span>
+</div>
+</div>
+<!-- Working Progress / Metric Breakdown Widget -->
+<div class="flex flex-col gap-space-xs bg-surface-container-lowest p-space-sm rounded-lg shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Прогресс заполнения документа</span>
+<span class="font-label-md text-label-md text-primary" id="insp-progress-percent">66% готовности</span>
+</div>
+<!-- Progress Multi-bar -->
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden flex">
+<div class="h-full bg-primary w-2/3"></div>
+<div class="h-full bg-primary-fixed w-1/6"></div>
+</div>
+<!-- Detail Steps Counters -->
+<div class="grid grid-cols-2 gap-space-sm mt-space-xs font-body-sm text-body-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[15px] text-primary">edit</span>
+<span class="text-secondary">Реквизиты:</span>
+<span class="font-semibold text-on-surface" id="insp-req-status">4 из 6 (осталось 2)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[15px] text-primary">fact_check</span>
+<span class="text-secondary">Сверка:</span>
+<span class="font-semibold text-on-surface" id="insp-verify-status">2 из 6 подтверждено</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[15px] text-secondary">layers</span>
+<span class="text-secondary">Текущий этап:</span>
+<span class="font-semibold text-primary" id="insp-step-name">Редактор данных (SCR-06)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[15px] text-secondary">attach_file</span>
+<span class="text-secondary">Файлов:</span>
+<span class="font-semibold text-on-surface">4 файла в наборе</span>
+</div>
+</div>
+<!-- Attached Files Chip Strip -->
+<div class="flex flex-wrap gap-1 mt-space-xs pt-space-xs">
+<span class="px-1.5 py-[2px] rounded bg-surface-container text-on-surface-variant font-code text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">image</span> Стр_01.jpg
+            </span>
+<span class="px-1.5 py-[2px] rounded bg-surface-container text-on-surface-variant font-code text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">image</span> Стр_02.jpg
+            </span>
+<span class="px-1.5 py-[2px] rounded bg-surface-container text-on-surface-variant font-code text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">image</span> Стр_03.jpg
+            </span>
+<span class="px-1.5 py-[2px] rounded bg-surface-container text-on-surface-variant font-code text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">picture_as_pdf</span> Приложение.pdf
+            </span>
+</div>
+</div>
+<!-- Explanatory Isolation Banner -->
+<div class="p-space-sm rounded-lg bg-surface-container-low text-on-surface flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0 mt-0.5">lock_clock</span>
+<p class="font-body-sm text-body-sm text-secondary">
+<strong class="text-on-surface">Черновик изолирован от Журнала.</strong> Нажатие кнопки «Продолжить заполнение» безопасно развернёт контекст в редакторе SCR-06 без риска перезаписи архивных документов.
+          </p>
+</div>
+<!-- SIMULATED CONFLICT PREVIEW PANEL (Visible in State 4 or when draft 3 is selected) -->
+<div class="hidden p-space-sm rounded-lg bg-surface-container-low border-0 text-on-surface flex flex-col gap-space-sm" id="inspector-conflict-panel"><div class="flex items-center justify-between pb-1"><div class="flex items-center gap-1.5 font-label-md text-label-md text-error"><span class="material-symbols-outlined text-[16px]">sync_problem</span><span class="">Обнаружен конфликт ревизий с БД</span></div><span class="px-1.5 py-[1px] rounded bg-error-container text-on-error-container font-code text-[11px] font-semibold">Ревизия r0 vs r1</span></div><p class="font-body-sm text-body-sm text-secondary">В архиве сохранена более свежая версия ревизии <strong>r1</strong> (от 11.10.2026 19:30). Выберите, какие значения перенести в редактор перед продолжением.</p><div class="flex flex-col gap-1.5 bg-surface-container-lowest p-space-xs rounded shadow-inner"><div class="text-[11px] font-semibold text-secondary uppercase tracking-wider px-1">Сравнение конфликтующих полей:</div><div class="flex flex-col gap-1 bg-surface-container-low p-space-xs rounded text-[12px]"><div class="flex items-center justify-between font-medium text-on-surface"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px] text-primary">payments</span> Сумма к оплате</span><span class="text-[10px] text-secondary font-code">diff: +420 ₽</span></div><div class="grid grid-cols-2 gap-1 mt-0.5"><label class="flex items-center gap-1.5 p-1 rounded bg-surface-container-lowest cursor-pointer hover:bg-surface-container-high"><input type="radio" name="diff_sum" checked="" class="accent-primary"><div class="flex flex-col overflow-hidden"><span class="text-[10px] text-secondary">Черновик:</span><span class="font-code text-primary font-semibold truncate">4 920.50 ₽</span></div></label><label class="flex items-center gap-1.5 p-1 rounded bg-surface-container-lowest cursor-pointer hover:bg-surface-container-high"><input type="radio" name="diff_sum" class="accent-primary"><div class="flex flex-col overflow-hidden"><span class="text-[10px] text-secondary">Актуальная (БД):</span><span class="font-code text-on-surface truncate">4 500.00 ₽</span></div></label></div></div><div class="flex flex-col gap-1 bg-surface-container-low p-space-xs rounded text-[12px]"><div class="flex items-center justify-between font-medium text-on-surface"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px] text-primary">speed</span> Показания счётчика</span><span class="text-[10px] text-secondary font-code">diff: Т1 +18 кВт</span></div><div class="grid grid-cols-2 gap-1 mt-0.5"><label class="flex items-center gap-1.5 p-1 rounded bg-surface-container-lowest cursor-pointer hover:bg-surface-container-high"><input type="radio" name="diff_meter" checked="" class="accent-primary"><div class="flex flex-col overflow-hidden"><span class="text-[10px] text-secondary">Черновик:</span><span class="font-code text-primary font-semibold truncate">1 458 кВт·ч</span></div></label><label class="flex items-center gap-1.5 p-1 rounded bg-surface-container-lowest cursor-pointer hover:bg-surface-container-high"><input type="radio" name="diff_meter" class="accent-primary"><div class="flex flex-col overflow-hidden"><span class="text-[10px] text-secondary">Актуальная (БД):</span><span class="font-code text-on-surface truncate">1 440 кВт·ч</span></div></label></div></div><div class="flex flex-col gap-1 bg-error-container/40 p-space-xs rounded text-[12px]"><div class="flex items-center justify-between font-medium text-on-error-container"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px] text-error">table_rows</span> Таблица начислений</span><span class="text-[10px] font-semibold text-error">Требует ручной правки</span></div><div class="text-[11px] text-on-surface-variant leading-4 mt-0.5">3 строки в черновике vs 2 строки в актуальной версии. Структурный конфликт строк таблицы — требует ручной правки в редакторе.</div></div></div><div class="p-space-xs rounded bg-surface-container text-[11px] text-secondary flex items-start gap-1.5"><span class="material-symbols-outlined text-[14px] text-primary flex-shrink-0 mt-0.5">verified_user</span><span class="">Данные в базе не перезаписываются до явного сохранения в SCR-06. Никакого автослияния, фоновой перезаписи ревизий или создания новых архивных ID.</span></div><div class="flex items-center gap-space-xs pt-1"><button type="button" onclick="selectDraftRow(1)" class="h-[28px] px-space-sm rounded bg-surface-container-highest hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors">Отмена</button><button type="button" class="flex-1 h-[28px] px-space-sm rounded bg-primary hover:bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold flex items-center justify-center gap-1 shadow-sm transition-colors"><span class="material-symbols-outlined text-[14px]">forward_to_inbox</span><span class="">Перенести выбранные в редактор (SCR-06)</span></button></div></div>
+<!-- Action Buttons Group -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<!-- Primary Action -->
+<button class="w-full h-9 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center gap-space-sm shadow-md transition-all active:scale-[0.99]">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+<span id="insp-btn-continue" class="">Продолжить заполнение (в редактор SCR-06)</span>
+</button>
+<!-- Secondary Quick View & Utilities -->
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="h-8 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[15px] text-secondary">visibility</span>
+<span class="">Быстрый просмотр</span>
+</button>
+<button class="h-8 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[15px] text-secondary">restart_alt</span>
+<span class="">Проверить целостность</span>
+</button>
+</div>
+<!-- Danger Removal Action -->
+<button class="w-full h-7 rounded text-error hover:bg-error-container font-label-sm text-label-sm flex items-center justify-center gap-1 transition-colors mt-space-xs">
+<span class="material-symbols-outlined text-[14px]">delete</span>
+<span class="">Удалить черновик (без удаления исходных файлов)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Workspace Status Bar (Windows Desktop Standard) -->
+<div class="w-full mt-space-lg pt-space-xs flex flex-wrap items-center justify-between text-secondary font-label-sm text-label-sm bg-surface-container-low px-space-md py-space-xs rounded-lg shadow-inner">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">database</span>
+<span class="">Хранилище черновиков: <code class="font-code text-on-surface">%LOCALAPPDATA%\PersonalVault\drafts_v2.sqlite</code></span>
+</div>
+<span class="">•</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">cached</span>
+<span class="">Кэш сессий: 1.4 МБ</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="">Транзакции ОЗУ: Синхронизированы</span>
+</div>
+<span class="">•</span>
+<span class="">Сборщик мусора: активен (TTL 30 дней)</span>
+</div>
+</div>
+</div>
+<script>
+  let currentSelectedDraft = 1;
+
+  function selectDraftRow(rowId) {
+    currentSelectedDraft = rowId;
+    
+    // Update row highlighting
+    document.querySelectorAll('.draft-row').forEach(row => {
+      row.classList.remove('bg-secondary-container/40', 'bg-secondary-container/70');
+      row.classList.add('bg-surface-container-lowest');
+    });
+
+    const activeRow = document.getElementById('draft-row-' + rowId);
+    if (activeRow) {
+      activeRow.classList.remove('bg-surface-container-lowest');
+      activeRow.classList.add('bg-secondary-container/40');
+    }
+
+    const titleEl = document.getElementById('insp-title');
+    const sessIdEl = document.getElementById('insp-session-id');
+    const zoneEl = document.getElementById('insp-zone');
+    const catEl = document.getElementById('insp-cat');
+    const reqStatusEl = document.getElementById('insp-req-status');
+    const verifyStatusEl = document.getElementById('insp-verify-status');
+    const stepNameEl = document.getElementById('insp-step-name');
+    const progressPercentEl = document.getElementById('insp-progress-percent');
+    const conflictPanel = document.getElementById('inspector-conflict-panel');
+    const continueBtn = document.getElementById('insp-btn-continue');
+
+    if (rowId === 1) {
+      titleEl.innerText = 'Акт приёма-передачи жилого помещения № 42';
+      sessIdEl.innerText = 'DRAFT-2026-089';
+      zoneEl.innerText = 'Open (Общая)';
+      catEl.innerText = 'Жильё / Акт';
+      reqStatusEl.innerText = '4 из 6 (осталось 2)';
+      verifyStatusEl.innerText = '2 из 6 подтверждено';
+      stepNameEl.innerText = 'Редактор данных (SCR-06)';
+      progressPercentEl.innerText = '66% готовности';
+      conflictPanel.classList.add('hidden');
+      continueBtn.innerText = 'Продолжить заполнение (в редактор SCR-06)';
+    } else if (rowId === 2) {
+      titleEl.innerText = 'Договор купли-продажи оборудования № 88';
+      sessIdEl.innerText = 'DRAFT-2026-094';
+      zoneEl.innerText = 'Secret (Крипто)';
+      catEl.innerText = 'Бизнес / Сделки';
+      reqStatusEl.innerText = '6 из 6 заполнено';
+      verifyStatusEl.innerText = '1 из 4 сверено';
+      stepNameEl.innerText = 'Сверка со сканом (SCR-07)';
+      progressPercentEl.innerText = '50% готовности';
+      conflictPanel.classList.add('hidden');
+      continueBtn.innerText = 'Перейти к сверке скана (в SCR-07)';
+    } else if (rowId === 3) {
+      titleEl.innerText = 'Квитанция об оплате комм. услуг (май 2026)';
+      sessIdEl.innerText = 'DRAFT-2026-061';
+      zoneEl.innerText = 'Open (Общая)';
+      catEl.innerText = 'Коммунальные';
+      reqStatusEl.innerText = '3 из 3 заполнено';
+      verifyStatusEl.innerText = '3 из 3 подтверждено';
+      stepNameEl.innerText = 'Итог перед сохранением (SCR-08)';
+      progressPercentEl.innerText = '85% (Конфликт)';
+      conflictPanel.classList.remove('hidden');
+      continueBtn.innerText = 'Разрешить конфликт ревизий';
+    }
+  }
+
+  function resetStateButtons() {
+    document.querySelectorAll('.proto-btn').forEach(btn => {
+      btn.classList.remove('bg-primary', 'text-on-primary');
+      btn.classList.add('text-on-surface-variant');
+    });
+  }
+
+  function switchProtoState(state) {
+    resetStateButtons();
+    const alertBanner = document.getElementById('dynamic-alert-banner');
+    const tableBody = document.getElementById('table-body-container');
+    const emptyState = document.getElementById('table-empty-state');
+    const inspector = document.getElementById('inspector-panel');
+    const conflictPanel = document.getElementById('inspector-conflict-panel');
+    const secretRowTitle = document.querySelector('.row-secret-title');
+
+    alertBanner.className = 'hidden w-full mb-space-md p-space-sm rounded-lg flex items-center justify-between';
+    emptyState.classList.add('hidden');
+    tableBody.classList.remove('hidden');
+    inspector.classList.remove('opacity-40', 'pointer-events-none');
+    conflictPanel.classList.add('hidden');
+
+    if (state === 'normal') {
+      document.getElementById('btn-state-normal').classList.add('bg-primary', 'text-on-primary');
+      document.getElementById('drafts-count-header').innerText = '3 активных черновика';
+      selectDraftRow(1);
+    } 
+    else if (state === 'empty') {
+      document.getElementById('btn-state-empty').classList.add('bg-primary', 'text-on-primary');
+      tableBody.classList.add('hidden');
+      emptyState.classList.remove('hidden');
+      inspector.classList.add('opacity-40', 'pointer-events-none');
+      document.getElementById('drafts-count-header').innerText = '0 черновиков';
+      document.getElementById('selected-rows-count').innerText = '0';
+    } 
+    else if (state === 'interrupted') {
+      document.getElementById('btn-state-interrupted').classList.add('bg-primary', 'text-on-primary');
+      alertBanner.classList.remove('hidden');
+      alertBanner.classList.add('bg-secondary-container', 'text-on-secondary-container');
+      document.getElementById('alert-icon').innerText = 'history_toggle_off';
+      document.getElementById('alert-title').innerText = 'Обнаружена прерванная сессия после аварийного закрытия';
+      document.getElementById('alert-desc').innerText = 'Сессия «Акт приёма-передачи жилого помещения № 42» была восстановлена из журнала транзакций.';
+      document.getElementById('alert-action-btn').className = 'h-[26px] px-space-sm rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold';
+      document.getElementById('alert-action-btn').innerText = 'Восстановить сейчас';
+      selectDraftRow(1);
+    } 
+    else if (state === 'conflict') {
+      document.getElementById('btn-state-conflict').classList.add('bg-primary', 'text-on-primary');
+      selectDraftRow(3);
+      alertBanner.classList.remove('hidden');
+      alertBanner.classList.add('bg-error-container', 'text-on-error-container');
+      document.getElementById('alert-icon').innerText = 'error';
+      document.getElementById('alert-title').innerText = 'Внимание: Обнаружен конфликт ревизий архива';
+      document.getElementById('alert-desc').innerText = 'Черновик «Квитанция об оплате» устарел относительно данных Журнала. Требуется слияние.';
+      document.getElementById('alert-action-btn').className = 'h-[26px] px-space-sm rounded bg-error text-on-error font-label-sm text-label-sm font-semibold';
+      document.getElementById('alert-action-btn').innerText = 'Сравнить версии';
+    }
+    else if (state === 'error') {
+      document.getElementById('btn-state-error').classList.add('bg-primary', 'text-on-primary');
+      alertBanner.classList.remove('hidden');
+      alertBanner.classList.add('bg-error-container', 'text-on-error-container');
+      document.getElementById('alert-icon').innerText = 'disc_full';
+      document.getElementById('alert-title').innerText = 'Ошибка кэширования черновика: Диск занят другим процессом';
+      document.getElementById('alert-desc').innerText = 'Не удалось зафиксировать SQLite WAL-лог. Автосохранение временно переведено в память ОЗУ.';
+      document.getElementById('alert-action-btn').className = 'h-[26px] px-space-sm rounded bg-error text-on-error font-label-sm text-label-sm font-semibold';
+      document.getElementById('alert-action-btn').innerText = 'Повторить запись';
+    }
+    else if (state === 'secret_locked') {
+      document.getElementById('btn-state-secret').classList.add('bg-primary', 'text-on-primary');
+      if (secretRowTitle) {
+        secretRowTitle.innerText = '•••••••••••••••••••••••••• (Зашифровано)';
+      }
+      alertBanner.classList.remove('hidden');
+      alertBanner.classList.add('bg-surface-container-highest', 'text-on-surface');
+      document.getElementById('alert-icon').innerText = 'lock';
+      document.getElementById('alert-title').innerText = 'Зона Secret заблокирована мастером ключей';
+      document.getElementById('alert-desc').innerText = 'Черновики в защищённой зоне скрыты от просмотра метаданных до ввода мастер-пароля.';
+      document.getElementById('alert-action-btn').className = 'h-[26px] px-space-sm rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold';
+      document.getElementById('alert-action-btn').innerText = 'Разблокировать Secret';
+    }
+  }
+
+  function toggleCompactMode() {
+    const ws = document.getElementById('workspace-container');
+    const btn = document.getElementById('btn-state-compact');
+    if (ws.style.maxWidth === '900px') {
+      ws.style.maxWidth = '100%';
+      btn.classList.remove('bg-primary', 'text-on-primary');
+    } else {
+      ws.style.maxWidth = '900px';
+      btn.classList.add('bg-primary', 'text-on-primary');
+    }
+  }
+</script></main></div>
+
+
+
+</body></html>

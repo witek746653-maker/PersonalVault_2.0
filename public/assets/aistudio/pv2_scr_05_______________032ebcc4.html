@@ -1,0 +1,595 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@100..900&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-background":"#111d23","tertiary-fixed":"#d7e5e4","surface-container-highest":"#d7e4ec","on-tertiary":"#ffffff","tertiary":"#515e5e","inverse-primary":"#79d6cf","tertiary-fixed-dim":"#bbc9c8","inverse-on-surface":"#e6f3fb","surface-container-lowest":"#ffffff","on-primary":"#ffffff","on-error":"#ffffff","primary-fixed":"#95f3eb","surface-variant":"#d7e4ec","surface-container":"#e3f0f8","inverse-surface":"#263238","on-primary-container":"#f3fffd","background":"#f4faff","error":"#ba1a1a","secondary-container":"#d6e5ec","on-error-container":"#93000a","tertiary-container":"#6a7777","secondary-fixed":"#d6e5ec","primary-container":"#12827c","on-tertiary-container":"#f3fffe","surface-dim":"#cfdce4","error-container":"#ffdad6","outline-variant":"#bdc9c7","on-primary-fixed-variant":"#00504c","primary-fixed-dim":"#79d6cf","surface-tint":"#006a65","on-secondary-fixed-variant":"#3b494e","surface-container-low":"#e9f6fd","on-secondary":"#ffffff","on-surface-variant":"#3e4948","secondary":"#536166","surface":"#f4faff","on-secondary-container":"#59676c","on-tertiary-fixed":"#111e1d","outline":"#6e7978","primary":"#006763","surface-bright":"#f4faff","on-primary-fixed":"#00201e","on-secondary-fixed":"#101d22","secondary-fixed-dim":"#bac9cf","on-tertiary-fixed-variant":"#3c4949","surface-container-high":"#ddeaf2","on-surface":"#111d23"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-sm":"0.375rem","gutter":"0.75rem","margin":"1rem","space-xl":"1rem","space-lg":"0.75rem","space-xs":"0.25rem","space-md":"0.5rem"},"fontFamily":{"body-sm":["Segoe UI"],"headline-sm":["Segoe UI"],"code":["JetBrains Mono"],"body-md":["Segoe UI"],"body-lg":["Segoe UI"],"label-sm":["Segoe UI"],"headline-md":["Segoe UI"],"headline-lg":["Segoe UI"],"label-md":["Segoe UI"]},"fontSize":{"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-sm":["15px",{"lineHeight":"20px","fontWeight":"600"}],"code":["12px",{"lineHeight":"16px","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"body-lg":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["18px",{"lineHeight":"24px","fontWeight":"600"}],"headline-lg":["22px",{"lineHeight":"28px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased select-none"><header class="fixed top-0 left-0 right-0 h-9 z-50 bg-surface-container-high flex items-center justify-between px-space-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs text-primary"><span class="material-symbols-outlined text-[16px]">lock</span><span class="font-label-md text-label-md text-on-surface">PersonalVault 2.0 • Локальный архив</span></div><div class="flex items-center gap-space-xs px-space-sm py-[2px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="">Локально</span></div></div><div class="flex items-center gap-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-2 text-[14px] text-on-surface-variant">search</span><input class="w-60 h-[26px] pl-7 pr-space-md rounded bg-surface-container-lowest font-body-sm text-body-sm text-on-surface placeholder:text-outline outline-none focus:ring-1 focus:ring-primary" placeholder="Быстрый поиск (Ctrl+K)..." type="text"></div><div class="flex items-center"><button class="w-7 h-[26px] flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface rounded" type="button"><span class="material-symbols-outlined text-[14px]">remove</span></button><button class="w-7 h-[26px] flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface rounded" type="button"><span class="material-symbols-outlined text-[14px]">check_box_outline_blank</span></button><button class="w-7 h-[26px] flex items-center justify-center text-on-surface-variant hover:bg-error hover:text-on-error rounded" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><aside class="fixed left-0 top-9 bottom-0 w-64 bg-surface-container-low z-40 flex flex-col justify-between py-space-sm shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex-1 overflow-y-auto"><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">ДОКУМЕНТЫ</span></div><nav class="flex flex-col gap-[2px] px-space-xs mb-space-md" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="zhurnal" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">history_edu</span><span class="">Журнал</span></div></a><a aria-current="page" class="flex items-center justify-between h-[30px] px-space-sm rounded bg-surface-container-high text-primary font-bold" data-path="vkhodyashchie" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">inbox</span><span class="">Входящие</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">8 файлов · 3 набора</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="chernoviki" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">edit_note</span><span class="">Черновики</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">2</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="plany" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">event_upcoming</span><span class="">Планы</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">2</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="ubrannye" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">archive</span><span class="">Убранные</span></div></a></nav><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">СПРАВОЧНИКИ</span></div><nav class="flex flex-col gap-[2px] px-space-xs mb-space-md" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="moi-dannye" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">dataset</span><span class="">Мои данные</span></div></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="shablony" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">dashboard_customize</span><span class="">Шаблоны</span></div></a></nav><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">ДОПОЛНИТЕЛЬНО</span></div><nav class="flex flex-col gap-[2px] px-space-xs" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="svodka-zdorovya" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">monitor_heart</span><span class="">Сводка здоровья</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">В разработке</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="pomoshchnik" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">smart_toy</span><span class="">Помощник</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">В разработке</span></a></nav></div><div class="pt-space-xs px-space-xs flex flex-col gap-[2px]"><nav class="flex flex-col gap-[2px]" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm gap-space-xs" data-path="obsluzhivanie-arkhiva" href="#"><span class="material-symbols-outlined text-[16px]">build</span><span class="">Обслуживание архива</span></a><a class="flex items-center h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm gap-space-xs" data-path="nastrojki" href="#"><span class="material-symbols-outlined text-[16px]">settings</span><span class="">Настройки</span></a></nav><div class="px-space-sm py-space-xs mt-space-xs rounded bg-surface-container-highest"><div class="flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[14px]">hard_drive</span><span class="font-label-sm text-label-sm text-on-surface">Локальный диск: 4.2 ГБ свободно</span></div></div></div></aside><div class="pl-64"><main class="w-full pt-9 px-space-xl bg-surface min-h-screen"><div class="flex flex-col w-full pb-10">
+<!-- Breadcrumb & Multi-step Workflow Bar -->
+<div class="flex flex-col gap-space-xs mb-space-md bg-surface-container-low p-space-md rounded-lg shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">fact_check</span>
+<span class="">Подготовка документов: Этап 4 из 4: Классификация</span>
+<span class="text-outline font-normal">• Назначение зоны хранения, типа и метаданных</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-code text-code bg-surface-container px-space-sm py-[2px] rounded">
+<span class="">PV2-SCR-05</span>
+<span class="text-outline">#rev.420</span>
+</div>
+</div>
+<!-- Stepper Indicator -->
+<div class="grid grid-cols-5 gap-space-xs pt-space-xs">
+<div class="flex items-center gap-space-xs px-space-sm py-[4px] rounded bg-surface-container text-on-surface-variant opacity-80">
+<span class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+<span class="font-label-sm text-label-sm">1. Входящие</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-[4px] rounded bg-surface-container text-on-surface-variant opacity-80">
+<span class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+<span class="font-label-sm text-label-sm">2. Состав</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-[4px] rounded bg-surface-container text-on-surface-variant opacity-80">
+<span class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+<span class="font-label-sm text-label-sm">3. Предпроверка</span>
+</div>
+<div class="flex items-center justify-between px-space-sm py-[4px] rounded bg-primary text-on-primary shadow-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+<span class="font-label-sm text-label-sm font-semibold">4. Классификация</span>
+</div>
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-[4px] rounded bg-surface-container-lowest text-outline">
+<span class="material-symbols-outlined text-[14px]">edit_document</span>
+<span class="font-label-sm text-label-sm">Редактор (SCR-06)</span>
+</div>
+</div>
+</div>
+<!-- State Presets Switcher Bar -->
+<div class="flex items-center justify-between bg-surface-container-high px-space-md py-space-xs rounded-lg mb-space-lg shadow-sm">
+<div class="flex items-center gap-space-xs overflow-x-auto py-[2px]">
+<span class="font-label-sm text-label-sm text-on-surface-variant mr-space-xs uppercase tracking-wider flex items-center gap-[3px]">
+<span class="material-symbols-outlined text-[13px]">tune</span>
+        Пресеты:
+      </span>
+<button class="preset-btn px-space-sm py-[3px] rounded font-label-sm text-label-sm bg-primary text-on-primary transition-colors" onclick="applyPreset('standard')" type="button">
+        Штатно классифицированный
+      </button>
+<button class="preset-btn px-space-sm py-[3px] rounded font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-highest text-on-surface transition-colors" onclick="applyPreset('category-deferred')" type="button">
+        Категория и тип отложены
+      </button>
+<button class="preset-btn px-space-sm py-[3px] rounded font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-highest text-on-surface transition-colors" onclick="applyPreset('temp-title')" type="button">
+        Временное название
+      </button>
+<button class="preset-btn px-space-sm py-[3px] rounded font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-highest text-on-surface transition-colors" onclick="applyPreset('date-unknown')" type="button">
+        Дата неизвестна
+      </button>
+<button class="preset-btn px-space-sm py-[3px] rounded font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-highest text-on-surface transition-colors" onclick="applyPreset('date-unprocessed')" type="button">
+        Дата не обработана (на потом)
+      </button>
+<button class="preset-btn px-space-sm py-[3px] rounded font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-highest text-on-surface transition-colors" onclick="applyPreset('secret-locked')" type="button">
+        Secret выбрано (недоступно)
+      </button>
+</div>
+<div class="hidden xl:flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm pl-space-sm">
+<span class="material-symbols-outlined text-[14px] text-tertiary">keyboard</span>
+<span class="">F2: правка • F10: черновик</span>
+</div>
+</div>
+<!-- Workspace Grid Layout: Left 35%, Right 65% -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN (35% on Desktop) -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Document Provenance & Visual Preview Card -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">draft</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Документ #PV-0042</span>
+</div>
+<span class="font-code text-code px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container">
+            4.8 MB
+          </span>
+</div>
+<!-- Thumbnail Preview Container -->
+<div class="relative w-full aspect-[3/4] max-h-72 bg-surface-container rounded overflow-hidden flex flex-col items-center justify-center p-space-sm">
+<div class="w-full h-full bg-surface-container-lowest rounded shadow-inner p-space-md flex flex-col justify-between overflow-hidden relative">
+<!-- Scan Header Mockup -->
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-[2px]">
+<div class="w-20 h-2 bg-surface-container-highest rounded"></div>
+<div class="w-32 h-1.5 bg-surface-container-high rounded"></div>
+</div>
+<div class="w-7 h-7 rounded bg-surface-container-high flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[14px]">drive_file_stream</span>
+</div>
+</div>
+<!-- Scan Body Text Lines -->
+<div class="flex flex-col gap-1.5 my-space-xs">
+<div class="w-3/4 h-2.5 bg-surface-container-highest rounded"></div>
+<div class="w-full h-1.5 bg-surface-container-high rounded"></div>
+<div class="w-5/6 h-1.5 bg-surface-container-high rounded"></div>
+<div class="w-11/12 h-1.5 bg-surface-container-high rounded"></div>
+<div class="w-4/5 h-1.5 bg-surface-container-high rounded"></div>
+</div>
+<!-- Scan Signature Section -->
+<div class="pt-space-xs flex justify-between items-end">
+<div class="flex flex-col gap-1">
+<div class="w-16 h-1 bg-surface-container-high rounded"></div>
+<div class="w-24 h-1 bg-surface-container-high rounded"></div>
+</div>
+<div class="w-12 h-5 bg-primary-fixed/40 rounded flex items-center justify-center">
+<span class="font-code text-[8px] text-primary">#ПОДПИСЬ</span>
+</div>
+</div>
+<!-- Page Watermark Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-highest/40 via-transparent to-transparent flex items-end p-space-xs">
+<span class="px-space-xs py-[2px] bg-inverse-surface/80 text-inverse-on-surface font-code text-[10px] rounded">
+                Стр. 1 из 4 • JPEG (300 DPI)
+              </span>
+</div>
+</div>
+<div class="absolute top-2 right-2 flex flex-col gap-1">
+<button class="w-6 h-6 rounded bg-surface-container-lowest/90 hover:bg-surface-container-lowest flex items-center justify-center text-on-surface shadow-sm transition" title="Увеличить скан" type="button">
+<span class="material-symbols-outlined text-[14px]">zoom_in</span>
+</button>
+<button class="w-6 h-6 rounded bg-surface-container-lowest/90 hover:bg-surface-container-lowest flex items-center justify-center text-on-surface shadow-sm transition" title="Открыть в системном просмотрщике" type="button">
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Provenance Details -->
+<div class="flex flex-col gap-space-xs bg-surface-container-low p-space-sm rounded">
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface">
+<span class="text-on-surface-variant flex items-center gap-[4px]">
+<span class="material-symbols-outlined text-[14px]">collections</span>
+              Состав пакета:
+            </span>
+<span class="font-code text-on-surface">4 страницы (3 JPEG + 1 PDF)</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface">
+<span class="text-on-surface-variant flex items-center gap-[4px]">
+<span class="material-symbols-outlined text-[14px]">fingerprint</span>
+              Контрольная сумма:
+            </span>
+<span class="font-code text-on-surface">sha256:8f2a...c014</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface">
+<span class="text-on-surface-variant flex items-center gap-[4px]">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+              Импортирован:
+            </span>
+<span class="font-body-sm">Сегодня, 14:18:02</span>
+</div>
+</div>
+<!-- Destination Path Preview Box -->
+<div class="flex flex-col gap-[4px] p-space-sm bg-surface-container rounded">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[13px] text-primary">folder_open</span>
+            Предпросмотр назначения в архиве:
+          </span>
+<div class="p-space-xs rounded bg-surface-container-lowest font-code text-code text-primary break-all flex items-center gap-1 shadow-sm" id="pathPreview">
+<span class="material-symbols-outlined text-[14px] text-tertiary">lock_open</span>
+<span id="pathPreviewText" class="">Open → Жильё → 2026 → PV-0042 Акт приёма-передачи жилого помещения № 42.pdf</span>
+</div>
+</div>
+<!-- Completeness Status vs Validation -->
+<div class="flex items-start gap-space-sm p-space-sm rounded bg-surface-container-high text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-[1px]">info</span>
+<div class="flex flex-col gap-[2px]">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-medium">
+                Требует заполнения — можно продолжить
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Документ валиден для предварительного сохранения. Поля могут быть уточнены на шаге ввода данных.
+            </p>
+</div>
+</div>
+<!-- Source note -->
+<div class="flex items-start gap-space-xs text-on-surface-variant font-body-sm text-body-sm p-space-xs">
+<span class="material-symbols-outlined text-[14px] text-outline shrink-0 mt-[2px]">security_update_warning</span>
+<span class="">Скан предоставлен через Входящие. Значения полей ещё не сверены со сканом оператором.</span>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN (65% on Desktop): Classification Form -->
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<form class="flex flex-col gap-space-md bg-surface-container-lowest p-space-xl rounded-lg shadow-sm" id="classificationForm" onsubmit="event.preventDefault();">
+<!-- 1. STORAGE ZONE -->
+<div class="flex flex-col gap-space-xs pb-space-md bg-surface-container-low p-space-md rounded-lg">
+<div class="flex items-center justify-between">
+<label class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+              1. Зона хранения <span class="text-error font-body-sm">*</span>
+</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Режим приватности и шифрования</span>
+</div>
+<!-- Segmented Control for Zones -->
+<div class="grid grid-cols-2 gap-space-xs p-[3px] bg-surface-container rounded-lg">
+<button class="flex items-center justify-center gap-space-xs py-[7px] px-space-md rounded bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm transition-all" id="zoneOpenBtn" onclick="selectZone('open')" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">lock_open</span>
+<span class="">Открытое хранилище (Open)</span>
+</button>
+<button class="flex items-center justify-center gap-space-xs py-[7px] px-space-md rounded text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-all" id="zoneSecretBtn" onclick="selectZone('secret')" type="button">
+<span class="material-symbols-outlined text-[16px]">encrypted</span>
+<span class="">Секретное (Secret Vault)</span>
+</button>
+</div>
+<!-- Secret Zone Notice / Restricted Historical Zone Reminder -->
+<div class="hidden flex items-start gap-space-xs p-space-sm bg-error-container text-on-error-container rounded font-body-sm text-body-sm mt-space-xs" id="secretNoticeBox">
+<span class="material-symbols-outlined text-[16px] shrink-0">key_off</span>
+<div class="">
+<span class="font-semibold">Ключ Secret Vault не разблокирован.</span> Хранилище требует ввода аппаратного токена или пароля сессии. Сохранение в зону Secret временно заблокировано.
+            </div>
+</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm flex items-center gap-[4px] px-space-xs">
+<span class="material-symbols-outlined text-[13px] text-outline">history</span>
+<span class="">Зона «Restricted» исключена из новых назначений и сохранена только для чтения исторических архивов.</span>
+</div>
+</div>
+<!-- 2. CATEGORY & TYPE -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+              2. Категория и Тип документа
+            </h3>
+<span class="font-label-sm text-label-sm text-outline">Определяет рубрикатор и дерево папок</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Category Dropdown -->
+<div class="flex flex-col gap-[3px]">
+<label class="font-label-md text-label-md text-on-surface" for="docCategory">Категория архива</label>
+<div class="relative">
+<select class="w-full h-8 px-space-sm pr-7 rounded bg-surface-container-low text-on-surface font-body-md text-body-md outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary appearance-none cursor-pointer" id="docCategory" onchange="updatePath()">
+<option selected="" value="Жильё">Жильё</option>
+<option value="Коммунальные">Коммунальные</option>
+<option value="Здоровье">Здоровье</option>
+<option value="Финансы">Финансы</option>
+<option value="Личные документы">Личные документы</option>
+<option value="Не распределено">— Определить позже —</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2 text-[16px] text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Type Dropdown -->
+<div class="flex flex-col gap-[3px]">
+<label class="font-label-md text-label-md text-on-surface" for="docType">Тип документа</label>
+<div class="relative">
+<select class="w-full h-8 px-space-sm pr-7 rounded bg-surface-container-low text-on-surface font-body-md text-body-md outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary appearance-none cursor-pointer" id="docType" onchange="updatePath()">
+<option selected="" value="Акт приёма-передачи">Акт приёма-передачи</option>
+<option value="Договор найма">Договор найма</option>
+<option value="Квитанция об оплате">Квитанция об оплате</option>
+<option value="Справка">Справка</option>
+<option value="Без типа">— Определить позже —</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2 text-[16px] text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Subtitle / Topic -->
+<div class="flex flex-col gap-[3px] mt-space-xs">
+<label class="font-label-md text-label-md text-on-surface" for="docTopic">Подраздел / тематический проект (опционально)</label>
+<input class="w-full h-8 px-space-sm rounded bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-outline outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary" id="docTopic" placeholder="Например: Покупка участка, Налоговый вычет 2025" type="text" value="Аренда квартиры на Большой Морской">
+</div>
+</div>
+<div class="h-[1px] bg-surface-container-high my-space-xs"></div>
+<!-- 3. DOCUMENT TITLE -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+              3. Название документа
+            </h3>
+<span class="font-label-sm text-label-sm text-outline">Имя файла и заголовка реестра</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<input class="w-full h-8 px-space-sm rounded bg-surface-container-low text-on-surface font-body-md text-body-md outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary" id="docTitle" oninput="updatePath()" type="text" value="Акт приёма-передачи жилого помещения № 42">
+<div class="flex items-center gap-space-md pt-space-xs">
+<label class="flex items-center gap-space-xs cursor-pointer">
+<input checked="" class="accent-primary" id="titleFinal" name="titleStatus" onchange="toggleTitleStatus()" type="radio">
+<span class="font-body-sm text-body-sm text-on-surface">Принять как окончательное название</span>
+</label>
+<label class="flex items-center gap-space-xs cursor-pointer">
+<input class="accent-primary" id="titleDraft" name="titleStatus" onchange="toggleTitleStatus()" type="radio">
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="">Использовать как временное рабочее (черновое)</span>
+<span class="px-space-xs py-[1px] bg-secondary-container text-on-secondary-container font-code text-[10px] rounded">[DRAFT]</span>
+</span>
+</label>
+</div>
+</div>
+</div>
+<div class="h-[1px] bg-surface-container-high my-space-xs"></div>
+<!-- 4. DOCUMENT DATE -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+              4. Дата документа
+            </h3>
+<span class="font-label-sm text-label-sm text-outline">Три чётко раздельных режима</span>
+</div>
+<!-- Radio Options Group -->
+<div class="flex flex-col gap-space-xs bg-surface-container-low p-space-sm rounded-lg">
+<!-- Option 1: Concrete Date -->
+<label class="flex items-center justify-between p-space-xs rounded hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-space-xs">
+<input checked="" class="accent-primary" name="dateMode" onchange="changeDateMode('concrete')" type="radio" value="concrete">
+<span class="font-label-md text-label-md text-on-surface">Указать конкретную дату документа:</span>
+</div>
+<div class="flex items-center gap-space-xs" id="concreteDateBox">
+<input class="w-32 h-7 px-space-xs rounded bg-surface-container-lowest text-on-surface font-code text-code outline-none focus:ring-1 focus:ring-primary text-center shadow-sm" id="docDateInput" oninput="updatePath()" type="text" value="12.10.2026">
+<button class="w-7 h-7 rounded bg-surface-container hover:bg-surface-container-highest flex items-center justify-center text-on-surface-variant" type="button">
+<span class="material-symbols-outlined text-[15px]">calendar_today</span>
+</button>
+</div>
+</label>
+<!-- Option 2: Date Unknown (Deliberate) -->
+<label class="flex items-center justify-between p-space-xs rounded hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-space-xs">
+<input class="accent-primary" name="dateMode" onchange="changeDateMode('unknown')" type="radio" value="unknown">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Дата неизвестна (осознанный выбор)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Дата в первоисточнике отсутствует, повреждена или стёрта</span>
+</div>
+</div>
+<span class="font-code text-code px-space-xs py-[2px] rounded bg-surface-container text-tertiary">
+                [UNDATED]
+              </span>
+</label>
+<!-- Option 3: Date Unprocessed (Deferred) -->
+<label class="flex items-center justify-between p-space-xs rounded hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-space-xs">
+<input class="accent-primary" name="dateMode" onchange="changeDateMode('deferred')" type="radio" value="deferred">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Оставить дату необработанной</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Отложить извлечение даты на этап детального редактора SCR-06</span>
+</div>
+</div>
+<span class="font-code text-code px-space-xs py-[2px] rounded bg-secondary-container text-on-secondary-container">
+                ОТЛОЖЕНО
+              </span>
+</label>
+</div>
+</div>
+<div class="h-[1px] bg-surface-container-high my-space-xs"></div>
+<!-- 5. TEMPLATE SELECTION -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+              5. Шаблон для структурированного ввода
+            </h3>
+<span class="font-label-sm text-label-sm text-outline">Форма ввода на этапе SCR-06</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="relative">
+<select class="w-full h-8 px-space-sm pr-7 rounded bg-surface-container-low text-on-surface font-body-md text-body-md outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary appearance-none cursor-pointer" id="docTemplate">
+<option selected="" value="akt">Шаблон: Акт приёма-передачи имущества (5 полей)</option>
+<option value="dogovor">Шаблон: Договор найма жилья (9 полей)</option>
+<option value="oplata">Шаблон: Платёжное поручение / Чек (4 поля)</option>
+<option value="none">Без шаблона / Свободные произвольные поля</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2 text-[16px] text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm bg-surface-container-low px-space-sm py-space-xs rounded">
+<span class="material-symbols-outlined text-[15px] text-primary">data_object</span>
+<span class="">Поля шаблона: (Номер акта, Дата, Наймодатель, Наниматель, Комплекты ключей)</span>
+</div>
+</div>
+</div>
+<div class="h-[1px] bg-surface-container-high my-space-xs"></div>
+<!-- 6. LINKING TO EXISTING DOCUMENT -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+              6. Связь с существующим документом
+            </h3>
+<span class="font-label-sm text-label-sm text-outline">Иерархия связей в архиве</span>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">link</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">PV-0041 · Договор найма жилого помещения № 42 (01.10.2026)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Категория: Жильё • Связан через номер договора</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-[2px] rounded bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold">
+                Родительский документ
+              </span>
+<button class="w-7 h-7 rounded hover:bg-surface-container flex items-center justify-center text-outline hover:text-on-surface" title="Сменить связь" type="button">
+<span class="material-symbols-outlined text-[15px]">sync_alt</span>
+</button>
+</div>
+</div>
+</div>
+<div class="h-[1px] bg-surface-container-high my-space-xs"></div>
+<!-- 7. ADDITIONAL DETAILS (COMPACT) -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+              7. Дополнительные сведения
+            </h3>
+<span class="font-label-sm text-label-sm text-outline">Необязательные метаданные</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-[2px]">
+<label class="font-label-sm text-label-sm text-on-surface" for="docSourceUrl">Источник (URL сайта / кабинета)</label>
+<input class="w-full h-8 px-space-sm rounded bg-surface-container-low text-on-surface font-code text-[11px] outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary truncate" id="docSourceUrl" type="text" value="https://dom.gosuslugi.ru/statement/4821">
+</div>
+<div class="flex flex-col gap-[2px]">
+<label class="font-label-sm text-label-sm text-on-surface" for="docComment">Комментарий оператора</label>
+<input class="w-full h-8 px-space-sm rounded bg-surface-container-low text-on-surface font-body-sm text-body-sm outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary" id="docComment" type="text" value="Акт сдачи ключей и опись имущества при заселении">
+</div>
+</div>
+<!-- Obsidian Export Option -->
+<div class="flex items-center justify-between p-space-sm rounded bg-surface-container-low mt-space-xs">
+<div class="flex items-center gap-space-xs">
+<input checked="" class="w-3.5 h-3.5 accent-primary cursor-pointer" id="obsidianSync" type="checkbox">
+<label class="font-label-md text-label-md text-on-surface cursor-pointer flex items-center gap-1" for="obsidianSync">
+<span class="">Экспорт карточки в Obsidian Vault</span>
+<span class="text-on-surface-variant font-normal">(создаст .md файл с метатегами и ссылкой на PDF)</span>
+</label>
+</div>
+<span class="material-symbols-outlined text-[16px] text-tertiary">description</span>
+</div>
+</div>
+</form>
+</div>
+</div>
+<!-- BOTTOM WORKSPACE NAVIGATION BAR -->
+<div class="mt-space-lg pt-space-md bg-surface-container-lowest px-space-lg py-space-md rounded-lg shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<!-- Left Action -->
+<div class="flex items-center gap-space-xs w-full sm:w-auto">
+<button class="w-full sm:w-auto h-8 px-space-md rounded bg-surface-container hover:bg-surface-container-highest text-on-surface font-label-md text-label-md flex items-center justify-center gap-space-xs transition" type="button">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span class="">Назад к предпроверке (SCR-04)</span>
+</button>
+</div>
+<!-- Center Actions -->
+<div class="flex items-center gap-space-sm">
+<button class="h-8 px-space-md rounded bg-transparent hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-space-xs transition" type="button">
+<span class="material-symbols-outlined text-[16px]">move_to_inbox</span>
+<span class="">Оставить во входящих</span>
+</button>
+<button class="h-8 px-space-md rounded bg-surface-container hover:bg-surface-container-highest text-on-surface font-label-md text-label-md flex items-center gap-space-xs transition" type="button">
+<span class="material-symbols-outlined text-[16px]">save</span>
+<span class="">Сохранить черновик (F10)</span>
+</button>
+</div>
+<!-- Right Primary Action -->
+<div class="flex items-center gap-space-xs w-full sm:w-auto">
+<button class="w-full sm:w-auto h-8 px-space-lg rounded bg-primary hover:bg-[#00504c] text-on-primary font-label-md text-label-md flex items-center justify-center gap-space-xs shadow-sm transition" title="Переход в структурированный редактор документа" type="button">
+<span class="">Продолжить к вводу данных (SCR-06)</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Interactive Preset and Path Preview State Handler -->
+<script>
+  let currentZone = 'open';
+  let currentDateMode = 'concrete';
+
+  function selectZone(zone) {
+    currentZone = zone;
+    const openBtn = document.getElementById('zoneOpenBtn');
+    const secretBtn = document.getElementById('zoneSecretBtn');
+    const noticeBox = document.getElementById('secretNoticeBox');
+
+    if (zone === 'open') {
+      openBtn.className = 'flex items-center justify-center gap-space-xs py-[7px] px-space-md rounded bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm transition-all';
+      secretBtn.className = 'flex items-center justify-center gap-space-xs py-[7px] px-space-md rounded text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-all';
+      noticeBox.classList.add('hidden');
+    } else {
+      secretBtn.className = 'flex items-center justify-center gap-space-xs py-[7px] px-space-md rounded bg-error-container text-on-error-container font-label-md text-label-md shadow-sm transition-all';
+      openBtn.className = 'flex items-center justify-center gap-space-xs py-[7px] px-space-md rounded text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-all';
+      noticeBox.classList.remove('hidden');
+    }
+    updatePath();
+  }
+
+  function changeDateMode(mode) {
+    currentDateMode = mode;
+    const dateInput = document.getElementById('docDateInput');
+    const concreteBox = document.getElementById('concreteDateBox');
+
+    if (mode === 'concrete') {
+      dateInput.disabled = false;
+      concreteBox.classList.remove('opacity-40');
+    } else {
+      dateInput.disabled = true;
+      concreteBox.classList.add('opacity-40');
+    }
+    updatePath();
+  }
+
+  function toggleTitleStatus() {
+    updatePath();
+  }
+
+  function updatePath() {
+    const cat = document.getElementById('docCategory').value;
+    const titleInput = document.getElementById('docTitle').value || 'Безымянный документ';
+    const isDraft = document.getElementById('titleDraft').checked;
+    
+    let zonePrefix = currentZone === 'open' ? 'Open' : 'Secret [Заблокировано]';
+    let yearPart = '2026';
+
+    if (currentDateMode === 'unknown') {
+      yearPart = 'Дата неизвестна';
+    } else if (currentDateMode === 'deferred') {
+      yearPart = 'Не обработано';
+    } else {
+      const dateVal = document.getElementById('docDateInput').value;
+      const parts = dateVal.split('.');
+      if (parts.length === 3 && parts[2]) {
+        yearPart = parts[2];
+      }
+    }
+
+    const titleSuffix = isDraft ? ' [ЧЕРНОВИК]' : '';
+    const finalPath = `${zonePrefix} → ${cat} → ${yearPart} → PV-0042 ${titleInput}${titleSuffix}.pdf`;
+    
+    const previewEl = document.getElementById('pathPreviewText');
+    if (previewEl) {
+      previewEl.textContent = finalPath;
+    }
+  }
+
+  function applyPreset(state) {
+    const buttons = document.querySelectorAll('.preset-btn');
+    buttons.forEach(btn => {
+      btn.className = 'preset-btn px-space-sm py-[3px] rounded font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-highest text-on-surface transition-colors';
+    });
+
+    // Mark current active button
+    if (event && event.currentTarget) {
+      event.currentTarget.className = 'preset-btn px-space-sm py-[3px] rounded font-label-sm text-label-sm bg-primary text-on-primary transition-colors';
+    }
+
+    if (state === 'standard') {
+      selectZone('open');
+      document.getElementById('docCategory').value = 'Жильё';
+      document.getElementById('docType').value = 'Акт приёма-передачи';
+      document.getElementById('docTitle').value = 'Акт приёма-передачи жилого помещения № 42';
+      document.getElementById('titleFinal').checked = true;
+      document.querySelector('input[name="dateMode"][value="concrete"]').checked = true;
+      document.getElementById('docDateInput').value = '12.10.2026';
+      changeDateMode('concrete');
+    } else if (state === 'category-deferred') {
+      selectZone('open');
+      document.getElementById('docCategory').value = 'Не распределено';
+      document.getElementById('docType').value = 'Без типа';
+      document.getElementById('docTitle').value = 'Входящий скан № 42';
+      document.getElementById('titleFinal').checked = true;
+      document.querySelector('input[name="dateMode"][value="concrete"]').checked = true;
+      changeDateMode('concrete');
+    } else if (state === 'temp-title') {
+      selectZone('open');
+      document.getElementById('titleDraft').checked = true;
+      document.getElementById('docTitle').value = 'Скан_БольшаяМорская_Ключи_вар1';
+    } else if (state === 'date-unknown') {
+      selectZone('open');
+      document.querySelector('input[name="dateMode"][value="unknown"]').checked = true;
+      changeDateMode('unknown');
+    } else if (state === 'date-unprocessed') {
+      selectZone('open');
+      document.querySelector('input[name="dateMode"][value="deferred"]').checked = true;
+      changeDateMode('deferred');
+    } else if (state === 'secret-locked') {
+      selectZone('secret');
+    }
+    updatePath();
+  }
+
+  // Initial calculation
+  document.addEventListener('DOMContentLoaded', () => {
+    updatePath();
+  });
+</script></main></div>
+
+</body></html>

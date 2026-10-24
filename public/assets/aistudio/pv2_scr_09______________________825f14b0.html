@@ -1,0 +1,756 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-background":"#111d23","tertiary-fixed":"#d7e5e4","surface-container-highest":"#d7e4ec","on-tertiary":"#ffffff","tertiary":"#515e5e","inverse-primary":"#79d6cf","tertiary-fixed-dim":"#bbc9c8","inverse-on-surface":"#e6f3fb","surface-container-lowest":"#ffffff","on-primary":"#ffffff","on-error":"#ffffff","primary-fixed":"#95f3eb","surface-variant":"#d7e4ec","surface-container":"#e3f0f8","inverse-surface":"#263238","on-primary-container":"#f3fffd","background":"#f4faff","error":"#ba1a1a","secondary-container":"#d6e5ec","on-error-container":"#93000a","tertiary-container":"#6a7777","secondary-fixed":"#d6e5ec","primary-container":"#12827c","on-tertiary-container":"#f3fffe","surface-dim":"#cfdce4","error-container":"#ffdad6","outline-variant":"#bdc9c7","on-primary-fixed-variant":"#00504c","primary-fixed-dim":"#79d6cf","surface-tint":"#006a65","on-secondary-fixed-variant":"#3b494e","surface-container-low":"#e9f6fd","on-secondary":"#ffffff","on-surface-variant":"#3e4948","secondary":"#536166","surface":"#f4faff","on-secondary-container":"#59676c","on-tertiary-fixed":"#111e1d","outline":"#6e7978","primary":"#006763","surface-bright":"#f4faff","on-primary-fixed":"#00201e","on-secondary-fixed":"#101d22","secondary-fixed-dim":"#bac9cf","on-tertiary-fixed-variant":"#3c4949","surface-container-high":"#ddeaf2","on-surface":"#111d23"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-sm":"0.375rem","gutter":"0.75rem","margin":"1rem","space-xl":"1rem","space-lg":"0.75rem","space-xs":"0.25rem","space-md":"0.5rem"},"fontFamily":{"body-sm":["Segoe UI"],"headline-sm":["Segoe UI"],"code":["JetBrains Mono"],"body-md":["Segoe UI"],"body-lg":["Segoe UI"],"label-sm":["Segoe UI"],"headline-md":["Segoe UI"],"headline-lg":["Segoe UI"],"label-md":["Segoe UI"]},"fontSize":{"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-sm":["15px",{"lineHeight":"20px","fontWeight":"600"}],"code":["12px",{"lineHeight":"16px","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"body-lg":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["18px",{"lineHeight":"24px","fontWeight":"600"}],"headline-lg":["22px",{"lineHeight":"28px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased select-none"><header class="fixed top-0 left-0 right-0 h-9 z-50 bg-surface-container-high flex items-center justify-between px-space-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs text-primary"><span class="material-symbols-outlined text-[16px]">lock</span><span class="font-label-md text-label-md text-on-surface">PersonalVault 2.0 • Локальный архив</span></div><div class="flex items-center gap-space-xs px-space-sm py-[2px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="">Локально</span></div></div><div class="flex items-center gap-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-2 text-[14px] text-on-surface-variant">search</span><input class="w-60 h-[26px] pl-7 pr-space-md rounded bg-surface-container-lowest font-body-sm text-body-sm text-on-surface placeholder:text-outline outline-none focus:ring-1 focus:ring-primary" placeholder="Быстрый поиск (Ctrl+K)..." type="text"></div><div class="flex items-center"><button class="w-7 h-[26px] flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface rounded" type="button"><span class="material-symbols-outlined text-[14px]">remove</span></button><button class="w-7 h-[26px] flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface rounded" type="button"><span class="material-symbols-outlined text-[14px]">check_box_outline_blank</span></button><button class="w-7 h-[26px] flex items-center justify-center text-on-surface-variant hover:bg-error hover:text-on-error rounded" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><aside class="fixed left-0 top-9 bottom-0 w-64 bg-surface-container-low z-40 flex flex-col justify-between py-space-sm shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex-1 overflow-y-auto"><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">ДОКУМЕНТЫ</span></div><nav class="flex flex-col gap-[2px] px-space-xs mb-space-md" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="zhurnal" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">history_edu</span><span class="">Журнал</span></div></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded bg-surface-container-high text-primary font-bold hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="vkhodyashchie" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">inbox</span><span class="">Входящие</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">8 файлов · 3 набора</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="chernoviki" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">edit_note</span><span class="">Черновики</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">2</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="plany" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">event_upcoming</span><span class="">Планы</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">2</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="ubrannye" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">archive</span><span class="">Убранные</span></div></a></nav><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">СПРАВОЧНИКИ</span></div><nav class="flex flex-col gap-[2px] px-space-xs mb-space-md" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="moi-dannye" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">dataset</span><span class="">Мои данные</span></div></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="shablony" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">dashboard_customize</span><span class="">Шаблоны</span></div></a></nav><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">ДОПОЛНИТЕЛЬНО</span></div><nav class="flex flex-col gap-[2px] px-space-xs" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="svodka-zdorovya" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">monitor_heart</span><span class="">Сводка здоровья</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">В разработке</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="pomoshchnik" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">smart_toy</span><span class="">Помощник</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">В разработке</span></a></nav></div><div class="pt-space-xs px-space-xs flex flex-col gap-[2px]"><nav class="flex flex-col gap-[2px]" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm gap-space-xs" data-path="obsluzhivanie-arhiva" href="#"><span class="material-symbols-outlined text-[16px]">build</span><span class="">Обслуживание архива</span></a><a class="flex items-center h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm gap-space-xs" data-path="nastrojki" href="#"><span class="material-symbols-outlined text-[16px]">settings</span><span class="">Настройки</span></a></nav><div class="px-space-sm py-space-xs mt-space-xs rounded bg-surface-container-highest"><div class="flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[14px]">hard_drive</span><span class="font-label-sm text-label-sm text-on-surface">Локальный диск: 4.2 ГБ свободно</span></div></div></div></aside><div class="pl-64"><main class="w-full pt-9 px-space-xl bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive State Switcher for Preview / Verification -->
+<div class="w-full bg-surface-container-high rounded-xl p-space-sm mb-space-lg shadow-sm">
+<div class="flex items-center justify-between gap-space-md mb-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wide">
+<span class="material-symbols-outlined text-[15px] text-primary">rule_settings</span>
+<span class="">Тестовый эмулятор результатов сохранения (SCR-09)</span>
+</div>
+<span class="font-code text-code text-on-surface-variant bg-surface-container-lowest px-space-xs py-[1px] rounded">Сценарий фиксации транзакции</span>
+</div>
+<!-- Outcome State Tabs -->
+<div class="grid grid-cols-6 gap-space-xs bg-surface-container-lowest p-[3px] rounded-lg">
+<button class="tab-btn active px-space-xs py-space-xs rounded text-left transition-all bg-primary-container text-on-primary-container" id="tab-btn-1" onclick="switchOutcome(1)">
+<div class="font-label-sm text-label-sm font-semibold truncate">1. Штатный успех</div>
+<div class="font-code text-[10px] opacity-80 truncate">Все шаги завершены</div>
+</button>
+<button class="tab-btn px-space-xs py-space-xs rounded text-left transition-all hover:bg-surface-container text-on-surface-variant" id="tab-btn-2" onclick="switchOutcome(2)">
+<div class="font-label-sm text-label-sm font-semibold truncate">2. Не заполнен / Не сверен</div>
+<div class="font-code text-[10px] opacity-80 truncate">Архив OK · Метаданные неполны</div>
+</button>
+<button class="tab-btn px-space-xs py-space-xs rounded text-left transition-all hover:bg-surface-container text-on-surface-variant" id="tab-btn-3" onclick="switchOutcome(3)">
+<div class="font-label-sm text-label-sm font-semibold truncate">3. Сбой Obsidian</div>
+<div class="font-code text-[10px] opacity-80 truncate">Архив OK · Заметка не записана</div>
+</button>
+<button class="tab-btn px-space-xs py-space-xs rounded text-left transition-all hover:bg-surface-container text-on-surface-variant" id="tab-btn-4" onclick="switchOutcome(4)">
+<div class="font-label-sm text-label-sm font-semibold truncate">4. Сбой очистки Inbox</div>
+<div class="font-code text-[10px] opacity-80 truncate">Архив OK · Файл остался в inbox</div>
+</button>
+<button class="tab-btn px-space-xs py-space-xs rounded text-left transition-all hover:bg-surface-container text-on-surface-variant" id="tab-btn-5" onclick="switchOutcome(5)">
+<div class="font-label-sm text-label-sm font-semibold truncate">5. Сбой до коммита</div>
+<div class="font-code text-[10px] opacity-80 truncate">Транзакция отменена · Исходник цел</div>
+</button>
+<button class="tab-btn px-space-xs py-space-xs rounded text-left transition-all hover:bg-surface-container text-on-surface-variant" id="tab-btn-6" onclick="switchOutcome(6)">
+<div class="font-label-sm text-label-sm font-semibold truncate">6. Прерванная операция</div>
+<div class="font-code text-[10px] opacity-80 truncate">Требуется откат / восстановление</div>
+</button>
+</div>
+</div>
+<!-- Breadcrumb & Pipeline Stepper Strip -->
+<div class="flex items-center justify-between pb-space-md mb-space-md bg-surface">
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">inbox</span>
+<span class="">Входящие</span>
+<span class="text-outline">/</span>
+<span class="text-on-surface font-semibold">Мастер архивации</span>
+</div>
+<span class="px-space-xs py-[2px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+        Сессия #AF-8942
+      </span>
+</div>
+<!-- Stepper indicator -->
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-4 h-4 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-[10px]">✓</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1-5. Подготовка &amp; Проверка</span>
+</div>
+<div class="w-6 h-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-space-xs">
+<div class="w-4 h-4 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-[10px]" id="step-badge">6</div>
+<span class="font-label-sm text-label-sm font-semibold text-primary" id="step-label">Этап 6: Результат архивации (SCR-09)</span>
+</div>
+</div>
+</div>
+<!-- DYNAMIC OUTCOME CONTAINER -->
+<div class="w-full flex flex-col gap-space-lg" id="outcome-container">
+<!-- STATE 1: Штатный Успех (Default) -->
+<div class="outcome-view flex flex-col gap-space-lg" id="view-state-1">
+<!-- Main Status Hero Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg">
+<div class="flex items-start gap-space-lg">
+<div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[32px]">task_alt</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="px-space-xs py-[2px] rounded bg-primary-fixed-dim text-on-primary-fixed-variant font-label-sm text-label-sm font-bold tracking-wide uppercase">
+                Транзакция зафиксирована
+              </span>
+<span class="font-code text-code text-on-surface-variant">PV-0042 • sha256:d8c2...e41</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Документ успешно зафиксирован в постоянном архиве</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-[2px]">
+              Архивная запись создана с уникальным идентификатором <strong class="text-on-surface font-semibold">PV-0042</strong>. Исходные файлы обработаны, контрольные суммы совпали, индекс обновлен.
+            </p>
+</div>
+</div>
+<div class="flex md:flex-col items-end gap-space-xs shrink-0 bg-surface-container-low p-space-md rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Хранилище</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Том A (SSD-01)</span>
+<span class="font-code text-code text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">format_image_left</span>
+            WORM-блокировка включена
+          </span>
+</div>
+</div>
+<!-- Passport & Targets Grid -->
+<div class="grid grid-cols-12 gap-space-lg">
+<!-- Document Passport Snapshot (Left 7 Cols) -->
+<div class="col-span-12 lg:col-span-7 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Снимок паспорта архивного объекта</h2>
+</div>
+<span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+                Фиксация: 24.10.2026, 14:38:12
+              </span>
+</div>
+<!-- Passport Fields Table -->
+<div class="flex flex-col bg-surface-container-low rounded-lg p-space-md gap-space-sm">
+<div class="grid grid-cols-3 gap-space-xs items-center py-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">Имя документа:</span>
+<span class="col-span-2 font-body-md text-body-md font-semibold text-on-surface">Акт приёма-передачи жилого помещения № 42</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs items-center py-space-xs bg-surface-container-lowest rounded px-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">Расположение:</span>
+<span class="col-span-2 font-code text-code text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">folder_open</span>
+                  Open / Недвижимость / Жильё / 2026
+                </span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs items-center py-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">Категория фонда:</span>
+<span class="col-span-2 font-body-md text-body-md text-on-surface">02 · Первичные договоры и акты владения</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs items-center py-space-xs bg-surface-container-lowest rounded px-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">Статус готовности:</span>
+<div class="col-span-2 flex flex-wrap items-center gap-space-xs">
+<span class="px-space-xs py-[2px] rounded bg-primary-fixed-dim text-on-primary-fixed-variant font-label-sm text-label-sm">
+                    ✓ Реквизиты заполнены (6 из 6)
+                  </span>
+<span class="px-space-xs py-[2px] rounded bg-primary-fixed-dim text-on-primary-fixed-variant font-label-sm text-label-sm">
+                    ✓ Сверен с оригиналом (100%)
+                  </span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-space-xs items-center py-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">Прикрепленные файлы:</span>
+<div class="col-span-2 flex items-center gap-space-sm font-code text-code text-on-surface">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">picture_as_pdf</span>
+                    act_42_signed.pdf (1.4 МБ)
+                  </span>
+<span class="text-outline">·</span>
+<span class="text-on-surface-variant">Экспорт в Obsidian: выполнен</span>
+</div>
+</div>
+</div>
+<!-- Post-Action Integrity Indicator -->
+<div class="flex items-center justify-between p-space-sm rounded bg-surface-container-high text-on-surface font-body-sm text-body-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[16px]">fingerprint</span>
+<span class="">Локальный хеш проверен. Запись продублирована в зашифрованный бекап-журнал.</span>
+</div>
+<span class="font-code text-code text-primary font-semibold">OK</span>
+</div>
+</div>
+</div>
+<!-- Target Actions Box (Right 5 Cols) -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs text-primary font-label-md text-label-md mb-[2px]">
+<span class="material-symbols-outlined text-[16px]">call_split</span>
+<span class="">Следующие шаги рабочего процесса</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Действия с очередью</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Файл успешно перемещён из входящих. Вы можете продолжить разбор оставшихся документов или перейти к зафиксированной записи.
+              </p>
+</div>
+<!-- Action Buttons Group -->
+<div class="flex flex-col gap-space-sm">
+<!-- Primary Action -->
+<button class="w-full h-11 px-space-md rounded bg-primary text-on-primary font-label-md text-label-md flex items-center justify-between hover:bg-primary-container transition-colors shadow-sm">
+<div class="flex items-center gap-space-xs truncate">
+<span class="material-symbols-outlined text-[18px]">folder_special</span>
+<span class="truncate">Перейти к следующему объекту во Входящих</span>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="px-space-xs py-[1px] rounded bg-white/20 font-label-sm text-label-sm">осталось 2 набора</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</button>
+<!-- Secondary 1 -->
+<button class="w-full h-9 px-space-md rounded bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-xs truncate">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">open_in_new</span>
+<span class="">Открыть этот документ в Журнале (SCR-11)</span>
+</div>
+<span class="font-code text-code text-on-surface-variant">PV-0042</span>
+</button>
+<!-- Secondary 2 -->
+<button class="w-full h-9 px-space-md rounded bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-xs truncate">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">edit_note</span>
+<span class="">Продолжить заполнение реквизитов (SCR-06)</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">navigate_next</span>
+</button>
+<!-- Safe Utility Trigger -->
+<div class="pt-space-xs flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm px-space-xs">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">history</span>
+                  Запись в журнале сессий #8942
+                </span>
+<a class="text-primary hover:underline font-label-sm text-label-sm" href="#">Печать паспорта</a>
+</div>
+</div>
+</div>
+<!-- Queue Context Widget -->
+<div class="bg-surface-container rounded-xl p-space-md flex items-center justify-between text-on-surface">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">inventory_2</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md">Остаток очереди: 7 файлов</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Следующий пакет: «Договор купли-продажи № 11»</span>
+</div>
+</div>
+<span class="font-code text-code text-on-surface-variant bg-surface-container-lowest px-space-xs py-[2px] rounded">Пакет 2 / 3</span>
+</div>
+</div>
+</div>
+</div>
+<!-- STATE 2: Сохранён: Требует заполнения и Не сверен -->
+<div class="outcome-view hidden flex-col gap-space-lg" id="view-state-2">
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg">
+<div class="flex items-start gap-space-lg">
+<div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[32px]">inventory_2</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="px-space-xs py-[2px] rounded bg-primary-fixed-dim text-on-primary-fixed-variant font-label-sm text-label-sm font-bold uppercase">
+                Архив зафиксирован успешно
+              </span>
+<span class="px-space-xs py-[2px] rounded bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm">
+                Требует постобработки
+              </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Документ зафиксирован в архиве с отложенной выверкой</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-[2px]">
+              Неполнота метаданных <strong>не препятствует сохранению</strong>. Запись <strong class="text-on-surface">PV-0042</strong> записана в хранилище, но помечена специальными маркерами для последующего контроля.
+            </p>
+</div>
+</div>
+<div class="flex md:flex-col items-end gap-space-xs shrink-0 bg-surface-container-low p-space-md rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Индекс доверия</span>
+<span class="font-label-md text-label-md font-semibold text-error">Частично проверен</span>
+<span class="font-code text-code text-on-surface-variant">4 из 6 атрибутов</span>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-space-lg">
+<div class="col-span-12 lg:col-span-7 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Снимок паспорта объекта PV-0042</h2>
+<span class="font-code text-code text-on-surface-variant">Постоянный фонд</span>
+</div>
+<div class="flex flex-col bg-surface-container-low rounded-lg p-space-md gap-space-sm">
+<div class="grid grid-cols-3 gap-space-xs py-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">Название:</span>
+<span class="col-span-2 font-body-md text-body-md font-semibold text-on-surface">Акт приёма-передачи жилого помещения № 42</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs py-space-xs bg-surface-container-lowest rounded px-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">Расположение:</span>
+<span class="col-span-2 font-code text-code text-primary">Open → Жильё → 2026</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs py-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">Статусы валидации:</span>
+<div class="col-span-2 flex flex-wrap items-center gap-space-xs">
+<span class="px-space-xs py-[2px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">help_outline</span>
+                    Требует заполнения (4 из 6)
+                  </span>
+<span class="px-space-xs py-[2px] rounded bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span>
+                    Частично сверен (4 из 6)
+                  </span>
+</div>
+</div>
+</div>
+<div class="p-space-md rounded bg-surface-container text-on-surface font-body-sm text-body-sm flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">info</span>
+<div class="">
+                Архив полностью автономен и целостен. Документ доступен в реестре «Неполные карточки» в Журнале, где вы сможете заполнить недостающие реквизиты в любое удобное время.
+              </div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-md">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wide">Варианты продолжения</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Очередь обработки</h3>
+</div>
+<div class="flex flex-col gap-space-sm">
+<button class="w-full h-11 px-space-md rounded bg-primary text-on-primary font-label-md text-label-md flex items-center justify-between hover:bg-primary-container transition-colors shadow-sm">
+<span class="truncate">📁 Перейти к следующему объекту во Входящих (2 набора)</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+<button class="w-full h-9 px-space-md rounded bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<span class="">✎ Дозаполнить реквизиты сейчас (SCR-06)</span>
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+<button class="w-full h-9 px-space-md rounded bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<span class="">↗ Открыть документ в Журнале (SCR-11)</span>
+<span class="font-code text-code text-on-surface-variant">PV-0042</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- STATE 3: Архив сохранён, сбой экспорта в Obsidian -->
+<div class="outcome-view hidden flex-col gap-space-lg" id="view-state-3">
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg">
+<div class="flex items-start gap-space-lg">
+<div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[32px]">sync_problem</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="px-space-xs py-[2px] rounded bg-primary-fixed-dim text-on-primary-fixed-variant font-label-sm text-label-sm font-bold uppercase">
+                Архив сохранён успешно
+              </span>
+<span class="px-space-xs py-[2px] rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">
+                Сбой экспорта в Obsidian
+              </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Архив зафиксирован • Сбой дополнительного плагина</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-[2px]">
+              Документ <strong class="text-on-surface">PV-0042</strong> надёжно записан в постоянный архив. Однако не удалось экспортировать markdown-карточку в локальный vault Obsidian (целевой каталог заблокирован или временно недоступен). Основной архив не повреждён.
+            </p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-space-lg">
+<div class="col-span-12 lg:col-span-7 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Диагностика вторичной операции</h2>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs font-code text-code text-on-surface">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="">Плагин: Obsidian Markdown Sync</span>
+<span class="">ErrCode: EACCES_DIR_LOCKED</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container-lowest text-error">
+                path: "D:/PersonalVault_Notes/Archive/PV-0042.md" → Файл удерживается другим процессом (Obsidian.exe).
+              </div>
+<span class="text-on-surface-variant text-[11px] mt-1">
+                ℹ Важно: Повтор операции затронет только генерацию заметки, документ не будет дублироваться в хранилище.
+              </span>
+</div>
+<div class="flex items-center gap-space-md pt-space-xs">
+<button class="h-9 px-space-md rounded bg-primary text-on-primary font-label-md text-label-md flex items-center gap-space-xs hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+<span class="">Повторить только экспорт в Obsidian</span>
+</button>
+<button class="h-9 px-space-md rounded bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-space-xs hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[16px]">skip_next</span>
+<span class="">Продолжить без заметки Obsidian</span>
+</button>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Статус хранилища</h3>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between py-space-xs text-body-sm">
+<span class="text-on-surface-variant">Штатный архив:</span>
+<span class="font-semibold text-primary">PV-0042 сохранён</span>
+</div>
+<div class="flex items-center justify-between py-space-xs text-body-sm">
+<span class="text-on-surface-variant">Исходник во Входящих:</span>
+<span class="text-on-surface font-semibold">Перемещен в корзину сессии</span>
+</div>
+<div class="flex items-center justify-between py-space-xs text-body-sm">
+<span class="text-on-surface-variant">Markdown-экспорт:</span>
+<span class="text-error font-semibold">Ожидает повтора</span>
+</div>
+</div>
+<button class="w-full h-9 px-space-md rounded bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-between hover:bg-surface-container-high transition-colors mt-space-sm">
+<span class="">Открыть карточку документа в Журнале</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- STATE 4: Архив сохранён, сбой очистки Входящих -->
+<div class="outcome-view hidden flex-col gap-space-lg" id="view-state-4"><!-- Main Status Hero Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg">
+  <div class="flex items-start gap-space-lg">
+    <div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center shrink-0 text-secondary">
+      <span class="material-symbols-outlined text-[32px]">folder_delete</span>
+    </div>
+    <div class="flex flex-col">
+      <div class="flex items-center gap-space-sm mb-space-xs">
+        <span class="px-space-xs py-[2px] rounded bg-primary-fixed-dim text-on-primary-fixed-variant font-label-sm text-label-sm font-bold uppercase">
+          Архив зафиксирован успешно
+        </span>
+        <span class="px-space-xs py-[2px] rounded bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-bold">
+          Входящие: сбой очистки
+        </span>
+      </div>
+      <h1 class="font-headline-lg text-headline-lg text-on-surface">Документ сохранён в архиве. Не удалось очистить исходный файл из папки «Входящие».</h1>
+      <p class="font-body-md text-body-md text-on-surface-variant mt-[2px]">
+        Архивная копия сохранена и проверена. Исходный файл остался во «Входящих». Можно повторить безопасную очистку или продолжить работу.
+      </p>
+    </div>
+  </div>
+  <div class="flex md:flex-col items-end gap-space-xs shrink-0 bg-surface-container-low p-space-md rounded-lg">
+    <span class="font-label-sm text-label-sm text-on-surface-variant">Хранилище</span>
+    <span class="font-label-md text-label-md font-semibold text-on-surface">Том A (SSD-01)</span>
+    <span class="font-code text-code text-primary flex items-center gap-1">
+      <span class="material-symbols-outlined text-[14px]">verified</span>
+      PV-0042 зафиксирован
+    </span>
+  </div>
+</div>
+
+<!-- Actions and Policy Grid -->
+<div class="grid grid-cols-12 gap-space-lg">
+  <!-- Left Column: Safe Recovery Actions & Policy (7 cols) -->
+  <div class="col-span-12 lg:col-span-7 flex flex-col gap-space-md">
+    <div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-md">
+      <div class="flex items-center justify-between pb-space-xs">
+        <div class="flex items-center gap-space-xs">
+          <span class="material-symbols-outlined text-primary text-[18px]">security</span>
+          <h2 class="font-headline-sm text-headline-sm text-on-surface">Безопасные действия восстановления</h2>
+        </div>
+        <span class="font-code text-code text-primary font-semibold bg-surface-container-low px-space-xs py-[2px] rounded">Целостность: 100% OK</span>
+      </div>
+
+      <!-- File Context Info -->
+      <div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs font-body-sm text-body-sm">
+        <div class="flex items-center justify-between font-code text-code">
+          <span class="text-on-surface-variant">Оставшийся файл:</span>
+          <strong class="text-on-surface">C:/Inbox/Scan_2026_042.pdf</strong>
+        </div>
+        <div class="flex items-center justify-between font-code text-code text-[11px] text-on-surface-variant border-t border-t-0 pt-1">
+          <span class="">Хеш в архиве: SHA-256 проверен</span>
+          <span class="text-primary font-semibold">Иммутабельный оригинал защищён</span>
+        </div>
+      </div>
+
+      <!-- Safe Recovery Action Buttons -->
+      <div class="flex flex-col gap-space-sm">
+        <!-- Action 1: Retry safe cleanup -->
+        <button class="w-full h-11 px-space-md rounded bg-primary text-on-primary font-label-md text-label-md flex items-center justify-between hover:bg-primary-container transition-colors shadow-sm">
+          <div class="flex items-center gap-space-xs truncate">
+            <span class="material-symbols-outlined text-[18px]">delete_sweep</span>
+            <span class="truncate font-semibold">Повторить безопасную очистку</span>
+          </div>
+          <span class="text-[11px] font-body-sm bg-white/20 px-space-xs py-[1px] rounded">Только удаление из Inbox</span>
+        </button>
+        <span class="text-[11px] text-on-surface-variant px-space-xs -mt-1">
+          ℹ Повтор очистки затрагивает исключительно файл во Входящих и никогда не перезапускает импорт документа и не создает дубликатов в архиве.
+        </span>
+
+        <!-- Action 2 & 3: Open folder & Continue -->
+        <div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+          <button class="h-9 px-space-md rounded bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center gap-space-xs hover:bg-surface-container-high transition-colors">
+            <span class="material-symbols-outlined text-[16px]">folder_open</span>
+            <span class="">Открыть папку Inbox</span>
+          </button>
+          <button class="h-9 px-space-md rounded bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center gap-space-xs hover:bg-surface-container-high transition-colors">
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            <span class="">Продолжить</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Safe Cleanup Rules Banner -->
+      <div class="p-space-md rounded-lg bg-surface-container text-on-surface flex items-start gap-space-sm">
+        <span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-[2px]">shield</span>
+        <div class="flex flex-col gap-1 text-[12px] leading-tight text-on-surface-variant">
+          <strong class="text-on-surface font-semibold">Правило гарантированной безопасности хранилища:</strong>
+          <span class="">Физическое удаление из папки «Входящие» разрешено только после успешной фиксации и верификации неизменяемого оригинала и связанных записей ZIP, JSON и SQLite. Если хотя бы одна верификация не завершена, очистка блокируется. Вы можете безопасно продолжить работу, даже если исходный файл пока остался во «Входящих».</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Column: Verification Snapshot & Navigation (5 cols) -->
+  <div class="col-span-12 lg:col-span-5 flex flex-col gap-space-md">
+    <div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-md">
+      <div>
+        <span class="font-label-sm text-label-sm text-primary uppercase tracking-wide">Статус подтверждения</span>
+        <h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Состояние записей PV-0042</h3>
+      </div>
+      <div class="flex flex-col gap-space-xs font-body-sm text-body-sm">
+        <div class="flex items-center justify-between py-space-xs">
+          <span class="text-on-surface-variant">Иммутабельный ZIP-архив:</span>
+          <span class="font-semibold text-primary flex items-center gap-1">
+            <span class="material-symbols-outlined text-[14px]">check_circle</span> Зафиксирован
+          </span>
+        </div>
+        <div class="flex items-center justify-between py-space-xs">
+          <span class="text-on-surface-variant">Индекс JSON / SQLite:</span>
+          <span class="font-semibold text-primary flex items-center gap-1">
+            <span class="material-symbols-outlined text-[14px]">check_circle</span> Записан
+          </span>
+        </div>
+        <div class="flex items-center justify-between py-space-xs">
+          <span class="text-on-surface-variant">Очистка источника Inbox:</span>
+          <span class="font-semibold text-secondary flex items-center gap-1">
+            <span class="material-symbols-outlined text-[14px]">pending</span> Ожидает очистки
+          </span>
+        </div>
+      </div>
+      <button class="w-full h-9 px-space-md rounded bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-between hover:bg-surface-container-high transition-colors mt-space-sm">
+        <div class="flex items-center gap-space-xs truncate">
+          <span class="material-symbols-outlined text-[16px] text-on-surface-variant">open_in_new</span>
+          <span class="">Открыть этот документ в Журнале (SCR-11)</span>
+        </div>
+        <span class="font-code text-code text-on-surface-variant">PV-0042</span>
+      </button>
+    </div>
+
+    <!-- Queue Context Widget -->
+    <div class="bg-surface-container rounded-xl p-space-md flex items-center justify-between text-on-surface">
+      <div class="flex items-center gap-space-sm">
+        <span class="material-symbols-outlined text-secondary text-[20px]">inventory_2</span>
+        <div class="flex flex-col">
+          <span class="font-label-md text-label-md">Остаток очереди: 7 файлов</span>
+          <span class="font-body-sm text-body-sm text-on-surface-variant">Следующий пакет: «Договор купли-продажи № 11»</span>
+        </div>
+      </div>
+      <span class="font-code text-code text-on-surface-variant bg-surface-container-lowest px-space-xs py-[2px] rounded">Пакет 2 / 3</span>
+    </div>
+  </div>
+</div></div>
+<!-- STATE 5: Сбой до коммита архива (исходник цел) -->
+<div class="outcome-view hidden flex-col gap-space-lg" id="view-state-5">
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg">
+<div class="flex items-start gap-space-lg">
+<div class="w-14 h-14 rounded-full bg-error-container flex items-center justify-center shrink-0 text-error">
+<span class="material-symbols-outlined text-[32px]">block</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="px-space-xs py-[2px] rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold uppercase">
+                Транзакция отменена
+              </span>
+<span class="px-space-xs py-[2px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+                Исходные файлы без изменений
+              </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Архивация не была выполнена (исходный файл не изменён)</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-[2px]">
+              Произошёл аппаратный или файловый сбой записи до момента фиксации транзакции. Оригинальные файлы во «Входящих» сохранены в первозданном виде.
+            </p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-space-lg">
+<div class="col-span-12 lg:col-span-7 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Причина остановки операции</h2>
+<div class="p-space-md rounded bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-error font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">error</span>
+<span class="">Недостаточно места на целевом носителе или сбой контроллера SSD</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Том <code>D:/PersonalVault_Master/</code> не подтвердил запись временного блока <code>.tmp_chunk_0042</code>. Механизм транзакций PersonalVault автоматически выполнил откат, предотвратив повреждение базы данных.
+              </p>
+</div>
+<!-- Safe Action Buttons -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<button class="w-full h-10 px-space-md rounded bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center gap-space-xs hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+<span class="">Повторить попытку сохранения</span>
+</button>
+<div class="grid grid-cols-2 gap-space-sm">
+<button class="h-9 px-space-sm rounded bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center gap-space-xs hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span class="">Вернуться к проверке (SCR-08)</span>
+</button>
+<button class="h-9 px-space-sm rounded bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center gap-space-xs hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[16px]">inbox</span>
+<span class="">Оставить во Входящих</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Безопасность данных</h3>
+<ul class="flex flex-col gap-space-sm font-body-sm text-body-sm text-on-surface">
+<li class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+<span class="">Исходный PDF во Входящих не тронут и не перемещён.</span>
+</li>
+<li class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+<span class="">В основной реестр не внесено неполных записей.</span>
+</li>
+<li class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[16px] shrink-0">check_circle</span>
+<span class="">Идентификатор PV-0042 зарезервирован для повторной попытки.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- STATE 6: Прерванная операция (требуется восстановление) -->
+<div class="outcome-view hidden flex-col gap-space-lg" id="view-state-6">
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg">
+<div class="flex items-start gap-space-lg">
+<div class="w-14 h-14 rounded-full bg-error-container flex items-center justify-center shrink-0 text-error">
+<span class="material-symbols-outlined text-[32px]">warning</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="px-space-xs py-[2px] rounded bg-error text-on-error font-label-sm text-label-sm font-bold uppercase">
+                Прервано на шаге записи
+              </span>
+<span class="font-code text-code text-on-surface-variant">Журнал WAL содержит незавершённый сегмент</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Прерванная операция (требуется восстановление)</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-[2px]">
+              Процесс был принудительно остановлен внешней программой или перебоем питания. Обнаружен временный файл блокировки <code>PV-0042.lock</code>.
+            </p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-space-lg">
+<div class="col-span-12 lg:col-span-8 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Мастер безопасного восстановления WAL</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Система может автоматически произвести откат до исходного состояния, очистив незавершенный фрагмент, или завершить транзакцию, если бинарный блок цел.
+            </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col justify-between">
+<div>
+<div class="font-label-md text-label-md font-semibold text-on-surface mb-1">Вариант А: Полный откат (Рекомендуется)</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Удалить временные блоки PV-0042. Исходный файл останется во Входящих, мастер вернётся на шаг проверки.
+                  </p>
+</div>
+<button class="mt-space-md h-9 px-space-md rounded bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors">
+                  Выполнить чистый откат
+                </button>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col justify-between">
+<div>
+<div class="font-label-md text-label-md font-semibold text-on-surface mb-1">Вариант Б: Принудительный коммит</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Сверить существующий временный фрагмент по SHA-256 и завершить архивацию без повторного копирования.
+                  </p>
+</div>
+<button class="mt-space-md h-9 px-space-md rounded bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+                  Проверить целостность и финализировать
+                </button>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface">Служебный дамп</span>
+<div class="font-code text-code text-on-surface-variant bg-surface-container p-space-sm rounded overflow-x-auto text-[11px] leading-tight">
+              [WAL_RECOVERY]<br>
+              LOCK_FILE: 1<br>
+              TARGET_ID: PV-0042<br>
+              SOURCE_HASH: valid<br>
+              STATUS: PENDING_ROLLBACK
+            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- PERSISTENT BOTTOM WORKFLOW BAR -->
+<div class="mt-space-xl pt-space-md border-t-0 bg-surface-container-lowest rounded-xl px-space-xl py-space-sm flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">dns</span>
+<span class="">База: MasterVault_Local.db (v2.4)</span>
+</div>
+<span class="text-outline">·</span>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">folder_copy</span>
+<span class="">Очередь: Входящие (осталось 7 файлов · 2 набора)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="h-8 px-space-sm rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[14px]">help</span>
+<span class="">Справка по кодам транзакций</span>
+</button>
+<button class="h-8 px-space-sm rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[14px]">receipt_long</span>
+<span class="">Журнал сессии</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  function switchOutcome(id) {
+    // Hide all view states
+    document.querySelectorAll('.outcome-view').forEach(view => {
+      view.classList.add('hidden');
+      view.classList.remove('flex');
+    });
+
+    // Reset button states
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.classList.remove('bg-primary-container', 'text-on-primary-container');
+      btn.classList.add('text-on-surface-variant');
+    });
+
+    // Activate selected view
+    const activeView = document.getElementById(`view-state-${id}`);
+    if (activeView) {
+      activeView.classList.remove('hidden');
+      activeView.classList.add('flex');
+    }
+
+    // Activate selected button
+    const activeBtn = document.getElementById(`tab-btn-${id}`);
+    if (activeBtn) {
+      activeBtn.classList.remove('text-on-surface-variant');
+      activeBtn.classList.add('bg-primary-container', 'text-on-primary-container');
+    }
+
+    // Update stepper status badge color based on outcome family
+    const stepBadge = document.getElementById('step-badge');
+    const stepLabel = document.getElementById('step-label');
+    if (id === 1 || id === 2) {
+      stepBadge.className = 'w-4 h-4 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-[10px]';
+      stepLabel.className = 'font-label-sm text-label-sm font-semibold text-primary';
+    } else if (id === 3 || id === 4) {
+      stepBadge.className = 'w-4 h-4 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-label-sm text-[10px]';
+      stepLabel.className = 'font-label-sm text-label-sm font-semibold text-secondary';
+    } else {
+      stepBadge.className = 'w-4 h-4 rounded-full bg-error text-on-error flex items-center justify-center font-label-sm text-[10px]';
+      stepLabel.className = 'font-label-sm text-label-sm font-semibold text-error';
+    }
+  }
+</script></main></div>
+
+
+
+</body></html>

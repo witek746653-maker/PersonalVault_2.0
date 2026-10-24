@@ -1,0 +1,966 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@100..900&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary-fixed-dim":"#bbc9c8","surface-container-highest":"#d7e4ec","surface":"#f4faff","surface-variant":"#d7e4ec","tertiary-container":"#6a7777","on-primary-fixed":"#00201e","primary-fixed":"#95f3eb","surface-bright":"#f4faff","surface-tint":"#006a65","on-secondary-fixed-variant":"#3b494e","surface-container":"#e3f0f8","tertiary-fixed":"#d7e5e4","outline":"#6e7978","on-error-container":"#93000a","secondary-fixed-dim":"#bac9cf","inverse-surface":"#263238","surface-dim":"#cfdce4","primary-container":"#12827c","secondary-fixed":"#d6e5ec","surface-container-lowest":"#ffffff","on-primary-fixed-variant":"#00504c","tertiary":"#515e5e","on-background":"#111d23","on-error":"#ffffff","error":"#ba1a1a","on-surface-variant":"#3e4948","on-primary":"#ffffff","surface-container-high":"#ddeaf2","on-tertiary":"#ffffff","on-tertiary-fixed":"#111e1d","background":"#f4faff","on-tertiary-fixed-variant":"#3c4949","on-secondary":"#ffffff","inverse-on-surface":"#e6f3fb","primary":"#006763","on-tertiary-container":"#f3fffe","error-container":"#ffdad6","inverse-primary":"#79d6cf","on-secondary-container":"#59676c","primary-fixed-dim":"#79d6cf","on-surface":"#111d23","surface-container-low":"#e9f6fd","secondary-container":"#d6e5ec","on-secondary-fixed":"#101d22","outline-variant":"#bdc9c7","secondary":"#536166","on-primary-container":"#f3fffd"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-xs":"0.25rem","gutter":"0.75rem","space-md":"0.5rem","space-lg":"0.75rem","space-sm":"0.375rem","space-xl":"1rem","margin":"1rem"},fontFamily:{"body-md":["Segoe UI"],"body-sm":["Segoe UI"],"label-md":["Segoe UI"],"body-lg":["Segoe UI"],"headline-sm":["Segoe UI"],"headline-md":["Segoe UI"],"code":["JetBrains Mono"],"headline-lg":["Segoe UI"],"label-sm":["Segoe UI"]},fontSize:{"body-md":["13px",{lineHeight:"18px",fontWeight:"400"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",fontWeight:"600"}],"body-lg":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-sm":["15px",{lineHeight:"20px",fontWeight:"600"}],"headline-md":["18px",{lineHeight:"24px",fontWeight:"600"}],"code":["12px",{lineHeight:"16px",fontWeight:"400"}],"headline-lg":["22px",{lineHeight:"28px",fontWeight:"600"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.02em",fontWeight:"500"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased select-none"><header class="fixed top-0 left-0 right-0 h-9 bg-surface-container-low z-50 flex items-center justify-between px-space-md select-none border-b border-surface-container-highest"><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs text-primary mr-space-md"><span class="material-symbols-outlined text-[16px]">lock</span><span class="font-label-md text-label-md tracking-tight text-on-surface">PersonalVault 2.0</span></div><div class="flex items-center gap-space-xs px-space-sm py-[2px] rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="">Локальное хранилище</span><span class="text-outline text-[10px]">|</span><span class="font-code text-code text-secondary">C:\Vault\Encrypted</span></div></div><div class="flex-1 max-w-xs mx-space-xl"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-2 text-[14px] text-outline pointer-events-none">search</span><input class="w-full h-[24px] pl-6 pr-2 bg-surface text-on-surface font-body-sm text-body-sm rounded border border-surface-container-highest focus:outline-none focus:border-primary placeholder-outline" placeholder="Быстрый поиск (Ctrl+K)..." type="text"></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs text-secondary text-[14px] mr-space-sm"><span class="material-symbols-outlined text-[14px] text-primary">sync_saved_locally</span><span class="font-label-sm text-label-sm text-on-surface-variant">Синхронизировано</span></div><div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[14px]">person</span></div><div class="flex items-center ml-space-sm"><button class="w-7 h-6 flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[12px]">minimize</span></button><button class="w-7 h-6 flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[12px]">crop_square</span></button><button class="w-7 h-6 flex items-center justify-center text-on-surface-variant hover:bg-error hover:text-on-error transition-colors"><span class="material-symbols-outlined text-[12px]">close</span></button></div></div></header><aside class="fixed left-0 top-9 bottom-0 w-48 bg-surface-container-low z-40 flex flex-col justify-between border-r border-surface-container-highest"><div class="flex flex-col pt-space-xs overflow-y-auto"><div class="px-space-md py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">Документы</div><nav class="flex flex-col px-space-xs gap-[1px]" data-active-classes="bg-surface-container text-primary font-label-md border-l-2 border-primary"><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="zhurnal" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">edit_note</span><span class="">Журнал</span></div></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="vkhodyashchie" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">inbox</span><span class="">Входящие</span></div><span class="px-1.5 py-[1px] rounded bg-primary-container text-on-primary-container font-label-sm text-[10px]">5</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="chernoviki" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">draft</span><span class="">Черновики</span></div><span class="px-1.5 py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-[10px]">2</span></a><a aria-current="page" class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT transition-colors bg-surface-container text-primary font-label-md border-l-2 border-primary" data-path="plany" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">calendar_today</span><span class="">Планы</span></div><span class="px-1.5 py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-[10px]">2</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="ubrannye" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">archive</span><span class="">Убранные</span></div></a><div class="my-space-xs mx-space-xs border-t border-surface-container-highest"></div><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">Справочники</div><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="moi-dannye" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">folder_shared</span><span class="">Мои данные</span></div></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="shablony" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">content_copy</span><span class="">Шаблоны</span></div></a><div class="my-space-xs mx-space-xs border-t border-surface-container-highest"></div><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">Дополнительно</div><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="svodka-zdorovya" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">vital_signs</span><span class="">Сводка здоровья</span></div><span class="px-1 py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-[9px]">В разработке</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="pomoshchnik" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">smart_toy</span><span class="">Помощник</span></div><span class="px-1 py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-[9px]">В разработке</span></a></nav></div><div class="p-space-xs border-t border-surface-container-highest bg-surface-container-low flex flex-col gap-[1px]"><a class="flex items-center gap-space-sm h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="obsluzhivanie-arkhiva" href="#"><span class="material-symbols-outlined text-[16px]">build_circle</span><span class="">Обслуживание архива</span></a><a class="flex items-center gap-space-sm h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="nastroiki" href="#"><span class="material-symbols-outlined text-[16px]">settings</span><span class="">Настройки</span></a></div></aside><div class="pl-48"><main class="w-full pt-9 min-h-screen bg-surface"><div class="flex flex-col w-full h-[calc(100vh-36px)] overflow-hidden bg-surface text-on-surface select-none">
+<!-- Interactive State Control Bar -->
+<div class="h-9 bg-surface-container-high px-space-md flex items-center justify-between gap-space-sm shrink-0">
+<div class="flex items-center gap-space-xs overflow-x-auto py-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider mr-1 shrink-0">Состояния SCR-15:</span>
+<button class="h-6 px-2 rounded-DEFAULT bg-primary text-on-primary font-label-sm text-[11px] flex items-center gap-1 transition-all" id="btn-st-default" onclick="switchState('default')">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span><span class="">1. Штатный список ●</span>
+</button>
+<button class="h-6 px-2 rounded-DEFAULT bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-sm text-[11px] transition-all" id="btn-st-empty" onclick="switchState('empty')">
+        2. Пустой список
+      </button>
+<button class="h-6 px-2 rounded-DEFAULT bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-sm text-[11px] transition-all" id="btn-st-modal-create" onclick="switchState('modal-create')">
+        3. Создание / правка
+      </button>
+<button class="h-6 px-2 rounded-DEFAULT bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-sm text-[11px] transition-all" id="btn-st-modal-complete" onclick="switchState('modal-complete')">
+        4. Выполнение (связка)
+      </button>
+<button class="h-6 px-2 rounded-DEFAULT bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-sm text-[11px] transition-all" id="btn-st-modal-cancel" onclick="switchState('modal-cancel')">
+        5. Отмена плана
+      </button>
+<button class="h-6 px-2 rounded-DEFAULT bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-sm text-[11px] transition-all flex items-center gap-1" id="btn-st-secret-locked" onclick="switchState('secret-locked')">
+<span class="material-symbols-outlined text-[13px] text-error">lock</span><span class="">6. Secret закрыта</span>
+</button>
+<button class="h-6 px-2 rounded-DEFAULT bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-sm text-[11px] transition-all" id="btn-st-compact" onclick="switchState('compact')">
+        7. Компактный вид (900px)
+      </button>
+</div>
+<div class="flex items-center gap-space-xs text-outline text-[11px] shrink-0 font-code">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+<span class="">AES-256 GCM</span>
+</div>
+</div>
+<!-- Workspace Sub-header -->
+<div class="h-10 px-space-md bg-surface-container-low flex items-center justify-between shrink-0">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[18px] text-primary">event_upcoming</span>
+<div class="flex items-baseline gap-space-sm truncate">
+<h1 class="font-headline-sm text-headline-sm tracking-tight text-on-surface font-semibold">Планы документов (SCR-15)</h1>
+<span class="font-body-sm text-body-sm text-secondary truncate hidden md:inline">Планируемые и ожидаемые документы, контроль сроков получения и связывание с архивом</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="h-7 px-space-md rounded-DEFAULT bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md flex items-center gap-1 transition-colors shadow-sm" onclick="switchState('modal-create')">
+<span class="material-symbols-outlined text-[15px]">add</span>
+<span class="">Создать план</span>
+</button>
+<div class="h-4 w-px bg-surface-container-highest mx-0.5"></div>
+<button class="h-7 px-space-sm rounded-DEFAULT bg-surface text-secondary hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm flex items-center gap-1 transition-colors" id="btn-filter-toggle" onclick="toggleDateFilterPopup()">
+<span class="material-symbols-outlined text-[16px]">filter_list</span>
+<span class="">Сроки</span>
+</button>
+<button class="h-7 w-7 rounded-DEFAULT flex items-center justify-center text-secondary hover:text-on-surface hover:bg-surface-container transition-colors" onclick="toggleInspector()" title="Инспектор плана">
+<span class="material-symbols-outlined text-[17px]">dock_to_right</span>
+</button>
+</div>
+</div>
+<!-- Main View Container with flexible width -->
+<div class="flex-1 flex overflow-hidden w-full transition-all duration-200" id="workspace-wrapper">
+<!-- Primary Table Area -->
+<div class="flex-1 flex flex-col min-w-0 bg-surface-container-lowest overflow-hidden" id="table-area">
+<!-- Toolbar Filters & Search -->
+<div class="px-space-md py-space-xs bg-surface flex flex-wrap items-center justify-between gap-space-sm shrink-0">
+<!-- Status filter pills -->
+<div class="flex items-center gap-1 overflow-x-auto">
+<button class="h-6 px-2 rounded-DEFAULT bg-surface-container-high text-primary font-label-md text-[11px] flex items-center gap-1 transition-colors" id="pill-all" onclick="applyStatusFilter('all')">
+<span class="">Все</span>
+<span class="px-1 rounded bg-surface-container-highest text-on-surface text-[10px]" id="count-all">5</span>
+</button>
+<button class="h-6 px-2 rounded-DEFAULT bg-transparent text-secondary hover:bg-surface-container font-label-md text-[11px] flex items-center gap-1 transition-colors" id="pill-planned" onclick="applyStatusFilter('planned')">
+<span class="">Запланированы</span>
+<span class="px-1 rounded bg-surface-container text-secondary text-[10px]" id="count-planned">3</span>
+</button>
+<button class="h-6 px-2 rounded-DEFAULT bg-transparent text-error hover:bg-error-container/40 font-label-md text-[11px] flex items-center gap-1 transition-colors" id="pill-overdue" onclick="applyStatusFilter('overdue')">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span class="">Просрочены</span>
+<span class="px-1 rounded bg-error-container text-on-error-container text-[10px]" id="count-overdue">1</span>
+</button>
+<button class="h-6 px-2 rounded-DEFAULT bg-transparent text-secondary hover:bg-surface-container font-label-md text-[11px] flex items-center gap-1 transition-colors" id="pill-completed" onclick="applyStatusFilter('completed')">
+<span class="">Выполнены</span>
+<span class="px-1 rounded bg-surface-container text-secondary text-[10px]" id="count-completed">1</span>
+</button>
+<button class="h-6 px-2 rounded-DEFAULT bg-transparent text-secondary hover:bg-surface-container font-label-md text-[11px] flex items-center gap-1 transition-colors" id="pill-canceled" onclick="applyStatusFilter('canceled')">
+<span class="">Отменены</span>
+<span class="px-1 rounded bg-surface-container text-secondary text-[10px]" id="count-canceled">1</span>
+</button>
+</div>
+<!-- Search + Zone Toggle -->
+<div class="flex items-center gap-space-sm shrink-0">
+<div class="relative w-56 flex items-center">
+<span class="material-symbols-outlined absolute left-2 text-[14px] text-outline pointer-events-none">search</span>
+<input class="w-full h-6 pl-6 pr-2 bg-surface-container-lowest text-on-surface font-body-sm text-[12px] rounded-DEFAULT outline-none focus:ring-1 focus:ring-primary placeholder-outline" id="plan-search-input" oninput="handleSearch(this.value)" placeholder="Поиск планов..." type="text">
+</div>
+<div class="flex items-center h-6 p-0.5 bg-surface-container-high rounded-DEFAULT text-secondary font-label-sm text-[11px]">
+<button class="px-2 h-full rounded-DEFAULT bg-surface text-primary font-label-md shadow-xs" id="zone-all" onclick="applyZoneFilter('all')">Все зоны</button>
+<button class="px-2 h-full rounded-DEFAULT hover:text-on-surface" id="zone-open" onclick="applyZoneFilter('open')">Open</button>
+<button class="px-2 h-full rounded-DEFAULT hover:text-on-surface flex items-center gap-0.5" id="zone-secret" onclick="applyZoneFilter('secret')">
+<span class="material-symbols-outlined text-[11px]">lock</span>
+<span class="">Secret</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Lifecycle Guidance Microbar -->
+<div class="px-space-md py-1 bg-surface-container-low text-secondary font-body-sm text-[11px] flex items-center justify-between shrink-0">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[13px] text-outline">info</span>
+<span class="truncate">Жизненный цикл планов: <span class="font-medium text-on-surface">Запланирован</span> (включая атрибут «Просрочен»), <span class="font-medium text-on-surface">Выполнен</span> (со связкой в архив), <span class="font-medium text-on-surface">Отменён</span>. Планы не порождают фиктивных файлов до выполнения.</span>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="text-outline">Сортировка: Срок ↑</span>
+</div>
+</div>
+<!-- Table View -->
+<div class="flex-1 overflow-auto bg-surface-container-lowest" id="table-scroll-container">
+<!-- Regular Data Table -->
+<table class="w-full text-left font-body-sm text-body-sm border-collapse select-text" id="plans-table">
+<thead class="sticky top-0 bg-surface-container text-secondary font-label-sm text-[11px] uppercase tracking-wider z-10">
+<tr class="h-8">
+<th class="w-8 px-2 text-center select-none">
+<input class="w-3.5 h-3.5 rounded-DEFAULT text-primary accent-primary cursor-pointer align-middle" type="checkbox">
+</th>
+<th class="px-3 min-w-[240px]">Название плана документа</th>
+<th class="px-2 w-28">Категория</th>
+<th class="px-2 w-20">Зона</th>
+<th class="px-3 w-44">Целевой срок</th>
+<th class="px-3 w-36">Состояние</th>
+<th class="px-3 min-w-[210px]">Связанный документ архива</th>
+<th class="px-2 w-20 text-right pr-3 select-none">Действия</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-highest" id="plans-tbody">
+<!-- Row 1: EgRN (Active, Planned) -->
+<tr class="h-9 hover:bg-surface-container-low cursor-pointer transition-colors group bg-surface-container" id="row-1" onclick="selectRow(1)">
+<td class="w-8 px-2 text-center" onclick="event.stopPropagation()">
+<input class="w-3.5 h-3.5 rounded-DEFAULT accent-primary cursor-pointer align-middle" type="checkbox">
+</td>
+<td class="px-3 font-medium text-on-surface">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[15px] text-primary shrink-0">description</span>
+<span class="truncate">Выписка из ЕГРН на квартиру на Московском пр.</span>
+</div>
+</td>
+<td class="px-2">
+<span class="px-1.5 py-0.5 rounded-DEFAULT bg-surface-container text-secondary font-label-sm text-[11px]">Жильё</span>
+</td>
+<td class="px-2">
+<span class="px-1.5 py-0.5 rounded-DEFAULT bg-surface-container text-on-surface font-code text-[10px]">Open</span>
+</td>
+<td class="px-3 text-on-surface font-code text-[12px]">
+<div class="flex items-center gap-1">
+<span class="">15.11.2026</span>
+<span class="text-secondary text-[11px] font-body-sm">(осталось 22 дн.)</span>
+</div>
+</td>
+<td class="px-3">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-DEFAULT bg-surface-container-high text-primary font-label-sm text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  Запланирован
+                </span>
+</td>
+<td class="px-3 text-outline font-body-sm">—</td>
+<td class="px-2 text-right pr-3" onclick="event.stopPropagation()">
+<div class="inline-flex items-center gap-1 opacity-80 group-hover:opacity-100">
+<button class="h-6 px-1.5 rounded-DEFAULT bg-primary/10 hover:bg-primary text-primary hover:text-on-primary font-label-sm text-[10px] transition-colors" onclick="openCompleteModal(1)" title="Выполнить план">Выполнить</button>
+<button class="w-6 h-6 rounded-DEFAULT flex items-center justify-center text-secondary hover:text-on-surface hover:bg-surface-container" onclick="editPlan(1)" title="Правка">
+<span class="material-symbols-outlined text-[14px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: 2-NDFL (Overdue, Secret) -->
+<tr class="h-9 hover:bg-surface-container-low cursor-pointer transition-colors group secret-item" id="row-2" onclick="selectRow(2)">
+<td class="w-8 px-2 text-center" onclick="event.stopPropagation()">
+<input class="w-3.5 h-3.5 rounded-DEFAULT accent-primary cursor-pointer align-middle" type="checkbox">
+</td>
+<td class="px-3 font-medium text-on-surface">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[15px] text-error shrink-0">warning</span>
+<span class="truncate">Справка 2-НДФЛ за 2026 год от работодателя</span>
+</div>
+</td>
+<td class="px-2">
+<span class="px-1.5 py-0.5 rounded-DEFAULT bg-surface-container text-secondary font-label-sm text-[11px]">Работа</span>
+</td>
+<td class="px-2">
+<span class="px-1.5 py-0.5 rounded-DEFAULT bg-error-container text-on-error-container font-code text-[10px] flex items-center gap-0.5 w-max">
+<span class="material-symbols-outlined text-[10px]">lock</span>Secret
+                </span>
+</td>
+<td class="px-3 font-code text-[12px] text-error font-medium">
+<div class="flex items-center gap-1">
+<span class="">01.10.2026</span>
+<span class="text-[11px] font-body-sm text-error">просрочен на 13 дн.</span>
+</div>
+</td>
+<td class="px-3">
+<div class="inline-flex items-center gap-1">
+<span class="px-1.5 py-0.5 rounded-DEFAULT bg-surface-container-high text-on-surface font-label-sm text-[11px]">Запланирован</span>
+<span class="px-1.5 py-0.5 rounded-DEFAULT bg-error-container text-on-error-container font-label-sm text-[10px] uppercase font-bold">Просрочен</span>
+</div>
+</td>
+<td class="px-3 text-outline font-body-sm">—</td>
+<td class="px-2 text-right pr-3" onclick="event.stopPropagation()">
+<div class="inline-flex items-center gap-1 opacity-80 group-hover:opacity-100">
+<button class="h-6 px-1.5 rounded-DEFAULT bg-primary/10 hover:bg-primary text-primary hover:text-on-primary font-label-sm text-[10px] transition-colors" onclick="openCompleteModal(2)" title="Выполнить план">Выполнить</button>
+<button class="w-6 h-6 rounded-DEFAULT flex items-center justify-center text-secondary hover:text-on-surface hover:bg-surface-container" onclick="editPlan(2)" title="Правка">
+<span class="material-symbols-outlined text-[14px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: OSAGO (Planned, Normal) -->
+<tr class="h-9 hover:bg-surface-container-low cursor-pointer transition-colors group" id="row-3" onclick="selectRow(3)">
+<td class="w-8 px-2 text-center" onclick="event.stopPropagation()">
+<input class="w-3.5 h-3.5 rounded-DEFAULT accent-primary cursor-pointer align-middle" type="checkbox">
+</td>
+<td class="px-3 font-medium text-on-surface">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[15px] text-primary shrink-0">directions_car</span>
+<span class="truncate">Полис ОСАГО на 2027 год (продление)</span>
+</div>
+</td>
+<td class="px-2">
+<span class="px-1.5 py-0.5 rounded-DEFAULT bg-surface-container text-secondary font-label-sm text-[11px]">Авто</span>
+</td>
+<td class="px-2">
+<span class="px-1.5 py-0.5 rounded-DEFAULT bg-surface-container text-on-surface font-code text-[10px]">Open</span>
+</td>
+<td class="px-3 text-on-surface font-code text-[12px]">
+<div class="flex items-center gap-1">
+<span class="">12.12.2026</span>
+<span class="text-secondary text-[11px] font-body-sm">(в графике)</span>
+</div>
+</td>
+<td class="px-3">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-DEFAULT bg-surface-container-high text-primary font-label-sm text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  Запланирован
+                </span>
+</td>
+<td class="px-3 text-outline font-body-sm">—</td>
+<td class="px-2 text-right pr-3" onclick="event.stopPropagation()">
+<div class="inline-flex items-center gap-1 opacity-80 group-hover:opacity-100">
+<button class="h-6 px-1.5 rounded-DEFAULT bg-primary/10 hover:bg-primary text-primary hover:text-on-primary font-label-sm text-[10px] transition-colors" onclick="openCompleteModal(3)" title="Выполнить план">Выполнить</button>
+<button class="w-6 h-6 rounded-DEFAULT flex items-center justify-center text-secondary hover:text-on-surface hover:bg-surface-container" onclick="editPlan(3)" title="Правка">
+<span class="material-symbols-outlined text-[14px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Akt Priema (Completed, Linked) -->
+<tr class="h-9 hover:bg-surface-container-low cursor-pointer transition-colors group bg-surface-container-low/30" id="row-4" onclick="selectRow(4)">
+<td class="w-8 px-2 text-center" onclick="event.stopPropagation()">
+<input class="w-3.5 h-3.5 rounded-DEFAULT accent-primary cursor-pointer align-middle" type="checkbox">
+</td>
+<td class="px-3 font-medium text-on-surface">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[15px] text-secondary shrink-0">task_alt</span>
+<span class="truncate">Акт приёма-передачи жилого помещения № 42</span>
+</div>
+</td>
+<td class="px-2">
+<span class="px-1.5 py-0.5 rounded-DEFAULT bg-surface-container text-secondary font-label-sm text-[11px]">Жильё</span>
+</td>
+<td class="px-2">
+<span class="px-1.5 py-0.5 rounded-DEFAULT bg-surface-container text-on-surface font-code text-[10px]">Open</span>
+</td>
+<td class="px-3 text-secondary font-code text-[12px]">
+<span class="">12.10.2026</span>
+</td>
+<td class="px-3">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-DEFAULT bg-surface-container-highest text-secondary font-label-sm text-[11px]">
+<span class="material-symbols-outlined text-[12px] text-primary">check</span>
+                  Выполнен
+                </span>
+</td>
+<td class="px-3 font-body-sm text-primary">
+<div class="inline-flex items-center gap-1 hover:underline cursor-pointer" onclick="event.stopPropagation(); alert('Переход к документу архива PV-0042 (SCR-11)')">
+<span class="material-symbols-outlined text-[13px]">attachment</span>
+<span class="font-code text-[11px] text-on-surface font-medium">PV-0042</span>
+<span class="truncate max-w-[130px] text-[11px]">Акт приёма...pdf</span>
+<span class="material-symbols-outlined text-[12px]">north_east</span>
+</div>
+</td>
+<td class="px-2 text-right pr-3" onclick="event.stopPropagation()">
+<div class="inline-flex items-center gap-1 opacity-80 group-hover:opacity-100">
+<button class="h-6 px-1.5 rounded-DEFAULT bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-sm text-[10px] transition-colors" onclick="alert('Открытие карточки документа PV-0042')">Архив</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Domovaya kniga (Canceled) -->
+<tr class="h-9 hover:bg-surface-container-low cursor-pointer transition-colors group opacity-75" id="row-5" onclick="selectRow(5)">
+<td class="w-8 px-2 text-center" onclick="event.stopPropagation()">
+<input class="w-3.5 h-3.5 rounded-DEFAULT accent-primary cursor-pointer align-middle" type="checkbox">
+</td>
+<td class="px-3 font-medium text-secondary">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[15px] text-outline shrink-0">cancel</span>
+<span class="line-through truncate">Архивная выписка из домовой книги (старая)</span>
+</div>
+</td>
+<td class="px-2">
+<span class="px-1.5 py-0.5 rounded-DEFAULT bg-surface-container text-secondary font-label-sm text-[11px]">Жильё</span>
+</td>
+<td class="px-2">
+<span class="px-1.5 py-0.5 rounded-DEFAULT bg-surface-container text-outline font-code text-[10px]">Open</span>
+</td>
+<td class="px-3 text-outline font-body-sm text-[12px]">
+<span class="">Без срока</span>
+</td>
+<td class="px-3">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-DEFAULT bg-surface-container text-outline font-label-sm text-[11px]">
+                  Отменён
+                </span>
+</td>
+<td class="px-3 text-outline font-body-sm text-[11px] italic truncate">Причина: Сделка отменена</td>
+<td class="px-2 text-right pr-3" onclick="event.stopPropagation()">
+<span class="text-outline text-[11px]">Архивирован</span>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Empty State Container -->
+<div class="hidden flex flex-col items-center justify-center p-12 text-center h-full" id="state-empty">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-outline mb-space-md">
+<span class="material-symbols-outlined text-[24px]">event_note</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Нет активных планов документов</h3>
+<p class="font-body-sm text-body-sm text-secondary max-w-sm mb-space-lg">
+            Фиксируйте документы, которые планируете получить, продлить или заказать. При получении они связываются с реальным файлом в архиве.
+          </p>
+<button class="h-8 px-space-lg rounded-DEFAULT bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md flex items-center gap-1.5 transition-colors" onclick="switchState('modal-create')">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span class="">Создать первый план</span>
+</button>
+</div>
+<!-- Secret Locked Placeholder Banner in Table -->
+<div class="hidden mx-space-md my-space-md p-space-md bg-surface-container rounded-DEFAULT flex items-center justify-between" id="secret-notice">
+<div class="flex items-center gap-space-sm text-secondary font-body-sm text-[12px]">
+<span class="material-symbols-outlined text-[16px] text-secondary">lock</span>
+<span class="">Зона Secret заблокирована: секретные планы скрыты без утечки названий и общего счётчика.</span>
+</div>
+<button class="h-6 px-space-sm rounded-DEFAULT bg-surface-container-high text-on-surface font-label-sm text-[11px] hover:bg-surface-container-highest" onclick="alert('Ввод мастер-пароля для доступа к Secret зоне')">
+            Разблокировать Secret
+          </button>
+</div>
+</div>
+<!-- Bottom Status Strip -->
+<div class="h-7 px-space-md bg-surface-container-low text-secondary font-label-sm text-[11px] flex items-center justify-between shrink-0 select-none">
+<div class="flex items-center gap-space-lg">
+<span id="footer-row-counter" class="">Отображено записей: 5 из 5</span>
+<span class="text-outline">|</span>
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[12px]">check_circle</span>
+<span class="">Локальная база синхронизирована</span>
+</span>
+</div>
+<div class="flex items-center gap-space-sm text-outline">
+<span class="material-symbols-outlined text-[13px]">alarm</span>
+<span class="">Автоматические напоминания и синхронизация с календарём находятся в разработке</span>
+</div>
+</div>
+</div>
+<!-- Right Inspector / Details Panel -->
+<div class="w-80 bg-surface-container-low shrink-0 flex flex-col justify-between overflow-hidden transition-all duration-200" id="inspector-panel">
+<!-- Inspector Content -->
+<div class="flex-1 overflow-y-auto p-space-md space-y-space-md">
+<!-- Header with close button -->
+<div class="flex items-start justify-between">
+<div>
+<div class="font-label-sm text-[10px] uppercase tracking-wider text-outline mb-0.5">Карточка плана (SCR-15)</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface leading-tight" id="insp-title">Выписка из ЕГРН на квартиру на Московском пр.</h2>
+</div>
+<button class="w-6 h-6 rounded-DEFAULT flex items-center justify-center text-secondary hover:text-on-surface hover:bg-surface-container transition-colors" onclick="toggleInspector()">
+<span class="material-symbols-outlined text-[15px]">close</span>
+</button>
+</div>
+<!-- Status Badges -->
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2 py-0.5 rounded-DEFAULT bg-surface-container-highest text-primary font-label-md text-[11px] flex items-center gap-1" id="insp-status-badge"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="">Запланирован</span></span>
+<span class="px-2 py-0.5 rounded-DEFAULT bg-surface-container text-on-surface font-code text-[11px]" id="insp-zone-badge">Зона: Open</span>
+<span class="px-2 py-0.5 rounded-DEFAULT bg-surface-container text-secondary font-label-sm text-[11px]" id="insp-category-badge">Жильё</span>
+</div>
+<!-- Core Attributes Box -->
+<div class="p-space-sm bg-surface-container-lowest rounded-DEFAULT space-y-space-sm">
+<div>
+<label class="font-label-sm text-[11px] text-outline block mb-1">Целевой срок (дедлайн):</label>
+<div class="flex items-center justify-between">
+<span class="font-code text-[13px] font-medium text-on-surface" id="insp-deadline">15.11.2026</span>
+<span class="font-body-sm text-[11px] text-secondary" id="insp-deadline-relative">через 22 дня</span>
+</div>
+</div>
+<div class="pt-space-xs">
+<label class="font-label-sm text-[11px] text-outline block mb-1">Заметки / Инструкция к получению:</label>
+<p class="font-body-sm text-[12px] text-on-surface leading-relaxed bg-surface-container-low p-2 rounded-DEFAULT" id="insp-notes">Запросить в МФЦ «Мои документы» или через личный кабинет Госуслуг. Требуется паспорт и СНИЛС заявителя.</p>
+</div>
+</div>
+<!-- Archival Link Connection Card -->
+<div class="p-space-sm bg-surface-container-lowest rounded-DEFAULT space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] text-outline uppercase tracking-wider">Связь с архивом (SCR-01)</span>
+<span class="material-symbols-outlined text-[14px] text-outline">link</span>
+</div>
+<!-- Unlinked State Container -->
+<div class="space-y-space-sm" id="insp-unlinked-state">
+<p class="font-body-sm text-[11px] text-secondary">
+              Документ пока не получен и не загружен в защищённое хранилище. Фиктивный файл не создаётся.
+            </p>
+<button class="w-full h-8 px-space-md rounded-DEFAULT bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md flex items-center justify-center gap-1.5 transition-colors shadow-xs" onclick="openCompleteModal()">
+<span class="material-symbols-outlined text-[15px]">task_alt</span>
+<span class="">Выполнить (связать с архивом)</span>
+</button>
+</div>
+<!-- Linked State Container -->
+<div class="hidden space-y-space-xs" id="insp-linked-state">
+<div class="p-2 rounded-DEFAULT bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-on-surface font-medium text-[12px]">
+<span class="material-symbols-outlined text-[16px] text-primary">description</span>
+<span id="insp-linked-name" class="">PV-0042 — Акт приёма-передачи.pdf</span>
+</div>
+<div class="flex items-center justify-between text-[11px] text-secondary font-code">
+<span class="">Хеш: e3b0c442...</span>
+<span class="">Архивирован 12.10.2026</span>
+</div>
+</div>
+<button class="w-full h-7 px-space-sm rounded-DEFAULT bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm flex items-center justify-center gap-1 transition-colors" onclick="alert('Открытие карточки документа архива SCR-11')">
+<span class="">Открыть карточку документа (SCR-11)</span>
+<span class="material-symbols-outlined text-[13px]">north_east</span>
+</button>
+</div>
+</div>
+<!-- Audit & Meta Info -->
+<div class="text-[11px] text-outline font-body-sm space-y-0.5 px-1">
+<div class="">Создан: 28.09.2026 14:10 (Локальный профиль)</div>
+<div class="">Идентификатор плана: <span class="font-code text-[10px]">PLN-2026-0019</span></div>
+</div>
+</div>
+<!-- Inspector Footer Actions -->
+<div class="p-space-md bg-surface-container-low space-y-space-xs shrink-0">
+<button class="w-full h-7 px-space-md rounded-DEFAULT bg-surface text-on-surface hover:bg-surface-container font-body-sm text-body-sm flex items-center justify-center gap-1.5 transition-colors shadow-xs" onclick="editCurrentPlan()">
+<span class="material-symbols-outlined text-[15px]">edit</span>
+<span class="">Изменить параметры</span>
+</button>
+<div class="flex gap-space-xs">
+<button class="flex-1 h-7 px-space-sm rounded-DEFAULT bg-transparent text-secondary hover:text-error hover:bg-error-container/30 font-body-sm text-[12px] flex items-center justify-center gap-1 transition-colors" onclick="switchState('modal-cancel')">
+<span class="material-symbols-outlined text-[14px]">close</span>
+<span class="">Отменить</span>
+</button>
+<button class="h-7 w-7 rounded-DEFAULT flex items-center justify-center text-outline hover:text-error hover:bg-error-container/30 transition-colors" onclick="deleteCurrentPlan()" title="Удалить план навсегда">
+<span class="material-symbols-outlined text-[14px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- MODAL: Создание / Правка плана (SCR-15) -->
+<div class="hidden fixed inset-0 z-50 bg-inverse-surface/40 flex items-center justify-center p-space-md" id="modal-create-container">
+<div class="bg-surface-container-lowest rounded-lg shadow-xl w-full max-w-lg flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-100">
+<div class="h-10 px-space-md bg-surface-container-low flex items-center justify-between shrink-0">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">add_task</span>
+<span id="modal-title-text" class="">Новый план документа</span>
+</div>
+<button class="w-6 h-6 rounded-DEFAULT flex items-center justify-center text-secondary hover:text-on-surface" onclick="closeModals()">
+<span class="material-symbols-outlined text-[15px]">close</span>
+</button>
+</div>
+<div class="p-space-md space-y-space-md overflow-y-auto max-h-[819px]">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface block mb-1">Название ожидаемого документа *</label>
+<input class="w-full h-8 px-space-sm bg-surface text-on-surface font-body-md text-body-md rounded-DEFAULT outline-none focus:ring-1 focus:ring-primary" id="form-plan-title" placeholder="Например: Справка 2-НДФЛ, Паспорт гражданина..." type="text" value="Выписка из ЕГРН на квартиру на Московском пр.">
+</div>
+<div class="grid grid-cols-2 gap-space-md">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface block mb-1">Ожидаемая категория</label>
+<select class="w-full h-8 px-space-xs bg-surface text-on-surface font-body-sm text-body-sm rounded-DEFAULT outline-none focus:ring-1 focus:ring-primary">
+<option selected="">Жильё</option>
+<option>Работа и налоги</option>
+<option>Авто</option>
+<option>Здоровье</option>
+<option>Имущество</option>
+<option>Личные документы</option>
+</select>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface block mb-1">Зона хранения</label>
+<div class="flex items-center gap-2 h-8">
+<label class="flex items-center gap-1 cursor-pointer font-body-sm text-body-sm">
+<input checked="" class="accent-primary" name="target-zone" type="radio" value="open">
+<span class="">Open</span>
+</label>
+<label class="flex items-center gap-1 cursor-pointer font-body-sm text-body-sm">
+<input class="accent-primary" name="target-zone" type="radio" value="secret">
+<span class="flex items-center gap-0.5 text-error">
+<span class="material-symbols-outlined text-[13px]">lock</span>
+<span class="">Secret</span>
+</span>
+</label>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-md items-end">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface block mb-1">Целевой срок получения (Дедлайн)</label>
+<input class="w-full h-8 px-space-xs bg-surface text-on-surface font-code text-body-sm rounded-DEFAULT outline-none focus:ring-1 focus:ring-primary" type="date" value="2026-11-15">
+</div>
+<div class="h-8 flex items-center">
+<label class="flex items-center gap-1.5 cursor-pointer font-body-sm text-body-sm text-secondary">
+<input class="w-3.5 h-3.5 accent-primary rounded-DEFAULT" type="checkbox">
+<span class="">Без конкретного срока</span>
+</label>
+</div>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface block mb-1">Заметки, инструкции, реквизиты обращения</label>
+<textarea class="w-full p-space-sm bg-surface text-on-surface font-body-sm text-body-sm rounded-DEFAULT outline-none focus:ring-1 focus:ring-primary resize-none" placeholder="Где заказывать, номер обращения, список сопутствующих бумаг..." rows="3">Запросить в МФЦ или через личный кабинет Госуслуг</textarea>
+</div>
+<div class="p-space-xs bg-surface-container rounded-DEFAULT flex items-start gap-space-xs text-secondary font-body-sm text-[11px]">
+<span class="material-symbols-outlined text-[15px] text-primary shrink-0">verified_user</span>
+<span class="">План не требует прикрепления файлов. Документ будет связан с реальным файлом при наступлении факта готовности.</span>
+</div>
+</div>
+<div class="h-11 px-space-md bg-surface-container-low flex items-center justify-end gap-space-sm shrink-0">
+<button class="h-7 px-space-md rounded-DEFAULT bg-transparent hover:bg-surface-container text-secondary font-body-sm text-body-sm transition-colors" onclick="closeModals()">
+          Отмена
+        </button>
+<button class="h-7 px-space-lg rounded-DEFAULT bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-colors shadow-xs" onclick="closeModals(); alert('План успешно сохранён!')">
+          Сохранить план
+        </button>
+</div>
+</div>
+</div>
+<!-- MODAL: Выполнение плана и связывание с сохранённым документом -->
+<div class="hidden fixed inset-0 z-50 bg-inverse-surface/40 flex items-center justify-center p-space-md" id="modal-complete-container"><div class="bg-surface-container-lowest rounded-lg shadow-xl w-full max-w-xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-100"><div class="h-10 px-space-md bg-surface-container-low flex items-center justify-between shrink-0 border-b border-surface-container-highest"><div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface"><span class="material-symbols-outlined text-[18px] text-primary">task_alt</span><span class="">Выполнение плана: выбор пути связывания</span></div><button class="w-6 h-6 rounded-DEFAULT flex items-center justify-center text-secondary hover:text-on-surface" onclick="closeModals()"><span class="material-symbols-outlined text-[15px]">close</span></button></div><div class="p-space-md space-y-space-md overflow-y-auto max-h-[80vh]"><div class="p-space-sm bg-surface-container-low rounded-DEFAULT flex items-center justify-between"><div class="min-w-0"><div class="font-label-sm text-[10px] text-outline uppercase tracking-wider">Текущий план</div><div class="font-headline-sm text-headline-sm text-on-surface truncate" id="modal-complete-plan-title">Выписка из ЕГРН на квартиру на Московском пр.</div><div class="text-[11px] text-secondary font-body-sm" id="modal-complete-plan-meta">Категория: Жильё • Зона: Open</div></div><div class="shrink-0 ml-2" id="modal-zone-indicator"><span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-code text-[11px]">Open</span></div></div><div class="flex border-b border-surface-container-highest gap-space-sm"><button class="pb-2 px-1 text-[13px] font-semibold border-b-2 border-primary text-primary flex items-center gap-1.5 transition-colors" id="tab-btn-path-existing" onclick="switchCompleteTab('existing')"><span class="material-symbols-outlined text-[16px]">inventory_2</span><span class="">Путь 1: Привязать сохранённый</span></button><button class="pb-2 px-1 text-[13px] font-medium text-secondary hover:text-on-surface flex items-center gap-1.5 transition-colors" id="tab-btn-path-import" onclick="switchCompleteTab('import')"><span class="material-symbols-outlined text-[16px]">upload_file</span><span class="">Путь 2: Импортировать новый</span></button></div><div id="tab-content-existing" class="space-y-space-md"><div class="p-space-xs rounded bg-surface-container text-[11px] text-secondary flex items-start gap-1.5"><span class="material-symbols-outlined text-[15px] text-primary shrink-0">verified_user</span><span class="">Выбор уже сохранённого в Журнале документа. Без подтверждения план остаётся в статусе «Запланирован». Фиктивные записи не создаются.</span></div><div class="hidden p-space-sm rounded bg-error-container text-on-error-container text-[12px] flex items-center gap-2" id="modal-secret-locked-warning"><span class="material-symbols-outlined text-[18px] text-error">lock</span><div><div class="font-semibold">Том Secret заблокирован</div><div class="">План относится к Secret зоне. Привязка документов недоступна до монтирования и ввода мастер-ключа тома VeraCrypt.</div></div></div><div id="modal-existing-search-box"><div><label class="font-label-sm text-label-sm text-on-surface block mb-1">Поиск в доступном архиве (SCR-01)</label><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-2 text-[14px] text-outline pointer-events-none">search</span><input class="w-full h-8 pl-7 pr-space-sm bg-surface text-on-surface font-body-sm text-body-sm rounded-DEFAULT outline-none focus:ring-1 focus:ring-primary border border-surface-container-highest" id="complete-search-input" oninput="filterCandidateDocs(this.value)" placeholder="Номер документа, ключевое слово, имя файла..." type="text" value=""></div></div><div><div class="font-label-sm text-[11px] text-outline mb-1.5 flex items-center justify-between"><span class="">Доступные совпадения в архиве:</span><span class="text-[10px] text-secondary">Только проверенные тома</span></div><div class="space-y-1.5" id="candidate-docs-list"><label class="flex items-center justify-between p-2 rounded-DEFAULT bg-surface hover:bg-surface-container-low border border-primary cursor-pointer transition-colors"><div class="flex items-center gap-2 min-w-0"><input checked="" class="accent-primary shrink-0" name="candidate-doc" type="radio" value="PV-0042" data-name="Акт приёма-передачи жилого помещения № 42.pdf"><div class="min-w-0"><div class="font-medium text-[12px] text-on-surface flex items-center gap-1.5 truncate"><span class="font-code text-[11px] text-primary shrink-0">PV-0042</span><span class="truncate">Акт приёма-передачи жилого помещения № 42.pdf</span></div><div class="text-[11px] text-secondary font-code truncate">Хеш: SHA-256 c79e... • Зафиксирован в архиве</div></div></div><span class="px-1.5 py-0.5 rounded bg-surface-container text-secondary text-[10px] font-code shrink-0">Open</span></label><label class="flex items-center justify-between p-2 rounded-DEFAULT bg-surface hover:bg-surface-container-low border border-surface-container-highest cursor-pointer transition-colors"><div class="flex items-center gap-2 min-w-0"><input class="accent-primary shrink-0" name="candidate-doc" type="radio" value="PV-0043" data-name="Выписка ЕГРН (электронная подпись).xml"><div class="min-w-0"><div class="font-medium text-[12px] text-on-surface flex items-center gap-1.5 truncate"><span class="font-code text-[11px] text-outline shrink-0">PV-0043</span><span class="truncate">Выписка ЕГРН (электронная подпись).xml</span></div><div class="text-[11px] text-secondary font-code truncate">Хеш: SHA-256 9a8b... • Зафиксирован в архиве</div></div></div><span class="px-1.5 py-0.5 rounded bg-surface-container text-secondary text-[10px] font-code shrink-0">Open</span></label></div></div></div></div><div id="tab-content-import" class="hidden space-y-space-md"><div class="p-space-sm rounded-DEFAULT bg-surface-container-low border border-surface-container-highest space-y-2"><div class="flex items-center gap-2 text-primary font-semibold text-[13px]"><span class="material-symbols-outlined text-[18px]">flowsheet</span><span class="">Цепочка импорта в защищённое хранилище (SCR-02 → SCR-08)</span></div><p class="font-body-sm text-[12px] text-on-surface leading-relaxed">При выборе этого пути система передаст контекст текущего плана в мастер импорта. Файл будет зашифрован и добавлен в архив.</p><div class="p-2 rounded bg-surface-container-lowest text-[11px] text-secondary space-y-1 font-body-sm"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[13px] text-primary">check_circle</span><span class="">Контекст сохраняется: Название, Категория, Зона</span></div><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[13px] text-outline">info</span><span class="">При отмене или сбое импорта план остаётся открытым («Запланирован»).</span></div><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[13px] text-outline">lock_clock</span><span class="">Автоматический перевод в «Выполнен» запрещён без явного подтверждения.</span></div></div></div><button class="w-full h-9 px-space-md rounded-DEFAULT bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md flex items-center justify-center gap-2 transition-colors shadow-xs" onclick="startImportWorkflow()"><span class="material-symbols-outlined text-[16px]">add_circle</span><span class="">Запустить импорт нового документа (SCR-02 → SCR-08)</span></button></div></div><div class="h-11 px-space-md bg-surface-container-low flex items-center justify-between shrink-0 border-t border-surface-container-highest"><span class="font-body-sm text-[11px] text-secondary" id="modal-footer-state-hint">Требуется подтверждение завершения</span><div class="flex items-center gap-space-sm"><button class="h-7 px-space-md rounded-DEFAULT bg-transparent hover:bg-surface-container text-secondary font-body-sm text-body-sm transition-colors" onclick="closeModals()">Отмена</button><button class="h-7 px-space-lg rounded-DEFAULT bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-colors shadow-xs disabled:opacity-50 disabled:pointer-events-none" id="btn-confirm-completion-dialog" onclick="confirmCompletion()">Подтвердить завершение плана</button></div></div></div></div>
+<!-- MODAL: Отмена плана (Подтверждение с указанием причины) -->
+<div class="hidden fixed inset-0 z-50 bg-inverse-surface/40 flex items-center justify-center p-space-md" id="modal-cancel-container">
+<div class="bg-surface-container-lowest rounded-lg shadow-xl w-full max-w-md flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-100">
+<div class="h-10 px-space-md bg-surface-container-low flex items-center justify-between shrink-0">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-secondary">cancel</span>
+<span class="">Отмена плана документа</span>
+</div>
+<button class="w-6 h-6 rounded-DEFAULT flex items-center justify-center text-secondary hover:text-on-surface" onclick="closeModals()">
+<span class="material-symbols-outlined text-[15px]">close</span>
+</button>
+</div>
+<div class="p-space-md space-y-space-md">
+<p class="font-body-sm text-body-sm text-on-surface">
+          Вы уверены, что хотите перевести план в состояние <strong class="text-on-surface">«Отменён»</strong>? Запись сохранится для истории, но не будет учитываться в контроле сроков.
+        </p>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface block mb-1">Причина отмены (необязательно)</label>
+<input class="w-full h-8 px-space-sm bg-surface text-on-surface font-body-sm text-body-sm rounded-DEFAULT outline-none focus:ring-1 focus:ring-primary" id="cancel-reason-input" placeholder="Например: Сделка отменена / Не требуется" type="text" value="Сделка отменена">
+</div>
+</div>
+<div class="h-11 px-space-md bg-surface-container-low flex items-center justify-end gap-space-sm shrink-0">
+<button class="h-7 px-space-md rounded-DEFAULT bg-transparent hover:bg-surface-container text-secondary font-body-sm text-body-sm transition-colors" onclick="closeModals()">
+          Назад
+        </button>
+<button class="h-7 px-space-lg rounded-DEFAULT bg-secondary text-on-secondary hover:bg-secondary/90 font-label-md text-label-md transition-colors shadow-xs" onclick="confirmCancellation()">
+          Отменить план
+        </button>
+</div>
+</div>
+</div>
+<!-- Date Filters Dropdown Simulation Popover -->
+<div class="hidden fixed inset-0 z-50 bg-inverse-surface/40 flex items-center justify-center p-space-md" id="modal-post-import-confirm"><div class="bg-surface-container-lowest rounded-lg shadow-xl w-full max-w-md flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-100"><div class="h-10 px-space-md bg-surface-container-low flex items-center justify-between shrink-0 border-b border-surface-container-highest"><div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface"><span class="material-symbols-outlined text-[18px] text-primary">task_alt</span><span class="">Архив зафиксирован: привязка к плану</span></div><button class="w-6 h-6 rounded-DEFAULT flex items-center justify-center text-secondary hover:text-on-surface" onclick="closePostImportModal()"><span class="material-symbols-outlined text-[15px]">close</span></button></div><div class="p-space-md space-y-space-md"><div class="p-space-sm rounded bg-primary/10 border border-primary/20 text-on-surface text-[12px] space-y-1"><div class="font-semibold flex items-center gap-1.5 text-primary"><span class="material-symbols-outlined text-[16px]">cloud_done</span><span class="">Документ успешно добавлен в хранилище</span></div><div class="font-code text-[11px] text-secondary" id="post-import-doc-code">PV-0044 • Свежая_выписка_ЕГРН_2026.pdf</div></div><p class="font-body-sm text-body-sm text-on-surface leading-relaxed">Привязать только что зафиксированный документ к плану <strong class="text-on-surface" id="post-import-plan-title">«Выписка из ЕГРН на квартиру на Московском пр.»</strong> и перевести план в состояние <strong class="text-primary">«Выполнен»</strong>?</p><div class="p-2 rounded bg-surface-container text-[11px] text-secondary flex items-start gap-1.5"><span class="material-symbols-outlined text-[14px] text-outline shrink-0">info</span><span class="">Если выбрать «Не привязывать», документ останется в архиве, а план продолжит ожидать выполнения.</span></div></div><div class="h-11 px-space-md bg-surface-container-low flex items-center justify-end gap-space-sm shrink-0 border-t border-surface-container-highest"><button class="h-7 px-space-md rounded-DEFAULT bg-surface text-secondary hover:text-on-surface hover:bg-surface-container font-body-sm text-body-sm transition-colors border border-surface-container-highest" onclick="rejectPostImportBinding()">Не привязывать, оставить открытым</button><button class="h-7 px-space-lg rounded-DEFAULT bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-colors shadow-xs" onclick="acceptPostImportBinding()">Да, привязать к плану</button></div></div></div><div class="hidden absolute top-24 right-20 z-40 w-56 p-space-sm bg-surface-container-lowest rounded-DEFAULT shadow-xl border border-surface-container-highest space-y-1" id="popover-date-filters">
+<div class="font-label-sm text-[10px] text-outline uppercase tracking-wider px-1">Фильтр по дедлайну</div>
+<button class="w-full text-left px-2 py-1 rounded text-[12px] hover:bg-surface-container text-on-surface" onclick="toggleDateFilterPopup()">Все сроки</button>
+<button class="w-full text-left px-2 py-1 rounded text-[12px] hover:bg-surface-container text-error font-medium" onclick="toggleDateFilterPopup()">Только просроченные</button>
+<button class="w-full text-left px-2 py-1 rounded text-[12px] hover:bg-surface-container text-on-surface" onclick="toggleDateFilterPopup()">Ближайшие 7 дней</button>
+<button class="w-full text-left px-2 py-1 rounded text-[12px] hover:bg-surface-container text-on-surface" onclick="toggleDateFilterPopup()">Ближайшие 30 дней</button>
+<button class="w-full text-left px-2 py-1 rounded text-[12px] hover:bg-surface-container text-secondary" onclick="toggleDateFilterPopup()">Без срока</button>
+</div>
+</div>
+<script>
+  // State management variables
+  let activeState = 'default';
+  let selectedPlanId = 1;
+  let inspectorOpen = true;
+  let isSecretLocked = false;
+  let activeZone = 'all';
+  let activeStatusFilter = 'all';
+
+  const planDatabase = {
+    1: {
+      id: 1,
+      title: "Выписка из ЕГРН на квартиру на Московском пр.",
+      category: "Жильё",
+      zone: "Open",
+      deadline: "15.11.2026",
+      relative: "через 22 дня",
+      status: "Запланирован",
+      isOverdue: false,
+      notes: "Запросить в МФЦ «Мои документы» или через личный кабинет Госуслуг. Требуется паспорт и СНИЛС заявителя.",
+      linkedDoc: null
+    },
+    2: {
+      id: 2,
+      title: "Справка 2-НДФЛ за 2026 год от работодателя",
+      category: "Работа",
+      zone: "Secret",
+      deadline: "01.10.2026",
+      relative: "просрочен на 13 дней",
+      status: "Запланирован",
+      isOverdue: true,
+      notes: "Запросить в бухгалтерии с живой синей печатью для подачи на налоговый вычет.",
+      linkedDoc: null
+    },
+    3: {
+      id: 3,
+      title: "Полис ОСАГО на 2027 год (продление)",
+      category: "Авто",
+      zone: "Open",
+      deadline: "12.12.2026",
+      relative: "в графике",
+      status: "Запланирован",
+      isOverdue: false,
+      notes: "Сверить диагностическую карту перед оформлением электронного полиса.",
+      linkedDoc: null
+    },
+    4: {
+      id: 4,
+      title: "Акт приёма-передачи жилого помещения № 42",
+      category: "Жильё",
+      zone: "Open",
+      deadline: "12.10.2026",
+      relative: "выполнен",
+      status: "Выполнен",
+      isOverdue: false,
+      notes: "Подписан при приёмке ключей. Оригинал отсканирован в цвете.",
+      linkedDoc: {
+        code: "PV-0042",
+        name: "Акт приёма-передачи жилого помещения № 42.pdf",
+        date: "12.10.2026"
+      }
+    },
+    5: {
+      id: 5,
+      title: "Архивная выписка из домовой книги (старая)",
+      category: "Жильё",
+      zone: "Open",
+      deadline: "Без срока",
+      relative: "отменён",
+      status: "Отменён",
+      isOverdue: false,
+      notes: "Причина отмены: Сделка отменена.",
+      linkedDoc: null
+    }
+  };
+
+  function selectRow(id) {
+    selectedPlanId = id;
+    
+    // Highlight table rows
+    for (let i = 1; i <= 5; i++) {
+      const row = document.getElementById(`row-${i}`);
+      if (row) {
+        if (i === id) {
+          row.classList.add('bg-surface-container');
+        } else {
+          row.classList.remove('bg-surface-container');
+        }
+      }
+    }
+
+    const data = planDatabase[id];
+    if (!data) return;
+
+    // Populate inspector
+    document.getElementById('insp-title').innerText = data.title;
+    document.getElementById('insp-category-badge').innerText = data.category;
+    document.getElementById('insp-zone-badge').innerText = `Зона: ${data.zone}`;
+    document.getElementById('insp-deadline').innerText = data.deadline;
+    document.getElementById('insp-deadline-relative').innerText = data.relative;
+    document.getElementById('insp-notes').innerText = data.notes;
+
+    const statusBadge = document.getElementById('insp-status-badge');
+    if (data.status === 'Выполнен') {
+      statusBadge.className = 'px-2 py-0.5 rounded-DEFAULT bg-surface-container text-secondary font-label-md text-[11px] flex items-center gap-1';
+      statusBadge.innerHTML = '<span class="material-symbols-outlined text-[13px] text-primary">check</span><span>Выполнен</span>';
+    } else if (data.status === 'Отменён') {
+      statusBadge.className = 'px-2 py-0.5 rounded-DEFAULT bg-surface-container text-outline font-label-md text-[11px] flex items-center gap-1';
+      statusBadge.innerHTML = '<span>Отменён</span>';
+    } else if (data.isOverdue) {
+      statusBadge.className = 'px-2 py-0.5 rounded-DEFAULT bg-error-container text-on-error-container font-label-md text-[11px] flex items-center gap-1';
+      statusBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-error"></span><span>Просрочен (Запланирован)</span>';
+    } else {
+      statusBadge.className = 'px-2 py-0.5 rounded-DEFAULT bg-surface-container-highest text-primary font-label-md text-[11px] flex items-center gap-1';
+      statusBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>Запланирован</span>';
+    }
+
+    const unlinkedBox = document.getElementById('insp-unlinked-state');
+    const linkedBox = document.getElementById('insp-linked-state');
+
+    if (data.linkedDoc) {
+      unlinkedBox.classList.add('hidden');
+      linkedBox.classList.remove('hidden');
+      document.getElementById('insp-linked-name').innerText = `${data.linkedDoc.code} — ${data.linkedDoc.name}`;
+    } else {
+      unlinkedBox.classList.remove('hidden');
+      linkedBox.classList.add('hidden');
+    }
+
+    // Open inspector if closed
+    if (!inspectorOpen) {
+      toggleInspector();
+    }
+  }
+
+  function toggleInspector() {
+    const inspector = document.getElementById('inspector-panel');
+    inspectorOpen = !inspectorOpen;
+    if (inspectorOpen) {
+      inspector.classList.remove('w-0', 'p-0', 'border-0');
+      inspector.classList.add('w-80');
+    } else {
+      inspector.classList.remove('w-80');
+      inspector.classList.add('w-0', 'overflow-hidden');
+    }
+  }
+
+  function toggleDateFilterPopup() {
+    const popover = document.getElementById('popover-date-filters');
+    popover.classList.toggle('hidden');
+  }
+
+  function applyStatusFilter(status) {
+    activeStatusFilter = status;
+    const pills = ['all', 'planned', 'overdue', 'completed', 'canceled'];
+    pills.forEach(p => {
+      const el = document.getElementById(`pill-${p}`);
+      if (p === status) {
+        el.className = 'h-6 px-2 rounded-DEFAULT bg-surface-container-high text-primary font-label-md text-[11px] flex items-center gap-1 transition-colors';
+      } else {
+        el.className = 'h-6 px-2 rounded-DEFAULT bg-transparent text-secondary hover:bg-surface-container font-label-md text-[11px] flex items-center gap-1 transition-colors';
+      }
+    });
+
+    const rows = [
+      { id: 'row-1', status: 'planned', overdue: false },
+      { id: 'row-2', status: 'planned', overdue: true },
+      { id: 'row-3', status: 'planned', overdue: false },
+      { id: 'row-4', status: 'completed', overdue: false },
+      { id: 'row-5', status: 'canceled', overdue: false }
+    ];
+
+    rows.forEach(r => {
+      const el = document.getElementById(r.id);
+      if (!el) return;
+      if (status === 'all') {
+        el.style.display = '';
+      } else if (status === 'overdue') {
+        el.style.display = r.overdue ? '' : 'none';
+      } else {
+        el.style.display = (r.status === status) ? '' : 'none';
+      }
+    });
+  }
+
+  function applyZoneFilter(zone) {
+    activeZone = zone;
+    const zones = ['all', 'open', 'secret'];
+    zones.forEach(z => {
+      const el = document.getElementById(`zone-${z}`);
+      if (z === zone) {
+        el.className = 'px-2 h-full rounded-DEFAULT bg-surface text-primary font-label-md shadow-xs';
+      } else {
+        el.className = 'px-2 h-full rounded-DEFAULT hover:text-on-surface';
+      }
+    });
+
+    const secretRow = document.getElementById('row-2');
+    if (zone === 'open') {
+      if (secretRow) secretRow.style.display = 'none';
+    } else if (zone === 'secret') {
+      for (let i = 1; i <= 5; i++) {
+        const row = document.getElementById(`row-${i}`);
+        if (row) row.style.display = (i === 2) ? '' : 'none';
+      }
+    } else {
+      for (let i = 1; i <= 5; i++) {
+        const row = document.getElementById(`row-${i}`);
+        if (row && (!isSecretLocked || i !== 2)) row.style.display = '';
+      }
+    }
+  }
+
+  function handleSearch(val) {
+    const query = val.toLowerCase().trim();
+    for (let i = 1; i <= 5; i++) {
+      const data = planDatabase[i];
+      const row = document.getElementById(`row-${i}`);
+      if (!row) continue;
+      const match = data.title.toLowerCase().includes(query) ||
+                    data.category.toLowerCase().includes(query) ||
+                    data.notes.toLowerCase().includes(query);
+      row.style.display = match ? '' : 'none';
+    }
+  }
+
+  function closeModals() {
+    document.getElementById('modal-create-container').classList.add('hidden');
+    document.getElementById('modal-complete-container').classList.add('hidden');
+    document.getElementById('modal-cancel-container').classList.add('hidden');
+  }
+
+  function openCompleteModal(planId = selectedPlanId) {
+    selectedPlanId = planId;
+    const data = planDatabase[planId];
+    if (data) {
+      document.getElementById('modal-complete-plan-title').innerText = data.title;
+    }
+    document.getElementById('modal-complete-container').classList.remove('hidden');
+  }
+
+  function editPlan(id) {
+    selectRow(id);
+    const data = planDatabase[id];
+    document.getElementById('modal-title-text').innerText = 'Редактирование плана';
+    document.getElementById('form-plan-title').value = data.title;
+    document.getElementById('modal-create-container').classList.remove('hidden');
+  }
+
+  function editCurrentPlan() {
+    editPlan(selectedPlanId);
+  }
+
+  function confirmCompletion() {
+    closeModals();
+    const data = planDatabase[selectedPlanId];
+    if (data) {
+      data.status = 'Выполнен';
+      data.isOverdue = false;
+      data.linkedDoc = {
+        code: 'PV-0042',
+        name: 'Акт приёма-передачи жилого помещения № 42.pdf',
+        date: '24.10.2026'
+      };
+      selectRow(selectedPlanId);
+      // update table UI row
+      const row = document.getElementById(`row-${selectedPlanId}`);
+      if (row) {
+        row.querySelector('td:nth-child(6)').innerHTML = '<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-DEFAULT bg-surface-container-highest text-secondary font-label-sm text-[11px]"><span class="material-symbols-outlined text-[12px] text-primary">check</span>Выполнен</span>';
+        row.querySelector('td:nth-child(7)').innerHTML = '<div class="inline-flex items-center gap-1 text-primary cursor-pointer hover:underline"><span class="material-symbols-outlined text-[13px]">attachment</span><span class="font-code text-[11px] text-on-surface font-medium">PV-0042</span><span class="truncate max-w-[130px] text-[11px]">Акт приёма...pdf</span></div>';
+      }
+    }
+  }
+
+  function confirmCancellation() {
+    closeModals();
+    const data = planDatabase[selectedPlanId];
+    if (data) {
+      data.status = 'Отменён';
+      data.isOverdue = false;
+      selectRow(selectedPlanId);
+      const row = document.getElementById(`row-${selectedPlanId}`);
+      if (row) {
+        row.classList.add('opacity-70');
+        row.querySelector('td:nth-child(2) span:last-child').classList.add('line-through');
+        row.querySelector('td:nth-child(6)').innerHTML = '<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-DEFAULT bg-surface-container text-outline font-label-sm text-[11px]">Отменён</span>';
+      }
+    }
+  }
+
+  function deleteCurrentPlan() {
+    if (confirm('Удалить план навсегда? Это действие необратимо.')) {
+      const row = document.getElementById(`row-${selectedPlanId}`);
+      if (row) row.remove();
+      selectRow(1);
+    }
+  }
+
+  // Switch between states for simulation bar
+  function switchState(stateName) {
+    activeState = stateName;
+    closeModals();
+
+    const buttons = [
+      'btn-st-default', 'btn-st-empty', 'btn-st-modal-create',
+      'btn-st-modal-complete', 'btn-st-modal-cancel', 'btn-st-secret-locked', 'btn-st-compact'
+    ];
+
+    buttons.forEach(b => {
+      const btn = document.getElementById(b);
+      if (!btn) return;
+      btn.className = 'h-6 px-2 rounded-DEFAULT bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-sm text-[11px] transition-all';
+    });
+
+    const activeBtn = document.getElementById(`btn-st-${stateName}`);
+    if (activeBtn) {
+      activeBtn.className = 'h-6 px-2 rounded-DEFAULT bg-primary text-on-primary font-label-sm text-[11px] flex items-center gap-1 transition-all';
+    }
+
+    const table = document.getElementById('plans-table');
+    const emptyState = document.getElementById('state-empty');
+    const secretNotice = document.getElementById('secret-notice');
+    const secretRow = document.getElementById('row-2');
+    const wrapper = document.getElementById('workspace-wrapper');
+
+    // Reset base widths
+    wrapper.style.maxWidth = '100%';
+
+    if (stateName === 'default') {
+      table.classList.remove('hidden');
+      emptyState.classList.add('hidden');
+      secretNotice.classList.add('hidden');
+      isSecretLocked = false;
+      if (secretRow) secretRow.style.display = '';
+      document.getElementById('count-all').innerText = '5';
+      selectRow(1);
+    } 
+    else if (stateName === 'empty') {
+      table.classList.add('hidden');
+      emptyState.classList.remove('hidden');
+      secretNotice.classList.add('hidden');
+      document.getElementById('count-all').innerText = '0';
+      document.getElementById('count-planned').innerText = '0';
+      document.getElementById('count-overdue').innerText = '0';
+      document.getElementById('count-completed').innerText = '0';
+      document.getElementById('count-canceled').innerText = '0';
+    }
+    else if (stateName === 'modal-create') {
+      table.classList.remove('hidden');
+      emptyState.classList.add('hidden');
+      document.getElementById('modal-title-text').innerText = 'Новый план документа';
+      document.getElementById('form-plan-title').value = '';
+      document.getElementById('modal-create-container').classList.remove('hidden');
+    }
+    else if (stateName === 'modal-complete') {
+      table.classList.remove('hidden');
+      emptyState.classList.add('hidden');
+      openCompleteModal(1);
+    }
+    else if (stateName === 'modal-cancel') {
+      table.classList.remove('hidden');
+      emptyState.classList.add('hidden');
+      document.getElementById('modal-cancel-container').classList.remove('hidden');
+    }
+    else if (stateName === 'secret-locked') {
+      table.classList.remove('hidden');
+      emptyState.classList.add('hidden');
+      secretNotice.classList.remove('hidden');
+      isSecretLocked = true;
+      if (secretRow) secretRow.style.display = 'none';
+      document.getElementById('count-all').innerText = '4';
+      document.getElementById('count-overdue').innerText = '0';
+    }
+    else if (stateName === 'compact') {
+      table.classList.remove('hidden');
+      emptyState.classList.add('hidden');
+      secretNotice.classList.add('hidden');
+      wrapper.style.maxWidth = '900px';
+      selectRow(1);
+    }
+  }
+
+  // Initial selection on page load
+  selectRow(1);
+</script></main></div>
+
+
+
+</body></html>

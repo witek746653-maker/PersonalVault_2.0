@@ -1,0 +1,1863 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@100..900&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary-fixed-dim":"#bbc9c8","surface-container-highest":"#d7e4ec","surface":"#f4faff","surface-variant":"#d7e4ec","tertiary-container":"#6a7777","on-primary-fixed":"#00201e","primary-fixed":"#95f3eb","surface-bright":"#f4faff","surface-tint":"#006a65","on-secondary-fixed-variant":"#3b494e","surface-container":"#e3f0f8","tertiary-fixed":"#d7e5e4","outline":"#6e7978","on-error-container":"#93000a","secondary-fixed-dim":"#bac9cf","inverse-surface":"#263238","surface-dim":"#cfdce4","primary-container":"#12827c","secondary-fixed":"#d6e5ec","surface-container-lowest":"#ffffff","on-primary-fixed-variant":"#00504c","tertiary":"#515e5e","on-background":"#111d23","on-error":"#ffffff","error":"#ba1a1a","on-surface-variant":"#3e4948","on-primary":"#ffffff","surface-container-high":"#ddeaf2","on-tertiary":"#ffffff","on-tertiary-fixed":"#111e1d","background":"#f4faff","on-tertiary-fixed-variant":"#3c4949","on-secondary":"#ffffff","inverse-on-surface":"#e6f3fb","primary":"#006763","on-tertiary-container":"#f3fffe","error-container":"#ffdad6","inverse-primary":"#79d6cf","on-secondary-container":"#59676c","primary-fixed-dim":"#79d6cf","on-surface":"#111d23","surface-container-low":"#e9f6fd","secondary-container":"#d6e5ec","on-secondary-fixed":"#101d22","outline-variant":"#bdc9c7","secondary":"#536166","on-primary-container":"#f3fffd"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-xs":"0.25rem","gutter":"0.75rem","space-md":"0.5rem","space-lg":"0.75rem","space-sm":"0.375rem","space-xl":"1rem","margin":"1rem"},fontFamily:{"body-md":["Segoe UI"],"body-sm":["Segoe UI"],"label-md":["Segoe UI"],"body-lg":["Segoe UI"],"headline-sm":["Segoe UI"],"headline-md":["Segoe UI"],"code":["JetBrains Mono"],"headline-lg":["Segoe UI"],"label-sm":["Segoe UI"]},fontSize:{"body-md":["13px",{lineHeight:"18px",fontWeight:"400"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",fontWeight:"600"}],"body-lg":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-sm":["15px",{lineHeight:"20px",fontWeight:"600"}],"headline-md":["18px",{lineHeight:"24px",fontWeight:"600"}],"code":["12px",{lineHeight:"16px",fontWeight:"400"}],"headline-lg":["22px",{lineHeight:"28px",fontWeight:"600"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.02em",fontWeight:"500"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased select-none" data-restored="true">
+<header class="fixed top-0 left-0 right-0 h-9 bg-surface-container-low z-50 flex items-center justify-between px-space-md select-none border-b border-surface-container-highest">
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-space-xs text-primary mr-space-md">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="font-label-md text-label-md tracking-tight text-on-surface">PersonalVault 2.0</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-[2px] rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary" id="top-vault-dot"></span>
+<span id="top-vault-status-txt" class="">Локальное хранилище</span>
+<span class="text-outline text-[10px]">|</span>
+<span class="font-code text-code text-secondary">C:\Vault\Encrypted</span>
+</div>
+</div>
+<div class="flex-1 max-w-xs mx-space-xl">
+<div class="relative flex items-center w-full">
+<span class="material-symbols-outlined absolute left-2 text-[14px] text-outline pointer-events-none">search</span>
+<input class="w-full h-[24px] pl-6 pr-2 bg-surface text-on-surface font-body-sm text-body-sm rounded border border-surface-container-highest focus:outline-none focus:border-primary placeholder-outline" placeholder="Быстрый поиск (Ctrl+K)..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs text-secondary text-[14px] mr-space-sm">
+<span class="material-symbols-outlined text-[14px] text-primary">sync_saved_locally</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Синхронизировано</span>
+</div>
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[14px]">person</span>
+</div>
+<div class="flex items-center ml-space-sm">
+<button class="w-7 h-6 flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[12px]">minimize</span></button>
+<button class="w-7 h-6 flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[12px]">crop_square</span></button>
+<button class="w-7 h-6 flex items-center justify-center text-on-surface-variant hover:bg-error hover:text-on-error transition-colors"><span class="material-symbols-outlined text-[12px]">close</span></button>
+</div>
+</div>
+</header>
+<aside class="fixed left-0 top-9 bottom-0 w-48 bg-surface-container-low z-40 flex flex-col justify-between border-r border-surface-container-highest">
+<div class="flex flex-col pt-space-xs"><div class="px-space-md py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">ДОКУМЕНТЫ</div>
+<nav class="flex flex-col px-space-xs gap-[1px]">
+<a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="zhurnal" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">edit_note</span><span class="">Журнал</span></div></a>
+<a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="vkhodyashchie" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">inbox</span><span class="">Входящие</span></div><span class="px-1.5 py-[1px] rounded bg-primary-container text-on-primary-container font-label-sm text-[10px]">5</span></a>
+<a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="chernoviki" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">draft</span><span class="">Черновики</span></div></a>
+<a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="plany" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">calendar_today</span><span class="">Планы</span></div></a>
+<a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="ubrannye" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">archive</span><span class="">Убранные</span></div></a>
+<div class="my-space-xs mx-space-xs border-t border-surface-container-highest"></div>
+<div class="px-space-sm py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">СПРАВОЧНИКИ</div>
+<a aria-current="page" class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT transition-colors bg-surface-container text-primary font-label-md border-l-2 border-primary" data-path="moi-dannye" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">folder_shared</span><span class="">Мои данные</span></div></a>
+<a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="shablony" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">content_copy</span><span class="">Шаблоны</span></div></a>
+<div class="my-space-xs mx-space-xs border-t border-surface-container-highest"></div>
+<div class="px-space-sm py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">ДОПОЛНИТЕЛЬНО</div>
+<a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="svodka-zdorovya" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">vital_signs</span><span class="">Сводка здоровья</span></div><span class="px-1 py-[1px] rounded bg-surface-container-highest text-outline font-label-sm text-[9px]">В разработке</span></a>
+<a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="pomoshchnik" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">smart_toy</span><span class="">Помощник</span></div><span class="px-1 py-[1px] rounded bg-surface-container-highest text-outline font-label-sm text-[9px]">В разработке</span></a>
+</nav></div>
+<div class="p-space-xs border-t border-surface-container-highest bg-surface-container-low"><div class="flex flex-col gap-[1px]">
+<a class="flex items-center gap-space-sm h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="obsluzhivanie-arkhiva" href="#"><span class="material-symbols-outlined text-[16px]">inventory_2</span><span class="">Обслуживание архива</span></a>
+<a class="flex items-center gap-space-sm h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="nastroiki" href="#"><span class="material-symbols-outlined text-[16px]">settings</span><span class="">Настройки</span></a>
+</div></div>
+</aside>
+<div class="pl-48">
+<main class="w-full pt-9 min-h-screen bg-surface">
+<div class="flex flex-col w-full h-[calc(100vh-36px)] text-on-surface overflow-hidden select-none">
+<!-- Sub-header & Action Bar -->
+<div class="bg-surface-container-low px-space-md py-space-xs flex flex-col gap-space-xs shrink-0 shadow-sm border-b border-surface-container-highest">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[18px]">folder_shared</span>
+<span class="font-headline-sm text-headline-sm tracking-tight text-on-surface">Мои данные (SCR-14)</span>
+</div>
+<span class="text-outline text-[11px]">|</span>
+<span class="font-body-sm text-body-sm text-secondary">Справочник переиспользуемых реквизитов пользователя</span>
+<span class="px-space-xs py-[1px] bg-surface-container text-on-surface-variant font-code text-[11px] rounded">v2.4-stable</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="h-[28px] px-space-sm rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm flex items-center gap-1 transition-colors" id="btn-create-group" onclick="showToast('Создание новой категории реквизитов', 'create_new_folder')">
+<span class="material-symbols-outlined text-[14px]">create_new_folder</span>
+<span class="">+ Создать группу</span>
+</button>
+<button class="h-[28px] px-space-sm rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm flex items-center gap-1 transition-colors" id="btn-add-record" onclick="addNewRecordMode()">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="">+ Добавить реквизит</span>
+</button>
+<button class="h-[28px] px-space-md rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-1.5 transition-colors shadow-sm" id="btn-insert-open" onclick="openInsertModal()">
+<span class="material-symbols-outlined text-[16px]">input</span>
+<span class="">Вставить в документ (SCR-06) →</span>
+</button>
+</div>
+</div>
+<!-- Simulator State Switcher Pill Bar (6 Clean Scenarios) -->
+<div class="flex items-center gap-1.5 overflow-x-auto py-1 px-1 bg-surface-container-high rounded text-on-surface-variant">
+<span class="font-label-sm text-label-sm text-outline px-1.5 uppercase font-bold tracking-wider shrink-0 text-[10px]">Режимы симулятора:</span>
+<button class="state-btn h-6 px-2.5 rounded font-label-sm text-label-sm flex items-center gap-1 transition-all bg-primary text-on-primary shadow-sm" data-state="normal" onclick="applyState('normal')">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span>
+<span class="">1. Штатный вид (Secret подключен: Open + Secret активны)</span>
+</button>
+<button class="state-btn h-6 px-2.5 rounded hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm flex items-center gap-1 transition-all" data-state="secret-locked" onclick="applyState('secret-locked')">
+<span class="material-symbols-outlined text-[13px] text-error">lock</span>
+<span class="">2. Secret отключен (UX-032: Open полноценно работает, Secret скрыт)</span>
+</button>
+<button class="state-btn h-6 px-2 rounded hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm flex items-center gap-1 transition-all" data-state="delete-blocked" onclick="applyState('delete-blocked')">
+<span class="material-symbols-outlined text-[13px] text-error">block</span>
+<span class="">3. Блокировка UX-020 (Непустая группа)</span>
+</button>
+<button class="state-btn h-6 px-2 rounded hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm flex items-center gap-1 transition-all" data-state="move-step" onclick="applyState('move-step')">
+<span class="material-symbols-outlined text-[13px] text-primary">drive_file_move</span>
+<span class="">4. Перенос реквизитов (UX-020)</span>
+</button>
+<button class="state-btn h-6 px-2 rounded hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm flex items-center gap-1 transition-all" data-state="ux032-group-blocked" onclick="applyState('ux032-group-blocked')">
+<span class="material-symbols-outlined text-[13px] text-error">gpp_maybe</span>
+<span class="">5. Блокировка UX-032 (Попытка удаления при отключенном томе)</span>
+</button>
+<button class="state-btn h-6 px-2 rounded hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm flex items-center gap-1 transition-all" data-state="delete-empty" onclick="applyState('delete-empty')">
+<span class="material-symbols-outlined text-[13px] text-secondary">delete</span>
+<span class="">6. Удаление пустой группы</span>
+</button>
+</div>
+</div>
+<!-- Main Three-Column Workspace Area -->
+<div class="flex-1 flex overflow-hidden bg-surface relative" id="workspace-container">
+<!-- LEFT SUB-PANEL: GROUPS TREE -->
+<div class="w-56 bg-surface-container-low shrink-0 flex flex-col justify-between border-r border-surface-container-highest z-10 transition-all" id="left-tree-panel">
+<div class="flex flex-col h-full overflow-hidden">
+<!-- Filter & Count -->
+<div class="p-space-sm bg-surface-container-low flex flex-col gap-1.5 border-b border-surface-container-highest">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="font-bold tracking-wider uppercase text-[10px] text-outline">Группы реквизитов</span>
+<span class="text-secondary font-code text-[11px]" id="total-groups-count">7 категорий</span>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-1.5 text-[14px] text-outline pointer-events-none">filter_list</span>
+<input class="w-full h-6 pl-6 pr-2 bg-surface text-on-surface font-body-sm text-body-sm rounded focus:outline-none focus:ring-1 focus:ring-primary placeholder-outline text-[11px] border border-surface-container-highest" placeholder="Фильтр категорий..." type="text">
+</div>
+</div>
+<!-- Categories List with Accurate Dynamic Badges -->
+<nav class="flex-1 overflow-y-auto px-1 py-1 flex flex-col gap-[2px]" id="groups-list">
+<!-- Item 1: Личные сведения -->
+<div class="group-item active group flex items-center justify-between h-[30px] px-2 rounded bg-surface-container text-primary font-label-md text-label-md cursor-pointer transition-colors" data-group-id="personal" onclick="onCategoryClick('personal')">
+<div class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-[16px]">account_box</span>
+<span class="truncate">Личные сведения</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="px-1.5 py-[1px] rounded bg-primary-container text-on-primary-container font-code text-[10px] font-semibold" id="badge-personal">4</span>
+<button class="opacity-0 group-hover:opacity-100 hover:text-error transition-opacity p-0.5 text-secondary" onclick="tryDeleteGroup(event, 'personal')" title="Удалить группу">
+<span class="material-symbols-outlined text-[13px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 2: Документы РФ -->
+<div class="group-item group flex items-center justify-between h-[30px] px-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm cursor-pointer transition-colors" data-group-id="docs" onclick="onCategoryClick('docs')">
+<div class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-[16px]">badge</span>
+<span class="truncate">Документы РФ</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="px-1.5 py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-code text-[10px]" id="badge-docs">5</span>
+<button class="opacity-0 group-hover:opacity-100 hover:text-error transition-opacity p-0.5 text-secondary" onclick="tryDeleteGroup(event, 'docs')" title="Удалить группу">
+<span class="material-symbols-outlined text-[13px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 3: Адреса -->
+<div class="group-item group flex items-center justify-between h-[30px] px-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm cursor-pointer transition-colors" data-group-id="addresses" onclick="onCategoryClick('addresses')">
+<div class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-[16px]">home_pin</span>
+<span class="truncate">Адреса</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="px-1.5 py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-code text-[10px]" id="badge-addresses">3</span>
+<button class="opacity-0 group-hover:opacity-100 hover:text-error transition-opacity p-0.5 text-secondary" onclick="tryDeleteGroup(event, 'addresses')" title="Удалить группу">
+<span class="material-symbols-outlined text-[13px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 4: Организации -->
+<div class="group-item group flex items-center justify-between h-[30px] px-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm cursor-pointer transition-colors" data-group-id="orgs" onclick="onCategoryClick('orgs')">
+<div class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-[16px]">corporate_fare</span>
+<span class="truncate">Организации</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="px-1.5 py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-code text-[10px]" id="badge-orgs">2</span>
+<button class="opacity-0 group-hover:opacity-100 hover:text-error transition-opacity p-0.5 text-secondary" onclick="tryDeleteGroup(event, 'orgs')" title="Удалить группу">
+<span class="material-symbols-outlined text-[13px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 5: Банковские счета -->
+<div class="group-item group flex items-center justify-between h-[30px] px-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm cursor-pointer transition-colors" data-group-id="bank" onclick="onCategoryClick('bank')">
+<div class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-[16px]">account_balance</span>
+<span class="truncate">Банковские счета</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="px-1.5 py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-code text-[10px]" id="badge-bank">2</span>
+<button class="opacity-0 group-hover:opacity-100 hover:text-error transition-opacity p-0.5 text-secondary" onclick="tryDeleteGroup(event, 'bank')" title="Удалить группу">
+<span class="material-symbols-outlined text-[13px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 6: Архивные черновики (Truly Empty) -->
+<div class="group-item group flex items-center justify-between h-[30px] px-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm cursor-pointer transition-colors" data-group-id="empty-demo" onclick="onCategoryClick('empty-demo')">
+<div class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-[16px]">folder_open</span>
+<span class="truncate">Архивные черновики</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="px-1.5 py-[1px] rounded bg-surface-container-highest text-outline font-code text-[10px]" id="badge-empty-demo">0</span>
+<button class="opacity-0 group-hover:opacity-100 hover:text-error transition-opacity p-0.5 text-secondary" onclick="tryDeleteGroup(event, 'empty-demo')" title="Удалить группу">
+<span class="material-symbols-outlined text-[13px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 7: Другие сведения -->
+<div class="group-item group flex items-center justify-between h-[30px] px-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm cursor-pointer transition-colors" data-group-id="other" onclick="onCategoryClick('other')">
+<div class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+<span class="truncate">Другие сведения</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="px-1.5 py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-code text-[10px]" id="badge-other">1</span>
+<button class="opacity-0 group-hover:opacity-100 hover:text-error transition-opacity p-0.5 text-secondary" onclick="tryDeleteGroup(event, 'other')" title="Удалить группу">
+<span class="material-symbols-outlined text-[13px]">delete</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- VeraCrypt Status Indicator Box in Sub-Sidebar -->
+<div class="p-2.5 m-2 rounded bg-surface-container flex flex-col gap-1 border border-surface-container-highest">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[10px] text-secondary font-bold uppercase tracking-wider">VeraCrypt Vault</span>
+<span class="w-2 h-2 rounded-full bg-primary" id="secret-pill-indicator"></span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface text-[11px] font-code">
+<span class="material-symbols-outlined text-[14px] text-primary" id="secret-status-icon">verified_user</span>
+<span class="truncate font-medium" id="secret-status-label">Mounted (Slot 01)</span>
+</div>
+<p class="font-body-sm text-[10px] text-secondary leading-tight" id="secret-status-desc">Том подключен. Secret и Open реквизиты доступны синхронно.</p>
+<button class="mt-1 h-6 px-2 rounded bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-sm text-[11px] flex items-center justify-center gap-1 transition-colors border border-surface-container-highest w-full" id="secret-toggle-btn" onclick="toggleVeraCryptState()">
+<span class="material-symbols-outlined text-[13px]" id="secret-toggle-icon">eject</span>
+<span class="font-semibold" id="secret-toggle-label">Отключить том</span>
+</button>
+</div>
+</div>
+</div>
+<!-- CENTRAL PANEL: AIRTABLE / DESKTOP DATA GRID -->
+<div class="flex-1 flex flex-col bg-surface-container-lowest min-w-0 overflow-hidden">
+<!-- Central View Control & Filters Bar (Accurate Dynamic Counts) -->
+<div class="h-[38px] px-space-md bg-surface-container-low flex items-center justify-between shrink-0 gap-2 border-b border-surface-container-highest">
+<div class="flex items-center gap-2">
+<!-- Quick Filter Segmented Pills -->
+<div class="flex items-center bg-surface-container rounded p-[2px]">
+<button class="h-6 px-2.5 rounded bg-surface-container-lowest shadow-sm text-primary font-label-sm text-label-sm font-semibold transition-all" id="filter-all" onclick="setGridFilter('all')">Все (7)</button>
+<button class="h-6 px-2.5 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all" id="filter-current" onclick="setGridFilter('current')">Только текущие (5)</button>
+<button class="h-6 px-2.5 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all" id="filter-past" onclick="setGridFilter('past')">Прежние (2)</button>
+</div>
+<div class="h-4 w-[1px] bg-surface-container-highest"></div>
+<!-- Zone Filter Dropdown -->
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="text-outline">Зона:</span>
+<select class="h-6 bg-surface px-1.5 rounded font-label-sm text-label-sm text-on-surface focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer border border-surface-container-highest" id="zone-filter-select" onchange="onZoneFilterChange(this.value)">
+          <option value="all">Все зоны (Open + Secret)</option>
+          <option value="open">Только Open (Открытая)</option>
+          <option value="secret">Только Secret (Секретная)</option>
+        </select>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="relative flex items-center w-52">
+<span class="material-symbols-outlined absolute left-2 text-[14px] text-outline pointer-events-none">search</span>
+<input class="w-full h-[26px] pl-6 pr-2 bg-surface text-on-surface font-body-sm text-body-sm rounded focus:outline-none focus:ring-1 focus:ring-primary placeholder-outline text-[11px] border border-surface-container-highest" id="grid-search-input" oninput="filterGridBySearch(this.value)" placeholder="Поиск по реквизитам (Ctrl+F)..." type="text">
+</div>
+<div class="flex items-center gap-1">
+<button class="w-7 h-[26px] flex items-center justify-center rounded bg-surface border border-surface-container-highest text-secondary hover:text-primary transition-colors" onclick="showToast('Настройка столбцов таблицы SCR-14')" title="Настроить колонки">
+<span class="material-symbols-outlined text-[15px]">view_column</span>
+</button>
+<button class="w-7 h-[26px] flex items-center justify-center rounded bg-surface border border-surface-container-highest text-secondary hover:text-primary transition-colors" onclick="showToast('Экспорт открытых реквизитов...')" title="Экспорт CSV / TSV">
+<span class="material-symbols-outlined text-[15px]">download</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Verification Notice Header (SCR-07 Guard) -->
+<div class="bg-surface-container-high px-space-md py-1.5 flex items-center justify-between text-on-surface-variant shrink-0 border-b border-surface-container-highest">
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-[11px]">
+<span class="material-symbols-outlined text-[15px] text-primary">verified_user</span>
+<span class=""><strong>Примечание безопасности:</strong> Вставка реквизитов не делает их автоматически сверенными со скан-образом. Окончательная верификация осуществляется в <strong>SCR-07</strong>.</span>
+</div>
+<span class="text-outline font-code text-[10px]">VERIFY-GUARD: PASSIVE</span>
+</div>
+<!-- Secret Disabled Banner (UX-032 Warning Banner) -->
+<div class="hidden bg-surface-container-high border-b border-surface-container-highest px-space-md py-2.5 flex items-center justify-between text-on-surface shrink-0 shadow-sm" id="secret-locked-banner">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-error/10 text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+</div>
+<div class="flex flex-col">
+<div class="font-label-md text-label-md flex items-center gap-2">
+<span class="font-bold text-on-surface">Secret недоступна.</span>
+<span class="text-secondary font-normal">Подключите том VeraCrypt для просмотра секретных реквизитов.</span>
+</div>
+<div class="font-body-sm text-[11px] text-outline flex items-center gap-2 mt-0.5">
+<span class="">Политика UX-032: зашифрованные строки исключены из таблицы для предотвращения утечки структуры данных. Открытые реквизиты (Open) полностью доступны для работы.</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-7 px-3 bg-surface text-on-surface border border-surface-container-highest rounded font-label-sm text-label-sm hover:bg-surface-container transition-colors flex items-center gap-1.5" onclick="showToast('Статус диска VeraCrypt: Офлайн (0 томов подключено)', 'info')">
+<span class="material-symbols-outlined text-[14px] text-secondary">sync</span>
+<span class="">Проверить статус тома</span>
+</button>
+<button class="h-7 px-3 bg-primary text-on-primary rounded font-label-sm text-label-sm hover:bg-primary-container transition-colors flex items-center gap-1.5 shadow-sm" onclick="toggleVeraCryptState()">
+<span class="material-symbols-outlined text-[14px]">lock_open</span>
+<span class="">Открыть VeraCrypt</span>
+</button>
+</div>
+</div>
+<!-- Main Data Table Container -->
+<div class="flex-1 overflow-auto relative">
+<table class="w-full text-left font-body-sm text-body-sm border-collapse" id="main-data-table">
+<thead class="bg-surface-container-low text-secondary font-label-sm text-label-sm tracking-wider uppercase text-[10px] sticky top-0 z-10 border-b border-surface-container-highest shadow-sm">
+<tr class="h-8">
+<th class="w-9 px-2 text-center bg-surface-container-low">
+<input class="rounded w-3.5 h-3.5 accent-primary cursor-pointer align-middle" id="select-all-checkbox" onchange="toggleSelectAll(this.checked)" type="checkbox">
+</th>
+<th class="px-3 py-1 font-semibold text-on-surface-variant">Название реквизита</th>
+<th class="px-3 py-1 font-semibold text-on-surface-variant">Значение</th>
+<th class="px-3 py-1 font-semibold text-on-surface-variant w-28">Тип данных</th>
+<th class="px-3 py-1 font-semibold text-on-surface-variant w-24">Статус</th>
+<th class="px-3 py-1 font-semibold text-on-surface-variant w-32">Срок действия</th>
+<th class="px-3 py-1 font-semibold text-on-surface-variant w-28">Зона</th>
+<th class="w-12 px-2 text-center">⋯</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-highest" id="table-body-rows"><tr class="table-row-item cursor-pointer transition-colors h-[32px] bg-surface-container font-semibold " data-id="rec-1" data-zone="secret">
+        <td class="px-2 text-center" onclick="event.stopPropagation()">
+          <input type="checkbox" class="row-checkbox rounded w-3.5 h-3.5 accent-primary cursor-pointer align-middle" checked="" onchange="toggleRowCheckbox('rec-1', this.checked)">
+        </td>
+        <td class="px-3 py-1 font-label-md text-on-surface flex items-center gap-1.5 truncate">
+          <span class="material-symbols-outlined text-[15px] text-primary">badge</span>
+          <span class="truncate">Паспорт РФ: серия и номер</span>
+        </td>
+        <td class="px-3 py-1 font-code text-on-surface record-value font-medium truncate max-w-xs">40 14 № 891234</td>
+        <td class="px-3 py-1">
+          <span class="px-1.5 py-[2px] rounded bg-surface-container text-on-surface-variant font-label-sm text-[10px]">Паспорт РФ</span>
+        </td>
+        <td class="px-3 py-1"><span class="px-1.5 py-[2px] rounded bg-primary/10 text-primary font-label-sm text-[10px] font-semibold">Текущее</span></td>
+        <td class="px-3 py-1 text-secondary text-[11px] font-code">Бессрочно</td>
+        <td class="px-3 py-1 zone-cell"><span class="px-1.5 py-[2px] rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[10px] flex items-center gap-1 w-max font-semibold"><span class="material-symbols-outlined text-[11px] text-error">lock</span><span class="">Secret</span></span></td>
+        <td class="px-2 text-center" onclick="event.stopPropagation()">
+          <button class="p-1 text-secondary hover:text-on-surface transition-colors" title="Действия">
+            <span class="material-symbols-outlined text-[15px]">more_vert</span>
+          </button>
+        </td>
+      </tr><tr class="table-row-item cursor-pointer transition-colors h-[32px] hover:bg-surface-container-high/40 bg-surface-container-lowest " data-id="rec-2" data-zone="open">
+        <td class="px-2 text-center" onclick="event.stopPropagation()">
+          <input type="checkbox" class="row-checkbox rounded w-3.5 h-3.5 accent-primary cursor-pointer align-middle" onchange="toggleRowCheckbox('rec-2', this.checked)">
+        </td>
+        <td class="px-3 py-1 font-label-md text-on-surface flex items-center gap-1.5 truncate">
+          <span class="material-symbols-outlined text-[15px] text-primary">fingerprint</span>
+          <span class="truncate">СНИЛС</span>
+        </td>
+        <td class="px-3 py-1 font-code text-on-surface record-value font-medium truncate max-w-xs">123-456-789 00</td>
+        <td class="px-3 py-1">
+          <span class="px-1.5 py-[2px] rounded bg-surface-container text-on-surface-variant font-label-sm text-[10px]">Текст / Код</span>
+        </td>
+        <td class="px-3 py-1"><span class="px-1.5 py-[2px] rounded bg-primary/10 text-primary font-label-sm text-[10px] font-semibold">Текущее</span></td>
+        <td class="px-3 py-1 text-secondary text-[11px] font-code">Бессрочно</td>
+        <td class="px-3 py-1 zone-cell"><span class="px-1.5 py-[2px] rounded bg-surface-container-high text-on-surface font-label-sm text-[10px] flex items-center gap-1 w-max"><span class="material-symbols-outlined text-[11px]">public</span><span class="">Open</span></span></td>
+        <td class="px-2 text-center" onclick="event.stopPropagation()">
+          <button class="p-1 text-secondary hover:text-on-surface transition-colors" title="Действия">
+            <span class="material-symbols-outlined text-[15px]">more_vert</span>
+          </button>
+        </td>
+      </tr><tr class="table-row-item cursor-pointer transition-colors h-[32px] hover:bg-surface-container-high/40 bg-surface-container-lowest " data-id="rec-3" data-zone="open">
+        <td class="px-2 text-center" onclick="event.stopPropagation()">
+          <input type="checkbox" class="row-checkbox rounded w-3.5 h-3.5 accent-primary cursor-pointer align-middle" onchange="toggleRowCheckbox('rec-3', this.checked)">
+        </td>
+        <td class="px-3 py-1 font-label-md text-on-surface flex items-center gap-1.5 truncate">
+          <span class="material-symbols-outlined text-[15px] text-primary">home</span>
+          <span class="truncate">Адрес регистрации</span>
+        </td>
+        <td class="px-3 py-1 font-code text-on-surface record-value font-medium truncate max-w-xs">г. Санкт-Петербург, Московский пр., д. 182, кв. 42</td>
+        <td class="px-3 py-1">
+          <span class="px-1.5 py-[2px] rounded bg-surface-container text-on-surface-variant font-label-sm text-[10px]">Адрес</span>
+        </td>
+        <td class="px-3 py-1"><span class="px-1.5 py-[2px] rounded bg-primary/10 text-primary font-label-sm text-[10px] font-semibold">Текущее</span></td>
+        <td class="px-3 py-1 text-secondary text-[11px] font-code">Бессрочно</td>
+        <td class="px-3 py-1 zone-cell"><span class="px-1.5 py-[2px] rounded bg-surface-container-high text-on-surface font-label-sm text-[10px] flex items-center gap-1 w-max"><span class="material-symbols-outlined text-[11px]">public</span><span class="">Open</span></span></td>
+        <td class="px-2 text-center" onclick="event.stopPropagation()">
+          <button class="p-1 text-secondary hover:text-on-surface transition-colors" title="Действия">
+            <span class="material-symbols-outlined text-[15px]">more_vert</span>
+          </button>
+        </td>
+      </tr><tr class="table-row-item cursor-pointer transition-colors h-[32px] hover:bg-surface-container-high/40 bg-surface-container-lowest opacity-85" data-id="rec-4" data-zone="open">
+        <td class="px-2 text-center" onclick="event.stopPropagation()">
+          <input type="checkbox" class="row-checkbox rounded w-3.5 h-3.5 accent-primary cursor-pointer align-middle" onchange="toggleRowCheckbox('rec-4', this.checked)">
+        </td>
+        <td class="px-3 py-1 font-label-md text-on-surface flex items-center gap-1.5 truncate">
+          <span class="material-symbols-outlined text-[15px] text-outline">history</span>
+          <span class="truncate">Адрес прежний (Москва)</span>
+        </td>
+        <td class="px-3 py-1 font-code text-on-surface record-value font-medium truncate max-w-xs">г. Москва, ул. Тверская, д. 10, кв. 5</td>
+        <td class="px-3 py-1">
+          <span class="px-1.5 py-[2px] rounded bg-surface-container text-on-surface-variant font-label-sm text-[10px]">Адрес</span>
+        </td>
+        <td class="px-3 py-1"><span class="px-1.5 py-[2px] rounded bg-surface-container-highest text-secondary font-label-sm text-[10px]">Прежнее</span></td>
+        <td class="px-3 py-1 text-secondary text-[11px] font-code">до 14.06.2021</td>
+        <td class="px-3 py-1 zone-cell"><span class="px-1.5 py-[2px] rounded bg-surface-container-high text-on-surface font-label-sm text-[10px] flex items-center gap-1 w-max"><span class="material-symbols-outlined text-[11px]">public</span><span class="">Open</span></span></td>
+        <td class="px-2 text-center" onclick="event.stopPropagation()">
+          <button class="p-1 text-secondary hover:text-on-surface transition-colors" title="Действия">
+            <span class="material-symbols-outlined text-[15px]">more_vert</span>
+          </button>
+        </td>
+      </tr><tr class="table-row-item cursor-pointer transition-colors h-[32px] hover:bg-surface-container-high/40 bg-surface-container-lowest " data-id="rec-5" data-zone="open">
+        <td class="px-2 text-center" onclick="event.stopPropagation()">
+          <input type="checkbox" class="row-checkbox rounded w-3.5 h-3.5 accent-primary cursor-pointer align-middle" onchange="toggleRowCheckbox('rec-5', this.checked)">
+        </td>
+        <td class="px-3 py-1 font-label-md text-on-surface flex items-center gap-1.5 truncate">
+          <span class="material-symbols-outlined text-[15px] text-primary">pin</span>
+          <span class="truncate">ИНН физлица</span>
+        </td>
+        <td class="px-3 py-1 font-code text-on-surface record-value font-medium truncate max-w-xs">781234567890</td>
+        <td class="px-3 py-1">
+          <span class="px-1.5 py-[2px] rounded bg-surface-container text-on-surface-variant font-label-sm text-[10px]">ИНН</span>
+        </td>
+        <td class="px-3 py-1"><span class="px-1.5 py-[2px] rounded bg-primary/10 text-primary font-label-sm text-[10px] font-semibold">Текущее</span></td>
+        <td class="px-3 py-1 text-secondary text-[11px] font-code">Бессрочно</td>
+        <td class="px-3 py-1 zone-cell"><span class="px-1.5 py-[2px] rounded bg-surface-container-high text-on-surface font-label-sm text-[10px] flex items-center gap-1 w-max"><span class="material-symbols-outlined text-[11px]">public</span><span class="">Open</span></span></td>
+        <td class="px-2 text-center" onclick="event.stopPropagation()">
+          <button class="p-1 text-secondary hover:text-on-surface transition-colors" title="Действия">
+            <span class="material-symbols-outlined text-[15px]">more_vert</span>
+          </button>
+        </td>
+      </tr><tr class="table-row-item cursor-pointer transition-colors h-[32px] hover:bg-surface-container-high/40 bg-surface-container-lowest opacity-85" data-id="rec-6" data-zone="secret">
+        <td class="px-2 text-center" onclick="event.stopPropagation()">
+          <input type="checkbox" class="row-checkbox rounded w-3.5 h-3.5 accent-primary cursor-pointer align-middle" onchange="toggleRowCheckbox('rec-6', this.checked)">
+        </td>
+        <td class="px-3 py-1 font-label-md text-on-surface flex items-center gap-1.5 truncate">
+          <span class="material-symbols-outlined text-[15px] text-outline">account_balance</span>
+          <span class="truncate">Банковский счет (Т-Банк)</span>
+        </td>
+        <td class="px-3 py-1 font-code text-on-surface record-value font-medium truncate max-w-xs">40817810200001234567</td>
+        <td class="px-3 py-1">
+          <span class="px-1.5 py-[2px] rounded bg-surface-container text-on-surface-variant font-label-sm text-[10px]">Банковский счет</span>
+        </td>
+        <td class="px-3 py-1"><span class="px-1.5 py-[2px] rounded bg-surface-container-highest text-secondary font-label-sm text-[10px]">Прежнее</span></td>
+        <td class="px-3 py-1 text-secondary text-[11px] font-code">до 31.12.2023</td>
+        <td class="px-3 py-1 zone-cell"><span class="px-1.5 py-[2px] rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[10px] flex items-center gap-1 w-max font-semibold"><span class="material-symbols-outlined text-[11px] text-error">lock</span><span class="">Secret</span></span></td>
+        <td class="px-2 text-center" onclick="event.stopPropagation()">
+          <button class="p-1 text-secondary hover:text-on-surface transition-colors" title="Действия">
+            <span class="material-symbols-outlined text-[15px]">more_vert</span>
+          </button>
+        </td>
+      </tr><tr class="table-row-item cursor-pointer transition-colors h-[32px] hover:bg-surface-container-high/40 bg-surface-container-lowest " data-id="rec-7" data-zone="open">
+        <td class="px-2 text-center" onclick="event.stopPropagation()">
+          <input type="checkbox" class="row-checkbox rounded w-3.5 h-3.5 accent-primary cursor-pointer align-middle" onchange="toggleRowCheckbox('rec-7', this.checked)">
+        </td>
+        <td class="px-3 py-1 font-label-md text-on-surface flex items-center gap-1.5 truncate">
+          <span class="material-symbols-outlined text-[15px] text-primary">call</span>
+          <span class="truncate">Основной телефон</span>
+        </td>
+        <td class="px-3 py-1 font-code text-on-surface record-value font-medium truncate max-w-xs">+7 (921) 940-12-88</td>
+        <td class="px-3 py-1">
+          <span class="px-1.5 py-[2px] rounded bg-surface-container text-on-surface-variant font-label-sm text-[10px]">Телефон</span>
+        </td>
+        <td class="px-3 py-1"><span class="px-1.5 py-[2px] rounded bg-primary/10 text-primary font-label-sm text-[10px] font-semibold">Текущее</span></td>
+        <td class="px-3 py-1 text-secondary text-[11px] font-code">Бессрочно</td>
+        <td class="px-3 py-1 zone-cell"><span class="px-1.5 py-[2px] rounded bg-surface-container-high text-on-surface font-label-sm text-[10px] flex items-center gap-1 w-max"><span class="material-symbols-outlined text-[11px]">public</span><span class="">Open</span></span></td>
+        <td class="px-2 text-center" onclick="event.stopPropagation()">
+          <button class="p-1 text-secondary hover:text-on-surface transition-colors" title="Действия">
+            <span class="material-symbols-outlined text-[15px]">more_vert</span>
+          </button>
+        </td>
+      </tr></tbody>
+</table>
+<!-- Empty State View Placeholder -->
+<div class="hidden absolute inset-0 bg-surface-container-lowest flex flex-col items-center justify-center p-8 text-center" id="empty-state-container">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-outline mb-3">
+<span class="material-symbols-outlined text-[28px]">folder_off</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">В этой группе нет сохраненных реквизитов</div>
+<p class="font-body-sm text-body-sm text-secondary max-w-sm mt-1">Добавьте новый реквизит или перенесите существующие записи из других групп с помощью быстрого редактора.</p>
+<div class="flex items-center gap-2 mt-4">
+<button class="h-8 px-4 rounded bg-primary text-on-primary font-label-sm text-label-sm flex items-center gap-1.5 shadow-sm" onclick="addNewRecordMode()">
+<span class="material-symbols-outlined text-[15px]">add</span>
+<span class="">Добавить первый реквизит</span>
+</button>
+<button class="h-8 px-3 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm" onclick="onCategoryClick('personal')">
+                  Вернуться в «Личные сведения»
+                </button>
+</div>
+</div>
+</div>
+<!-- Table Status Footer -->
+<div class="h-7 px-space-md bg-surface-container-low flex items-center justify-between text-secondary font-label-sm text-[11px] shrink-0 border-t border-surface-container-highest">
+<div class="flex items-center gap-3">
+<span id="footer-row-count-wrap" class="">
+  Строк: <span class="font-medium text-on-surface" id="visible-row-count">7</span>
+  (выбрано: <span class="text-primary font-bold" id="selected-count">1</span>)
+  <span class="text-outline mx-1">|</span>
+<span class="font-semibold text-primary" id="footer-mount-badge">Том VeraCrypt подключен</span>
+</span>
+<span class="text-outline">|</span>
+<span class="flex items-center gap-1 text-primary" id="footer-cache-status">
+<span class="material-symbols-outlined text-[12px]">offline_pin</span>
+<span class="">Локальный кеш актуален</span>
+</span>
+</div>
+<div class="font-code text-[10px] text-outline" id="footer-db-status">DB_REVISION: #2024.11.08-L1 · AES-XTS 512</div>
+</div>
+</div>
+<!-- RIGHT PANEL: INSPECTOR / QUICK EDITOR -->
+<div class="w-80 bg-surface-container-lowest shrink-0 flex flex-col justify-between border-l border-surface-container-highest z-10 transition-all" id="inspector-panel">
+<!-- ACTIVE RECORD INSPECTOR VIEW (Full Editing Capability) -->
+<div class="flex flex-col h-full overflow-y-auto p-space-md gap-space-md justify-between" id="inspector-view-active">
+<div class="flex flex-col gap-space-md">
+<!-- Inspector Header -->
+<div class="flex items-center justify-between pb-2 border-b border-surface-container-highest">
+<div class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-[18px] text-primary" id="inspector-header-icon">badge</span>
+<span class="font-headline-sm text-headline-sm text-on-surface truncate" id="inspector-header-title">Паспорт РФ: серия и номер</span>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="px-1.5 py-[2px] rounded font-label-sm text-[10px] font-code bg-surface-container text-secondary" id="inspector-id-tag">REC-001</span>
+<button class="w-6 h-6 flex items-center justify-center rounded hover:bg-surface-container text-secondary hover:text-error transition-colors" onclick="deleteCurrentRecord()" title="Удалить реквизит">
+<span class="material-symbols-outlined text-[14px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Inspector Form Fields -->
+<div class="flex flex-col gap-3">
+<!-- Title Field -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-secondary font-semibold">Название реквизита</label>
+<input class="w-full h-7 px-2 bg-surface text-on-surface font-body-sm text-body-sm rounded border border-surface-container-highest focus:outline-none focus:border-primary" id="inp-rec-title" oninput="updateActiveDraft('title', this.value)" type="text" value="СНИЛС">
+</div>
+<!-- Value Field with Quick Copy -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-secondary font-semibold">Значение реквизита</label>
+<button class="text-primary hover:text-primary-container font-label-sm text-[11px] flex items-center gap-0.5" id="copy-btn-text" onclick="copyCurrentValue()">
+<span class="material-symbols-outlined text-[12px]">content_copy</span>
+<span id="copy-label" class="">Скопировать</span>
+</button>
+</div>
+<textarea class="w-full h-16 p-2 bg-surface text-on-surface font-code text-body-sm rounded border border-surface-container-highest focus:outline-none focus:border-primary resize-none" id="inp-rec-val" oninput="updateActiveDraft('val', this.value)">123-456-789 00</textarea>
+</div>
+<!-- Data Type & Status -->
+<div class="grid grid-cols-2 gap-2">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-secondary font-semibold">Тип данных</label>
+<select class="w-full h-7 px-1.5 bg-surface text-on-surface font-body-sm text-body-sm rounded border border-surface-container-highest focus:outline-none focus:border-primary" id="inp-rec-type" onchange="updateActiveDraft('type', this.value)">
+<option value="text">Текст / Код</option>
+<option value="passport">Паспорт</option>
+<option value="address">Адрес</option>
+<option value="inn">ИНН</option>
+<option value="phone">Телефон</option>
+<option value="bik">Банковский счет</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-secondary font-semibold">Статус</label>
+<div class="flex items-center bg-surface-container rounded p-[2px] h-7">
+<button class="flex-1 h-full rounded text-center font-label-sm text-[11px] bg-surface-container-lowest text-primary font-semibold shadow-sm transition-all" id="btn-status-current" onclick="setStatusValue('current')">Текущее</button>
+<button class="flex-1 h-full rounded text-center font-label-sm text-[11px] text-secondary hover:text-on-surface transition-all" id="btn-status-past" onclick="setStatusValue('past')">Прежнее</button>
+</div>
+</div>
+</div>
+<!-- Validity Dates -->
+<div class="grid grid-cols-2 gap-2">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-[11px] text-secondary">Действует с:</label>
+<input class="w-full h-6 px-1.5 bg-surface text-on-surface font-code text-[11px] rounded border border-surface-container-highest focus:outline-none focus:border-primary" id="inp-rec-from" oninput="updateActiveDraft('fromDate', this.value)" type="text" value="10.02.2010">
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-[11px] text-secondary">Действует по:</label>
+<input class="w-full h-6 px-1.5 bg-surface text-on-surface font-code text-[11px] rounded border border-surface-container-highest focus:outline-none focus:border-primary" id="inp-rec-to" oninput="updateActiveDraft('toDate', this.value)" placeholder="Бессрочно" type="text">
+</div>
+</div>
+<!-- Security Zone Selector (Open vs Secret) -->
+<div class="flex flex-col gap-1"><div class="flex items-center justify-between">
+  <label class="font-label-sm text-label-sm text-secondary font-semibold">Зона безопасности (UX-032)</label>
+  <span class="font-code text-[10px] text-error" id="zone-pill-text">VERACRYPT VAULT</span>
+</div>
+<div class="flex items-center justify-between p-1.5 bg-surface-container rounded border border-surface-container-highest gap-2">
+  <div class="flex items-center gap-1.5 px-2 py-1 rounded bg-surface text-on-surface font-label-sm text-[11px] shrink-0 border border-surface-container-highest" id="inspector-current-zone-display">
+    <span class="material-symbols-outlined text-[13px] text-error" id="inspector-zone-icon">lock</span>
+    <span class="font-semibold" id="inspector-zone-name">Secret (VeraCrypt)</span>
+  </div>
+  <button class="flex-1 h-7 px-2 rounded bg-surface hover:bg-surface-container-high text-primary font-label-sm text-[11px] flex items-center justify-center gap-1 transition-all border border-surface-container-highest shadow-sm" id="btn-migrate-zone" onclick="openZoneMigrateModal()" title="Переместить реквизит между зонами Open и Secret">
+    <span class="material-symbols-outlined text-[13px]">swap_horiz</span>
+    <span class="font-semibold truncate">Переместить в другую зону…</span>
+  </button>
+</div>
+<div class="hidden text-[10px] text-error font-body-sm leading-tight flex items-center gap-1 pt-0.5" id="zone-migration-disabled-note">
+  <span class="material-symbols-outlined text-[12px] text-error shrink-0">lock</span>
+  <span class="">Перемещение недоступно: том Secret отключен. Подключите VeraCrypt для смены зоны безопасности.</span>
+</div></div>
+<!-- Notes / Comment -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-secondary font-semibold">Примечание и реквизиты выдачи</label>
+<textarea class="w-full h-14 p-2 bg-surface text-on-surface font-body-sm text-[11px] rounded border border-surface-container-highest focus:outline-none focus:border-primary resize-none" id="inp-rec-comment" oninput="updateActiveDraft('comment', this.value)">Страховое свидетельство обязательного пенсионного страхования</textarea>
+</div>
+</div>
+</div>
+<!-- Inspector Action Buttons & Bottom Footer -->
+<div class="flex flex-col gap-2 pt-2 border-t border-surface-container-highest">
+<div class="flex items-center gap-2">
+<button class="flex-1 h-8 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center gap-1.5 shadow-sm transition-colors" onclick="saveRecordDraft()">
+<span class="material-symbols-outlined text-[15px]">check</span>
+<span class="">Сохранить реквизит</span>
+</button>
+<button class="h-8 px-3 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" onclick="resetActiveRecord()">
+                  Сброс
+                </button>
+</div>
+<div class="flex items-center justify-between text-[10px] text-outline font-code">
+<span id="inspector-footer-sync" class="">СТАТУС: СИНХРОНИЗИРОВАНО</span>
+<span class="">SHA-256 VALID</span>
+</div>
+</div>
+</div>
+<!-- LOCKED INSPECTOR VIEW (Only displayed when attempting to view Secret with volume offline) -->
+<div class="hidden flex-col h-full overflow-y-auto p-space-md gap-space-md justify-between" id="inspector-view-locked">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-2 border-b border-surface-container-highest">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-error">lock</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Реквизит недоступен</span>
+</div>
+<span class="px-1.5 py-[2px] rounded font-label-sm text-[10px] font-code bg-surface-container text-outline">UX-032</span>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-low flex flex-col gap-3 text-center items-center py-6 border border-surface-container-highest">
+<div class="w-12 h-12 rounded-full bg-error/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[26px]">lock_person</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="font-headline-sm text-[14px] text-on-surface font-semibold">Том VeraCrypt не подключен</div>
+<p class="font-body-sm text-body-sm text-secondary leading-relaxed px-1">
+                    Реквизиты зоны Secret скрыты, так как том VeraCrypt не подключен. Метаданные защищены от утечки.
+                  </p>
+</div>
+<div class="flex flex-col gap-2 w-full mt-2">
+<button class="h-8 px-4 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center gap-1.5 transition-colors shadow-sm w-full" onclick="toggleVeraCryptState()">
+<span class="material-symbols-outlined text-[15px]">key</span>
+<span class="">Открыть VeraCrypt</span>
+</button>
+<button class="h-8 px-4 rounded bg-surface border border-surface-container-highest hover:bg-surface-container text-primary font-label-md text-label-md flex items-center justify-center gap-1.5 transition-colors shadow-sm w-full" onclick="selectRecord('rec-2')">
+<span class="material-symbols-outlined text-[15px]">fingerprint</span>
+<span class="">Выбрать открытый реквизит (СНИЛС)</span>
+</button>
+</div>
+</div>
+<div class="p-3 rounded bg-surface-container text-on-surface-variant text-[11px] leading-tight flex items-start gap-2 border border-surface-container-highest">
+<span class="material-symbols-outlined text-[16px] text-primary shrink-0 mt-0.5">verified_user</span>
+<div class="flex flex-col gap-1">
+<span class="font-semibold text-on-surface">Политика защиты UX-032</span>
+<span class="text-secondary">Имена и типы скрыты до ввода мастер-ключа. Экспорт и буфер обмена заблокированы. При обращении из SCR-06 подстановка зашифрованных значений приостановлена.</span>
+</div>
+</div>
+</div>
+<div class="pt-2 border-t border-surface-container-highest flex items-center justify-between text-[11px] text-outline font-code">
+<span class="">СТАТУС: ЗАЩИЩЕНО</span>
+<span class="">AES-XTS 512</span>
+</div>
+</div>
+</div>
+</div>
+<!-- MODAL 1: SAFE DELETE GROUP DIALOGS (UX-020 & UX-032) -->
+<div class="hidden fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm flex items-center justify-center p-4" id="modal-delete-group">
+<div class="w-full max-w-md bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-150 border border-surface-container-highest">
+<!-- VIEW 1: Non-empty group deletion BLOCKED (UX-020) -->
+<div class="p-space-lg flex flex-col gap-space-md" id="delete-view-blocked">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-error shrink-0">
+<span class="material-symbols-outlined text-[22px]">shield_with_heart</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface">Нельзя удалить непустую группу</div>
+<div class="font-body-sm text-body-sm text-secondary">Категория <span class="font-bold text-on-surface" id="blocked-group-name">«Личные сведения»</span></div>
+</div>
+</div>
+<div class="p-3 bg-surface-container-low rounded flex flex-col gap-2 font-body-sm text-body-sm border-l-2 border-primary">
+<p class="text-on-surface leading-normal">В этой группе находятся реквизиты (<span class="font-bold text-primary" id="blocked-group-count">4 шт.</span>). Удаление непустой группы запрещено политикой целостности данных. Сначала перенесите реквизиты в другую группу или удалите их по отдельности. Ни один реквизит не будет потерян.</p>
+<div class="flex items-start gap-1.5 text-[11px] text-secondary bg-surface-container px-2 py-1.5 rounded">
+<span class="material-symbols-outlined text-[14px] text-error shrink-0 mt-0.5">lock</span>
+<span class="">Опция безвозвратного пакетного удаления исключена для защиты персональных данных (UX-020).</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-2 pt-2">
+<button class="h-8 px-3 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" onclick="closeDeleteModal()">Отмена</button>
+<button class="h-8 px-4 rounded bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md flex items-center gap-1.5 shadow-sm transition-colors" onclick="showMoveRecordsStep()">
+<span class="material-symbols-outlined text-[16px]">drive_file_move</span>
+<span class="">Перенести реквизиты →</span>
+</button>
+</div>
+</div>
+<!-- VIEW 2: Move records step before deletion (UX-020) -->
+<div class="hidden p-space-lg flex flex-col gap-space-md" id="delete-view-move">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[22px]">drive_file_move</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface">Перенос реквизитов перед удалением</div>
+<div class="font-body-sm text-body-sm text-secondary">Из группы <span class="font-bold text-on-surface" id="move-source-group-name">«Личные сведения»</span> (<span id="move-source-count" class="">4</span> шт.)</div>
+</div>
+</div>
+<div class="p-3 bg-surface-container-low rounded flex flex-col gap-2.5 font-body-sm text-body-sm">
+<label class="font-label-sm text-label-sm text-secondary font-semibold">Целевая группа-получатель:</label>
+<select class="w-full h-8 px-2.5 bg-surface text-on-surface rounded font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer border border-surface-container-highest" id="select-target-group">
+<!-- Options populated dynamically based on VeraCrypt availability -->
+</select>
+<div class="p-2.5 rounded bg-surface-container text-on-surface-variant text-[11px] flex items-start gap-2 leading-tight border border-surface-container-highest">
+<span class="material-symbols-outlined text-[16px] text-primary shrink-0 mt-0.5">shield</span>
+<span class="">Все <span class="font-bold text-on-surface" id="move-count-text">4</span> реквизита будут безопасно перемещены в выбранную группу с сохранением истории и статусов безопасности, после чего исходная группа будет удалена.</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<button class="h-8 px-3 rounded text-secondary hover:text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1" onclick="showBlockedStep()">
+<span class="material-symbols-outlined text-[14px]">arrow_back</span>
+<span class="">Назад</span>
+</button>
+<div class="flex items-center gap-2">
+<button class="h-8 px-3 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" onclick="closeDeleteModal()">Отмена</button>
+<button class="h-8 px-4 rounded bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md flex items-center gap-1.5 shadow-sm transition-colors" onclick="confirmMoveAndPurge()">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+<span class="">Перенести и удалить</span>
+</button>
+</div>
+</div>
+</div>
+<!-- VIEW 3: Truly Empty group deletion confirmation (UX-020) -->
+<div class="hidden p-space-lg flex flex-col gap-space-md" id="delete-view-empty">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-error shrink-0">
+<span class="material-symbols-outlined text-[22px]">delete_forever</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface">Удалить группу?</div>
+<div class="font-body-sm text-body-sm text-secondary"><span class="font-bold text-on-surface" id="empty-group-dialog-name">«Архивные черновики»</span></div>
+</div>
+</div>
+<div class="p-3 bg-surface-container-low rounded flex flex-col gap-2 font-body-sm text-body-sm border-l-2 border-secondary">
+<p class="text-on-surface leading-normal">Группа <span class="font-bold" id="empty-group-dialog-name-body">«Архивные черновики»</span> пуста. Это действие удалит категорию из списка.</p>
+<span class="text-[11px] text-outline">Структура остальных категорий и реквизитов не изменится.</span>
+</div>
+<div class="flex items-center justify-end gap-2 pt-2">
+<button class="h-8 px-3 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" onclick="closeDeleteModal()">Отмена</button>
+<button class="h-8 px-4 rounded bg-error text-on-error hover:opacity-95 font-label-md text-label-md flex items-center gap-1.5 shadow-sm transition-colors" onclick="confirmDeleteEmptyGroup()">
+<span class="material-symbols-outlined text-[15px]">delete</span>
+<span class="">Удалить группу</span>
+</button>
+</div>
+</div>
+<!-- VIEW 4: UX-032 Block: Offline VeraCrypt Cannot Verify Empty State -->
+<div class="hidden p-space-lg flex flex-col gap-space-md" id="delete-view-ux032">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-error/10 flex items-center justify-center text-error shrink-0">
+<span class="material-symbols-outlined text-[22px]">gpp_maybe</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface">Удаление заблокировано (UX-032)</div>
+<div class="font-body-sm text-body-sm text-secondary">Категория <span class="font-bold text-on-surface" id="ux032-group-name">«Банковские счета»</span></div>
+</div>
+</div>
+<div class="p-3 bg-surface-container-low rounded flex flex-col gap-2 font-body-sm text-body-sm border-l-2 border-error">
+<p class="text-on-surface leading-normal">
+                Нельзя проверить пустоту группы: том <strong>VeraCrypt отключен</strong>.<br>
+                Категория может содержать зашифрованные секретные реквизиты. Не допускается скрытое удаление секретных данных через открытый режим. Для управления категорией сначала подключите том VeraCrypt.
+              </p>
+<div class="flex items-start gap-1.5 text-[11px] text-secondary bg-surface-container px-2 py-1.5 rounded">
+<span class="material-symbols-outlined text-[14px] text-error shrink-0 mt-0.5">lock</span>
+<span class="">Политика защиты целостности зашифрованных томов VeraCrypt (UX-032).</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-2 pt-2">
+<button class="h-8 px-3 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" onclick="closeDeleteModal()">Отмена</button>
+<button class="h-8 px-4 rounded bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md flex items-center gap-1.5 shadow-sm transition-colors" onclick="toggleVeraCryptState(); closeDeleteModal();">
+<span class="material-symbols-outlined text-[15px]">key</span>
+<span class="">Открыть VeraCrypt</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- MODAL 2: INSERTION PANEL SCR-06 -->
+<div class="hidden fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm flex items-center justify-center p-4" id="modal-insert-scr06">
+<div class="w-full max-w-2xl bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden flex flex-col max-h-[85vh] border border-surface-container-highest">
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between border-b border-surface-container-highest">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[20px]">drive_file_move</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Мастер вставки реквизитов в документ (SCR-06)</span>
+</div>
+<button class="w-6 h-6 flex items-center justify-center text-secondary hover:text-on-surface" onclick="closeInsertModal()">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div class="px-space-lg pt-space-sm bg-surface-container-low flex items-center gap-4 border-b border-surface-container-highest">
+<button class="pb-2 font-label-md text-label-md text-primary font-bold border-b-2 border-primary transition-all flex items-center gap-1.5" id="tab-insert-text" onclick="switchInsertTab('text')">
+<span class="material-symbols-outlined text-[15px]">text_fields</span>
+<span class="">Вставка полей в текст</span>
+</button>
+<button class="pb-2 font-label-md text-label-md text-secondary hover:text-on-surface transition-all flex items-center gap-1.5" id="tab-insert-table" onclick="switchInsertTab('table')">
+<span class="material-symbols-outlined text-[15px]">table_rows</span>
+<span class="">Заполнить строку таблицы (SCR-06)</span>
+</button>
+</div>
+<div class="p-space-lg flex-1 overflow-y-auto">
+<div class="flex flex-col gap-3" id="tab-content-text">
+<p class="font-body-sm text-body-sm text-secondary">Выберите доступные реквизиты для подстановки в курсор текущего открытого документа:</p>
+<div class="divide-y divide-surface-container-highest rounded bg-surface-container-low max-h-56 overflow-y-auto border border-surface-container-highest" id="insert-records-list">
+<!-- Dynamically populated checkboxes -->
+</div>
+<div class="p-2.5 rounded bg-surface-container flex items-start gap-2 text-on-surface-variant font-body-sm text-[11px]">
+<span class="material-symbols-outlined text-[16px] text-primary shrink-0">format_quote</span>
+<span class="">Формат вставки: <code>[Название]: [Значение]</code> с автоматическим переносом на новую строку.</span>
+</div>
+</div>
+<div class="hidden flex flex-col gap-3" id="tab-content-table">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-secondary">Сопоставьте реквизиты справочника со столбцами таблицы в SCR-06:</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary-container text-on-primary-container">Цель: «Стороны договора»</span>
+</div>
+<div class="bg-surface-container-low rounded overflow-hidden border border-surface-container-highest">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container font-label-sm text-[11px] text-secondary uppercase">
+<tr>
+<th class="px-3 py-2">Колонка таблицы SCR-06</th>
+<th class="px-3 py-2">Связанный реквизит из PersonalVault</th>
+<th class="w-12 px-2 text-center">Статус</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-highest">
+<tr>
+<td class="px-3 py-2 font-medium">Колонка 1: Участник / ФИО</td>
+<td class="px-3 py-2">
+<select class="w-full h-6 px-1 bg-surface text-on-surface rounded font-body-sm text-body-sm border border-surface-container-highest">
+<option selected="">СНИЛС (123-456-789 00)</option>
+<option>ФИО полностью</option>
+</select>
+</td>
+<td class="px-2 text-center text-primary"><span class="material-symbols-outlined text-[16px]">check_circle</span></td>
+</tr>
+<tr>
+<td class="px-3 py-2 font-medium">Колонка 2: Адрес регистрации</td>
+<td class="px-3 py-2">
+<select class="w-full h-6 px-1 bg-surface text-on-surface rounded font-body-sm text-body-sm border border-surface-container-highest">
+<option selected="">Адрес регистрации (Московский пр.)</option>
+<option>Адрес прежний (Москва)</option>
+</select>
+</td>
+<td class="px-2 text-center text-primary"><span class="material-symbols-outlined text-[16px]">check_circle</span></td>
+</tr>
+<tr>
+<td class="px-3 py-2 font-medium">Колонка 3: ИНН / Налоговый идентификатор</td>
+<td class="px-3 py-2">
+<select class="w-full h-6 px-1 bg-surface text-on-surface rounded font-body-sm text-body-sm border border-surface-container-highest">
+<option selected="">ИНН физлица (781234567890)</option>
+<option>Не заполнять</option>
+</select>
+</td>
+<td class="px-2 text-center text-primary"><span class="material-symbols-outlined text-[16px]">check_circle</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between border-t border-surface-container-highest">
+<div class="text-[11px] text-outline font-body-sm">
+              Целевой черновик: <span class="text-on-surface font-code">DOC_2024_DOVOR-049.pvmd</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-8 px-3 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" onclick="closeInsertModal()">Отмена</button>
+<button class="h-8 px-4 rounded bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md flex items-center gap-1.5 shadow-sm" onclick="executeInsert()">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+<span class="">Заполнить в SCR-06</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Toast Notification -->
+<!-- MODAL 3: ZONE MIGRATION DIALOG (UX-032 Explicit Zone Relocation) -->
+<div class="hidden fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm flex items-center justify-center p-4" id="modal-zone-migration">
+  <div class="w-full max-w-md bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-150 border border-surface-container-highest flex flex-col">
+    <div class="px-space-md py-space-sm bg-surface-container-low flex items-center justify-between border-b border-surface-container-highest">
+      <div class="flex items-center gap-2 text-primary">
+        <span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+        <span class="font-headline-sm text-headline-sm text-on-surface">Смена зоны безопасности реквизита</span>
+      </div>
+      <button class="w-6 h-6 flex items-center justify-center text-secondary hover:text-on-surface" onclick="closeZoneMigrateModal()">
+        <span class="material-symbols-outlined text-[16px]">close</span>
+      </button>
+    </div>
+    <div class="p-space-md flex flex-col gap-3">
+      <!-- Record Preview Card -->
+      <div class="p-2.5 rounded bg-surface-container-low border border-surface-container-highest flex flex-col gap-1.5">
+        <div class="flex items-center justify-between">
+          <span class="font-label-sm text-[10px] text-secondary uppercase font-semibold">Реквизит для переноса</span>
+          <span class="font-code text-[10px] text-outline" id="zone-mig-rec-id">REC-002</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[16px] text-primary" id="zone-mig-icon">fingerprint</span>
+          <span class="font-headline-sm text-[13px] text-on-surface truncate" id="zone-mig-title">СНИЛС</span>
+        </div>
+        <div class="font-code text-body-sm text-secondary bg-surface px-2 py-1 rounded border border-surface-container-highest truncate" id="zone-mig-val">123-456-789 00</div>
+      </div>
+      <!-- Migration Direction Visualizer -->
+      <div class="flex items-center justify-between px-3 py-2 rounded bg-surface-container border border-surface-container-highest font-label-sm text-label-sm">
+        <div class="flex items-center gap-1.5" id="zone-mig-from-badge">
+          <span class="material-symbols-outlined text-[14px] text-primary">public</span>
+          <span class="">Open (Открытая)</span>
+        </div>
+        <span class="material-symbols-outlined text-[16px] text-secondary">arrow_forward</span>
+        <div class="flex items-center gap-1.5 font-bold" id="zone-mig-to-badge">
+          <span class="material-symbols-outlined text-[14px] text-error">lock</span>
+          <span class="text-error">Secret (VeraCrypt)</span>
+        </div>
+      </div>
+      <!-- Detailed Consequences Warning Card -->
+      <div class="p-3 rounded bg-surface-container-low border-l-2 border-primary flex flex-col gap-1.5 text-body-sm">
+        <div class="font-label-sm text-[12px] font-semibold text-on-surface flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[14px] text-primary">policy</span>
+          <span class="">Последствия смены зоны безопасности</span>
+        </div>
+        <p class="text-secondary text-[11px] leading-relaxed" id="zone-mig-consequences-text">
+          Перемещение из Open в Secret: реквизит будет зашифрован в томе VeraCrypt и станет недоступен при отключении контейнера; внешние ссылки на открытый реквизит потребуют авторизации.
+        </p>
+      </div>
+      <!-- Rollback Simulation Banner (Shown on error simulation) -->
+      <div class="hidden p-2.5 rounded bg-error-container text-on-error-container text-[11px] flex items-start gap-2 border border-error" id="zone-mig-rollback-banner">
+        <span class="material-symbols-outlined text-[16px] text-error shrink-0 mt-0.5">sync_problem</span>
+        <div class="flex flex-col gap-0.5">
+          <span class="font-bold text-error">Ошибка переноса: транзакция откатана (Rollback)</span>
+          <span class="leading-tight">Запись защищена, исходная зона и шифротекст сохранены без повреждений.</span>
+        </div>
+      </div>
+    </div>
+    <div class="px-space-md py-space-sm bg-surface-container-low flex items-center justify-between border-t border-surface-container-highest">
+      <button class="h-7 px-2 text-secondary hover:text-error text-[11px] font-label-sm underline flex items-center gap-1 transition-colors" onclick="simulateMigrationRollback()">
+        <span class="">Симуляция ошибки транзакции</span>
+      </button>
+      <div class="flex items-center gap-2">
+        <button class="h-8 px-3 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" onclick="closeZoneMigrateModal()">Отмена</button>
+        <button class="h-8 px-4 rounded bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md flex items-center gap-1.5 shadow-sm transition-colors" id="btn-confirm-zone-migration" onclick="executeZoneMigration()">
+          <span class="material-symbols-outlined text-[15px]">swap_horiz</span>
+          <span class="">Подтвердить перенос</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div><div class="hidden fixed bottom-4 right-4 z-50 bg-inverse-surface text-inverse-on-surface px-4 py-2.5 rounded shadow-xl font-body-sm text-body-sm flex items-center gap-2 transition-all" id="toast-notification">
+<span class="material-symbols-outlined text-[18px] text-inverse-primary" id="toast-icon">check</span>
+<span id="toast-message" class="">Действие выполнено</span>
+</div>
+</div>
+</main>
+</div>
+<script>
+  // Complete Dataset for PersonalVault SCR-14
+  const allRecords = {
+    'rec-1': {
+      id: 'rec-1',
+      title: 'Паспорт РФ: серия и номер',
+      val: '40 14 № 891234',
+      type: 'passport',
+      typeName: 'Паспорт РФ',
+      status: 'current',
+      fromDate: '14.05.2018',
+      toDate: 'Бессрочно',
+      zone: 'secret',
+      group: 'personal',
+      comment: 'Паспорт выдан ГУ МВД России по г. Санкт-Петербургу и Ленинградской обл. 14.05.2018, код подразделения 780-042',
+      tag: 'REC-001',
+      icon: 'badge'
+    },
+    'rec-2': {
+      id: 'rec-2',
+      title: 'СНИЛС',
+      val: '123-456-789 00',
+      type: 'text',
+      typeName: 'Текст / Код',
+      status: 'current',
+      fromDate: '10.02.2010',
+      toDate: 'Бессрочно',
+      zone: 'open',
+      group: 'personal',
+      comment: 'Страховое свидетельство обязательного пенсионного страхования',
+      tag: 'REC-002',
+      icon: 'fingerprint'
+    },
+    'rec-3': {
+      id: 'rec-3',
+      title: 'Адрес регистрации',
+      val: 'г. Санкт-Петербург, Московский пр., д. 182, кв. 42',
+      type: 'address',
+      typeName: 'Адрес',
+      status: 'current',
+      fromDate: '15.06.2021',
+      toDate: 'Бессрочно',
+      zone: 'open',
+      group: 'addresses',
+      comment: 'Постоянная регистрация по месту жительства, штамп в паспорте стр. 5',
+      tag: 'REC-003',
+      icon: 'home'
+    },
+    'rec-4': {
+      id: 'rec-4',
+      title: 'Адрес прежний (Москва)',
+      val: 'г. Москва, ул. Тверская, д. 10, кв. 5',
+      type: 'address',
+      typeName: 'Адрес',
+      status: 'past',
+      fromDate: '01.09.2015',
+      toDate: '14.06.2021',
+      zone: 'open',
+      group: 'addresses',
+      comment: 'Прежнее место жительства до переезда в Санкт-Петербург',
+      tag: 'REC-004',
+      icon: 'history'
+    },
+    'rec-5': {
+      id: 'rec-5',
+      title: 'ИНН физлица',
+      val: '781234567890',
+      type: 'inn',
+      typeName: 'ИНН',
+      status: 'current',
+      fromDate: '20.08.2012',
+      toDate: 'Бессрочно',
+      zone: 'open',
+      group: 'docs',
+      comment: 'Присвоен МИФНС №24 по г. Санкт-Петербургу',
+      tag: 'REC-005',
+      icon: 'pin'
+    },
+    'rec-6': {
+      id: 'rec-6',
+      title: 'Банковский счет (Т-Банк)',
+      val: '40817810200001234567',
+      type: 'bik',
+      typeName: 'Банковский счет',
+      status: 'past',
+      fromDate: '03.01.2023',
+      toDate: '31.12.2023',
+      zone: 'secret',
+      group: 'bank',
+      comment: 'БИК: 044525974, Корр. счет: 30101810145250000974',
+      tag: 'REC-006',
+      icon: 'account_balance'
+    },
+    'rec-7': {
+      id: 'rec-7',
+      title: 'Основной телефон',
+      val: '+7 (921) 940-12-88',
+      type: 'phone',
+      typeName: 'Телефон',
+      status: 'current',
+      fromDate: '01.01.2018',
+      toDate: 'Бессрочно',
+      zone: 'open',
+      group: 'other',
+      comment: 'Оператор МегаФон (Северо-Западный филиал)',
+      tag: 'REC-007',
+      icon: 'call'
+    }
+  };
+
+  // Category Definitions
+  const categories = {
+    personal: { name: 'Личные сведения', countOnline: 4, countOffline: 1, hasSecret: true },
+    docs: { name: 'Документы РФ', countOnline: 5, countOffline: 1, hasSecret: true },
+    addresses: { name: 'Адреса', countOnline: 3, countOffline: 2, hasSecret: true },
+    orgs: { name: 'Организации', countOnline: 2, countOffline: 0, hasSecret: true },
+    bank: { name: 'Банковские счета', countOnline: 2, countOffline: 0, hasSecret: true },
+    'empty-demo': { name: 'Архивные черновики', countOnline: 0, countOffline: 0, hasSecret: false },
+    other: { name: 'Другие сведения', countOnline: 1, countOffline: 1, hasSecret: false }
+  };
+
+  // State flags
+  let isVeraCryptMounted = true;
+  let activeCategoryId = 'personal';
+  let activeRecordId = 'rec-1';
+  let currentGridFilter = 'all'; // all, current, past
+  let currentZoneFilter = 'all'; // all, open, secret
+  let currentSearchQuery = '';
+  let selectedRowIds = new Set(['rec-1']);
+
+  // Update whole UI
+  function renderUI() {
+    // If VeraCrypt offline and current record is secret, immediately switch to an Open record
+    if (!isVeraCryptMounted) {
+      if (!allRecords[activeRecordId] || allRecords[activeRecordId].zone === 'secret') {
+        const firstOpen = Object.values(allRecords).find(r => r.zone === 'open');
+        activeRecordId = firstOpen ? firstOpen.id : null;
+        selectedRowIds.clear();
+        if (activeRecordId) selectedRowIds.add(activeRecordId);
+      }
+    } else {
+      if (!activeRecordId || !allRecords[activeRecordId]) {
+        activeRecordId = 'rec-1';
+        selectedRowIds.clear();
+        selectedRowIds.add('rec-1');
+      }
+    }
+
+    updateVeraCryptWidgets();
+    updateCategoryBadges();
+    renderGridRows();
+    updateGridCounters();
+    updateInspector();
+  }
+
+  // Toggle VeraCrypt Mount State
+  function toggleVeraCryptState() {
+    isVeraCryptMounted = !isVeraCryptMounted;
+    if (!isVeraCryptMounted) {
+      // Auto-switch to open record if secret was active
+      if (allRecords[activeRecordId] && allRecords[activeRecordId].zone === 'secret') {
+        activeRecordId = 'rec-2';
+        selectedRowIds = new Set(['rec-2']);
+      }
+      showToast('Том VeraCrypt отключен. Режим Secret скрыт (UX-032)', 'lock');
+    } else {
+      showToast('Том VeraCrypt успешно подключен. Все реквизиты доступны', 'key');
+    }
+    renderUI();
+  }
+
+  function updateVeraCryptWidgets() {
+    const banner = document.getElementById('secret-locked-banner');
+    const indicator = document.getElementById('secret-pill-indicator');
+    const statusLabel = document.getElementById('secret-status-label');
+    const statusDesc = document.getElementById('secret-status-desc');
+    const toggleLabel = document.getElementById('secret-toggle-label');
+    const toggleIcon = document.getElementById('secret-toggle-icon');
+    const statusIcon = document.getElementById('secret-status-icon');
+    const zoneSelect = document.getElementById('zone-filter-select');
+    const gridSearch = document.getElementById('grid-search-input');
+    const topDot = document.getElementById('top-vault-dot');
+    const topText = document.getElementById('top-vault-status-txt');
+
+    if (isVeraCryptMounted) {
+      if (banner) banner.classList.add('hidden');
+      if (indicator) indicator.className = 'w-2 h-2 rounded-full bg-primary';
+      if (statusIcon) {
+        statusIcon.className = 'material-symbols-outlined text-[14px] text-primary';
+        statusIcon.textContent = 'verified_user';
+      }
+      if (statusLabel) statusLabel.textContent = 'Mounted (Slot 01)';
+      if (statusDesc) statusDesc.textContent = 'Том подключен. Secret и Open реквизиты доступны синхронно.';
+      if (toggleLabel) toggleLabel.textContent = 'Отключить том';
+      if (toggleIcon) toggleIcon.textContent = 'eject';
+      if (topDot) topDot.className = 'w-1.5 h-1.5 rounded-full bg-primary';
+      if (topText) topText.textContent = 'Локальное хранилище';
+      if (zoneSelect) {
+        zoneSelect.innerHTML = `
+          <option value="all">Все зоны (Open + Secret)</option>
+          <option value="open">Только Open (Открытая)</option>
+          <option value="secret">Только Secret (Секретная)</option>
+        `;
+        zoneSelect.disabled = false;
+      }
+      if (gridSearch) gridSearch.placeholder = 'Поиск по реквизитам (Ctrl+F)...';
+    } else {
+      if (banner) banner.classList.remove('hidden');
+      if (indicator) indicator.className = 'w-2 h-2 rounded-full bg-error';
+      if (statusIcon) {
+        statusIcon.className = 'material-symbols-outlined text-[14px] text-error';
+        statusIcon.textContent = 'no_encryption';
+      }
+      if (statusLabel) statusLabel.textContent = 'Отключен (Том заблокирован)';
+      if (statusDesc) statusDesc.textContent = 'Секретные разделы офлайн. Метаданные защищены политикой UX-032.';
+      if (toggleLabel) toggleLabel.textContent = 'Подключить том';
+      if (toggleIcon) toggleIcon.textContent = 'key';
+      if (topDot) topDot.className = 'w-1.5 h-1.5 rounded-full bg-error';
+      if (topText) topText.textContent = 'VeraCrypt: Отключен';
+      if (zoneSelect) {
+        zoneSelect.innerHTML = `
+          <option value="open" selected>Open (Открытая) · Secret недоступен 🔒</option>
+          <option value="secret" disabled>Secret (Том заблокирован)</option>
+        `;
+        zoneSelect.disabled = true;
+      }
+      if (gridSearch) gridSearch.placeholder = 'Поиск только по открытым реквизитам (Open)...';
+    }
+  }
+
+  function updateCategoryBadges() {
+    Object.keys(categories).forEach(key => {
+      const badge = document.getElementById(`badge-${key}`);
+      if (badge) {
+        const count = isVeraCryptMounted ? categories[key].countOnline : categories[key].countOffline;
+        badge.textContent = count;
+        if (count === 0) {
+          badge.className = 'px-1.5 py-[1px] rounded bg-surface-container-highest text-outline font-code text-[10px]';
+        } else if (key === activeCategoryId) {
+          badge.className = 'px-1.5 py-[1px] rounded bg-primary-container text-on-primary-container font-code text-[10px] font-semibold';
+        } else {
+          badge.className = 'px-1.5 py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-code text-[10px]';
+        }
+      }
+    });
+  }
+
+  function getVisibleRecords() {
+    let list = Object.values(allRecords);
+
+    // If VeraCrypt offline, STRICTLY filter out secret records
+    if (!isVeraCryptMounted) {
+      list = list.filter(r => r.zone !== 'secret');
+    } else if (currentZoneFilter === 'open') {
+      list = list.filter(r => r.zone === 'open');
+    } else if (currentZoneFilter === 'secret') {
+      list = list.filter(r => r.zone === 'secret');
+    }
+
+    // Grid status filter
+    if (currentGridFilter === 'current') {
+      list = list.filter(r => r.status === 'current');
+    } else if (currentGridFilter === 'past') {
+      list = list.filter(r => r.status === 'past');
+    }
+
+    // Search query
+    if (currentSearchQuery.trim()) {
+      const q = currentSearchQuery.toLowerCase();
+      list = list.filter(r => r.title.toLowerCase().includes(q) || r.val.toLowerCase().includes(q));
+    }
+
+    return list;
+  }
+
+  function renderGridRows() {
+    const tbody = document.getElementById('table-body-rows');
+    const emptyState = document.getElementById('empty-state-container');
+    if (!tbody) return;
+
+    const rows = getVisibleRecords();
+    tbody.innerHTML = '';
+
+    if (rows.length === 0 || activeCategoryId === 'empty-demo') {
+      if (emptyState) emptyState.classList.remove('hidden');
+      return;
+    } else {
+      if (emptyState) emptyState.classList.add('hidden');
+    }
+
+    rows.forEach(r => {
+      const isSelected = (r.id === activeRecordId);
+      const isChecked = selectedRowIds.has(r.id);
+
+      const tr = document.createElement('tr');
+      tr.className = `table-row-item cursor-pointer transition-colors h-[32px] ${
+        isSelected ? 'bg-surface-container font-semibold' : 'hover:bg-surface-container-high/40 bg-surface-container-lowest'
+      } ${r.status === 'past' ? 'opacity-85' : ''}`;
+      tr.setAttribute('data-id', r.id);
+      tr.setAttribute('data-zone', r.zone);
+      tr.onclick = () => selectRecord(r.id);
+
+      const zoneBadge = r.zone === 'secret'
+        ? `<span class="px-1.5 py-[2px] rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[10px] flex items-center gap-1 w-max font-semibold"><span class="material-symbols-outlined text-[11px] text-error">lock</span><span>Secret</span></span>`
+        : `<span class="px-1.5 py-[2px] rounded bg-surface-container-high text-on-surface font-label-sm text-[10px] flex items-center gap-1 w-max"><span class="material-symbols-outlined text-[11px]">public</span><span>Open</span></span>`;
+
+      const statusBadge = r.status === 'current'
+        ? `<span class="px-1.5 py-[2px] rounded bg-primary/10 text-primary font-label-sm text-[10px] font-semibold">Текущее</span>`
+        : `<span class="px-1.5 py-[2px] rounded bg-surface-container-highest text-secondary font-label-sm text-[10px]">Прежнее</span>`;
+
+      tr.innerHTML = `
+        <td class="px-2 text-center" onclick="event.stopPropagation()">
+          <input type="checkbox" class="row-checkbox rounded w-3.5 h-3.5 accent-primary cursor-pointer align-middle" ${isChecked ? 'checked' : ''} onchange="toggleRowCheckbox('${r.id}', this.checked)">
+        </td>
+        <td class="px-3 py-1 font-label-md text-on-surface flex items-center gap-1.5 truncate">
+          <span class="material-symbols-outlined text-[15px] ${r.status === 'past' ? 'text-outline' : 'text-primary'}">${r.icon}</span>
+          <span class="truncate">${r.title}</span>
+        </td>
+        <td class="px-3 py-1 font-code text-on-surface record-value font-medium truncate max-w-xs">${r.val}</td>
+        <td class="px-3 py-1">
+          <span class="px-1.5 py-[2px] rounded bg-surface-container text-on-surface-variant font-label-sm text-[10px]">${r.typeName}</span>
+        </td>
+        <td class="px-3 py-1">${statusBadge}</td>
+        <td class="px-3 py-1 text-secondary text-[11px] font-code">${r.status === 'past' ? 'до ' + r.toDate : (r.toDate === 'Бессрочно' ? 'Бессрочно' : 'с ' + r.fromDate)}</td>
+        <td class="px-3 py-1 zone-cell">${zoneBadge}</td>
+        <td class="px-2 text-center" onclick="event.stopPropagation()">
+          <button class="p-1 text-secondary hover:text-on-surface transition-colors" title="Действия">
+            <span class="material-symbols-outlined text-[15px]">more_vert</span>
+          </button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  // FIXED: Update counters safely without overwriting child elements
+  function updateGridCounters() {
+    const fAll = document.getElementById('filter-all');
+    const fCur = document.getElementById('filter-current');
+    const fPast = document.getElementById('filter-past');
+    const visibleCountEl = document.getElementById('visible-row-count');
+    const selCountEl = document.getElementById('selected-count');
+    const mountBadgeEl = document.getElementById('footer-mount-badge');
+
+    const visibleRows = getVisibleRecords();
+    const visibleCount = visibleRows.length;
+    let selectedVisibleCount = 0;
+    selectedRowIds.forEach(id => {
+      if (visibleRows.some(r => r.id === id)) {
+        selectedVisibleCount++;
+      }
+    });
+
+    if (selCountEl) {
+      selCountEl.textContent = selectedVisibleCount;
+    }
+
+    if (isVeraCryptMounted) {
+      if (fAll) fAll.textContent = 'Все (7)';
+      if (fCur) fCur.textContent = 'Только текущие (5)';
+      if (fPast) fPast.textContent = 'Прежние (2)';
+      if (visibleCountEl) visibleCountEl.textContent = '7';
+      if (mountBadgeEl) {
+        mountBadgeEl.textContent = 'Том VeraCrypt подключен';
+        mountBadgeEl.className = 'font-semibold text-primary';
+      }
+    } else {
+      // EXACT required counts under UX-032
+      if (fAll) fAll.textContent = 'Все (5)';
+      if (fCur) fCur.textContent = 'Только текущие (4)';
+      if (fPast) fPast.textContent = 'Прежние (1)';
+      if (visibleCountEl) visibleCountEl.textContent = '5 открытых';
+      if (mountBadgeEl) {
+        mountBadgeEl.textContent = 'Том VeraCrypt отключен';
+        mountBadgeEl.className = 'font-semibold text-error';
+      }
+    }
+  }
+
+  // Row Selection & Inspector Population
+  function selectRecord(id) {
+    const rec = allRecords[id];
+    if (!rec) return;
+
+    activeRecordId = id;
+    selectedRowIds.clear();
+    selectedRowIds.add(id);
+
+    renderGridRows();
+    updateGridCounters();
+    updateInspector();
+  }
+
+  function updateInspector() {
+    const activeView = document.getElementById('inspector-view-active');
+    const lockedView = document.getElementById('inspector-view-locked');
+    if (!activeView || !lockedView) return;
+
+    const rec = allRecords[activeRecordId];
+
+    // If no record is selected or active
+    if (!rec) {
+      activeView.classList.remove('hidden');
+      lockedView.classList.add('hidden');
+      clearInspectorFields();
+      return;
+    }
+
+    // Check if user clicked a secret record while VeraCrypt is offline
+    if (rec.zone === 'secret' && !isVeraCryptMounted) {
+      activeView.classList.add('hidden');
+      lockedView.classList.remove('hidden');
+      clearInspectorFields();
+      return;
+    }
+
+    // Otherwise, show active inspector and populate values fully
+    activeView.classList.remove('hidden');
+    lockedView.classList.add('hidden');
+
+    const iconEl = document.getElementById('inspector-header-icon');
+    if (iconEl) iconEl.textContent = rec.icon;
+
+    const titleEl = document.getElementById('inspector-header-title');
+    if (titleEl) titleEl.textContent = rec.title;
+
+    const idTagEl = document.getElementById('inspector-id-tag');
+    if (idTagEl) idTagEl.textContent = rec.tag;
+
+    const inpTitle = document.getElementById('inp-rec-title');
+    if (inpTitle) inpTitle.value = rec.title;
+
+    const inpVal = document.getElementById('inp-rec-val');
+    if (inpVal) inpVal.value = rec.val;
+
+    const inpType = document.getElementById('inp-rec-type');
+    if (inpType) inpType.value = rec.type;
+
+    const inpFrom = document.getElementById('inp-rec-from');
+    if (inpFrom) inpFrom.value = rec.fromDate;
+
+    const inpTo = document.getElementById('inp-rec-to');
+    if (inpTo) inpTo.value = rec.toDate;
+
+    const inpComment = document.getElementById('inp-rec-comment');
+    if (inpComment) inpComment.value = rec.comment;
+
+    // Status toggle
+    setStatusValue(rec.status, false);
+
+    // Zone toggle
+    setSecurityZone(rec.zone, false);
+  }
+
+  function clearInspectorFields() {
+    const titleEl = document.getElementById('inspector-header-title');
+    if (titleEl) titleEl.textContent = 'Реквизит не выбран';
+
+    const idTagEl = document.getElementById('inspector-id-tag');
+    if (idTagEl) idTagEl.textContent = '---';
+
+    const inpTitle = document.getElementById('inp-rec-title');
+    if (inpTitle) inpTitle.value = '';
+
+    const inpVal = document.getElementById('inp-rec-val');
+    if (inpVal) inpVal.value = '';
+
+    const inpFrom = document.getElementById('inp-rec-from');
+    if (inpFrom) inpFrom.value = '';
+
+    const inpTo = document.getElementById('inp-rec-to');
+    if (inpTo) inpTo.value = '';
+
+    const inpComment = document.getElementById('inp-rec-comment');
+    if (inpComment) inpComment.value = '';
+  }
+
+  function setStatusValue(status, updateData = true) {
+    const bCur = document.getElementById('btn-status-current');
+    const bPast = document.getElementById('btn-status-past');
+    if (status === 'current') {
+      if (bCur) bCur.className = 'flex-1 h-full rounded text-center font-label-sm text-[11px] bg-surface-container-lowest text-primary font-semibold shadow-sm transition-all';
+      if (bPast) bPast.className = 'flex-1 h-full rounded text-center font-label-sm text-[11px] text-secondary hover:text-on-surface transition-all';
+    } else {
+      if (bPast) bPast.className = 'flex-1 h-full rounded text-center font-label-sm text-[11px] bg-surface-container-lowest text-primary font-semibold shadow-sm transition-all';
+      if (bCur) bCur.className = 'flex-1 h-full rounded text-center font-label-sm text-[11px] text-secondary hover:text-on-surface transition-all';
+    }
+    if (updateData && allRecords[activeRecordId]) {
+      allRecords[activeRecordId].status = status;
+      renderGridRows();
+      updateGridCounters();
+    }
+  }
+
+  function setSecurityZone(zone, updateData = true) {
+    const bOpen = document.getElementById('zone-btn-open');
+    const bSecret = document.getElementById('zone-btn-secret');
+    const pillText = document.getElementById('zone-pill-text');
+
+    if (zone === 'open') {
+      if (bOpen) bOpen.className = 'h-7 rounded flex items-center justify-center gap-1 font-label-sm text-[11px] font-semibold bg-surface-container-lowest text-on-surface shadow-sm transition-all';
+      if (bSecret) bSecret.className = 'h-7 rounded flex items-center justify-center gap-1 font-label-sm text-[11px] text-secondary hover:text-on-surface transition-all';
+      if (pillText) {
+        pillText.textContent = 'OPEN REGION';
+        pillText.className = 'font-code text-[10px] text-primary';
+      }
+    } else {
+      if (bSecret) bSecret.className = 'h-7 rounded flex items-center justify-center gap-1 font-label-sm text-[11px] font-semibold bg-tertiary-fixed text-on-tertiary-fixed shadow-sm transition-all';
+      if (bOpen) bOpen.className = 'h-7 rounded flex items-center justify-center gap-1 font-label-sm text-[11px] text-secondary hover:text-on-surface transition-all';
+      if (pillText) {
+        pillText.textContent = 'VERACRYPT VAULT';
+        pillText.className = 'font-code text-[10px] text-error';
+      }
+    }
+
+    if (updateData && allRecords[activeRecordId]) {
+      allRecords[activeRecordId].zone = zone;
+      renderGridRows();
+      updateGridCounters();
+    }
+  }
+
+  function updateActiveDraft(key, value) {
+    if (allRecords[activeRecordId]) {
+      allRecords[activeRecordId][key] = value;
+      if (key === 'title') {
+        const titleEl = document.getElementById('inspector-header-title');
+        if (titleEl) titleEl.textContent = value;
+      }
+      renderGridRows();
+    }
+  }
+
+  function saveRecordDraft() {
+    showToast('Реквизит успешно сохранен и зашифрован', 'check');
+  }
+
+  function resetActiveRecord() {
+    updateInspector();
+    showToast('Изменения сброшены');
+  }
+
+  function copyCurrentValue() {
+    const inp = document.getElementById('inp-rec-val');
+    const val = inp ? inp.value : '';
+    navigator.clipboard?.writeText(val);
+    const lbl = document.getElementById('copy-label');
+    if (lbl) {
+      lbl.textContent = 'Скопировано!';
+      setTimeout(() => { lbl.textContent = 'Скопировать'; }, 1500);
+    }
+    showToast('Значение скопировано в буфер обмена');
+  }
+
+  function addNewRecordMode() {
+    showToast('Создание нового реквизита: фокус в редакторе', 'add_circle');
+    const inpTitle = document.getElementById('inp-rec-title');
+    const inpVal = document.getElementById('inp-rec-val');
+    if (inpTitle) {
+      inpTitle.value = 'Новый реквизит';
+      inpTitle.focus();
+      inpTitle.select();
+    }
+    if (inpVal) inpVal.value = '';
+  }
+
+  function deleteCurrentRecord() {
+    showToast('Запрос на удаление реквизита', 'delete');
+  }
+
+  // Category Tree Navigation
+  function onCategoryClick(catId) {
+    activeCategoryId = catId;
+    document.querySelectorAll('.group-item').forEach(el => {
+      if (el.getAttribute('data-group-id') === catId) {
+        el.className = 'group-item active group flex items-center justify-between h-[30px] px-2 rounded bg-surface-container text-primary font-label-md text-label-md cursor-pointer transition-colors';
+      } else {
+        el.className = 'group-item group flex items-center justify-between h-[30px] px-2 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm cursor-pointer transition-colors';
+      }
+    });
+
+    const emptyContainer = document.getElementById('empty-state-container');
+    if (catId === 'empty-demo') {
+      if (emptyContainer) emptyContainer.classList.remove('hidden');
+    } else {
+      if (emptyContainer) emptyContainer.classList.add('hidden');
+    }
+    updateCategoryBadges();
+  }
+
+  // Filter Buttons
+  function setGridFilter(flt) {
+    currentGridFilter = flt;
+    const bAll = document.getElementById('filter-all');
+    const bCur = document.getElementById('filter-current');
+    const bPast = document.getElementById('filter-past');
+    [bAll, bCur, bPast].forEach(b => {
+      if (b) b.className = 'h-6 px-2.5 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all';
+    });
+
+    if (flt === 'all' && bAll) bAll.className = 'h-6 px-2.5 rounded bg-surface-container-lowest shadow-sm text-primary font-label-sm text-label-sm font-semibold transition-all';
+    if (flt === 'current' && bCur) bCur.className = 'h-6 px-2.5 rounded bg-surface-container-lowest shadow-sm text-primary font-label-sm text-label-sm font-semibold transition-all';
+    if (flt === 'past' && bPast) bPast.className = 'h-6 px-2.5 rounded bg-surface-container-lowest shadow-sm text-primary font-label-sm text-label-sm font-semibold transition-all';
+
+    renderGridRows();
+  }
+
+  function onZoneFilterChange(val) {
+    currentZoneFilter = val;
+    renderGridRows();
+  }
+
+  function filterGridBySearch(query) {
+    currentSearchQuery = query;
+    renderGridRows();
+  }
+
+  function toggleRowCheckbox(id, isChecked) {
+    if (isChecked) {
+      selectedRowIds.add(id);
+    } else {
+      selectedRowIds.delete(id);
+    }
+    updateGridCounters();
+  }
+
+  function toggleSelectAll(checked) {
+    const visible = getVisibleRecords();
+    if (checked) {
+      visible.forEach(r => selectedRowIds.add(r.id));
+    } else {
+      selectedRowIds.clear();
+    }
+    renderGridRows();
+    updateGridCounters();
+  }
+
+  // Deletion logic (UX-020 + UX-032 Protection)
+  window.currentDeleteGroup = { name: 'Личные сведения', count: 4, id: 'personal' };
+
+  function tryDeleteGroup(e, catKey) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    const cat = categories[catKey];
+    if (!cat) return;
+
+    window.currentDeleteGroup = {
+      id: catKey,
+      name: cat.name,
+      count: isVeraCryptMounted ? cat.countOnline : cat.countOffline
+    };
+
+    // Check UX-032 Rule: If VeraCrypt is OFFLINE and category has potential hidden secret records
+    if (!isVeraCryptMounted && cat.hasSecret) {
+      openUX032Modal(cat.name);
+      return;
+    }
+
+    // Check UX-020 Rule: If category has records
+    if (window.currentDeleteGroup.count > 0) {
+      openBlockedModal(cat.name, window.currentDeleteGroup.count);
+    } else {
+      openEmptyDeleteModal(cat.name);
+    }
+  }
+
+  function openBlockedModal(name, count) {
+    const modal = document.getElementById('modal-delete-group');
+    const vBlocked = document.getElementById('delete-view-blocked');
+    const vMove = document.getElementById('delete-view-move');
+    const vEmpty = document.getElementById('delete-view-empty');
+    const vUX032 = document.getElementById('delete-view-ux032');
+
+    const blockedName = document.getElementById('blocked-group-name');
+    if (blockedName) blockedName.textContent = `«${name}»`;
+
+    const blockedCount = document.getElementById('blocked-group-count');
+    if (blockedCount) blockedCount.textContent = `${count} шт.`;
+
+    if (vBlocked) vBlocked.classList.remove('hidden');
+    if (vMove) vMove.classList.add('hidden');
+    if (vEmpty) vEmpty.classList.add('hidden');
+    if (vUX032) vUX032.classList.add('hidden');
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function showMoveRecordsStep() {
+    const vBlocked = document.getElementById('delete-view-blocked');
+    const vMove = document.getElementById('delete-view-move');
+    const select = document.getElementById('select-target-group');
+
+    const moveSrc = document.getElementById('move-source-group-name');
+    if (moveSrc) moveSrc.textContent = `«${window.currentDeleteGroup.name}»`;
+
+    const moveCount = document.getElementById('move-source-count');
+    if (moveCount) moveCount.textContent = window.currentDeleteGroup.count;
+
+    const moveText = document.getElementById('move-count-text');
+    if (moveText) moveText.textContent = window.currentDeleteGroup.count;
+
+    // Populate target groups
+    if (select) {
+      select.innerHTML = '';
+      Object.keys(categories).forEach(k => {
+        if (k !== window.currentDeleteGroup.id) {
+          const c = categories[k];
+          const count = isVeraCryptMounted ? c.countOnline : c.countOffline;
+          const opt = document.createElement('option');
+          opt.value = k;
+          opt.textContent = `${c.name} (${count} записей)`;
+          select.appendChild(opt);
+        }
+      });
+    }
+
+    if (vBlocked) vBlocked.classList.add('hidden');
+    if (vMove) vMove.classList.remove('hidden');
+  }
+
+  function showBlockedStep() {
+    const vMove = document.getElementById('delete-view-move');
+    const vBlocked = document.getElementById('delete-view-blocked');
+    if (vMove) vMove.classList.add('hidden');
+    if (vBlocked) vBlocked.classList.remove('hidden');
+  }
+
+  function openUX032Modal(name) {
+    const modal = document.getElementById('modal-delete-group');
+    const vBlocked = document.getElementById('delete-view-blocked');
+    const vMove = document.getElementById('delete-view-move');
+    const vEmpty = document.getElementById('delete-view-empty');
+    const vUX032 = document.getElementById('delete-view-ux032');
+
+    const uxName = document.getElementById('ux032-group-name');
+    if (uxName) uxName.textContent = `«${name}»`;
+
+    if (vUX032) vUX032.classList.remove('hidden');
+    if (vBlocked) vBlocked.classList.add('hidden');
+    if (vMove) vMove.classList.add('hidden');
+    if (vEmpty) vEmpty.classList.add('hidden');
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function openEmptyDeleteModal(name) {
+    const modal = document.getElementById('modal-delete-group');
+    const vBlocked = document.getElementById('delete-view-blocked');
+    const vMove = document.getElementById('delete-view-move');
+    const vEmpty = document.getElementById('delete-view-empty');
+    const vUX032 = document.getElementById('delete-view-ux032');
+
+    const emptyTitle = document.getElementById('empty-group-dialog-name');
+    if (emptyTitle) emptyTitle.textContent = `«${name}»`;
+
+    const emptyBody = document.getElementById('empty-group-dialog-name-body');
+    if (emptyBody) emptyBody.textContent = `«${name}»`;
+
+    if (vEmpty) vEmpty.classList.remove('hidden');
+    if (vBlocked) vBlocked.classList.add('hidden');
+    if (vMove) vMove.classList.add('hidden');
+    if (vUX032) vUX032.classList.add('hidden');
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function closeDeleteModal() {
+    const modal = document.getElementById('modal-delete-group');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  function confirmMoveAndPurge() {
+    closeDeleteModal();
+    showToast(`Реквизиты (${window.currentDeleteGroup.count} шт.) безопасно перенесены. Исходная категория удалена.`, 'check_circle');
+  }
+
+  function confirmDeleteEmptyGroup() {
+    closeDeleteModal();
+    showToast(`Пустая категория «${window.currentDeleteGroup.name}» удалена.`, 'delete');
+  }
+
+  // Insert Modal (SCR-06 Integration)
+  function openInsertModal() {
+    const modal = document.getElementById('modal-insert-scr06');
+    const list = document.getElementById('insert-records-list');
+    if (!list || !modal) return;
+    list.innerHTML = '';
+
+    const records = getVisibleRecords();
+    records.forEach(r => {
+      const label = document.createElement('label');
+      label.className = 'flex items-center justify-between px-3 py-2 hover:bg-surface-container transition-colors cursor-pointer';
+      label.innerHTML = `
+        <div class="flex items-center gap-2">
+          <input type="checkbox" checked class="accent-primary rounded">
+          <span class="font-label-md text-label-md text-on-surface">${r.title}</span>
+        </div>
+        <span class="font-code text-[11px] text-secondary truncate max-w-xs">${r.val}</span>
+      `;
+      list.appendChild(label);
+    });
+
+    modal.classList.remove('hidden');
+  }
+
+  function closeInsertModal() {
+    const modal = document.getElementById('modal-insert-scr06');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  function switchInsertTab(tab) {
+    const tText = document.getElementById('tab-insert-text');
+    const tTable = document.getElementById('tab-insert-table');
+    const cText = document.getElementById('tab-content-text');
+    const cTable = document.getElementById('tab-content-table');
+
+    if (tab === 'text') {
+      if (tText) tText.className = 'pb-2 font-label-md text-label-md text-primary font-bold border-b-2 border-primary transition-all flex items-center gap-1.5';
+      if (tTable) tTable.className = 'pb-2 font-label-md text-label-md text-secondary hover:text-on-surface transition-all flex items-center gap-1.5';
+      if (cText) cText.classList.remove('hidden');
+      if (cTable) cTable.classList.add('hidden');
+    } else {
+      if (tTable) tTable.className = 'pb-2 font-label-md text-label-md text-primary font-bold border-b-2 border-primary transition-all flex items-center gap-1.5';
+      if (tText) tText.className = 'pb-2 font-label-md text-label-md text-secondary hover:text-on-surface transition-all flex items-center gap-1.5';
+      if (cTable) cTable.classList.remove('hidden');
+      if (cText) cText.classList.add('hidden');
+    }
+  }
+
+  function executeInsert() {
+    closeInsertModal();
+    showToast('Реквизиты успешно вставлены в документ SCR-06', 'check_circle');
+  }
+
+  // Toast Notification
+  function showToast(msg, icon = 'check') {
+    const toast = document.getElementById('toast-notification');
+    const txt = document.getElementById('toast-message');
+    const icn = document.getElementById('toast-icon');
+    if (!toast) return;
+
+    if (txt) txt.textContent = msg;
+    if (icn) icn.textContent = icon;
+    toast.classList.remove('hidden');
+    clearTimeout(window._toastTimer);
+    window._toastTimer = setTimeout(() => {
+      toast.classList.add('hidden');
+    }, 2800);
+  }
+
+  // Scenario Switcher (Presets 1 - 6)
+  function applyState(st) {
+    // Reset simulator button highlight
+    document.querySelectorAll('.state-btn').forEach(btn => {
+      if (btn.getAttribute('data-state') === st) {
+        btn.className = 'state-btn h-6 px-2.5 rounded font-label-sm text-label-sm flex items-center gap-1 transition-all bg-primary text-on-primary shadow-sm';
+      } else {
+        btn.className = 'state-btn h-6 px-2.5 rounded hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm flex items-center gap-1 transition-all';
+      }
+    });
+
+    closeDeleteModal();
+    closeInsertModal();
+
+    if (st === 'normal') {
+      isVeraCryptMounted = true;
+      activeCategoryId = 'personal';
+      activeRecordId = 'rec-1';
+      selectedRowIds = new Set(['rec-1']);
+      renderUI();
+      showToast('Штатный вид: VeraCrypt подключен, Open и Secret активны', 'verified_user');
+    } else if (st === 'secret-locked') {
+      isVeraCryptMounted = false;
+      activeCategoryId = 'personal';
+      activeRecordId = 'rec-2'; // Open record: СНИЛС
+      selectedRowIds = new Set(['rec-2']);
+      renderUI();
+      showToast('UX-032: Том VeraCrypt отключен. Open доступен, Secret скрыт', 'lock');
+    } else if (st === 'delete-blocked') {
+      window.currentDeleteGroup = { id: 'personal', name: 'Личные сведения', count: isVeraCryptMounted ? 4 : 1 };
+      openBlockedModal(window.currentDeleteGroup.name, window.currentDeleteGroup.count);
+    } else if (st === 'move-step') {
+      window.currentDeleteGroup = { id: 'personal', name: 'Личные сведения', count: isVeraCryptMounted ? 4 : 1 };
+      openBlockedModal(window.currentDeleteGroup.name, window.currentDeleteGroup.count);
+      showMoveRecordsStep();
+    } else if (st === 'ux032-group-blocked') {
+      isVeraCryptMounted = false;
+      renderUI();
+      openUX032Modal('Банковские счета');
+    } else if (st === 'delete-empty') {
+      window.currentDeleteGroup = { id: 'empty-demo', name: 'Архивные черновики', count: 0 };
+      openEmptyDeleteModal('Архивные черновики');
+    }
+  }
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', () => {
+    renderUI();
+  });
+</script>
+
+
+
+
+</body></html>

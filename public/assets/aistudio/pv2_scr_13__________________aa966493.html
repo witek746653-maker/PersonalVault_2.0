@@ -1,0 +1,741 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-background":"#111d23","tertiary-fixed":"#d7e5e4","surface-container-highest":"#d7e4ec","on-tertiary":"#ffffff","tertiary":"#515e5e","inverse-primary":"#79d6cf","tertiary-fixed-dim":"#bbc9c8","inverse-on-surface":"#e6f3fb","surface-container-lowest":"#ffffff","on-primary":"#ffffff","on-error":"#ffffff","primary-fixed":"#95f3eb","surface-variant":"#d7e4ec","surface-container":"#e3f0f8","inverse-surface":"#263238","on-primary-container":"#f3fffd","background":"#f4faff","error":"#ba1a1a","secondary-container":"#d6e5ec","on-error-container":"#93000a","tertiary-container":"#6a7777","secondary-fixed":"#d6e5ec","primary-container":"#12827c","on-tertiary-container":"#f3fffe","surface-dim":"#cfdce4","error-container":"#ffdad6","outline-variant":"#bdc9c7","on-primary-fixed-variant":"#00504c","primary-fixed-dim":"#79d6cf","surface-tint":"#006a65","on-secondary-fixed-variant":"#3b494e","surface-container-low":"#e9f6fd","on-secondary":"#ffffff","on-surface-variant":"#3e4948","secondary":"#536166","surface":"#f4faff","on-secondary-container":"#59676c","on-tertiary-fixed":"#111e1d","outline":"#6e7978","primary":"#006763","surface-bright":"#f4faff","on-primary-fixed":"#00201e","on-secondary-fixed":"#101d22","secondary-fixed-dim":"#bac9cf","on-tertiary-fixed-variant":"#3c4949","surface-container-high":"#ddeaf2","on-surface":"#111d23"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-sm":"0.375rem","gutter":"0.75rem","margin":"1rem","space-xl":"1rem","space-lg":"0.75rem","space-xs":"0.25rem","space-md":"0.5rem"},"fontFamily":{"body-sm":["Segoe UI"],"headline-sm":["Segoe UI"],"code":["JetBrains Mono"],"body-md":["Segoe UI"],"body-lg":["Segoe UI"],"label-sm":["Segoe UI"],"headline-md":["Segoe UI"],"headline-lg":["Segoe UI"],"label-md":["Segoe UI"]},"fontSize":{"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-sm":["15px",{"lineHeight":"20px","fontWeight":"600"}],"code":["12px",{"lineHeight":"16px","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"body-lg":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["18px",{"lineHeight":"24px","fontWeight":"600"}],"headline-lg":["22px",{"lineHeight":"28px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased select-none"><header class="fixed top-0 left-0 right-0 h-9 z-50 bg-surface-container-high flex items-center justify-between px-space-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs text-primary"><span class="material-symbols-outlined text-[16px]">lock</span><span class="font-label-md text-label-md text-on-surface">PersonalVault 2.0 • Локальный архив</span></div><div class="flex items-center gap-space-xs px-space-sm py-[2px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="">Локально</span></div></div><div class="flex items-center gap-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-2 text-[14px] text-on-surface-variant">search</span><input class="w-60 h-[26px] pl-7 pr-space-md rounded bg-surface-container-lowest font-body-sm text-body-sm text-on-surface placeholder:text-outline outline-none focus:ring-1 focus:ring-primary" placeholder="Быстрый поиск (Ctrl+K)..." type="text"></div><div class="flex items-center"><button class="w-7 h-[26px] flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface rounded" type="button"><span class="material-symbols-outlined text-[14px]">remove</span></button><button class="w-7 h-[26px] flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface rounded" type="button"><span class="material-symbols-outlined text-[14px]">check_box_outline_blank</span></button><button class="w-7 h-[26px] flex items-center justify-center text-on-surface-variant hover:bg-error hover:text-on-error rounded" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><aside class="fixed left-0 top-9 bottom-0 w-64 bg-surface-container-low z-40 flex flex-col justify-between py-space-sm shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex-1 overflow-y-auto"><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Документы</span></div><nav class="flex flex-col gap-[2px] px-space-xs mb-space-md" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="zhurnal" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">history_edu</span><span class="">Журнал</span></div></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="vkhodyashchie" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">inbox</span><span class="">Входящие</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">8 файлов · 3 набора</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="chernoviki" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">edit_note</span><span class="">Черновики</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">2</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="plany" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">event_upcoming</span><span class="">Планы</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">2</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="ubrannye" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">archive</span><span class="">Убранные</span></div></a></nav><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Справочники</span></div><nav class="flex flex-col gap-[2px] px-space-xs mb-space-md" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="moi-dannye" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">dataset</span><span class="">Мои данные</span></div></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded bg-surface-container-high text-primary font-bold font-body-sm text-body-sm" data-path="shablony" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">dashboard_customize</span><span class="">Шаблоны</span></div></a></nav><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Дополнительно</span></div><nav class="flex flex-col gap-[2px] px-space-xs" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="svodka-zdorovya" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">monitor_heart</span><span class="">Сводка здоровья</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">В разработке</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="pomoshchnik" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">smart_toy</span><span class="">Помощник</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">В разработке</span></a></nav></div><div class="pt-space-xs px-space-xs flex flex-col gap-[2px]"><nav class="flex flex-col gap-[2px]" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm gap-space-xs" data-path="obsluzhivanie-arhiva" href="#"><span class="material-symbols-outlined text-[16px]">build_circle</span><span class="">Обслуживание архива</span></a><a class="flex items-center h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm gap-space-xs" data-path="nastrojki" href="#"><span class="material-symbols-outlined text-[16px]">settings</span><span class="">Настройки</span></a></nav><div class="px-space-sm py-space-xs mt-space-xs rounded bg-surface-container-highest"><div class="flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[14px]">hard_drive</span><span class="font-label-sm text-label-sm text-on-surface">Локальный диск: 4.2 ГБ свободно</span></div></div></div></aside><div class="pl-64"><main class="w-full pt-9 px-space-xl bg-surface min-h-screen"><div class="flex flex-col w-full pb-10">
+<!-- TOP WORKSPACE SWITCHER & SCENARIO BAR (Windows Calm Workstation) -->
+<div class="w-full bg-surface-container-high px-space-md py-space-xs rounded-xl shadow-sm mb-space-md flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">schema</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider">Режим симуляции SCR-13:</span>
+</div>
+<div class="flex flex-wrap items-center gap-1 text-label-sm font-label-sm" id="state-selector-container">
+<button class="px-space-sm py-1 rounded bg-primary text-on-primary font-bold shadow-sm transition-colors flex items-center gap-1" id="btn-mode-standard" onclick="switchViewMode('standard')">
+<span class="w-1.5 h-1.5 rounded-full bg-surface"></span>
+        1. Штатное редактирование
+      </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-highest transition-colors" id="btn-mode-empty" onclick="switchViewMode('empty')">
+        2. Новый пустой шаблон
+      </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-highest transition-colors" id="btn-mode-type-select" onclick="switchViewMode('type-select')">
+        3. Выбор типа поля
+      </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-highest transition-colors text-error" id="btn-mode-conflict-warn" onclick="switchViewMode('conflict-warn')">
+        4. Конфликт типов данных
+      </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-highest transition-colors" id="btn-mode-delete-modal" onclick="toggleDeleteModal(true)">
+        5. Диалог удаления (Гарантия)
+      </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-highest transition-colors" id="btn-mode-preview" onclick="switchViewMode('preview')">
+        6. Предпросмотр (SCR-06)
+      </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-highest transition-colors flex items-center gap-1" id="btn-compact-mode" onclick="toggleCompactWidth()">
+<span class="material-symbols-outlined text-[13px]">fit_screen</span>
+        7. Компактный вид (900px)
+      </button>
+</div>
+</div>
+<div class="w-full transition-all duration-200" id="layout-canvas">
+<!-- BREADCRUMB & CONTEXT BANNER -->
+<div class="flex items-center justify-between pb-space-xs mb-space-sm">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[14px]">inventory_2</span>
+<span class="">Каталог шаблонов (SCR-12)</span>
+</a>
+<span class="">/</span>
+<span class="text-on-surface font-semibold">Редактор структуры схемы</span>
+</div>
+<div class="flex items-center gap-space-xs text-label-sm font-label-sm">
+<span class="px-space-sm py-[2px] rounded bg-secondary-container text-on-secondary-container font-mono">Схема ID: TPL-ACT-RESIDENTIAL-04</span>
+<span class="px-space-sm py-[2px] rounded bg-surface-container-high text-on-surface-variant">Хранилище: Локальное SQLite</span>
+</div>
+</div>
+<!-- MAIN HEADER: TITLE, BADGES & TOOLBAR -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<!-- Document Title & Revisions -->
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight truncate">
+              Редактор шаблона: Акт приёма-передачи жилого помещения
+            </h1>
+<div class="flex items-center gap-1">
+<span class="px-space-sm py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-bold">
+                Ревизия v1.2
+              </span>
+<span class="px-space-sm py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                Несохранённые правки структуры
+              </span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Конфигурирование логических блоков, типов ячеек и связей со справочниками «Мои данные». Значения документов на этом экране не редактируются.
+          </p>
+</div>
+<!-- Action Bar Buttons -->
+<div class="flex items-center gap-space-xs flex-wrap">
+<button class="h-[30px] px-space-md rounded bg-primary text-on-primary font-label-md text-label-md hover:opacity-95 shadow-sm transition-all flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]">save</span>
+<span class="">Сохранить изменения (Создать v1.3)</span>
+</button>
+<button class="h-[30px] px-space-sm rounded bg-surface-container-low text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors flex items-center gap-1" onclick="switchViewMode('preview')">
+<span class="material-symbols-outlined text-[15px] text-primary">visibility</span>
+<span class="">Предпросмотр формы</span>
+</button>
+<div class="h-4 w-[1px] bg-outline-variant mx-1"></div>
+<button class="h-[30px] px-space-sm rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-1 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">add_box</span>
+<span class="">+ Секция</span>
+</button>
+<button class="h-[30px] px-space-sm rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-1 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">add_circle</span>
+<span class="">+ Поле</span>
+</button>
+<button class="h-[30px] px-space-sm rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-1 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">table_chart</span>
+<span class="">+ Таблица</span>
+</button>
+<button class="h-[30px] px-space-sm rounded bg-surface-container-lowest text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm">
+            Отмена (Esc)
+          </button>
+</div>
+</div>
+</div>
+<!-- MAIN TWO-COLUMN WORKSPACE: BUILDER TREE + INSPECTOR -->
+<div class="grid grid-cols-12 gap-space-md items-start" id="builder-columns-wrapper">
+<!-- LEFT COLUMN: SCHEMA STRUCTURE TREE (Airtable / Windows Precision style) -->
+<div class="col-span-12 lg:col-span-7 flex flex-col gap-space-md" id="col-structure-tree">
+<!-- SECTION 1 CARD -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all">
+<!-- Section Header / Controls -->
+<div class="flex items-center justify-between pb-space-xs mb-space-sm bg-surface-container-low px-space-sm py-space-xs rounded-lg">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">folder_open</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Секция 1: «Основные реквизиты»</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-on-secondary-container font-label-sm text-label-sm">
+                5 полей · 3 обязательных
+              </span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface" title="Переименовать секцию">
+<span class="material-symbols-outlined text-[14px]">edit</span>
+</button>
+<button class="w-6 h-6 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface" title="Переместить выше">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+</button>
+<button class="w-6 h-6 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface" title="Переместить ниже">
+<span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+</button>
+<button class="h-6 px-space-xs rounded bg-surface-container-highest hover:bg-primary-fixed-dim text-on-surface font-label-sm text-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">add</span>
+<span class="">Поле</span>
+</button>
+</div>
+</div>
+<!-- Section Fields Stack -->
+<div class="flex flex-col gap-1.5" id="fields-sortable-list">
+<!-- Field 1 -->
+<div class="bg-surface-container-low hover:bg-surface-container p-space-xs px-space-sm rounded-lg flex items-center justify-between transition-colors group">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary cursor-grab text-[16px]">drag_indicator</span>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">Номер акта</span>
+<span class="px-space-xs py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Текст</span>
+<span class="px-space-xs py-[1px] rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">Обязательное</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Источник по умолчанию: «Стр. 1 договора»</span>
+</div>
+</div>
+<div class="flex items-center gap-1 opacity-80 group-hover:opacity-100">
+<button class="h-6 px-space-xs rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">tune</span>
+<span class="">Настроить</span>
+</button>
+<button class="w-6 h-6 rounded flex items-center justify-center text-error hover:bg-error-container" onclick="triggerFieldDelete('Номер акта')" title="Удалить поле">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+</div>
+<!-- Field 2 -->
+<div class="bg-surface-container-low hover:bg-surface-container p-space-xs px-space-sm rounded-lg flex items-center justify-between transition-colors group">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary cursor-grab text-[16px]">drag_indicator</span>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">Дата составления</span>
+<span class="px-space-xs py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Дата (ГГГГ-ММ-ДД)</span>
+<span class="px-space-xs py-[1px] rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">Обязательное</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Календарный валидатор активен</span>
+</div>
+</div>
+<div class="flex items-center gap-1 opacity-80 group-hover:opacity-100">
+<button class="h-6 px-space-xs rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">tune</span>
+<span class="">Настроить</span>
+</button>
+<button class="w-6 h-6 rounded flex items-center justify-center text-error hover:bg-error-container" onclick="triggerFieldDelete('Дата составления')" title="Удалить поле">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+</div>
+<!-- Field 3 -->
+<div class="bg-surface-container-low hover:bg-surface-container p-space-xs px-space-sm rounded-lg flex items-center justify-between transition-colors group">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary cursor-grab text-[16px]">drag_indicator</span>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">Наймодатель</span>
+<span class="px-space-xs py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Текст</span>
+<span class="px-space-xs py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Опционально</span>
+</div>
+<span class="font-body-sm text-body-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">dataset_linked</span>
+<span class="">Связь с «Мои данные»: Справочник персон</span>
+</span>
+</div>
+</div>
+<div class="flex items-center gap-1 opacity-80 group-hover:opacity-100">
+<button class="h-6 px-space-xs rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">tune</span>
+<span class="">Настроить</span>
+</button>
+<button class="w-6 h-6 rounded flex items-center justify-center text-error hover:bg-error-container" onclick="triggerFieldDelete('Наймодатель')" title="Удалить поле">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+</div>
+<!-- Field 4 -->
+<div class="bg-surface-container-low hover:bg-surface-container p-space-xs px-space-sm rounded-lg flex items-center justify-between transition-colors group">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary cursor-grab text-[16px]">drag_indicator</span>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-body-md text-body-md font-semibold text-on-surface truncate">Наниматель</span>
+<span class="px-space-xs py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Текст</span>
+<span class="px-space-xs py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Опционально</span>
+</div>
+<span class="font-body-sm text-body-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">dataset_linked</span>
+<span class="">Связь с «Мои данные»: Справочник персон</span>
+</span>
+</div>
+</div>
+<div class="flex items-center gap-1 opacity-80 group-hover:opacity-100">
+<button class="h-6 px-space-xs rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">tune</span>
+<span class="">Настроить</span>
+</button>
+<button class="w-6 h-6 rounded flex items-center justify-center text-error hover:bg-error-container" onclick="triggerFieldDelete('Наниматель')" title="Удалить поле">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+</div>
+<!-- Field 5: Selected / In Focus for Inspector -->
+<div class="bg-primary-fixed/20 p-space-xs px-space-sm rounded-lg flex items-center justify-between shadow-sm relative">
+<div class="absolute -left-1 top-2 bottom-2 w-1 bg-primary rounded-full"></div>
+<div class="flex items-center gap-space-sm min-w-0 pl-1">
+<span class="material-symbols-outlined text-primary cursor-grab text-[16px]">drag_indicator</span>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-body-md text-body-md font-bold text-on-surface truncate">Адрес помещения</span>
+<span class="px-space-xs py-[1px] rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold">Длинный текст</span>
+<span class="px-space-xs py-[1px] rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">Обязательное</span>
+</div>
+<span class="font-body-sm text-body-sm text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">place</span>
+<span class="">Привязка: Локальные адреса пользователей</span>
+</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<span class="px-space-xs py-0.5 rounded bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-bold">Активно в инспекторе</span>
+<button class="w-6 h-6 rounded flex items-center justify-center text-error hover:bg-error-container" onclick="triggerFieldDelete('Адрес помещения')" title="Удалить поле">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: TABLE BUILDER -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between pb-space-xs mb-space-sm bg-surface-container-low px-space-sm py-space-xs rounded-lg">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">table_rows</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Секция 2: «Оборудование и опись имущества»</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-on-secondary-container font-label-sm text-label-sm">
+                1 табличная модель
+              </span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded flex items-center justify-center text-on-surface-variant hover:bg-error-container hover:text-error" title="Удалить секцию">
+<span class="material-symbols-outlined text-[14px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Airtable-like Table Grid Specification -->
+<div class="bg-surface-container-lowest rounded-lg p-space-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">grid_on</span>
+<span class="font-label-md text-label-md text-on-surface">Таблица схемы: «Передаваемое имущество»</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="h-[26px] px-space-xs rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-primary">view_column</span>
+<span class="">+ Добавить столбец</span>
+</button>
+<button class="h-[26px] px-space-xs rounded bg-surface-container hover:bg-error-container text-on-surface hover:text-error font-label-sm text-label-sm">
+                  Удалить таблицу
+                </button>
+</div>
+</div>
+<!-- Columns schema display table -->
+<div class="w-full overflow-x-auto rounded">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container-high text-on-surface-variant uppercase text-label-sm font-label-sm">
+<tr>
+<th class="py-1.5 px-space-sm font-semibold">Имя колонки</th>
+<th class="py-1.5 px-space-sm font-semibold">Тип данных</th>
+<th class="py-1.5 px-space-sm font-semibold">Обязательность</th>
+<th class="py-1.5 px-space-sm font-semibold">Ширина по ум.</th>
+<th class="py-1.5 px-space-sm text-right font-semibold">Действия</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-1.5 px-space-sm font-semibold text-on-surface">№ п/п</td>
+<td class="py-1.5 px-space-sm">
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Числовой (Авто)</span>
+</td>
+<td class="py-1.5 px-space-sm text-primary font-semibold">Да</td>
+<td class="py-1.5 px-space-sm font-mono text-label-sm">60px</td>
+<td class="py-1.5 px-space-sm text-right">
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[14px]">tune</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
+<td class="py-1.5 px-space-sm font-semibold text-on-surface">Наименование предмета</td>
+<td class="py-1.5 px-space-sm">
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Текст (Строка)</span>
+</td>
+<td class="py-1.5 px-space-sm text-error font-semibold">Обязательно</td>
+<td class="py-1.5 px-space-sm font-mono text-label-sm">240px</td>
+<td class="py-1.5 px-space-sm text-right">
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[14px]">tune</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-1.5 px-space-sm font-semibold text-on-surface">Модель / Марка</td>
+<td class="py-1.5 px-space-sm">
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Текст (Строка)</span>
+</td>
+<td class="py-1.5 px-space-sm text-on-surface-variant">Нет</td>
+<td class="py-1.5 px-space-sm font-mono text-label-sm">180px</td>
+<td class="py-1.5 px-space-sm text-right">
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[14px]">tune</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
+<td class="py-1.5 px-space-sm font-semibold text-on-surface">Состояние / Замечания</td>
+<td class="py-1.5 px-space-sm">
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Текст (Строка)</span>
+</td>
+<td class="py-1.5 px-space-sm text-on-surface-variant">Нет</td>
+<td class="py-1.5 px-space-sm font-mono text-label-sm">220px</td>
+<td class="py-1.5 px-space-sm text-right">
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[14px]">tune</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: FIELD INSPECTOR & CONFIGURATION PANEL -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-space-md" id="col-field-inspector">
+<!-- Inspector Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between pb-space-xs mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">tune</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Свойства поля: Адрес помещения</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-bold">Схема</span>
+</div>
+<!-- Configuration Form Controls -->
+<div class="flex flex-col gap-space-md">
+<!-- Field Label -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Название поля (отображение в форме)</label>
+<input class="h-8 px-space-sm rounded bg-surface-container-lowest text-on-surface font-body-md text-body-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary" type="text" value="Адрес помещения">
+</div>
+<!-- Parent Section Selector -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Родительская секция</label>
+<div class="relative">
+<select class="w-full h-8 px-space-sm rounded bg-surface-container-lowest text-on-surface font-body-md text-body-md shadow-sm appearance-none focus:outline-none focus:ring-1 focus:ring-primary pr-8">
+<option selected="">Секция 1: Основные реквизиты</option>
+<option>Секция 2: Оборудование и опись имущества</option>
+<option>+ Создать новую секцию...</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2 text-[16px] text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Field Data Type Selector (Matrix of Badges) -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Тип данных ячейки схемы</label>
+<span class="font-label-sm text-label-sm text-primary">8 типов доступно</span>
+</div>
+<div class="grid grid-cols-2 gap-1.5" id="type-badges-grid">
+<button class="type-badge-btn h-8 px-space-xs rounded bg-surface-container-low hover:bg-surface-container-high text-on-surface flex items-center gap-1.5 transition-colors text-left" onclick="selectTypeBadge(this, 'Текст')" type="button">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">short_text</span>
+<span class="font-body-sm text-body-sm">Текст (одна строка)</span>
+</button>
+<button class="type-badge-btn h-8 px-space-xs rounded bg-primary text-on-primary font-bold flex items-center gap-1.5 shadow-sm transition-colors text-left" onclick="selectTypeBadge(this, 'Длинный текст')" type="button">
+<span class="material-symbols-outlined text-[15px]">notes</span>
+<span class="font-body-sm text-body-sm">Длинный текст</span>
+</button>
+<button class="type-badge-btn h-8 px-space-xs rounded bg-surface-container-low hover:bg-surface-container-high text-on-surface flex items-center gap-1.5 transition-colors text-left" onclick="selectTypeBadge(this, 'Число')" type="button">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">tag</span>
+<span class="font-body-sm text-body-sm">Число</span>
+</button>
+<button class="type-badge-btn h-8 px-space-xs rounded bg-surface-container-low hover:bg-surface-container-high text-on-surface flex items-center gap-1.5 transition-colors text-left" onclick="selectTypeBadge(this, 'Дата')" type="button">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">calendar_today</span>
+<span class="font-body-sm text-body-sm">Дата</span>
+</button>
+<button class="type-badge-btn h-8 px-space-xs rounded bg-surface-container-low hover:bg-surface-container-high text-on-surface flex items-center gap-1.5 transition-colors text-left" onclick="selectTypeBadge(this, 'Период')" type="button">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">date_range</span>
+<span class="font-body-sm text-body-sm">Период (от / до)</span>
+</button>
+<button class="type-badge-btn h-8 px-space-xs rounded bg-surface-container-low hover:bg-surface-container-high text-on-surface flex items-center gap-1.5 transition-colors text-left" onclick="selectTypeBadge(this, 'Телефон')" type="button">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">phone</span>
+<span class="font-body-sm text-body-sm">Телефон</span>
+</button>
+<button class="type-badge-btn h-8 px-space-xs rounded bg-surface-container-low hover:bg-surface-container-high text-on-surface flex items-center gap-1.5 transition-colors text-left" onclick="selectTypeBadge(this, 'Сумма')" type="button">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">payments</span>
+<span class="font-body-sm text-body-sm">Сумма (Валюта)</span>
+</button>
+<button class="type-badge-btn h-8 px-space-xs rounded bg-surface-container-low hover:bg-surface-container-high text-on-surface flex items-center gap-1.5 transition-colors text-left" onclick="selectTypeBadge(this, 'Да/Нет')" type="button">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">check_box</span>
+<span class="font-body-sm text-body-sm">Да / Нет (Флаг)</span>
+</button>
+</div>
+</div>
+<!-- Checkbox: Required Field -->
+<label class="flex items-start gap-space-xs cursor-pointer p-space-xs rounded bg-surface-container-low hover:bg-surface-container">
+<input checked="" class="mt-1 w-3.5 h-3.5 rounded bg-surface-container-lowest text-primary accent-primary cursor-pointer" type="checkbox">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Обязательное поле</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Влияет на индикатор полноты в Журнале архива и расчёт валидности документа при импорте</span>
+</div>
+</label>
+<!-- Checkbox: Link to 'My Data' Directory -->
+<div class="flex flex-col gap-space-xs p-space-xs rounded bg-surface-container-low">
+<label class="flex items-start gap-space-xs cursor-pointer">
+<input checked="" class="mt-1 w-3.5 h-3.5 rounded bg-surface-container-lowest text-primary accent-primary cursor-pointer" type="checkbox">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Разрешить быструю вставку из «Мои данные»</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Автоподстановка реквизитов из локального защищённого реестра пользователя</span>
+</div>
+</label>
+<!-- Sub-selector for Directory Section -->
+<div class="pl-5 pt-1">
+<div class="relative">
+<select class="w-full h-7 px-space-sm rounded bg-surface-container-lowest text-on-surface font-body-sm text-body-sm shadow-sm appearance-none pr-8">
+<option selected="">Раздел: Адреса и объекты недвижимости</option>
+<option>Раздел: Персоны и паспортные данные</option>
+<option>Раздел: Организации и ИНН</option>
+<option>Раздел: Банковские счета</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1.5 text-[14px] text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Operator Hint / Placeholder for SCR-06 -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Подсказка для оператора (ввод значений)</label>
+<textarea class="p-space-sm rounded bg-surface-container-lowest text-on-surface font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-1 focus:ring-primary" rows="2">Укажите полный адрес квартиры или дома из раздела условий договора (включая индекс и корпус)</textarea>
+</div>
+<!-- Bottom Inspector Action -->
+<div class="flex items-center justify-between pt-space-xs">
+<button class="h-7 px-space-sm rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold hover:opacity-90">
+                Применить к схеме
+              </button>
+<button class="h-7 px-space-sm rounded bg-surface-container text-on-surface-variant hover:text-error hover:bg-error-container font-label-sm text-label-sm">
+                Сбросить параметры
+              </button>
+</div>
+</div>
+</div>
+<!-- REVISION AUDIT METADATA CARD -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center gap-space-xs mb-space-xs text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">history</span>
+<span class="font-label-md text-label-md">Метаданные схемы шаблона</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs font-body-sm text-body-sm">
+<div class="text-on-surface-variant">Всего полей в схеме:</div>
+<div class="font-mono text-right text-on-surface font-bold">5 полей + 1 таблица</div>
+<div class="text-on-surface-variant">Документов на этой схеме:</div>
+<div class="font-mono text-right text-primary font-bold">14 файлов в архиве</div>
+<div class="text-on-surface-variant">Создатель шаблона:</div>
+<div class="text-right text-on-surface">Локальный профиль (Вы)</div>
+<div class="text-on-surface-variant">Последняя синхронизация:</div>
+<div class="text-right text-on-surface">Сегодня, 11:42 (SQLite)</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SIMULATED STATE: CONFLICT TYPE WARNING CARD (HIDDEN BY DEFAULT, TOGGLED VIA SWITCHER) -->
+<div class="hidden w-full bg-error-container text-on-error-container rounded-xl p-space-md shadow-md mb-space-md transition-all" id="conflict-warning-card">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[24px] text-error">warning</span>
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm font-bold">Обнаружен конфликт изменения типа данных в ревизии</span>
+<span class="px-space-xs py-0.5 rounded bg-error text-on-error font-label-sm text-label-sm font-bold">Внимание</span>
+</div>
+<p class="font-body-md text-body-md">
+            Вы изменяете тип поля <strong>«Дата составления»</strong> со значения <strong>[Дата]</strong> на <strong>[Число]</strong>.
+            В архиве обнаружено <strong>14 документов</strong>, использующих этот шаблон. Значения существующих документов не будут конвертированы принудительно, но валидация даты при следующем открытии в SCR-06 будет отключена.
+          </p>
+<div class="flex items-center gap-space-xs pt-space-xs">
+<button class="h-7 px-space-sm rounded bg-error text-on-error font-label-sm text-label-sm font-bold">
+              Подтвердить изменение типа данных
+            </button>
+<button class="h-7 px-space-sm rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm" onclick="switchViewMode('standard')">
+              Вернуть прежний тип [Дата]
+            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- SIMULATED STATE: PREVIEW EMPTY FORM (VIEW IN SCR-06) -->
+<div class="hidden w-full bg-surface-container-lowest rounded-xl p-space-lg shadow-sm" id="preview-mode-container">
+<div class="flex items-center justify-between pb-space-md mb-space-md bg-surface-container-low px-space-md py-space-sm rounded-lg">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">preview</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Предпросмотр ввода формы: Акт приёма-передачи (вид в SCR-06)</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Так этот шаблон будет выглядеть для оператора при заполнении значений конкретного документа.</p>
+</div>
+</div>
+<button class="h-7 px-space-sm rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold flex items-center gap-1" onclick="switchViewMode('standard')">
+<span class="material-symbols-outlined text-[14px]">arrow_back</span>
+<span class="">Вернуться к редактированию структуры</span>
+</button>
+</div>
+<!-- Simulated SCR-06 Form -->
+<div class="max-w-2xl mx-auto flex flex-col gap-space-lg py-space-md">
+<div class="flex flex-col gap-space-sm bg-surface-container-low p-space-md rounded-lg">
+<span class="font-label-md text-label-md text-primary uppercase font-bold tracking-wider">Секция 1: Основные реквизиты</span>
+<div class="grid grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm font-semibold">Номер акта *</label>
+<input class="h-8 px-space-sm rounded bg-surface-container-lowest text-on-surface text-body-sm shadow-sm" placeholder="Введите номер..." type="text">
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm font-semibold">Дата составления *</label>
+<input class="h-8 px-space-sm rounded bg-surface-container-lowest text-on-surface text-body-sm shadow-sm" type="date">
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm">Наймодатель</label>
+<input class="h-8 px-space-sm rounded bg-surface-container-lowest text-on-surface text-body-sm shadow-sm" placeholder="Выбрать из персон..." type="text">
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm">Наниматель</label>
+<input class="h-8 px-space-sm rounded bg-surface-container-lowest text-on-surface text-body-sm shadow-sm" placeholder="Выбрать из персон..." type="text">
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm font-semibold">Адрес помещения *</label>
+<textarea class="p-space-sm rounded bg-surface-container-lowest text-on-surface text-body-sm shadow-sm" placeholder="Укажите полный адрес квартиры или дома из раздела условий договора..." rows="2"></textarea>
+</div>
+</div>
+<div class="flex flex-col gap-space-sm bg-surface-container-low p-space-md rounded-lg">
+<span class="font-label-md text-label-md text-primary uppercase font-bold tracking-wider">Секция 2: Передаваемое имущество</span>
+<div class="bg-surface-container-lowest p-space-sm rounded text-center text-on-surface-variant font-body-sm text-body-sm">
+            Таблица готова к приёму строк. Нажмите «+ Добавить строку» в режиме оператора.
+          </div>
+</div>
+</div>
+</div>
+<!-- SIMULATED STATE: NEW EMPTY TEMPLATE -->
+<div class="hidden w-full bg-surface-container-lowest rounded-xl p-space-xl shadow-sm text-center" id="empty-mode-container">
+<div class="max-w-md mx-auto flex flex-col items-center gap-space-md py-space-xl">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">post_add</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">Новая схема документа</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">В этой схеме пока нет секций и полей. Добавьте первую секцию, чтобы определить структуру полей или табличную часть.</p>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="h-8 px-space-md rounded bg-primary text-on-primary font-label-md text-label-md flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[15px]">add_box</span>
+<span class="">Создать первую секцию</span>
+</button>
+<button class="h-8 px-space-sm rounded bg-surface-container-high text-on-surface font-label-md text-label-md" onclick="switchViewMode('standard')">
+            Вернуть демо-схему
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- POPUP / DIALOG: CONFIRM DELETE FIELD WITH GUARANTEE (STATE 5) -->
+<div class="hidden fixed inset-0 z-50 bg-inverse-surface/40 flex items-center justify-center p-space-md" id="delete-confirm-modal">
+<div class="bg-surface-container-lowest w-full max-w-lg rounded-xl shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+<!-- Modal Header -->
+<div class="bg-surface-container-high px-space-md py-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-error font-semibold font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-[18px]">delete_sweep</span>
+<span class="">Подтверждение удаления поля из шаблона</span>
+</div>
+<button class="w-6 h-6 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest" onclick="toggleDeleteModal(false)">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="p-space-md flex flex-col gap-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-error-container text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="font-body-md text-body-md font-bold text-on-surface">
+              Вы удаляете поле <span class="text-error" id="modal-target-field-name">«Срок гарантии»</span> из схемы шаблона.
+            </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Это поле перестанет предлагаться для заполнения во всех <strong>новых</strong> документах, создаваемых на базе этого шаблона.
+            </p>
+</div>
+</div>
+<!-- Privacy & Integrity Guarantee Banner -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex items-start gap-space-xs text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">verified_user</span>
+<div class="">
+<span class="font-semibold text-primary">Гарантия неизменности архивных данных:</span>
+            Значения этого поля, ранее сохранённые в уже существующих документах архива, <strong>НЕ БУДУТ удалены или повреждены</strong>. В соответствии с архитектурой PersonalVault 2.0 они автоматически сохранятся как локальные свойства неизменяемых документов.
+          </div>
+</div>
+<!-- Actions -->
+<div class="flex items-center justify-end gap-space-xs pt-space-xs">
+<button class="h-8 px-space-md rounded bg-surface-container-high text-on-surface hover:bg-surface-container-highest font-label-md text-label-md" onclick="toggleDeleteModal(false)">
+            Отмена
+          </button>
+<button class="h-8 px-space-md rounded bg-error text-on-error hover:opacity-95 font-label-md text-label-md font-semibold shadow-sm flex items-center gap-1" onclick="confirmFieldDeletionAction()">
+<span class="material-symbols-outlined text-[15px]">delete</span>
+<span class="">Удалить поле из шаблона</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Interactive view switcher for SCR-13 simulation states
+  function switchViewMode(mode) {
+    const standardColumns = document.getElementById('builder-columns-wrapper');
+    const previewContainer = document.getElementById('preview-mode-container');
+    const emptyContainer = document.getElementById('empty-mode-container');
+    const conflictCard = document.getElementById('conflict-warning-card');
+    
+    // Reset view visibility
+    standardColumns.classList.remove('hidden');
+    previewContainer.classList.add('hidden');
+    emptyContainer.classList.add('hidden');
+    conflictCard.classList.add('hidden');
+
+    // Highlight button in switcher
+    const buttons = document.querySelectorAll('#state-selector-container button');
+    buttons.forEach(b => {
+      b.classList.remove('bg-primary', 'text-on-primary', 'font-bold');
+      b.classList.add('bg-surface-container-lowest', 'text-on-surface');
+    });
+
+    if (mode === 'standard') {
+      document.getElementById('btn-mode-standard').classList.add('bg-primary', 'text-on-primary', 'font-bold');
+      document.getElementById('btn-mode-standard').classList.remove('bg-surface-container-lowest', 'text-on-surface');
+    } else if (mode === 'empty') {
+      standardColumns.classList.add('hidden');
+      emptyContainer.classList.remove('hidden');
+      document.getElementById('btn-mode-empty').classList.add('bg-primary', 'text-on-primary', 'font-bold');
+      document.getElementById('btn-mode-empty').classList.remove('bg-surface-container-lowest', 'text-on-surface');
+    } else if (mode === 'type-select') {
+      document.getElementById('btn-mode-type-select').classList.add('bg-primary', 'text-on-primary', 'font-bold');
+      document.getElementById('btn-mode-type-select').classList.remove('bg-surface-container-lowest', 'text-on-surface');
+      // Scroll smoothly to inspector type badges
+      document.getElementById('type-badges-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else if (mode === 'conflict-warn') {
+      conflictCard.classList.remove('hidden');
+      document.getElementById('btn-mode-conflict-warn').classList.add('bg-primary', 'text-on-primary', 'font-bold');
+      document.getElementById('btn-mode-conflict-warn').classList.remove('bg-surface-container-lowest', 'text-on-surface');
+      conflictCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (mode === 'preview') {
+      standardColumns.classList.add('hidden');
+      previewContainer.classList.remove('hidden');
+      document.getElementById('btn-mode-preview').classList.add('bg-primary', 'text-on-primary', 'font-bold');
+      document.getElementById('btn-mode-preview').classList.remove('bg-surface-container-lowest', 'text-on-surface');
+    }
+  }
+
+  // Type Selector badge toggle in inspector
+  function selectTypeBadge(btn, typeName) {
+    const allBadges = document.querySelectorAll('.type-badge-btn');
+    allBadges.forEach(b => {
+      b.classList.remove('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm');
+      b.classList.add('bg-surface-container-low', 'text-on-surface');
+      const icon = b.querySelector('.material-symbols-outlined');
+      if (icon) icon.classList.add('text-on-surface-variant');
+    });
+
+    btn.classList.add('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm');
+    btn.classList.remove('bg-surface-container-low', 'text-on-surface');
+    const activeIcon = btn.querySelector('.material-symbols-outlined');
+    if (activeIcon) activeIcon.classList.remove('text-on-surface-variant');
+  }
+
+  // Delete modal open / close
+  function toggleDeleteModal(show) {
+    const modal = document.getElementById('delete-confirm-modal');
+    if (show) {
+      modal.classList.remove('hidden');
+    } else {
+      modal.classList.add('hidden');
+    }
+  }
+
+  function triggerFieldDelete(fieldName) {
+    document.getElementById('modal-target-field-name').innerText = '«' + fieldName + '»';
+    toggleDeleteModal(true);
+  }
+
+  function confirmFieldDeletionAction() {
+    toggleDeleteModal(false);
+  }
+
+  // Compact view simulation (900px breakpoint)
+  let isCompact = false;
+  function toggleCompactWidth() {
+    const canvas = document.getElementById('layout-canvas');
+    const btn = document.getElementById('btn-compact-mode');
+    isCompact = !isCompact;
+    if (isCompact) {
+      canvas.classList.add('max-w-[900px]', 'mx-auto');
+      btn.classList.add('bg-primary-fixed', 'text-on-primary-fixed-variant', 'font-bold');
+    } else {
+      canvas.classList.remove('max-w-[900px]', 'mx-auto');
+      btn.classList.remove('bg-primary-fixed', 'text-on-primary-fixed-variant', 'font-bold');
+    }
+  }
+</script></main></div>
+
+</body></html>

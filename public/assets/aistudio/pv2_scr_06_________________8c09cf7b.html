@@ -1,0 +1,674 @@
+<!DOCTYPE html><html lang="ru" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-background":"#111d23","tertiary-fixed":"#d7e5e4","surface-container-highest":"#d7e4ec","on-tertiary":"#ffffff","tertiary":"#515e5e","inverse-primary":"#79d6cf","tertiary-fixed-dim":"#bbc9c8","inverse-on-surface":"#e6f3fb","surface-container-lowest":"#ffffff","on-primary":"#ffffff","on-error":"#ffffff","primary-fixed":"#95f3eb","surface-variant":"#d7e4ec","surface-container":"#e3f0f8","inverse-surface":"#263238","on-primary-container":"#f3fffd","background":"#f4faff","error":"#ba1a1a","secondary-container":"#d6e5ec","on-error-container":"#93000a","tertiary-container":"#6a7777","secondary-fixed":"#d6e5ec","primary-container":"#12827c","on-tertiary-container":"#f3fffe","surface-dim":"#cfdce4","error-container":"#ffdad6","outline-variant":"#bdc9c7","on-primary-fixed-variant":"#00504c","primary-fixed-dim":"#79d6cf","surface-tint":"#006a65","on-secondary-fixed-variant":"#3b494e","surface-container-low":"#e9f6fd","on-secondary":"#ffffff","on-surface-variant":"#3e4948","secondary":"#536166","surface":"#f4faff","on-secondary-container":"#59676c","on-tertiary-fixed":"#111e1d","outline":"#6e7978","primary":"#006763","surface-bright":"#f4faff","on-primary-fixed":"#00201e","on-secondary-fixed":"#101d22","secondary-fixed-dim":"#bac9cf","on-tertiary-fixed-variant":"#3c4949","surface-container-high":"#ddeaf2","on-surface":"#111d23"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-sm":"0.375rem","gutter":"0.75rem","margin":"1rem","space-xl":"1rem","space-lg":"0.75rem","space-xs":"0.25rem","space-md":"0.5rem"},"fontFamily":{"body-sm":["Segoe UI"],"headline-sm":["Segoe UI"],"code":["JetBrains Mono"],"body-md":["Segoe UI"],"body-lg":["Segoe UI"],"label-sm":["Segoe UI"],"headline-md":["Segoe UI"],"headline-lg":["Segoe UI"],"label-md":["Segoe UI"]},"fontSize":{"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-sm":["15px",{"lineHeight":"20px","fontWeight":"600"}],"code":["12px",{"lineHeight":"16px","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"body-lg":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["18px",{"lineHeight":"24px","fontWeight":"600"}],"headline-lg":["22px",{"lineHeight":"28px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased select-none"><header class="fixed top-0 left-0 right-0 h-9 z-50 bg-surface-container-high flex items-center justify-between px-space-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs text-primary"><span class="material-symbols-outlined text-[16px]">lock</span><span class="font-label-md text-label-md text-on-surface">PersonalVault 2.0 • Локальный архив</span></div><div class="flex items-center gap-space-xs px-space-sm py-[2px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="">Локально</span></div></div><div class="flex items-center gap-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-2 text-[14px] text-on-surface-variant">search</span><input class="w-60 h-[26px] pl-7 pr-space-md rounded bg-surface-container-lowest font-body-sm text-body-sm text-on-surface placeholder:text-outline outline-none focus:ring-1 focus:ring-primary" placeholder="Быстрый поиск (Ctrl+K)..." type="text"></div><div class="flex items-center"><button class="w-7 h-[26px] flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface rounded" type="button"><span class="material-symbols-outlined text-[14px]">remove</span></button><button class="w-7 h-[26px] flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface rounded" type="button"><span class="material-symbols-outlined text-[14px]">check_box_outline_blank</span></button><button class="w-7 h-[26px] flex items-center justify-center text-on-surface-variant hover:bg-error hover:text-on-error rounded" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><aside class="fixed left-0 top-9 bottom-0 w-64 bg-surface-container-low z-40 flex flex-col justify-between py-space-sm shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex-1 overflow-y-auto"><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Документы</span></div><nav class="flex flex-col gap-[2px] px-space-xs mb-space-md" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="zhurnal" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">history_edu</span><span class="">Журнал</span></div></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded bg-surface-container-high text-primary font-bold font-body-sm text-body-sm" data-path="vkhodyashchie" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">inbox</span><span class="">Входящие</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">8 файлов · 3 набора</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="chernoviki" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">edit_note</span><span class="">Черновики</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">2</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="plany" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">event_upcoming</span><span class="">Планы</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">2</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="ubrannye" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">archive</span><span class="">Убранные</span></div></a></nav><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Справочники</span></div><nav class="flex flex-col gap-[2px] px-space-xs mb-space-md" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="moi-dannye" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">dataset</span><span class="">Мои данные</span></div></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="shablony" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">dashboard_customize</span><span class="">Шаблоны</span></div></a></nav><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Дополнительно</span></div><nav class="flex flex-col gap-[2px] px-space-xs" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="svodka-zdorovya" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">monitor_heart</span><span class="">Сводка здоровья</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">В разработке</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="pomoshchnik" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">smart_toy</span><span class="">Помощник</span></div><span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">В разработке</span></a></nav></div><div class="shrink-0 pt-space-xs px-space-xs flex flex-col gap-[2px]"><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Система</span></div><nav class="flex flex-col gap-[2px] mb-space-xs" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="obsluzhivanie" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">tune</span><span class="">Обслуживание архива</span></div></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface font-body-sm text-body-sm" data-path="nastroiki" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">settings</span><span class="">Настройки</span></div></a></nav><div class="p-space-xs rounded bg-surface-container flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant"><div class="flex items-center gap-space-xs min-w-0"><span class="material-symbols-outlined text-[14px] text-primary shrink-0">hard_drive</span><span class="truncate">Диск: 4.2 ГБ свободно</span></div><span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0" title="Готово"></span></div></div></aside><div class="pl-64"><main class="w-full pt-9 px-space-xl bg-surface min-h-screen"><div class="flex flex-col w-full pb-16">
+<!-- Workflow Stepper Strip -->
+<div class="w-full bg-surface-container-high px-space-md py-space-xs rounded-lg flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs overflow-x-auto min-w-0">
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-1 shrink-0">
+        1. Входящие <span class="material-symbols-outlined text-[13px]">chevron_right</span>
+</span>
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-1 shrink-0">
+        2. Состав <span class="material-symbols-outlined text-[13px]">chevron_right</span>
+</span>
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-1 shrink-0">
+        3. Предпроверка <span class="material-symbols-outlined text-[13px]">chevron_right</span>
+</span>
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-1 shrink-0">
+        4. Классификация <span class="material-symbols-outlined text-[13px]">chevron_right</span>
+</span>
+<span class="px-space-sm py-[2px] rounded bg-primary text-on-primary font-label-sm text-label-sm flex items-center gap-1 font-semibold shrink-0">
+<span class="material-symbols-outlined text-[14px]">edit_document</span> 5. Редактор данных (SCR-06)
+      </span>
+<span class="material-symbols-outlined text-[13px] text-outline shrink-0">chevron_right</span>
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-1 shrink-0">
+        6. Сверка (SCR-07) <span class="material-symbols-outlined text-[13px]">chevron_right</span>
+</span>
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-1 shrink-0">
+        7. Итог (SCR-08)
+      </span>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<span class="font-code text-code text-on-surface-variant bg-surface-container-low px-space-xs py-[2px] rounded">Пакет #PK-8842-RU</span>
+</div>
+</div>
+<!-- Interactive State Switcher Bar -->
+<div class="w-full bg-surface-container-lowest p-space-xs rounded-lg shadow-sm flex items-center gap-space-xs overflow-x-auto mb-space-sm">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider px-space-xs">Сценарий:</span>
+<button class="state-tab px-space-sm py-1 rounded font-label-md text-label-md bg-primary text-on-primary transition-colors" id="btn-state-default" onclick="switchState('default')">
+      Штатный редактор (новый)
+    </button>
+<button class="state-tab px-space-sm py-1 rounded font-label-md text-label-md bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors" id="btn-state-saved" onclick="switchState('saved')">
+      Редактирование сохранённого
+    </button>
+<button class="state-tab px-space-sm py-1 rounded font-label-md text-label-md bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors" id="btn-state-mydata" onclick="switchState('mydata')">
+      Панель «Мои данные»
+    </button>
+<button class="state-tab px-space-sm py-1 rounded font-label-md text-label-md bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors" id="btn-state-diff" onclick="switchState('diff')">
+      Применить шаблон (диффы)
+    </button>
+<button class="state-tab px-space-sm py-1 rounded font-label-md text-label-md bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors" id="btn-state-ocr" onclick="switchState('ocr')">
+      Прикрепить расшифровку
+    </button>
+<button class="state-tab px-space-sm py-1 rounded font-label-md text-label-md bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors" id="btn-state-del" onclick="switchState('del')">
+      Удаление поля (предупреждение)
+    </button>
+<button class="state-tab px-space-sm py-1 rounded font-label-md text-label-md bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-colors" id="btn-state-conflict" onclick="switchState('conflict')">
+      Конфликт автосохранения
+    </button>
+</div>
+<!-- Error / Conflict Banner (Visible in conflict state) -->
+<div class="hidden w-full bg-error-container text-on-error-container p-space-sm rounded-lg mb-space-sm flex items-center justify-between shadow-sm" id="conflict-banner">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-error">warning</span>
+<span class="font-body-md text-body-md font-semibold">Обнаружен конфликт версий! Локальная база обновлена внешним фоновым процессом в 14:26.</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ревизия #81b9 отличается от текущего редактора.</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest text-error font-label-md text-label-md shadow-sm hover:bg-surface-container" onclick="switchState('default')">
+        Оставить локальный черновик
+      </button>
+<button class="px-space-sm py-1 rounded bg-error text-on-error font-label-md text-label-md shadow-sm" onclick="switchState('default')">
+        Перезагрузить ревизию диска
+      </button>
+</div>
+</div>
+<!-- OCR Drawer Overlay / Mode Notice -->
+<div class="hidden w-full bg-surface-container-lowest p-space-sm rounded-lg mb-space-sm shadow-md flex flex-col gap-space-xs" id="ocr-drawer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">text_snippet</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Слой распознанного текста (OCR Tesseract 5.3 Local Engine)</span>
+<span class="px-space-xs py-[2px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">Уверенность 98.4%</span>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface" onclick="switchState('default')">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+      Фрагмент для автосопоставления: «ПРИЛОЖЕНИЕ № 1 К ДОГОВОРУ НАЙМА ЖИЛОГО ПОМЕЩЕНИЯ № 42... АКТ ПРИЁМА-ПЕРЕДАЧИ... 12 октября 2026 года...»
+    </p>
+<div class="flex gap-space-xs">
+<button class="px-space-sm py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm">Заполнить пустые поля автоматически</button>
+<button class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">Копировать полный текст в буфер</button>
+</div>
+</div>
+<!-- MAIN DUAL-PANEL WORKSPACE -->
+<div class="grid grid-cols-12 gap-space-md w-full items-start">
+<!-- LEFT PANEL: Source Viewer (Просмотр оригинала) -->
+<div class="col-span-12 xl:col-span-6 flex flex-col bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden">
+<!-- Viewer Toolbar -->
+<div class="h-10 bg-surface-container-high px-space-sm flex items-center justify-between shrink-0">
+<div class="flex items-center gap-space-xs">
+<!-- File Selector Dropdown -->
+<div class="relative inline-flex items-center bg-surface-container-lowest rounded px-space-sm py-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary mr-1">image</span>
+<select class="bg-transparent font-body-sm text-body-sm text-on-surface outline-none cursor-pointer pr-4">
+<option>Страница_01.jpg (Стр. 1 из 4)</option>
+<option>Страница_02.jpg (Стр. 2 из 4)</option>
+<option>Страница_03.jpg (Стр. 3 из 4)</option>
+<option>Приложение_опись.pdf (Стр. 4 из 4)</option>
+</select>
+</div>
+<!-- Page Paging -->
+<div class="flex items-center bg-surface-container-lowest rounded px-space-xs py-[2px] shadow-sm ml-space-xs">
+<button class="w-6 h-6 flex items-center justify-center text-on-surface-variant hover:text-on-surface" title="Предыдущая страница">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</button>
+<span class="font-body-sm text-body-sm px-space-xs text-on-surface">1 / 4</span>
+<button class="w-6 h-6 flex items-center justify-center text-on-surface-variant hover:text-on-surface" title="Следующая страница">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Zoom & View Tools -->
+<div class="flex items-center gap-1">
+<button class="px-space-xs py-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" title="По ширине">
+            По ширине
+          </button>
+<button class="px-space-xs py-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" title="Масштаб 100%">
+            100%
+          </button>
+<button class="w-7 h-7 rounded bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" title="Увеличить">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span>
+</button>
+<button class="w-7 h-7 rounded bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" title="Уменьшить">
+<span class="material-symbols-outlined text-[16px]">zoom_out</span>
+</button>
+<button class="w-7 h-7 rounded bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" title="Повернуть 90°">
+<span class="material-symbols-outlined text-[16px]">rotate_right</span>
+</button>
+</div>
+</div>
+<!-- Scanned Paper Workspace (Mockup of Realistic Russian Document) -->
+<div class="p-space-md bg-surface-container-low overflow-y-auto max-h-[820px] flex justify-center">
+<div class="relative w-full max-w-[560px] bg-[#fbfdfa] text-[#1a2327] shadow-md p-8 rounded-sm select-text font-serif leading-relaxed">
+<!-- Stamp / Texture watermark simulation -->
+<div class="absolute right-8 top-12 opacity-15 pointer-events-none text-primary font-sans text-right">
+<div class="text-[34px] font-bold uppercase tracking-widest">АРХИВ №42</div>
+<div class="text-xs">ШТАНГЕН-КОПИЯ 300 DPI</div>
+</div>
+<!-- Document Header -->
+<div class="text-center mb-6">
+<p class="text-xs tracking-wider uppercase font-sans text-secondary mb-1">Приложение № 1 к Договору найма № 42</p>
+<h1 class="text-base font-bold tracking-tight uppercase leading-snug">
+              АКТ ПРИЁМА-ПЕРЕДАЧИ<br>
+              ЖИЛОГО ПОМЕЩЕНИЯ И ИМУЩЕСТВА
+            </h1>
+</div>
+<!-- Snippet Highlight 1: Doc Number & Date -->
+<div class="flex justify-between items-center text-xs mb-4 pb-2">
+<div class="p-1 rounded bg-primary-fixed/40 transition-colors cursor-pointer" title="Привязано к полю: Номер акта">
+<span class="">г. Санкт-Петербург</span>
+</div>
+<div class="p-1 rounded bg-primary-fixed/70 text-on-primary-fixed-variant font-semibold cursor-pointer shadow-sm" title="Привязано к полю: Дата составления">
+<span class="material-symbols-outlined text-[12px] inline align-middle">verified</span>
+              «12» октября 2026 г.
+            </div>
+</div>
+<!-- Body Text with Highlights -->
+<div class="text-xs space-y-3 leading-normal">
+<p class="">
+              Мы, нижеподписавшиеся, Гражданин РФ 
+              <mark class="bg-primary-fixed/50 text-on-surface px-1 py-0.5 rounded cursor-pointer font-sans" title="Поле: Наймодатель">Васильев Андрей Сергеевич</mark>, 
+              паспорт 40 14 № 891234, именуемый в дальнейшем «Наймодатель», с одной стороны, и Гражданка РФ 
+              <mark class="bg-primary-fixed/50 text-on-surface px-1 py-0.5 rounded cursor-pointer font-sans" title="Поле: Наниматель">Смирнова Елена Игоревна</mark>, 
+              паспорт 40 18 № 441099, именуемая в дальнейшем «Наниматель», с другой стороны, составили настоящий 
+              <mark class="bg-primary-fixed/70 font-semibold px-1 py-0.5 rounded text-on-primary-fixed-variant" title="Поле: Номер акта">Акт № АПП-42</mark> о нижеследующем:
+            </p>
+<p class="">
+              1. В соответствии с Договором найма Наймодатель передал, а Наниматель принял во временное владение и пользование жилое помещение, расположенное по адресу: 
+              <mark class="bg-secondary-container px-1 py-0.5 rounded text-on-surface cursor-pointer font-sans" title="Поле: Адрес помещения">Санкт-Петербург, Московский пр., д. 182, кв. 42</mark>.
+            </p>
+<p class="">
+              2. Жилое помещение находится в удовлетворительном техническом состоянии, санитарно-гигиенические нормы соблюдены. Претензий по состоянию квартиры Наниматель не имеет.
+            </p>
+<p class="">
+              3. Совместно с помещением Нанимателю переданы: 
+              <mark class="bg-amber-100 text-amber-900 px-1 py-0.5 rounded cursor-pointer font-sans" title="Локальное поле: Комплекты ключей">2 комплекта ключей + электронный чип домофона</mark>, 
+              а также следующее исправное имущество и бытовая техника:
+            </p>
+<!-- Table in Document with highlight rings -->
+<div class="mt-3 overflow-hidden rounded bg-surface-container-lowest shadow-sm">
+<table class="w-full text-[11px] text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high text-on-surface-variant font-sans font-semibold">
+<th class="p-1.5 w-6">№</th>
+<th class="p-1.5">Наименование</th>
+<th class="p-1.5">Модель / Марка</th>
+<th class="p-1.5">Состояние</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="bg-primary-fixed/20">
+<td class="p-1.5 font-sans">1</td>
+<td class="p-1.5 font-semibold">Холодильник двухкамерный</td>
+<td class="p-1.5">Bosch Serie 4 KGN39</td>
+<td class="p-1.5">Исправен, чистый</td>
+</tr>
+<tr class="bg-primary-fixed/20">
+<td class="p-1.5 font-sans">2</td>
+<td class="p-1.5 font-semibold">Стиральная машина</td>
+<td class="p-1.5">LG AI DD F2V5HG0W</td>
+<td class="p-1.5">Исправна, без повреждений</td>
+</tr>
+<tr class="bg-primary-fixed/20">
+<td class="p-1.5 font-sans">3</td>
+<td class="p-1.5 font-semibold">Сплит-система инверторная</td>
+<td class="p-1.5">Daikin Sensira FTXC25C</td>
+<td class="p-1.5">Исправен, пульт ДУ передан</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Signatures Section -->
+<div class="pt-6 grid grid-cols-2 gap-8 text-[11px] font-sans">
+<div>
+<p class="font-bold">Наймодатель:</p>
+<div class="h-8 flex items-end">
+<span class="italic text-primary font-serif underline decoration-primary decoration-1 underline-offset-4">Васильев А.С. /подпись/</span>
+</div>
+</div>
+<div>
+<p class="font-bold">Наниматель:</p>
+<div class="h-8 flex items-end">
+<span class="italic text-primary font-serif underline decoration-primary decoration-1 underline-offset-4">Смирнова Е.И. /подпись/</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Left Panel Footer Status -->
+<div class="h-8 bg-surface-container-high px-space-sm flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-primary">verified_user</span>
+<span class="">Оригинал: Read-Only • 300 DPI • Исходный файл не изменяется</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-outline">SHA-256: 4b29f0...c81e</span>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL: Structured Data Editor (Редактор данных) -->
+<div class="col-span-12 xl:col-span-6 flex flex-col gap-space-sm">
+<!-- Document Header Card -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col gap-space-xs">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-space-xs mb-1">
+<span class="px-space-xs py-[2px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+                Шаблон: Акт приёма-передачи (v1.2)
+              </span>
+<span class="px-space-xs py-[2px] rounded bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">lock_open</span> Зона: Open (Открытое)
+              </span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface" id="doc-title-heading">
+              Акт приёма-передачи жилого помещения № 42
+            </h2>
+</div>
+<!-- Autosave & Status Pill -->
+<div class="flex flex-col items-end gap-1">
+<span class="font-code text-code px-space-xs py-[2px] rounded bg-surface-container text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+              Черновик: сохранён 14:22 (F10)
+            </span>
+<div class="flex items-center gap-space-xs"><span class="px-space-xs py-[1px] rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm" title="Статус заполнения полей">Требует заполнения: <strong>4 из 6</strong> заполнено (2 пусто)</span><span class="px-space-xs py-[1px] rounded bg-amber-100 text-amber-900 font-label-sm text-label-sm flex items-center gap-1" title="Сверка опциональна перед архивацией"><span class="">Не сверен: <strong>2 из 6</strong></span><span class="text-[10px] text-outline font-normal">(опционально)</span></span></div>
+</div>
+</div>
+<!-- Action Toolbar -->
+<div class="flex flex-wrap items-center gap-space-xs pt-space-xs">
+<button class="px-space-sm py-1 rounded bg-primary text-on-primary font-label-md text-label-md flex items-center gap-1 hover:bg-primary-container">
+<span class="material-symbols-outlined text-[14px]">add</span> Поле
+          </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1 hover:bg-surface-container-highest">
+<span class="material-symbols-outlined text-[14px]">table_rows</span> Таблица
+          </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1 hover:bg-surface-container-highest" onclick="switchState('diff')">
+<span class="material-symbols-outlined text-[14px]">dashboard_customize</span> Шаблоны
+          </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1 hover:bg-surface-container-highest" onclick="switchState('mydata')">
+<span class="material-symbols-outlined text-[14px]">dataset</span> Мои данные
+          </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1 hover:bg-surface-container-highest" onclick="switchState('ocr')">
+<span class="material-symbols-outlined text-[14px]">document_scanner</span> Расшифровка
+          </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1 hover:bg-surface-container-highest">
+<span class="material-symbols-outlined text-[14px]">fact_check</span> Сверка (F05)
+          </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1 hover:bg-surface-container-highest ml-auto">
+<span class="material-symbols-outlined text-[14px]">save</span> Сохранить черновик
+          </button>
+</div>
+</div>
+<!-- MODAL / OVERLAY: 'Мои данные' Quick Insert Tray (toggleable) -->
+<div class="hidden bg-surface-container p-space-md rounded-lg shadow-md flex-col gap-space-sm" id="modal-mydata">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-primary font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-[18px]">dataset</span>
+<span class="">Быстрая вставка из профиля «Мои данные»</span>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface" onclick="switchState('default')">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Выберите готовую сущность для мгновенного переноса верифицированных реквизитов:</p>
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="p-space-xs bg-surface-container-lowest rounded shadow-sm flex items-center justify-between cursor-pointer hover:bg-primary-fixed/20">
+<div>
+<div class="font-label-md text-label-md text-on-surface">Васильев Андрей Сергеевич</div>
+<div class="font-label-sm text-label-sm text-outline">Паспорт РФ • Личный профиль</div>
+</div>
+<button class="px-space-xs py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm">Вставить</button>
+</div>
+<div class="p-space-xs bg-surface-container-lowest rounded shadow-sm flex items-center justify-between cursor-pointer hover:bg-primary-fixed/20">
+<div>
+<div class="font-label-md text-label-md text-on-surface">Московский пр., 182, кв. 42</div>
+<div class="font-label-sm text-label-sm text-outline">Недвижимость • В собственности</div>
+</div>
+<button class="px-space-xs py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm">Вставить</button>
+</div>
+</div>
+</div>
+<!-- MODAL / OVERLAY: 'Применить шаблон (диффы)' (toggleable) -->
+<div class="hidden bg-surface-container p-space-md rounded-lg shadow-md flex-col gap-space-sm" id="modal-diff">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-primary font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-[18px]">difference</span>
+<span class="">Диффы применения шаблона: «Акт передачи имущества расширенный»</span>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface" onclick="switchState('default')">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div class="space-y-space-xs">
+<div class="p-space-xs bg-surface-container-lowest rounded flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-green-700 font-semibold">+ Добавится поле: «Показания счётчиков (Эл-во, Вода)»</span>
+<span class="px-space-xs py-[1px] rounded bg-green-100 text-green-800 font-label-sm text-label-sm">Новое</span>
+</div>
+<div class="p-space-xs bg-surface-container-lowest rounded flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Поле: «Комплекты ключей» будет сохранено как локальное</span>
+<span class="px-space-xs py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">Без изменений</span>
+</div>
+</div>
+<div class="flex justify-end gap-space-xs pt-space-xs">
+<button class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface font-label-md text-label-md" onclick="switchState('default')">Отмена</button>
+<button class="px-space-sm py-1 rounded bg-primary text-on-primary font-label-md text-label-md" onclick="switchState('default')">Применить изменения (2)</button>
+</div>
+</div>
+<!-- WARNING OVERLAY: Field Deletion Warning (toggleable) -->
+<div class="hidden bg-error-container text-on-error-container p-space-md rounded-lg shadow-md flex-col gap-space-xs" id="modal-del">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs font-headline-sm text-headline-sm text-error">
+<span class="material-symbols-outlined text-[18px]">delete_forever</span>
+<span class="">Удалить поле «Комплекты ключей»?</span>
+</div>
+<button class="text-on-error-container hover:opacity-75" onclick="switchState('default')">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm">
+          Внимание: Введённое значение («2 комплекта ключей + электронный чип домофона») и привязка к скану (Стр. 1, п. 3) будут безвозвратно удалены из локального индекса.
+        </p>
+<div class="flex justify-end gap-space-xs pt-space-xs">
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface font-label-md text-label-md" onclick="switchState('default')">Отмена</button>
+<button class="px-space-sm py-1 rounded bg-error text-on-error font-label-md text-label-md" onclick="switchState('default')">Удалить поле</button>
+</div>
+</div>
+<!-- SECTION 1: Notion-style Card - Основные реквизиты -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">bookmark</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Раздел «Основные реквизиты»</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Шаблон v1.2</span>
+</div>
+<div class="space-y-space-sm">
+<!-- Field 1: Номер акта -->
+<div class="flex flex-col gap-[2px] p-space-xs bg-surface-container-low rounded hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface flex items-center gap-1">
+                Номер акта <span class="text-error">*</span>
+</label>
+<div class="flex items-center gap-1">
+<span class="px-space-xs py-[1px] rounded bg-green-100 text-green-800 font-label-sm text-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[11px]">check_circle</span> Сверено со сканом
+                </span>
+<button class="text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[14px]">more_vert</span></button>
+</div>
+</div>
+<input class="w-full h-8 px-space-sm rounded bg-surface-container-lowest font-body-md text-body-md text-on-surface outline-none focus:ring-1 focus:ring-primary shadow-inner" type="text" value="№ АПП-42">
+<div class="font-code text-code text-on-surface-variant flex items-center gap-1 pt-[2px]">
+<span class="material-symbols-outlined text-[12px] text-primary">pin_drop</span>
+<span class="">[Стр. 1, шапка • Цитата: "настоящий акт № АПП-42" • ✔ Сверено со сканом]</span>
+</div>
+</div>
+<!-- Field 2: Дата составления -->
+<div class="flex flex-col gap-[2px] p-space-xs bg-surface-container-low rounded hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface flex items-center gap-1">
+                Дата составления <span class="text-error">*</span>
+</label>
+<div class="flex items-center gap-1">
+<span class="px-space-xs py-[1px] rounded bg-green-100 text-green-800 font-label-sm text-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[11px]">check_circle</span> Сверено со сканом
+                </span>
+<button class="text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[14px]">more_vert</span></button>
+</div>
+</div>
+<input class="w-full h-8 px-space-sm rounded bg-surface-container-lowest font-body-md text-body-md text-on-surface outline-none focus:ring-1 focus:ring-primary shadow-inner" type="date" value="2026-10-12">
+<div class="font-code text-code text-on-surface-variant flex items-center gap-1 pt-[2px]">
+<span class="material-symbols-outlined text-[12px] text-primary">pin_drop</span>
+<span class="">[Стр. 1, шапка • Цитата: "12 октября 2026 г." • ✔ Сверено со сканом]</span>
+</div>
+</div>
+<!-- Field 3: Наймодатель -->
+<div class="flex flex-col gap-[2px] p-space-xs bg-surface-container-low rounded hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface">Наймодатель</label>
+<div class="flex items-center gap-1">
+<span class="px-space-xs py-[1px] rounded bg-amber-100 text-amber-900 font-label-sm text-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[11px]">pending</span> Не сверено
+                </span>
+<button class="text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[14px]">more_vert</span></button>
+</div>
+</div>
+<div class="flex gap-space-xs">
+<input class="flex-1 h-8 px-space-sm rounded bg-surface-container-lowest font-body-md text-body-md text-on-surface outline-none focus:ring-1 focus:ring-primary shadow-inner" type="text" value="Васильев Андрей Сергеевич">
+<button class="h-8 px-space-sm rounded bg-surface-container-high text-primary hover:bg-primary hover:text-on-primary font-label-sm text-label-sm flex items-center gap-1" title="Сверить со сканом">
+<span class="material-symbols-outlined text-[14px]">verified</span> Сверить
+              </button>
+</div>
+<div class="font-code text-code text-on-surface-variant flex items-center gap-1 pt-[2px]">
+<span class="material-symbols-outlined text-[12px] text-secondary">pin_drop</span>
+<span class="">[Стр. 1, п. 1 • ⚠ Не сверено]</span>
+</div>
+</div>
+<!-- Field 4: Наниматель -->
+<div class="flex flex-col gap-[2px] p-space-xs bg-surface-container-low rounded hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface">Наниматель</label>
+<div class="flex items-center gap-1">
+<span class="px-space-xs py-[1px] rounded bg-amber-100 text-amber-900 font-label-sm text-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[11px]">pending</span> Не сверено
+                </span>
+<button class="text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[14px]">more_vert</span></button>
+</div>
+</div>
+<div class="flex gap-space-xs">
+<input class="flex-1 h-8 px-space-sm rounded bg-surface-container-lowest font-body-md text-body-md text-on-surface outline-none focus:ring-1 focus:ring-primary shadow-inner" type="text" value="Смирнова Елена Игоревна">
+<button class="h-8 px-space-sm rounded bg-surface-container-high text-primary hover:bg-primary hover:text-on-primary font-label-sm text-label-sm flex items-center gap-1" title="Сверить со сканом">
+<span class="material-symbols-outlined text-[14px]">verified</span> Сверить
+              </button>
+</div>
+<div class="font-code text-code text-on-surface-variant flex items-center gap-1 pt-[2px]">
+<span class="material-symbols-outlined text-[12px] text-secondary">pin_drop</span>
+<span class="">[Стр. 1, п. 1 • ⚠ Не сверено]</span>
+</div>
+</div>
+<!-- Field 5: Адрес помещения -->
+<div class="flex flex-col gap-[2px] p-space-xs bg-surface-container-low rounded hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface">Адрес помещения</label>
+<div class="flex items-center gap-1">
+<span class="px-space-xs py-[1px] rounded bg-amber-100 text-amber-900 font-label-sm text-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[11px]">pending</span> Не сверено
+                </span>
+<button class="text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[14px]">more_vert</span></button>
+</div>
+</div>
+<input class="w-full h-8 px-space-sm rounded bg-surface-container-lowest font-body-md text-body-md text-on-surface outline-none focus:ring-1 focus:ring-primary shadow-inner" type="text" value="Санкт-Петербург, Московский пр., д. 182, кв. 42">
+<div class="font-code text-code text-on-surface-variant flex items-center gap-1 pt-[2px]">
+<span class="material-symbols-outlined text-[12px] text-secondary">pin_drop</span>
+<span class="">[Стр. 1, п. 1 • ⚠ Не сверено]</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: Notion Card - Локальные поля -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">extension</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Раздел «Локальные поля (только для этого документа)»</h3>
+</div>
+<span class="px-space-xs py-[2px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+            Локальное поле (не меняет общий шаблон)
+          </span>
+</div>
+<!-- Field: Комплекты ключей -->
+<div class="flex flex-col gap-[2px] p-space-xs bg-surface-container-low rounded hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Комплекты ключей</span>
+<span class="text-outline font-label-sm text-label-sm">(тип: Текст)</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="px-space-xs py-[1px] rounded bg-amber-100 text-amber-900 font-label-sm text-label-sm">⚠ Не сверено</span>
+<button class="text-error hover:bg-error-container p-1 rounded" onclick="switchState('del')" title="Удалить поле">
+<span class="material-symbols-outlined text-[14px]">delete</span>
+</button>
+</div>
+</div>
+<input class="w-full h-8 px-space-sm rounded bg-surface-container-lowest font-body-md text-body-md text-on-surface outline-none focus:ring-1 focus:ring-primary shadow-inner" type="text" value="2 комплекта ключей + электронный чип домофона">
+<div class="font-code text-code text-on-surface-variant flex items-center gap-1 pt-[2px]">
+<span class="material-symbols-outlined text-[12px] text-secondary">pin_drop</span>
+<span class="">[Стр. 1, п. 3 • ⚠ Не сверено]</span>
+</div>
+</div>
+<button class="w-full py-1.5 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">add</span> Добавить локальное поле
+        </button>
+</div>
+<!-- SECTION 3: Airtable-style Data Grid - Табличные данные -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">table_chart</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Табличные данные: Передаваемое оборудование и техника</h3>
+</div>
+<span class="px-space-xs py-[1px] rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+            Кол-во строк: 3
+          </span>
+</div>
+<!-- Table Toolbar -->
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs">
+<button class="px-space-xs py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">add</span> Столбец
+            </button>
+<button class="px-space-xs py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">add</span> Строку
+            </button>
+<button class="px-space-xs py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">done_all</span> Сверить строку
+            </button>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-[13px]">description</span>
+<span class="">Общая страница: Стр. 1</span>
+</div>
+</div>
+<!-- Airtable Matrix Table -->
+<div class="w-full overflow-x-auto rounded bg-surface-container-low shadow-sm">
+<table class="w-full text-left font-body-sm text-body-sm border-collapse">
+<thead>
+<tr class="bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider h-8">
+<th class="p-2 w-10 text-center">№</th>
+<th class="p-2">Наименование</th>
+<th class="p-2">Модель / Состояние</th>
+<th class="p-2">Провенанс ячейки</th>
+<th class="p-2 text-right">Статус сверки</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-highest">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="p-2 text-center font-code text-code text-outline">1</td>
+<td class="p-2 font-semibold text-on-surface">Холодильник Bosch</td>
+<td class="p-2 text-on-surface">Serie 4 KGN39 / Исправен, чистый</td>
+<td class="p-2 font-code text-code text-on-surface-variant">[Стр. 1, табл. строка 1]</td>
+<td class="p-2 text-right">
+<span class="px-space-xs py-[2px] rounded bg-green-100 text-green-800 font-label-sm text-label-sm">Сверено</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="p-2 text-center font-code text-code text-outline">2</td>
+<td class="p-2 font-semibold text-on-surface">Стиральная машина LG</td>
+<td class="p-2 text-on-surface">AI DD F2V5HG0W / Без повреждений</td>
+<td class="p-2 font-code text-code text-on-surface-variant">[Стр. 1, табл. строка 2]</td>
+<td class="p-2 text-right">
+<span class="px-space-xs py-[2px] rounded bg-green-100 text-green-800 font-label-sm text-label-sm">Сверено</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="p-2 text-center font-code text-code text-outline">3</td>
+<td class="p-2 font-semibold text-on-surface">Кондиционер Daikin</td>
+<td class="p-2 text-on-surface">Sensira FTXC25C / Исправен, пульт</td>
+<td class="p-2 font-code text-code text-on-surface-variant">[Стр. 1, табл. строка 3]</td>
+<td class="p-2 text-right">
+<span class="px-space-xs py-[2px] rounded bg-amber-100 text-amber-900 font-label-sm text-label-sm">Не сверено</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Sticky Action Bar -->
+<div class="fixed bottom-0 left-64 right-0 h-12 bg-surface-container-high px-space-xl flex items-center justify-between z-30 shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
+<!-- Left Navigation Actions -->
+<div class="flex items-center gap-space-sm">
+<button class="h-8 px-space-sm rounded bg-surface-container text-on-surface hover:bg-surface-container-highest font-label-md text-label-md flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+        Назад к классификации (SCR-05)
+      </button>
+<button class="h-8 px-space-sm rounded bg-surface-container text-on-surface hover:bg-surface-container-highest font-label-md text-label-md flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">save</span>
+        Сохранить черновик (F10)
+      </button>
+</div>
+<!-- Right Primary Next Actions -->
+<div class="flex items-center gap-space-sm"><span class="font-body-sm text-body-sm text-on-surface-variant hidden md:inline" title="Сверка не блокирует сохранение архива">Сверка опциональна перед архивацией</span><button class="h-8 px-space-md rounded bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md flex items-center gap-1 shadow-sm font-semibold" id="primary-cta-btn"><span id="primary-cta-label" class="">Продолжить к сохранению (SCR-08)</span><span class="material-symbols-outlined text-[16px]" id="primary-cta-icon">arrow_forward</span></button></div>
+</div>
+</div>
+<!-- State switching inline behavior -->
+<script>
+  function switchState(state) {
+    // Reset all tabs
+    const tabs = document.querySelectorAll('.state-tab');
+    tabs.forEach(tab => {
+      tab.classList.remove('bg-primary', 'text-on-primary');
+      tab.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+    });
+
+    // Reset modals
+    const modalMyData = document.getElementById('modal-mydata');
+    const modalDiff = document.getElementById('modal-diff');
+    const modalDel = document.getElementById('modal-del');
+    const conflictBanner = document.getElementById('conflict-banner');
+    const ocrDrawer = document.getElementById('ocr-drawer');
+    const primaryCtaBtn = document.getElementById('primary-cta-btn');
+    const docTitleHeading = document.getElementById('doc-title-heading');
+
+    modalMyData.classList.add('hidden');
+    modalDiff.classList.add('hidden');
+    modalDel.classList.add('hidden');
+    conflictBanner.classList.add('hidden');
+    ocrDrawer.classList.add('hidden');
+
+    // Activate selected tab
+    const activeBtn = document.getElementById('btn-state-' + state);
+    if (activeBtn) {
+      activeBtn.classList.add('bg-primary', 'text-on-primary');
+      activeBtn.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+    }
+
+    if (state === 'default') {
+      docTitleHeading.innerText = 'Акт приёма-передачи жилого помещения № 42';
+      primaryCtaBtn.innerHTML = '<span>Продолжить к сохранению (SCR-08)</span><span class="material-symbols-outlined text-[16px]">arrow_forward</span>';
+    } else if (state === 'saved') {
+      docTitleHeading.innerText = 'Акт приёма-передачи жилого помещения № 42 (Архивный)';
+      primaryCtaBtn.innerHTML = '<span class="material-symbols-outlined text-[16px]">check</span><span>Сохранить исправления в архив</span>';
+    } else if (state === 'mydata') {
+      modalMyData.classList.remove('hidden');
+    } else if (state === 'diff') {
+      modalDiff.classList.remove('hidden');
+    } else if (state === 'ocr') {
+      ocrDrawer.classList.remove('hidden');
+    } else if (state === 'del') {
+      modalDel.classList.remove('hidden');
+    } else if (state === 'conflict') {
+      conflictBanner.classList.remove('hidden');
+    }
+  }
+</script></main></div>
+
+
+
+</body></html>

@@ -1,0 +1,664 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@100..900&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary-fixed-dim":"#bbc9c8","surface-container-highest":"#d7e4ec","surface":"#f4faff","surface-variant":"#d7e4ec","tertiary-container":"#6a7777","on-primary-fixed":"#00201e","primary-fixed":"#95f3eb","surface-bright":"#f4faff","surface-tint":"#006a65","on-secondary-fixed-variant":"#3b494e","surface-container":"#e3f0f8","tertiary-fixed":"#d7e5e4","outline":"#6e7978","on-error-container":"#93000a","secondary-fixed-dim":"#bac9cf","inverse-surface":"#263238","surface-dim":"#cfdce4","primary-container":"#12827c","secondary-fixed":"#d6e5ec","surface-container-lowest":"#ffffff","on-primary-fixed-variant":"#00504c","tertiary":"#515e5e","on-background":"#111d23","on-error":"#ffffff","error":"#ba1a1a","on-surface-variant":"#3e4948","on-primary":"#ffffff","surface-container-high":"#ddeaf2","on-tertiary":"#ffffff","on-tertiary-fixed":"#111e1d","background":"#f4faff","on-tertiary-fixed-variant":"#3c4949","on-secondary":"#ffffff","inverse-on-surface":"#e6f3fb","primary":"#006763","on-tertiary-container":"#f3fffe","error-container":"#ffdad6","inverse-primary":"#79d6cf","on-secondary-container":"#59676c","primary-fixed-dim":"#79d6cf","on-surface":"#111d23","surface-container-low":"#e9f6fd","secondary-container":"#d6e5ec","on-secondary-fixed":"#101d22","outline-variant":"#bdc9c7","secondary":"#536166","on-primary-container":"#f3fffd"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-xs":"0.25rem","gutter":"0.75rem","space-md":"0.5rem","space-lg":"0.75rem","space-sm":"0.375rem","space-xl":"1rem","margin":"1rem"},fontFamily:{"body-md":["Segoe UI"],"body-sm":["Segoe UI"],"label-md":["Segoe UI"],"body-lg":["Segoe UI"],"headline-sm":["Segoe UI"],"headline-md":["Segoe UI"],"code":["JetBrains Mono"],"headline-lg":["Segoe UI"],"label-sm":["Segoe UI"]},fontSize:{"body-md":["13px",{lineHeight:"18px",fontWeight:"400"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",fontWeight:"600"}],"body-lg":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-sm":["15px",{lineHeight:"20px",fontWeight:"600"}],"headline-md":["18px",{lineHeight:"24px",fontWeight:"600"}],"code":["12px",{lineHeight:"16px",fontWeight:"400"}],"headline-lg":["22px",{lineHeight:"28px",fontWeight:"600"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.02em",fontWeight:"500"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased select-none"><header class="fixed top-0 left-0 right-0 h-9 bg-surface-container-low z-50 flex items-center justify-between px-space-md select-none border-b border-surface-container-highest"><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs text-primary mr-space-md"><span class="material-symbols-outlined text-[16px]">lock</span><span class="font-label-md text-label-md tracking-tight text-on-surface">PersonalVault 2.0</span></div><div class="flex items-center gap-space-xs px-space-sm py-[2px] rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="">Локальное хранилище</span><span class="text-outline text-[10px]">|</span><span class="font-code text-code text-secondary">C:\Vault\Encrypted</span></div></div><div class="flex-1 max-w-xs mx-space-xl"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-2 text-[14px] text-outline pointer-events-none">search</span><input class="w-full h-[24px] pl-6 pr-2 bg-surface text-on-surface font-body-sm text-body-sm rounded border border-surface-container-highest focus:outline-none focus:border-primary placeholder-outline" placeholder="Быстрый поиск (Ctrl+K)..." type="text"></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs text-secondary text-[14px] mr-space-sm"><span class="material-symbols-outlined text-[14px] text-primary">sync_saved_locally</span><span class="font-label-sm text-label-sm text-on-surface-variant">Синхронизировано</span></div><div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[14px]">person</span></div><div class="flex items-center ml-space-sm"><button class="w-7 h-6 flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[12px]">minimize</span></button><button class="w-7 h-6 flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[12px]">crop_square</span></button><button class="w-7 h-6 flex items-center justify-center text-on-surface-variant hover:bg-error hover:text-on-error transition-colors"><span class="material-symbols-outlined text-[12px]">close</span></button></div></div></header><aside class="fixed left-0 top-9 bottom-0 w-48 bg-surface-container-low z-40 flex flex-col justify-between border-r border-surface-container-highest"><div class="flex flex-col pt-space-xs overflow-y-auto"><div class="px-space-md py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">ДОКУМЕНТЫ</div><nav class="flex flex-col px-space-xs gap-[1px]" data-active-classes="bg-surface-container text-primary font-label-md border-l-2 border-primary"><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="zhurnal" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">edit_note</span><span class="">Журнал</span></div></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="vkhodyashchie" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">inbox</span><span class="">Входящие</span></div><span class="px-1.5 py-[1px] rounded bg-primary-container text-on-primary-container font-label-sm text-[10px]">5</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="chernoviki" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">draft</span><span class="">Черновики</span></div><span class="px-1.5 py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-[10px]">2</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="plany" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">calendar_today</span><span class="">Планы</span></div><span class="px-1.5 py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-[10px]">2</span></a><a aria-current="page" class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT transition-colors bg-surface-container text-primary font-label-md border-l-2 border-primary" data-path="ubrannye" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">archive</span><span class="">Убранные</span></div></a><div class="my-space-xs mx-space-xs border-t border-surface-container-highest"></div><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">СПРАВОЧНИКИ</div><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="moi-dannye" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">folder_shared</span><span class="">Мои данные</span></div></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="shablony" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">content_copy</span><span class="">Шаблоны</span></div></a><div class="my-space-xs mx-space-xs border-t border-surface-container-highest"></div><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">ДОПОЛНИТЕЛЬНО</div><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="svodka-zdorovya" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">vital_signs</span><span class="">Сводка здоровья</span></div><span class="px-1 py-[1px] rounded bg-surface-container-highest text-secondary font-label-sm text-[9px]">В разработке</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="pomoshchnik" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">smart_toy</span><span class="">Помощник</span></div><span class="px-1 py-[1px] rounded bg-secondary-container text-on-secondary-container font-label-sm text-[9px]">В разработке</span></a></nav></div><div class="p-space-xs border-t border-surface-container-highest bg-surface-container-low flex flex-col gap-[1px]"><a class="flex items-center gap-space-sm h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="obsluzhivanie" href="#"><span class="material-symbols-outlined text-[16px]">build</span><span class="">Обслуживание архива</span></a><a class="flex items-center gap-space-sm h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" data-path="nastroiki" href="#"><span class="material-symbols-outlined text-[16px]">settings</span><span class="">Настройки</span></a></div></aside><div class="pl-48"><main class="w-full pt-9 min-h-screen bg-surface"><div class="flex flex-col w-full text-on-surface select-none">
+<!-- Interactive State Controller Bar (SCR Simulation) -->
+<div class="w-full bg-surface-container-high px-space-md py-space-xs flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-xs overflow-x-auto">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider mr-space-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-primary">tune</span> Состояния SCR-16:
+      </span>
+<button class="px-space-sm py-[2px] rounded-DEFAULT font-label-sm text-label-sm transition-all bg-primary text-on-primary shadow-sm flex items-center gap-1" id="btn-state-normal" onclick="setState('normal')">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed"></span> 1. Штатный список (3)
+      </button>
+<button class="px-space-sm py-[2px] rounded-DEFAULT font-label-sm text-label-sm transition-all bg-surface-container text-on-surface hover:bg-surface-container-highest" id="btn-state-empty" onclick="setState('empty')">
+        2. Пустой список
+      </button>
+<button class="px-space-sm py-[2px] rounded-DEFAULT font-label-sm text-label-sm transition-all bg-surface-container text-on-surface hover:bg-surface-container-highest" id="btn-state-confirm" onclick="setState('confirm')">
+        3. Диалог восстановления
+      </button>
+<button class="px-space-sm py-[2px] rounded-DEFAULT font-label-sm text-label-sm transition-all bg-surface-container text-on-surface hover:bg-surface-container-highest" id="btn-state-restored" onclick="setState('restored')">
+        4. Успех: восстановлен в Журнал
+      </button>
+<button class="px-space-sm py-[2px] rounded-DEFAULT font-label-sm text-label-sm transition-all bg-surface-container text-on-surface hover:bg-surface-container-highest" id="btn-state-missing" onclick="setState('missing')">
+        5. Сбой: оригинал недоступен
+      </button>
+<button class="px-space-sm py-[2px] rounded-DEFAULT font-label-sm text-label-sm transition-all bg-surface-container text-on-surface hover:bg-surface-container-highest" id="btn-state-secret-locked" onclick="setState('secret-locked')">
+        6. Secret закрыта (2)
+      </button>
+<button class="px-space-sm py-[2px] rounded-DEFAULT font-label-sm text-label-sm transition-all bg-surface-container text-on-surface hover:bg-surface-container-highest flex items-center gap-1" id="btn-state-compact" onclick="toggleCompactMode()">
+<span class="material-symbols-outlined text-[13px]">aspect_ratio</span> 7. Вид (900×760)
+      </button>
+</div>
+<div class="flex items-center gap-space-xs text-outline font-code text-[11px]">
+<span class="material-symbols-outlined text-[13px] text-primary">verified_user</span> SHA-256 Verified
+    </div>
+</div>
+<!-- Screen Header Strip -->
+<div class="w-full bg-surface-container-low px-space-md py-space-sm flex items-center justify-between">
+<div class="flex items-baseline gap-space-sm min-w-0">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[20px]">archive</span>
+<h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Убранные из Журнала документы (SCR-16)</h1>
+</div>
+<span class="font-body-sm text-body-sm text-secondary truncate hidden md:inline">
+        Обратимо скрытые архивные записи. Физические файлы, контрольные суммы и связи полностью сохранены
+      </span>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="h-[28px] px-space-sm bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm rounded-DEFAULT flex items-center gap-1 transition-colors" onclick="showHelpModal()">
+<span class="material-symbols-outlined text-[14px] text-secondary">help_outline</span>
+<span class="">Справка о хранении</span>
+</button>
+<button class="h-[28px] px-space-sm bg-primary hover:bg-primary-container text-on-primary font-label-sm text-label-sm rounded-DEFAULT flex items-center gap-1 transition-colors shadow-sm">
+<span class="">Вернуться в Журнал (SCR-01)</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Sub-header Safety Guarantee Notification Bar -->
+<div class="w-full bg-surface-container px-space-md py-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-5 h-5 rounded-full bg-primary-fixed-dim text-on-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[13px]">shield</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+<strong class="font-label-md text-primary">Принцип строгой обратимости:</strong> Документы в этом разделе лишь скрыты из отображения основного Журнала. Никакие файлы не удаляются физически с диска, хэши <span class="font-code text-code text-secondary font-semibold">SHA-256</span> неизменны, а связи SQLite и companion JSON остаются целостными. Функции безвозвратного удаления отсутствуют по архитектурным соображениям безопасности.
+      </p>
+</div>
+<span class="font-code text-[11px] text-secondary px-space-xs py-[1px] bg-surface-container-high rounded-DEFAULT shrink-0 hidden lg:inline">
+      VAULT_FLAGS: NO_PURGE_ENABLED
+    </span>
+</div>
+<!-- Search & Secondary Action Filter Toolbar (38px height) -->
+<div class="w-full bg-surface-container-lowest px-space-md py-space-xs flex flex-wrap items-center justify-between gap-space-sm shadow-sm z-10">
+<div class="flex items-center gap-space-sm flex-1 min-w-[320px]">
+<!-- Compact Search Field -->
+<div class="relative flex items-center w-64 max-w-xs">
+<span class="material-symbols-outlined absolute left-2 text-[14px] text-outline pointer-events-none">search</span>
+<input class="w-full h-[28px] pl-6 pr-2 bg-surface text-on-surface font-body-sm text-body-sm rounded-DEFAULT placeholder-outline focus:outline-none focus:bg-surface-container-lowest" id="table-search" placeholder="Поиск по убранным документам..." type="text">
+</div>
+<!-- Filter Pills -->
+<div class="flex items-center gap-space-xs">
+<button class="h-[24px] px-space-sm rounded-DEFAULT font-label-sm text-label-sm bg-primary text-on-primary" id="pill-all" onclick="applyFilter('all')">
+          Все (<span id="count-all" class="">3</span>)
+        </button>
+<button class="h-[24px] px-space-sm rounded-DEFAULT font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface" id="pill-open" onclick="applyFilter('open')">
+          Зона: Open (<span id="count-open" class="">2</span>)
+        </button>
+<button class="h-[24px] px-space-sm rounded-DEFAULT font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center gap-1" id="pill-secret" onclick="applyFilter('secret')">
+<span class="material-symbols-outlined text-[12px] text-primary">key</span>
+          Secret (<span id="count-secret" class="">1</span>)
+        </button>
+<button class="h-[24px] px-space-sm rounded-DEFAULT font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center gap-1" id="pill-linked" onclick="applyFilter('linked')">
+<span class="material-symbols-outlined text-[12px] text-secondary">share</span>
+          Связанные
+        </button>
+</div>
+</div>
+<!-- Sorting and Density Actions -->
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="text-secondary">Сортировка:</span>
+<div class="flex items-center gap-1 px-space-xs py-[2px] rounded-DEFAULT bg-surface-container cursor-pointer hover:bg-surface-container-high">
+<span class="">По дате перемещения в убранные</span>
+<span class="material-symbols-outlined text-[14px] text-primary">arrow_downward</span>
+</div>
+</div>
+<div class="w-[1px] h-4 bg-surface-container-highest"></div>
+<button class="w-6 h-6 rounded-DEFAULT flex items-center justify-center text-secondary hover:bg-surface-container hover:text-primary" title="Обновить список">
+<span class="material-symbols-outlined text-[15px]">refresh</span>
+</button>
+<button class="w-6 h-6 rounded-DEFAULT flex items-center justify-center text-secondary hover:bg-surface-container hover:text-primary" title="Настройки столбцов">
+<span class="material-symbols-outlined text-[15px]">view_column</span>
+</button>
+</div>
+</div>
+<!-- Restoration Success Toast Bar (Hidden by default, shown in state 4) -->
+<div class="hidden w-full bg-surface-container-high px-space-md py-space-xs items-center justify-between" id="toast-success">
+<div class="flex items-center gap-space-sm text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">check_circle</span>
+<span class="font-label-md text-label-md">Документ «Договор аренды квартиры (расторгнут 2024)» успешно возвращён в Журнал (SCR-01).</span>
+<span class="font-body-sm text-body-sm text-secondary">Все оригинальные связи, теги и контрольная сумма SHA-256 активны. Новая копия не создавалась.</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="px-space-sm py-[2px] bg-primary text-on-primary font-label-sm text-label-sm rounded-DEFAULT">Перейти в Журнал</button>
+<button class="text-secondary hover:text-on-surface" onclick="document.getElementById('toast-success').classList.add('hidden')"><span class="material-symbols-outlined text-[16px]">close</span></button>
+</div>
+</div>
+<!-- Missing Original Alert Bar (State 5) -->
+<div class="hidden w-full bg-error-container text-on-error-container px-space-md py-space-xs items-center justify-between" id="banner-missing">
+<div class="flex items-center gap-space-sm font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-error">warning</span>
+<span class=""><strong>Предупреждение целостности:</strong> Для выбранной записи PV-0019 физический файл на диске временно недоступен или изменён внешний носитель. Восстановление метаданных в Журнал разрешено, но потребуется перепроверка файла.</span>
+</div>
+<button class="text-on-error-container" onclick="document.getElementById('banner-missing').classList.add('hidden')"><span class="material-symbols-outlined text-[16px]">close</span></button>
+</div>
+<!-- Secret Locked Notification Bar (State 6) -->
+<div class="hidden w-full bg-secondary-container text-on-secondary-container px-space-md py-space-xs items-center justify-between" id="banner-secret-locked">
+<div class="flex items-center gap-space-sm font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">lock_clock</span>
+<span class=""><strong>Контейнер Secret заблокирован:</strong> Конфиденциальные скрытые записи исключены из выборки. Для отображения убранных документов зоны Secret введите мастер-пароль хранилища.</span>
+</div>
+<button class="px-space-sm py-[2px] bg-surface-container-lowest text-on-surface font-label-sm text-label-sm rounded-DEFAULT shadow-sm hover:bg-surface">Разблокировать Secret</button>
+</div>
+<!-- Main Split Workspace Layout (Table Pane + Inspector Drawer) -->
+<div class="flex w-full min-h-[calc(100vh-165px)] bg-surface relative" id="workspace-container">
+<!-- LEFT PANEL: Data Table View (Airtable / Desktop Spreadsheet style) -->
+<div class="flex-1 flex flex-col min-w-0 bg-surface-container-lowest" id="table-pane">
+<!-- Table Header (32px, strict column dividers) -->
+<div class="grid grid-cols-[34px_85px_minmax(180px,2fr)_95px_75px_110px_minmax(150px,1.5fr)_85px_110px] items-center h-[32px] bg-surface-container-low font-label-sm text-label-sm text-secondary uppercase tracking-wider px-space-xs select-none">
+<div class="flex items-center justify-center">
+<input class="w-3.5 h-3.5 rounded-DEFAULT text-primary cursor-pointer accent-primary" title="Выбрать все" type="checkbox">
+</div>
+<div class="px-space-xs">ID</div>
+<div class="px-space-xs">Название документа</div>
+<div class="px-space-xs">Категория</div>
+<div class="px-space-xs">Зона</div>
+<div class="px-space-xs">Убран из Журнала</div>
+<div class="px-space-xs">Причина / Контекст</div>
+<div class="px-space-xs">Файл</div>
+<div class="px-space-xs text-right pr-2">Действие</div>
+</div>
+<!-- Regular Table Content Body -->
+<div class="flex flex-col flex-1 divide-y divide-surface-container-highest" id="table-body">
+<!-- Row 1: PV-0019 (Selected) -->
+<div class="grid grid-cols-[34px_85px_minmax(180px,2fr)_95px_75px_110px_minmax(150px,1.5fr)_85px_110px] items-center h-[34px] px-space-xs cursor-pointer transition-colors bg-surface-container text-on-surface" id="row-pv0019" onclick="selectRow('pv0019')">
+<div class="flex items-center justify-center" onclick="event.stopPropagation()">
+<input checked="" class="w-3.5 h-3.5 rounded-DEFAULT accent-primary cursor-pointer" type="checkbox">
+</div>
+<div class="px-space-xs font-code text-code text-primary font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
+            PV-0019
+          </div>
+<div class="px-space-xs font-label-md text-label-md text-on-surface truncate flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">description</span>
+<span class="truncate">Договор аренды квартиры (расторгнут 2024)</span>
+</div>
+<div class="px-space-xs truncate">
+<span class="px-1.5 py-[1px] rounded-DEFAULT bg-surface-container-high text-on-surface-variant font-label-sm text-[11px]">Жильё</span>
+</div>
+<div class="px-space-xs">
+<span class="px-1.5 py-[1px] rounded-DEFAULT bg-secondary-container text-on-secondary-container font-label-sm text-[10px]">Open</span>
+</div>
+<div class="px-space-xs font-body-sm text-body-sm text-on-surface-variant">14.09.2026</div>
+<div class="px-space-xs font-body-sm text-body-sm text-secondary truncate italic">
+            «Срок действия истёк, скрыт из активного списка»
+          </div>
+<div class="px-space-xs flex items-center gap-1 text-on-surface-variant font-body-sm text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span id="pv0019-file-status" class="">Доступен</span>
+</div>
+<div class="px-space-xs text-right pr-2 flex items-center justify-end gap-1" onclick="event.stopPropagation()">
+<button class="h-[24px] px-space-xs bg-primary hover:bg-primary-container text-on-primary rounded-DEFAULT font-label-sm text-[11px] flex items-center gap-1" onclick="promptRestore('PV-0019', 'Договор аренды квартиры (расторгнут 2024)')" title="Восстановить в Журнал">
+<span class="material-symbols-outlined text-[12px]">undo</span>
+<span class="hidden xl:inline">В Журнал</span>
+</button>
+<button class="w-6 h-[24px] flex items-center justify-center text-secondary hover:bg-surface-container-highest rounded-DEFAULT" title="Контекстное меню">
+<span class="material-symbols-outlined text-[14px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Row 2: PV-0027 -->
+<div class="grid grid-cols-[34px_85px_minmax(180px,2fr)_95px_75px_110px_minmax(150px,1.5fr)_85px_110px] items-center h-[34px] px-space-xs hover:bg-surface-container-low cursor-pointer transition-colors text-on-surface" id="row-pv0027" onclick="selectRow('pv0027')">
+<div class="flex items-center justify-center" onclick="event.stopPropagation()">
+<input class="w-3.5 h-3.5 rounded-DEFAULT accent-primary cursor-pointer" type="checkbox">
+</div>
+<div class="px-space-xs font-code text-code text-secondary font-medium">PV-0027</div>
+<div class="px-space-xs font-body-md text-body-md text-on-surface truncate flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">receipt_long</span>
+<span class="truncate">Квитанция Мосэнергосбыт за март 2025</span>
+</div>
+<div class="px-space-xs truncate">
+<span class="px-1.5 py-[1px] rounded-DEFAULT bg-surface-container-high text-on-surface-variant font-label-sm text-[11px]">Коммунальные</span>
+</div>
+<div class="px-space-xs">
+<span class="px-1.5 py-[1px] rounded-DEFAULT bg-secondary-container text-on-secondary-container font-label-sm text-[10px]">Open</span>
+</div>
+<div class="px-space-xs font-body-sm text-body-sm text-on-surface-variant">01.10.2026</div>
+<div class="px-space-xs font-body-sm text-body-sm text-secondary truncate italic">
+            «Ошибочно импортирован дубликат старого периода»
+          </div>
+<div class="px-space-xs flex items-center gap-1 text-on-surface-variant font-body-sm text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="">Доступен</span>
+</div>
+<div class="px-space-xs text-right pr-2 flex items-center justify-end gap-1" onclick="event.stopPropagation()">
+<button class="h-[24px] px-space-xs bg-surface-container hover:bg-surface-container-high text-on-surface rounded-DEFAULT font-label-sm text-[11px] flex items-center gap-1" onclick="promptRestore('PV-0027', 'Квитанция Мосэнергосбыт за март 2025')" title="Восстановить в Журнал">
+<span class="material-symbols-outlined text-[12px]">undo</span>
+<span class="hidden xl:inline">В Журнал</span>
+</button>
+<button class="w-6 h-[24px] flex items-center justify-center text-secondary hover:bg-surface-container-highest rounded-DEFAULT" title="Контекстное меню">
+<span class="material-symbols-outlined text-[14px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Row 3: PV-0033 (Secret Zone) -->
+<div class="grid grid-cols-[34px_85px_minmax(180px,2fr)_95px_75px_110px_minmax(150px,1.5fr)_85px_110px] items-center h-[34px] px-space-xs hover:bg-surface-container-low cursor-pointer transition-colors text-on-surface" id="row-pv0033" onclick="selectRow('pv0033')">
+<div class="flex items-center justify-center" onclick="event.stopPropagation()">
+<input class="w-3.5 h-3.5 rounded-DEFAULT accent-primary cursor-pointer" type="checkbox">
+</div>
+<div class="px-space-xs font-code text-code text-secondary font-medium">PV-0033</div>
+<div class="px-space-xs font-body-md text-body-md text-on-surface truncate flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-primary">badge</span>
+<span class="truncate">Черновой скан паспорта (старая копия)</span>
+</div>
+<div class="px-space-xs truncate">
+<span class="px-1.5 py-[1px] rounded-DEFAULT bg-surface-container-high text-on-surface-variant font-label-sm text-[11px]">Личное</span>
+</div>
+<div class="px-space-xs">
+<span class="px-1.5 py-[1px] rounded-DEFAULT bg-primary-container text-on-primary-container font-label-sm text-[10px] flex items-center gap-1 w-max">
+<span class="material-symbols-outlined text-[10px]">lock</span> Secret
+            </span>
+</div>
+<div class="px-space-xs font-body-sm text-body-sm text-on-surface-variant">05.10.2026</div>
+<div class="px-space-xs font-body-sm text-body-sm text-secondary truncate italic">
+            «Заменён актуальным нотариальным сканом»
+          </div>
+<div class="px-space-xs flex items-center gap-1 text-on-surface-variant font-body-sm text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="">Доступен</span>
+</div>
+<div class="px-space-xs text-right pr-2 flex items-center justify-end gap-1" onclick="event.stopPropagation()">
+<button class="h-[24px] px-space-xs bg-surface-container hover:bg-surface-container-high text-on-surface rounded-DEFAULT font-label-sm text-[11px] flex items-center gap-1" onclick="promptRestore('PV-0033', 'Черновой скан паспорта (старая копия)')" title="Восстановить в Журнал">
+<span class="material-symbols-outlined text-[12px]">undo</span>
+<span class="hidden xl:inline">В Журнал</span>
+</button>
+<button class="w-6 h-[24px] flex items-center justify-center text-secondary hover:bg-surface-container-highest rounded-DEFAULT" title="Контекстное меню">
+<span class="material-symbols-outlined text-[14px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Empty State Container (State 2) -->
+<div class="hidden flex-1 flex flex-col items-center justify-center p-space-xl text-center bg-surface-container-lowest" id="state-empty-view">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-primary mb-space-md">
+<span class="material-symbols-outlined text-[32px]">folder_special</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-space-xs">Убранных документов нет</h2>
+<p class="font-body-md text-body-md text-secondary max-w-md mb-space-lg">
+          Все ваши архивные записи активны и отображаются в основном <span class="text-primary font-semibold">Журнале (SCR-01)</span>. Если документ временно теряет актуальность, вы можете убрать его через карточку документа, сохранив полную целостность файла.
+        </p>
+<button class="h-[30px] px-space-md bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md rounded-DEFAULT flex items-center gap-1.5 transition-colors">
+<span class="">Перейти в основной Журнал</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<!-- Table Status Footer Strip -->
+<div class="h-[26px] bg-surface-container-low px-space-md flex items-center justify-between font-label-sm text-[11px] text-secondary">
+<div class="flex items-center gap-space-md">
+<span class="">Всего убранных: <strong class="text-on-surface" id="footer-count">3</strong></span>
+<span class="">•</span>
+<span class="text-on-surface-variant">Все записи зашифрованы и включены в резервный snapshot</span>
+</div>
+<div class="flex items-center gap-space-xs text-primary font-code">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+          SQLite journal_index: OK
+        </div>
+</div>
+</div>
+<!-- RIGHT PANEL: Inspector Drawer (for selected PV-0019) -->
+<div class="w-80 min-w-[300px] max-w-sm bg-surface-container-low flex flex-col justify-between shrink-0 transition-all duration-150" id="inspector-panel">
+<!-- Top Inspector Header -->
+<div class="p-space-md flex flex-col gap-space-md overflow-y-auto">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-code text-label-md text-primary font-bold">PV-0019</span>
+<span class="px-1.5 py-[1px] rounded-DEFAULT bg-secondary-container text-on-secondary-container font-label-sm text-[10px]">Open-хранилище</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded-DEFAULT flex items-center justify-center text-secondary hover:bg-surface-container-high" onclick="toggleInspector()" title="Скрыть инспектор">
+<span class="material-symbols-outlined text-[15px]">close</span>
+</button>
+</div>
+</div>
+<!-- Document Thumbnail / Visual Card -->
+<div class="relative w-full h-32 rounded-DEFAULT bg-surface-container overflow-hidden flex flex-col justify-between p-space-sm group">
+<div class="flex items-start justify-between">
+<div class="px-1.5 py-[2px] rounded-DEFAULT bg-surface text-secondary font-label-sm text-[10px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-error">picture_as_pdf</span> PDF-документ
+            </div>
+<div class="px-1.5 py-[2px] rounded-DEFAULT bg-primary-container text-on-primary-container font-label-sm text-[10px]">
+              2 страницы
+            </div>
+</div>
+<div class="flex items-end justify-between">
+<div>
+<p class="font-code text-[10px] text-secondary">dogovor_arenda_old.pdf</p>
+<p class="font-label-sm text-[11px] text-on-surface font-semibold">2.1 МБ • Версия 1.0</p>
+</div>
+<button class="h-6 px-1.5 bg-surface-container-highest hover:bg-surface text-on-surface rounded-DEFAULT text-[11px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">visibility</span> Превью
+            </button>
+</div>
+</div>
+<!-- Title & Metadata Grid -->
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">
+            Договор аренды квартиры (расторгнут 2024)
+          </h3>
+<p class="font-body-sm text-body-sm text-secondary">
+            Категория: <span class="text-on-surface font-medium">Жильё</span> • Теги: <span class="font-code text-[11px]">#аренда #москва #недвижимость</span>
+</p>
+</div>
+<!-- Reason Quote Block -->
+<div class="p-space-sm bg-surface-container-high rounded-DEFAULT flex flex-col gap-1">
+<div class="flex items-center gap-1 text-primary font-label-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px]">info</span> Причина перемещения в убранные:
+          </div>
+<blockquote class="font-body-sm text-body-sm text-on-surface italic pl-2">
+            «Срок действия истёк, скрыт из активного списка»
+          </blockquote>
+<span class="font-label-sm text-[10px] text-secondary text-right">Пользователь: 14.09.2026, 17:42</span>
+</div>
+<!-- System & Completeness Badges -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Параметры архивной записи</span>
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="p-space-xs bg-surface-container rounded-DEFAULT flex flex-col">
+<span class="text-[10px] text-secondary">Дата архивации</span>
+<span class="font-label-md text-label-md text-on-surface">10.04.2024</span>
+</div>
+<div class="p-space-xs bg-surface-container rounded-DEFAULT flex flex-col">
+<span class="text-[10px] text-secondary">Убран из Журнала</span>
+<span class="font-label-md text-label-md text-on-surface">14.09.2026</span>
+</div>
+<div class="p-space-xs bg-surface-container rounded-DEFAULT flex flex-col">
+<span class="text-[10px] text-secondary">Реквизиты</span>
+<span class="font-label-md text-label-md text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> Заполнено 5/5
+              </span>
+</div>
+<div class="p-space-xs bg-surface-container rounded-DEFAULT flex flex-col">
+<span class="text-[10px] text-secondary">Контроль хэша</span>
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Сверено (SHA-256)
+              </span>
+</div>
+</div>
+</div>
+<!-- Technical Hash Information -->
+<div class="flex flex-col gap-1 p-space-xs bg-surface-container rounded-DEFAULT">
+<div class="flex items-center justify-between text-[10px] text-secondary">
+<span class="">SHA-256 дайджест:</span>
+<button class="text-primary hover:underline" onclick="navigator.clipboard.writeText('8f4a13b9...c312')">Копировать</button>
+</div>
+<span class="font-code text-[10px] text-on-surface truncate">8f4a13b9c759081e7d4a21190bc983e2</span>
+</div>
+<!-- Architectural Safety Statement -->
+<div class="p-space-xs bg-surface-container text-secondary font-label-sm text-[11px] rounded-DEFAULT flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+<span class="">Все 3 реляционные связи с транзакциями сохранены.</span>
+</div>
+</div>
+<!-- Bottom Inspector Actions Area (Strictly Reversible, NO PURGE) -->
+<div class="p-space-md bg-surface-container-high flex flex-col gap-space-xs">
+<!-- Primary Action: Restore to Journal -->
+<button class="w-full h-[32px] bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md rounded-DEFAULT flex items-center justify-center gap-1.5 transition-colors shadow-sm" onclick="promptRestore('PV-0019', 'Договор аренды квартиры (расторгнут 2024)')">
+<span class="material-symbols-outlined text-[16px]">undo</span>
+<span class="">Восстановить в Журнал</span>
+</button>
+<!-- Secondary Action: Open Card SCR-11 -->
+<button class="w-full h-[28px] bg-surface hover:bg-surface-container text-on-surface font-label-sm text-label-sm rounded-DEFAULT flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px] text-secondary">open_in_new</span>
+<span class="">Открыть карточку (SCR-11)</span>
+</button>
+<p class="font-label-sm text-[10px] text-secondary text-center mt-1">
+          Функции окончательного удаления отсутствуют по стандарту безопасности
+        </p>
+</div>
+</div>
+</div>
+<!-- MODAL 1: Restoration Confirmation Dialog (State 3) -->
+<div class="hidden fixed inset-0 z-50 bg-inverse-surface/40 flex items-center justify-center p-space-md" id="modal-confirm">
+<div class="w-full max-w-md bg-surface-container-lowest rounded-DEFAULT shadow-xl overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-100">
+<!-- Modal Header -->
+<div class="px-space-md py-space-sm bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[18px]">undo</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Восстановление в основной Журнал</span>
+</div>
+<button class="text-secondary hover:text-on-surface" onclick="closeModal('modal-confirm')">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="p-space-lg flex flex-col gap-space-md">
+<p class="font-body-md text-body-md text-on-surface leading-normal">
+          Восстановить документ <strong class="text-primary font-semibold" id="modal-doc-title">«Договор аренды квартиры (расторгнут 2024)»</strong> (<span class="font-code text-code" id="modal-doc-id">PV-0019</span>) в основной Журнал?
+        </p>
+<div class="p-space-sm bg-surface-container-low rounded-DEFAULT flex flex-col gap-1 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1 text-primary font-label-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px]">task_alt</span> Что произойдёт:
+          </div>
+<ul class="list-disc list-inside space-y-1 text-secondary pl-1 font-body-sm">
+<li class="">Документ снова отобразится в основном списке <strong class="text-on-surface">SCR-01</strong>.</li>
+<li class="">Все прикреплённые сканы, канонические файлы и реквизиты останутся прежними.</li>
+<li class="">Реляционные связи со счетами и людьми восстановят активный статус.</li>
+<li class=""><strong class="text-on-surface">Новая копия не создаётся</strong> — восстанавливается исходный указатель.</li>
+</ul>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="px-space-md py-space-sm bg-surface-container-low flex items-center justify-end gap-space-xs">
+<button class="h-[28px] px-space-sm bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm rounded-DEFAULT" onclick="closeModal('modal-confirm')">
+          Отмена
+        </button>
+<button class="h-[28px] px-space-md bg-primary hover:bg-primary-container text-on-primary font-label-sm text-label-sm rounded-DEFAULT flex items-center gap-1 shadow-sm" onclick="executeRestore()">
+<span class="material-symbols-outlined text-[14px]">undo</span>
+<span class="">Да, восстановить в Журнал</span>
+</button>
+</div>
+</div>
+</div>
+<!-- MODAL 2: Storage Help Information Modal -->
+<div class="hidden fixed inset-0 z-50 bg-inverse-surface/40 flex items-center justify-center p-space-md" id="modal-help">
+<div class="w-full max-w-lg bg-surface-container-lowest rounded-DEFAULT shadow-xl overflow-hidden flex flex-col">
+<div class="px-space-md py-space-sm bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Архитектурный принцип раздела «Убранные»</span>
+</div>
+<button class="text-secondary hover:text-on-surface" onclick="closeModal('modal-help')">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div class="p-space-lg flex flex-col gap-space-md font-body-md text-body-md text-on-surface">
+<p class="">
+          В <strong>PersonalVault 2.0</strong> раздел «Убранные» не является корзиной с необратимой очисткой. Это реестр обратимо деактивированных записей.
+        </p>
+<div class="space-y-space-xs">
+<div class="p-space-xs bg-surface-container rounded-DEFAULT">
+<span class="font-label-md text-label-md text-primary">1. Неизменность хэшей (SHA-256)</span>
+<p class="font-body-sm text-body-sm text-secondary">Файл документа на диске не перемещается и не модифицируется, сохраняя цифровую подпись.</p>
+</div>
+<div class="p-space-xs bg-surface-container rounded-DEFAULT">
+<span class="font-label-md text-label-md text-primary">2. Сохранение графа связей</span>
+<p class="font-body-sm text-body-sm text-secondary">Связи документа с транзакциями, людьми или объектами недвижимости в базе SQLite остаются активными на уровне внешних ключей.</p>
+</div>
+<div class="p-space-xs bg-surface-container rounded-DEFAULT">
+<span class="font-label-md text-label-md text-primary">3. Отсутствие кнопки «Очистить корзину»</span>
+<p class="font-body-sm text-body-sm text-secondary">Удаление данных исключено для предотвращения случайной утраты юридически значимых документов.</p>
+</div>
+</div>
+</div>
+<div class="px-space-md py-space-sm bg-surface-container-low flex justify-end">
+<button class="h-[28px] px-space-md bg-primary text-on-primary font-label-sm text-label-sm rounded-DEFAULT" onclick="closeModal('modal-help')">Понятно</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  let currentActiveRow = 'pv0019';
+  let isCompact = false;
+  let isInspectorOpen = true;
+
+  function setState(state) {
+    // Reset buttons
+    ['normal', 'empty', 'confirm', 'restored', 'missing', 'secret-locked'].forEach(s => {
+      const el = document.getElementById('btn-state-' + s);
+      if (el) {
+        el.className = "px-space-sm py-[2px] rounded-DEFAULT font-label-sm text-label-sm transition-all bg-surface-container text-on-surface hover:bg-surface-container-highest";
+      }
+    });
+
+    const activeBtn = document.getElementById('btn-state-' + state);
+    if (activeBtn) {
+      activeBtn.className = "px-space-sm py-[2px] rounded-DEFAULT font-label-sm text-label-sm transition-all bg-primary text-on-primary shadow-sm flex items-center gap-1";
+    }
+
+    const toastSuccess = document.getElementById('toast-success');
+    const bannerMissing = document.getElementById('banner-missing');
+    const bannerSecretLocked = document.getElementById('banner-secret-locked');
+    const tableBody = document.getElementById('table-body');
+    const emptyView = document.getElementById('state-empty-view');
+    const modalConfirm = document.getElementById('modal-confirm');
+    const inspector = document.getElementById('inspector-panel');
+    const rowPv0019 = document.getElementById('row-pv0019');
+    const rowPv0033 = document.getElementById('row-pv0033');
+    const pv0019Status = document.getElementById('pv0019-file-status');
+
+    // Default resets
+    toastSuccess.classList.add('hidden');
+    bannerMissing.classList.add('hidden');
+    bannerSecretLocked.classList.add('hidden');
+    modalConfirm.classList.add('hidden');
+    tableBody.classList.remove('hidden');
+    emptyView.classList.add('hidden');
+    if (rowPv0033) rowPv0033.classList.remove('hidden');
+    if (rowPv0019) rowPv0019.classList.remove('hidden');
+    if (pv0019Status) {
+      pv0019Status.textContent = 'Доступен';
+      pv0019Status.previousElementSibling.className = 'w-1.5 h-1.5 rounded-full bg-primary';
+    }
+
+    document.getElementById('count-all').textContent = '3';
+    document.getElementById('count-secret').textContent = '1';
+    document.getElementById('footer-count').textContent = '3';
+
+    if (state === 'normal') {
+      selectRow('pv0019');
+    } else if (state === 'empty') {
+      tableBody.classList.add('hidden');
+      emptyView.classList.remove('hidden');
+      document.getElementById('count-all').textContent = '0';
+      document.getElementById('count-open').textContent = '0';
+      document.getElementById('count-secret').textContent = '0';
+      document.getElementById('footer-count').textContent = '0';
+    } else if (state === 'confirm') {
+      promptRestore('PV-0019', 'Договор аренды квартиры (расторгнут 2024)');
+    } else if (state === 'restored') {
+      toastSuccess.classList.remove('hidden');
+      if (rowPv0019) rowPv0019.classList.add('hidden');
+      selectRow('pv0027');
+      document.getElementById('count-all').textContent = '2';
+      document.getElementById('count-open').textContent = '1';
+      document.getElementById('footer-count').textContent = '2';
+    } else if (state === 'missing') {
+      bannerMissing.classList.remove('hidden');
+      if (pv0019Status) {
+        pv0019Status.textContent = 'Файл недоступен';
+        pv0019Status.previousElementSibling.className = 'w-1.5 h-1.5 rounded-full bg-error';
+      }
+    } else if (state === 'secret-locked') {
+      bannerSecretLocked.classList.remove('hidden');
+      if (rowPv0033) rowPv0033.classList.add('hidden');
+      document.getElementById('count-all').textContent = '2';
+      document.getElementById('count-secret').textContent = '—';
+      document.getElementById('footer-count').textContent = '2';
+    }
+  }
+
+  function selectRow(id) {
+    ['pv0019', 'pv0027', 'pv0033'].forEach(r => {
+      const el = document.getElementById('row-' + r);
+      if (el) {
+        el.className = "grid grid-cols-[34px_85px_minmax(180px,2fr)_95px_75px_110px_minmax(150px,1.5fr)_85px_110px] items-center h-[34px] px-space-xs hover:bg-surface-container-low cursor-pointer transition-colors text-on-surface";
+      }
+    });
+    const target = document.getElementById('row-' + id);
+    if (target) {
+      target.className = "grid grid-cols-[34px_85px_minmax(180px,2fr)_95px_75px_110px_minmax(150px,1.5fr)_85px_110px] items-center h-[34px] px-space-xs cursor-pointer transition-colors bg-surface-container text-on-surface";
+    }
+    currentActiveRow = id;
+    if (!isInspectorOpen) {
+      toggleInspector();
+    }
+  }
+
+  function promptRestore(docId, docTitle) {
+    document.getElementById('modal-doc-id').textContent = docId;
+    document.getElementById('modal-doc-title').textContent = '«' + docTitle + '»';
+    document.getElementById('modal-confirm').classList.remove('hidden');
+  }
+
+  function closeModal(modalId) {
+    document.getElementById(modalId).classList.add('hidden');
+  }
+
+  function executeRestore() {
+    closeModal('modal-confirm');
+    setState('restored');
+  }
+
+  function showHelpModal() {
+    document.getElementById('modal-help').classList.remove('hidden');
+  }
+
+  function toggleInspector() {
+    const insp = document.getElementById('inspector-panel');
+    if (isInspectorOpen) {
+      insp.classList.add('hidden');
+      isInspectorOpen = false;
+    } else {
+      insp.classList.remove('hidden');
+      isInspectorOpen = true;
+    }
+  }
+
+  function toggleCompactMode() {
+    const ws = document.getElementById('workspace-container');
+    const btn = document.getElementById('btn-state-compact');
+    isCompact = !isCompact;
+    if (isCompact) {
+      ws.classList.add('max-w-[900px]');
+      btn.classList.add('bg-primary-container', 'text-on-primary-container');
+    } else {
+      ws.classList.remove('max-w-[900px]');
+      btn.classList.remove('bg-primary-container', 'text-on-primary-container');
+    }
+  }
+
+  function applyFilter(filter) {
+    ['pill-all', 'pill-open', 'pill-secret', 'pill-linked'].forEach(p => {
+      const el = document.getElementById(p);
+      if (el) {
+        el.className = "h-[24px] px-space-sm rounded-DEFAULT font-label-sm text-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface";
+      }
+    });
+    const active = document.getElementById('pill-' + filter);
+    if (active) {
+      active.className = "h-[24px] px-space-sm rounded-DEFAULT font-label-sm text-label-sm bg-primary text-on-primary";
+    }
+
+    const rowSecret = document.getElementById('row-pv0033');
+    const rowOpen1 = document.getElementById('row-pv0019');
+    const rowOpen2 = document.getElementById('row-pv0027');
+
+    if (filter === 'open') {
+      if (rowSecret) rowSecret.classList.add('hidden');
+      if (rowOpen1) rowOpen1.classList.remove('hidden');
+      if (rowOpen2) rowOpen2.classList.remove('hidden');
+    } else if (filter === 'secret') {
+      if (rowSecret) rowSecret.classList.remove('hidden');
+      if (rowOpen1) rowOpen1.classList.add('hidden');
+      if (rowOpen2) rowOpen2.classList.add('hidden');
+      selectRow('pv0033');
+    } else {
+      if (rowSecret) rowSecret.classList.remove('hidden');
+      if (rowOpen1) rowOpen1.classList.remove('hidden');
+      if (rowOpen2) rowOpen2.classList.remove('hidden');
+    }
+  }
+</script></main></div>
+
+</body></html>
