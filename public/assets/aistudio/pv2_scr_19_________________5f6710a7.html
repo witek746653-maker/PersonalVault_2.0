@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "outline-variant": "#bdc9c7",
+          "on-primary-fixed-variant": "#00504c",
+          "surface-tint": "#006a65",
+          "on-tertiary": "#ffffff",
+          "on-error-container": "#93000a",
+          "inverse-primary": "#79d6cf",
+          "on-error": "#ffffff",
+          "on-tertiary-container": "#f3fffe",
+          "on-primary-fixed": "#00201e",
+          "surface-variant": "#d7e4ec",
+          "secondary": "#536166",
+          "secondary-container": "#d6e5ec",
+          "on-tertiary-fixed": "#111e1d",
+          "surface-container": "#e3f0f8",
+          "primary-fixed-dim": "#79d6cf",
+          "on-secondary": "#ffffff",
+          "tertiary-fixed-dim": "#bbc9c8",
+          "inverse-surface": "#263238",
+          "tertiary-fixed": "#d7e5e4",
+          "primary": "#006763",
+          "surface-container-high": "#ddeaf2",
+          "tertiary-container": "#6a7777",
+          "primary-container": "#12827c",
+          "on-background": "#111d23",
+          "surface-dim": "#cfdce4",
+          "surface-container-highest": "#d7e4ec",
+          "surface-container-lowest": "#ffffff",
+          "on-surface-variant": "#3e4948",
+          "error": "#ba1a1a",
+          "secondary-fixed-dim": "#bac9cf",
+          "on-secondary-fixed-variant": "#3b494e",
+          "on-primary": "#ffffff",
+          "on-surface": "#111d23",
+          "secondary-fixed": "#d6e5ec",
+          "primary-fixed": "#95f3eb",
+          "inverse-on-surface": "#e6f3fb",
+          "on-secondary-fixed": "#101d22",
+          "surface-container-low": "#e9f6fd",
+          "background": "#f4faff",
+          "surface": "#f4faff",
+          "on-tertiary-fixed-variant": "#3c4949",
+          "on-primary-container": "#f3fffd",
+          "tertiary": "#515e5e",
+          "surface-bright": "#f4faff",
+          "error-container": "#ffdad6",
+          "on-secondary-container": "#59676c",
+          "outline": "#6e7978"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "space-sm": "0.375rem",
+          "space-md": "0.5rem",
+          "space-xl": "1rem",
+          "space-lg": "0.75rem",
+          "gutter": "0.75rem",
+          "space-xs": "0.25rem",
+          "margin": "1rem"
+        },
+        "fontFamily": {
+          "body-sm": [
+            "Segoe UI"
+          ],
+          "label-md": [
+            "Segoe UI"
+          ],
+          "headline-sm": [
+            "Segoe UI"
+          ],
+          "headline-md": [
+            "Segoe UI"
+          ],
+          "code": [
+            "JetBrains Mono"
+          ],
+          "body-md": [
+            "Segoe UI"
+          ],
+          "label-sm": [
+            "Segoe UI"
+          ],
+          "headline-lg": [
+            "Segoe UI"
+          ],
+          "body-lg": [
+            "Segoe UI"
+          ]
+        },
+        "fontSize": {
+          "body-sm": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "400"
+            }
+          ],
+          "label-md": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-sm": [
+            "15px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-md": [
+            "18px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "600"
+            }
+          ],
+          "code": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "400"
+            }
+          ],
+          "body-md": [
+            "13px",
+            {
+              "lineHeight": "18px",
+              "fontWeight": "400"
+            }
+          ],
+          "label-sm": [
+            "11px",
+            {
+              "lineHeight": "14px",
+              "letterSpacing": "0.02em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-lg": [
+            "22px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "600"
+            }
+          ],
+          "body-lg": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased select-none"><header class="fixed top-0 left-0 right-0 h-9 bg-surface-container-lowest z-50 flex items-center justify-between px-space-md select-none border-b border-outline-variant/40"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">lock</span><span class="font-label-md text-label-md text-on-surface tracking-wide">PersonalVault 2.0</span></div><span class="text-outline-variant font-body-sm text-body-sm">•</span><span class="font-body-sm text-body-sm text-secondary">Локальный архив</span></div><div class="flex items-center flex-1 max-w-xs mx-space-xl"><div class="w-full flex items-center bg-surface-container-low px-space-md py-space-xs rounded-DEFAULT border border-outline-variant/50 focus-within:border-primary"><span class="material-symbols-outlined text-secondary text-[16px] mr-space-sm">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-secondary focus:outline-none" placeholder="Быстрый поиск (Ctrl+K)..." type="text"/></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs px-space-sm py-space-xs text-secondary font-code text-code"><span class="w-2 h-2 rounded-full bg-primary inline-block"></span><span>ONLINE</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex items-center ml-space-sm border-l border-outline-variant/40 pl-space-sm"><button class="w-7 h-7 flex items-center justify-center text-secondary hover:bg-surface-container-high hover:text-on-surface transition-colors rounded-DEFAULT"><span class="material-symbols-outlined text-[16px]">minimize</span></button><button class="w-7 h-7 flex items-center justify-center text-secondary hover:bg-surface-container-high hover:text-on-surface transition-colors rounded-DEFAULT"><span class="material-symbols-outlined text-[16px]">crop_square</span></button><button class="w-7 h-7 flex items-center justify-center text-secondary hover:bg-error hover:text-on-error transition-colors rounded-DEFAULT"><span class="material-symbols-outlined text-[16px]">close</span></button></div></div></header><aside class="fixed left-0 top-9 bottom-0 w-56 bg-surface-container-low z-40 flex flex-col justify-between border-r border-outline-variant/40"><div class="flex-1 overflow-y-auto py-space-sm"><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-secondary tracking-wider uppercase font-semibold">Документы</span></div><nav class="flex flex-col mb-space-sm" data-active-classes="bg-surface-container-high text-primary font-semibold border-l-2 border-primary"><a class="flex items-center justify-between px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="zhurnal" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">menu_book</span><span class="font-body-sm text-body-sm">Журнал</span></div></a><a class="flex items-center justify-between px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="vkhodyashchie" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">inbox</span><span class="font-body-sm text-body-sm">Входящие</span></div><span class="font-label-sm text-label-sm bg-surface-container-high text-secondary px-space-xs py-0.5 rounded-DEFAULT">5</span></a><a class="flex items-center justify-between px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="chernoviki" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">edit_document</span><span class="font-body-sm text-body-sm">Черновики</span></div><span class="font-label-sm text-label-sm bg-surface-container-high text-secondary px-space-xs py-0.5 rounded-DEFAULT">2</span></a><a class="flex items-center justify-between px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="plany" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">event_note</span><span class="font-body-sm text-body-sm">Планы</span></div><span class="font-label-sm text-label-sm bg-surface-container-high text-secondary px-space-xs py-0.5 rounded-DEFAULT">2</span></a><a class="flex items-center justify-between px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="ubrannye" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[16px]">archive</span><span class="font-body-sm text-body-sm">Убранные</span></div></a></nav><div class="h-px bg-outline-variant/30 mx-space-md my-space-xs"></div><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-secondary tracking-wider uppercase font-semibold">Справочники</span></div><nav class="flex flex-col mb-space-sm" data-active-classes="bg-surface-container-high text-primary font-semibold border-l-2 border-primary"><a class="flex items-center gap-space-sm px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="moi-dannye" href="#"><span class="material-symbols-outlined text-[16px]">badge</span><span class="font-body-sm text-body-sm">Мои данные</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="shablony" href="#"><span class="material-symbols-outlined text-[16px]">dashboard_customize</span><span class="font-body-sm text-body-sm">Шаблоны</span></a></nav><div class="h-px bg-outline-variant/30 mx-space-md my-space-xs"></div><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-secondary tracking-wider uppercase font-semibold">Дополнительно</span></div><nav class="flex flex-col mb-space-sm" data-active-classes="bg-surface-container-high text-primary font-semibold border-l-2 border-primary"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-xs transition-colors bg-surface-container-high text-primary font-semibold border-l-2 border-primary" data-path="svodka-zdorovya" href="#"><span class="material-symbols-outlined text-[16px]">vital_signs</span><span class="font-body-sm text-body-sm">Сводка здоровья</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="pomoshchnik" href="#"><span class="material-symbols-outlined text-[16px]">smart_toy</span><span class="font-body-sm text-body-sm">Помощник</span></a></nav></div><div class="border-t border-outline-variant/40 bg-surface-container-lowest py-space-xs"><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-secondary tracking-wider uppercase font-semibold">Система</span></div><nav class="flex flex-col" data-active-classes="bg-surface-container-high text-primary font-semibold border-l-2 border-primary"><a class="flex items-center gap-space-sm px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="obsluzhivanie-arkhiva" href="#"><span class="material-symbols-outlined text-[16px]">database</span><span class="font-body-sm text-body-sm">Обслуживание архива</span></a><a class="flex items-center gap-space-sm px-space-md py-space-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="nastrojki" href="#"><span class="material-symbols-outlined text-[16px]">settings</span><span class="font-body-sm text-body-sm">Настройки</span></a></nav></div></aside><div class="pl-56"><main class="pt-9 w-full min-h-screen bg-surface"><div class="flex flex-col w-full">
+<!-- 1. TOP PROTOTYPE DEMO SELECTOR BAR -->
+<div class="w-full bg-surface-container-high px-space-md py-space-xs flex flex-wrap items-center justify-between gap-space-sm border-b border-outline-variant/30 select-none">
+<div class="flex items-center gap-space-sm flex-wrap">
+<div class="flex items-center gap-1 font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">science</span>
+<span>Демо-состояния (14):</span>
+</div>
+<div class="relative inline-block">
+<select class="h-6 pl-2 pr-6 bg-surface-container-lowest text-on-surface font-body-sm text-body-sm rounded-DEFAULT border border-outline-variant/50 focus:outline-none focus:border-primary cursor-pointer" id="demoStateSelect" onchange="applyDemoState(this.value)">
+<option value="1">1. Обычное состояние (Штатный обзор Open)</option>
+<option value="2">2. Open + Secret (Все анализы и диагнозы)</option>
+<option value="3">3. Secret закрыта (UX-032: Open-only режим)</option>
+<option value="4">4. Нет медицинских данных (Пустой архив)</option>
+<option value="5">5. Новые сведения на проверке (Верификация факта)</option>
+<option value="6">6. Заболевание: подробности (АГ II ст., давление)</option>
+<option value="7">7. Анализы: динамика (Ферритин, тренд 2 года)</option>
+<option value="8">8. Активность и сон (Гипнограмма, ЧСС, шаги)</option>
+<option value="9">9. Нет данных браслета (Пустой стейт + Импорт)</option>
+<option value="10">10. Ошибка импорта (Сбой разбора CSV)</option>
+<option value="11">11. Французское мед. резюме (A4 Résumé Médical)</option>
+<option value="12">12. Источник недоступен (Missing source)</option>
+<option value="13">13. Узкое окно (900x760 компактный вид)</option>
+<option value="14">14. Secret отключилась во время просмотра (Авария)</option>
+</select>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-DEFAULT bg-primary/10 text-primary font-code text-code text-[11px]" id="quickStatusBadge">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span id="demoStateLabel">DEMO-01: OK</span>
+</span>
+<button class="text-secondary hover:text-primary font-label-sm text-label-sm transition-colors" onclick="resetToDefaultDemo()">Сброс</button>
+</div>
+</div>
+<!-- EMERGENCY / SECRET DISCONNECTED ALERT BANNER (UX-032) -->
+<div class="hidden w-full bg-error-container text-on-error-container px-space-md py-space-xs flex items-center justify-between text-body-sm font-body-sm border-b border-error/30 animate-in fade-in duration-200" id="secretDisconnectedBanner">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[16px] text-error">lock_clock</span>
+<span><strong>Внимание (UX-032):</strong> Секретный том PersonalVault заблокирован тайм-аутом. Данные категории Secret скрыты. Отображаются только общедоступные сведения архива Open.</span>
+</div>
+<button class="text-on-error-container hover:opacity-75" onclick="dismissSecretBanner()">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<!-- 2. HEALTH MODULE HEADER & WORKSPACE ACTION BAR -->
+<div class="w-full bg-surface-container-lowest px-space-lg py-space-sm border-b border-outline-variant/30 flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight" id="headerTitle">Сводка здоровья</h1>
+<span class="bg-surface-container px-2 py-0.5 text-secondary font-code text-[11px] rounded-DEFAULT">v2.4-local</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary" id="headerSubtitle">Медицинская история, исследования и показатели здоровья</p>
+</div>
+<!-- Controls Bar -->
+<div class="flex items-center flex-wrap gap-space-sm">
+<!-- Search Input -->
+<div class="relative w-64 md:w-80">
+<span class="material-symbols-outlined absolute left-2 top-1.5 text-secondary text-[16px]">search</span>
+<input class="w-full h-7 pl-7 pr-2 bg-surface-container-low text-on-surface placeholder:text-secondary font-body-sm text-body-sm rounded-DEFAULT border border-outline-variant/40 focus:outline-none focus:border-primary" id="healthSearchInput" oninput="handleSearch(this.value)" placeholder="Поиск по диагнозам, врачам, анализам..." type="text"/>
+</div>
+<!-- Language Selector [RU | EN | FR] -->
+<div class="flex items-center bg-surface-container rounded-DEFAULT p-0.5 border border-outline-variant/40 font-label-sm text-label-sm">
+<button class="px-2 py-0.5 rounded-DEFAULT bg-primary text-on-primary font-semibold transition-all" id="langRuBtn" onclick="setLang('RU')">RU</button>
+<button class="px-2 py-0.5 rounded-DEFAULT text-secondary hover:text-on-surface transition-all" id="langEnBtn" onclick="setLang('EN')">EN</button>
+<button class="px-2 py-0.5 rounded-DEFAULT text-secondary hover:text-on-surface transition-all" id="langFrBtn" onclick="setLang('FR')">FR</button>
+</div>
+<!-- Security Zone Selector -->
+<div class="relative">
+<button class="h-7 px-2.5 flex items-center gap-1.5 rounded-DEFAULT border border-outline-variant/50 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-colors" id="securityZoneBtn" onclick="toggleSecurityZoneMenu()">
+<span class="material-symbols-outlined text-[15px] text-primary" id="securityIcon">verified_user</span>
+<span id="securityZoneText">Open + Secret</span>
+<span class="material-symbols-outlined text-[14px] text-secondary">arrow_drop_down</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-48 bg-surface-container-lowest rounded-DEFAULT border border-outline-variant/50 shadow-md py-1 z-30" id="securityZoneDropdown">
+<button class="w-full text-left px-3 py-1.5 text-body-sm hover:bg-surface-container flex items-center justify-between" onclick="setSecurityMode('OPEN_SECRET')">
+<span>Open + Secret (Все)</span>
+<span class="material-symbols-outlined text-primary text-[14px]" id="secCheckAll">check</span>
+</button>
+<button class="w-full text-left px-3 py-1.5 text-body-sm hover:bg-surface-container flex items-center justify-between" onclick="setSecurityMode('OPEN_ONLY')">
+<span>Только Open (Без секретных)</span>
+<span class="hidden material-symbols-outlined text-primary text-[14px]" id="secCheckOpen">check</span>
+</button>
+</div>
+</div>
+<!-- Last Updated -->
+<div class="hidden xl:flex items-center gap-1 text-secondary font-code text-code text-[11px] px-2 py-1 bg-surface-container-low rounded-DEFAULT border border-outline-variant/30">
+<span class="material-symbols-outlined text-[13px]">history</span>
+<span id="lastUpdatedLabel">Синхр: 24.10.2026, 14:10</span>
+</div>
+<!-- Primary Action -->
+<button class="h-7 px-3 bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-1.5 rounded-DEFAULT transition-colors" onclick="openReportView()">
+<span class="material-symbols-outlined text-[15px]">summarize</span>
+<span id="btnCreateSummaryLabel">Создать резюме</span>
+</button>
+</div>
+</div>
+<!-- 3. HORIZONTAL HEALTH MODULE TABS (8 SECTIONS) -->
+<div class="w-full bg-surface-container-lowest px-space-lg flex items-center gap-space-xs overflow-x-auto border-b border-outline-variant/40 scrollbar-none select-none">
+<button class="tab-button h-8 px-3 font-label-md text-label-md border-b-2 border-primary text-primary flex items-center gap-1.5 whitespace-nowrap transition-colors" id="tabBtn-overview" onclick="switchTab('overview')">
+<span class="material-symbols-outlined text-[16px]">dashboard</span>
+<span data-i18n="tabOverview">Обзор</span>
+</button>
+<button class="tab-button h-8 px-3 font-label-md text-label-md border-b-2 border-transparent text-secondary hover:text-on-surface flex items-center gap-1.5 whitespace-nowrap transition-colors" id="tabBtn-conditions" onclick="switchTab('conditions')">
+<span class="material-symbols-outlined text-[16px]">stethoscope</span>
+<span data-i18n="tabConditions">Заболевания</span>
+<span class="bg-surface-container-high text-secondary text-[11px] px-1.5 py-0.2 rounded-full" id="badgeConditionsCount">3</span>
+</button>
+<button class="tab-button h-8 px-3 font-label-md text-label-md border-b-2 border-transparent text-secondary hover:text-on-surface flex items-center gap-1.5 whitespace-nowrap transition-colors" id="tabBtn-labs" onclick="switchTab('labs')">
+<span class="material-symbols-outlined text-[16px]">biotech</span>
+<span data-i18n="tabLabs">Исследования</span>
+<span class="bg-surface-container-high text-secondary text-[11px] px-1.5 py-0.2 rounded-full">6</span>
+</button>
+<button class="tab-button h-8 px-3 font-label-md text-label-md border-b-2 border-transparent text-secondary hover:text-on-surface flex items-center gap-1.5 whitespace-nowrap transition-colors" id="tabBtn-medications" onclick="switchTab('medications')">
+<span class="material-symbols-outlined text-[16px]">medication</span>
+<span data-i18n="tabMedications">Лекарства</span>
+<span class="bg-surface-container-high text-secondary text-[11px] px-1.5 py-0.2 rounded-full">3</span>
+</button>
+<button class="tab-button h-8 px-3 font-label-md text-label-md border-b-2 border-transparent text-secondary hover:text-on-surface flex items-center gap-1.5 whitespace-nowrap transition-colors" id="tabBtn-vaccines" onclick="switchTab('vaccines')">
+<span class="material-symbols-outlined text-[16px]">vaccines</span>
+<span data-i18n="tabVaccines">Прививки</span>
+<span class="bg-surface-container-high text-secondary text-[11px] px-1.5 py-0.2 rounded-full">5</span>
+</button>
+<button class="tab-button h-8 px-3 font-label-md text-label-md border-b-2 border-transparent text-secondary hover:text-on-surface flex items-center gap-1.5 whitespace-nowrap transition-colors" id="tabBtn-fitness" onclick="switchTab('fitness')">
+<span class="material-symbols-outlined text-[16px]">watch</span>
+<span data-i18n="tabFitness">Активность и сон</span>
+</button>
+<button class="tab-button h-8 px-3 font-label-md text-label-md border-b-2 border-transparent text-secondary hover:text-on-surface flex items-center gap-1.5 whitespace-nowrap transition-colors" id="tabBtn-history" onclick="switchTab('history')">
+<span class="material-symbols-outlined text-[16px]">timeline</span>
+<span data-i18n="tabHistory">История</span>
+</button>
+<button class="tab-button h-8 px-3 font-label-md text-label-md border-b-2 border-transparent text-secondary hover:text-on-surface flex items-center gap-1.5 whitespace-nowrap transition-colors" id="tabBtn-summary" onclick="switchTab('summary')">
+<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+<span data-i18n="tabSummary">Резюме</span>
+</button>
+</div>
+<!-- MAIN WORKSPACE CONTAINER (WITH OPTIONAL RIGHT-SIDE PANEL) -->
+<div class="w-full flex flex-1 overflow-hidden transition-all duration-200" id="workspaceLayout">
+<!-- PRIMARY CONTENT PANE -->
+<div class="flex-1 p-space-md lg:p-space-lg overflow-y-auto space-y-space-lg" id="primaryContentArea">
+<!-- ==================== TAB 1: OVERVIEW ==================== -->
+<section class="space-y-space-md" id="section-overview">
+<!-- Banner if no data -->
+<div class="hidden p-8 text-center bg-surface-container-lowest rounded-DEFAULT border border-outline-variant/40 space-y-3" id="overviewEmptyState">
+<span class="material-symbols-outlined text-secondary text-5xl">folder_off</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Нет медицинских данных</h3>
+<p class="font-body-sm text-body-sm text-secondary max-w-md mx-auto">В хранилище PersonalVault пока нет распознанных выписок, анализов или карточек здоровья. Добавьте документы в раздел «Входящие» или импортируйте архив.</p>
+<button class="h-7 px-3 bg-primary text-on-primary font-label-md text-label-md rounded-DEFAULT" onclick="switchTab('history')">Перейти к архиву</button>
+</div>
+<div class="space-y-space-md" id="overviewDataContent">
+<!-- 4 PRIMARY SUMMARY CARDS (2x2 GRID) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Card 1: Conditions -->
+<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/40 flex flex-col justify-between hover:border-primary/50 transition-colors">
+<div>
+<div class="flex items-center justify-between pb-space-xs border-b border-outline-variant/20">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">stethoscope</span>
+<span data-i18n="cardConditionsTitle">Заболевания</span>
+</span>
+<span class="text-xs font-code text-primary bg-primary/10 px-1.5 py-0.5 rounded-DEFAULT" id="cardCondActiveCount">2 активных</span>
+</div>
+<div class="mt- space-sm space-y-1">
+<div class="flex items-center justify-between text-body-sm">
+<span class="font-semibold text-on-surface">АГ II стадии, риск 2</span>
+<span class="px-1.5 py-0.5 rounded-DEFAULT text-[11px] bg-surface-container text-on-surface font-code">Контролируемая</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Диагноз кардиолога от 12.09.2026. Целевое давление достигнуто.</p>
+<div class="pt-1 flex items-center gap-1 text-[11px] text-tertiary">
+<span class="material-symbols-outlined text-[13px] text-primary">check_circle</span>
+<span>1 требует планового осмотра через 4 мес.</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/20 flex justify-between items-center">
+<span class="text-[11px] text-secondary font-code">Всего диагнозов: 3</span>
+<button class="text-primary hover:text-primary-container font-label-sm text-label-sm flex items-center gap-0.5" onclick="switchTab('conditions')">
+<span>Перейти к диагнозам</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Diagnostics / Labs -->
+<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/40 flex flex-col justify-between hover:border-primary/50 transition-colors">
+<div>
+<div class="flex items-center justify-between pb-space-xs border-b border-outline-variant/20">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">biotech</span>
+<span data-i18n="cardLabsTitle">Исследования</span>
+</span>
+<span class="text-xs font-code text-error bg-error-container/50 px-1.5 py-0.5 rounded-DEFAULT">1 вне референса</span>
+</div>
+<div class="mt-space-sm space-y-1">
+<div class="flex items-center justify-between text-body-sm">
+<span class="font-semibold text-on-surface">Ферритин</span>
+<span class="font-code text-error font-semibold">18 мкг/л ↓</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Биохимия от 14.10.2026 (Инвитро). Референс: 20-250 мкг/л.</p>
+<div class="pt-1 flex items-center gap-1 text-[11px] text-secondary">
+<span class="material-symbols-outlined text-[13px] text-secondary">calendar_month</span>
+<span>Последний чекап: 14 октября 2026 (5 показателей)</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/20 flex justify-between items-center">
+<span class="text-[11px] text-secondary font-code">6 анализов в динамике</span>
+<button class="text-primary hover:text-primary-container font-label-sm text-label-sm flex items-center gap-0.5" onclick="switchTab('labs')">
+<span>Посмотреть графики</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Medications -->
+<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/40 flex flex-col justify-between hover:border-primary/50 transition-colors">
+<div>
+<div class="flex items-center justify-between pb-space-xs border-b border-outline-variant/20">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">medication</span>
+<span data-i18n="cardMedsTitle">Лекарства</span>
+</span>
+<span class="text-xs font-code text-primary bg-primary/10 px-1.5 py-0.5 rounded-DEFAULT">1 текущий</span>
+</div>
+<div class="mt-space-sm space-y-1">
+<div class="flex items-center justify-between text-body-sm">
+<span class="font-semibold text-on-surface">Периндоприл 5 мг</span>
+<span class="text-[11px] text-secondary font-code">1 р/сут утром</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Рецепт продлен 10.09.2026. Приём без пропусков.</p>
+<div class="pt-1 flex items-center gap-1 text-[11px] text-secondary">
+<span class="material-symbols-outlined text-[13px] text-secondary">info</span>
+<span>2 назначенных курса завершены</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/20 flex justify-between items-center">
+<span class="text-[11px] text-secondary font-code">Схема приема актуальна</span>
+<button class="text-primary hover:text-primary-container font-label-sm text-label-sm flex items-center gap-0.5" onclick="switchTab('medications')">
+<span>К списку лекарств</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 4: Vaccines -->
+<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/40 flex flex-col justify-between hover:border-primary/50 transition-colors">
+<div>
+<div class="flex items-center justify-between pb-space-xs border-b border-outline-variant/20">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">vaccines</span>
+<span data-i18n="cardVaccinesTitle">Прививки</span>
+</span>
+<span class="text-xs font-code text-secondary bg-surface-container px-1.5 py-0.5 rounded-DEFAULT">5 записей</span>
+</div>
+<div class="mt-space-sm space-y-1">
+<div class="flex items-center justify-between text-body-sm">
+<span class="font-semibold text-on-surface">Грипп (Сезон 2025/26)</span>
+<span class="text-[11px] text-secondary font-code">Ваксигрип</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Сделана 18.10.2025. Плановая ревакцинация АДС-М: 2028 год.</p>
+<div class="pt-1 flex items-center gap-1 text-[11px] text-primary">
+<span class="material-symbols-outlined text-[13px]">task_alt</span>
+<span>Национальный календарь привит полностью</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/20 flex justify-between items-center">
+<span class="text-[11px] text-secondary font-code">Сертификаты подтверждены</span>
+<button class="text-primary hover:text-primary-container font-label-sm text-label-sm flex items-center gap-0.5" onclick="switchTab('vaccines')">
+<span>Карта вакцинации</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- COMPACT HORIZONTAL SNAPSHOT BANNER: ACTIVITY & SLEEP -->
+<div class="w-full bg-surface-container-low p-space-md rounded-DEFAULT border border-outline-variant/40 flex flex-wrap items-center justify-between gap-space-md hover:bg-surface-container cursor-pointer transition-colors group" onclick="switchTab('fitness')">
+<div class="flex items-center gap-space-md">
+<div class="w-9 h-9 rounded-DEFAULT bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">watch</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Активность и сон (За сутки: 24 октября 2026)</h4>
+<span class="text-[10px] bg-surface-container-high px-1.5 py-0.5 rounded-DEFAULT text-secondary font-code">Apple Health CSV</span>
+</div>
+<div class="flex items-center flex-wrap gap-x-4 gap-y-1 text-body-sm text-secondary mt-0.5">
+<span>Сон: <strong class="text-on-surface">7 ч 35 мин</strong> (91% норма)</span>
+<span>•</span>
+<span>ЧСС покоя: <strong class="text-on-surface">62 уд/мин</strong></span>
+<span>•</span>
+<span>Шаги: <strong class="text-on-surface">8 420</strong> / 10 000</span>
+<span>•</span>
+<span>Активность: <strong class="text-on-surface">46 мин</strong></span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 text-primary font-label-md text-label-md">
+<span>Открыть полный дашборд трекера</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- COMPACT PENDING VERIFICATION SECTION (2 ENTRIES) -->
+<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/40 space-y-space-sm">
+<div class="flex items-center justify-between pb-space-xs border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[16px]">pending_actions</span>
+<span class="font-label-md text-label-md text-on-surface">Сведения, требующие проверки пользователя</span>
+<span class="bg-error-container/40 text-on-error-container text-[11px] font-code px-1.5 py-0.2 rounded-DEFAULT">2 записи</span>
+</div>
+<span class="text-secondary font-body-sm text-[12px]">Автоматически распознано OCR из новых документов</span>
+</div>
+<div class="space-y-2">
+<!-- Item 1 -->
+<div class="p-space-sm bg-surface-container-low rounded-DEFAULT flex items-center justify-between gap-space-md border border-outline-variant/30">
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 bg-surface-container text-on-surface-variant font-code text-[11px] rounded-DEFAULT">Рекомендация</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">«Магне B6 форте 1 таб. х 2 раза/день 30 дней»</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Источник: «Выписка терапевта ГКБ_12.10.2026.pdf» (Стр. 2, раздел «Назначения»). Не добавлено в постоянную схему.</p>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<button class="h-6 px-2.5 bg-primary text-on-primary font-label-sm text-label-sm rounded-DEFAULT hover:bg-primary-container transition-colors" onclick="openVerificationModal('magne')">Сверить</button>
+<button class="h-6 px-2 text-secondary hover:text-error rounded-DEFAULT font-label-sm text-label-sm" onclick="dismissVerificationItem(this)">Отклонить</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-space-sm bg-surface-container-low rounded-DEFAULT flex items-center justify-between gap-space-md border border-outline-variant/30">
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.2 bg-surface-container text-on-surface-variant font-code text-[11px] rounded-DEFAULT">Лабораторный маркер</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">«Снижение уровня ферритина до 18 мкг/л — Латентный железодефицит?»</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Источник: «Анализ крови_Инвитро_14.10.2026.pdf». Требуется подтверждение врача о внесении диагноза E61.1.</p>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<button class="h-6 px-2.5 bg-primary text-on-primary font-label-sm text-label-sm rounded-DEFAULT hover:bg-primary-container transition-colors" onclick="openVerificationModal('ferritin')">Сверить</button>
+<button class="h-6 px-2 text-secondary hover:text-error rounded-DEFAULT font-label-sm text-label-sm" onclick="dismissVerificationItem(this)">Отклонить</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== TAB 2: CONDITIONS (LIST & FILTERS) ==================== -->
+<section class="hidden space-y-space-md" id="section-conditions">
+<!-- Sub-view: Conditions Table (or Detail) -->
+<div class="space-y-space-md" id="conditionsListView">
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-xs border-b border-outline-variant/30">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface">Реестр заболеваний и состояний</span>
+<span class="text-secondary text-body-sm font-code">(МКБ-10 / Верифицировано)</span>
+</div>
+<!-- Status & Verification filter pills -->
+<div class="flex items-center gap-1 text-label-sm font-label-sm flex-wrap">
+<span class="text-secondary mr-1">Статус:</span>
+<button class="px-2 py-0.5 bg-surface-container-high text-primary font-semibold rounded-DEFAULT" onclick="filterConditions('all')">Все</button>
+<button class="px-2 py-0.5 bg-surface-container-low text-secondary hover:text-on-surface rounded-DEFAULT" onclick="filterConditions('active')">Активные</button>
+<button class="px-2 py-0.5 bg-surface-container-low text-secondary hover:text-on-surface rounded-DEFAULT" onclick="filterConditions('anamnesis')">В анамнезе</button>
+<button class="px-2 py-0.5 bg-surface-container-low text-secondary hover:text-on-surface rounded-DEFAULT" onclick="filterConditions('review')">На проверке</button>
+</div>
+</div>
+<!-- Table of Conditions -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border border-outline-variant/40 overflow-hidden">
+<table class="w-full text-left border-collapse text-body-sm font-body-sm">
+<thead>
+<tr class="bg-surface-container-low text-secondary uppercase font-label-sm text-label-sm border-b border-outline-variant/40">
+<th class="py-2 px-3">Код МКБ</th>
+<th class="py-2 px-3">Заболевание / Формулировка</th>
+<th class="py-2 px-3">Статус</th>
+<th class="py-2 px-3">Дата манифестации</th>
+<th class="py-2 px-3">Посл. запись</th>
+<th class="py-2 px-3">Документы</th>
+<th class="py-2 px-3 text-right">Действие</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<!-- Condition 1: Hypertension (Clickable -> Detail) -->
+<tr class="hover:bg-surface-container-low/60 cursor-pointer transition-colors group" onclick="openDiseaseDetail('hypertension')">
+<td class="py-2.5 px-3 font-code font-semibold text-primary">I11.9</td>
+<td class="py-2.5 px-3">
+<div class="font-semibold text-on-surface group-hover:text-primary transition-colors">Гипертоническая болезнь II стадии, риск 2</div>
+<div class="text-[11px] text-secondary">Целевое АД: &lt;130/80 мм рт. ст. Регулярная терапия.</div>
+</td>
+<td class="py-2.5 px-3">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 bg-[#E8F5E9] text-[#2E7D32] rounded-DEFAULT font-code text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#2E7D32]"></span>
+                      Активно
+                    </span>
+</td>
+<td class="py-2.5 px-3 font-code text-secondary">14.05.2021</td>
+<td class="py-2.5 px-3 font-code text-on-surface">12.09.2026</td>
+<td class="py-2.5 px-3">
+<span class="text-primary hover:underline font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">description</span>
+                      6 файлов
+                    </span>
+</td>
+<td class="py-2.5 px-3 text-right">
+<button class="h-6 px-2 bg-surface-container hover:bg-primary hover:text-on-primary text-secondary rounded-DEFAULT text-label-sm font-label-sm transition-colors">Подробнее</button>
+</td>
+</tr>
+<!-- Condition 2: Allergic Rhinitis -->
+<tr class="hover:bg-surface-container-low/60 cursor-pointer transition-colors">
+<td class="py-2.5 px-3 font-code text-secondary">J30.1</td>
+<td class="py-2.5 px-3">
+<div class="font-semibold text-on-surface">Аллергический ринит (пыльцевой, сезонный)</div>
+<div class="text-[11px] text-secondary">Берёза, злаковые. Период обострения: май-июнь.</div>
+</td>
+<td class="py-2.5 px-3">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 bg-surface-container text-secondary rounded-DEFAULT font-code text-[11px]">В анамнезе</span>
+</td>
+<td class="py-2.5 px-3 font-code text-secondary">03.04.2018</td>
+<td class="py-2.5 px-3 font-code text-secondary">20.05.2025</td>
+<td class="py-2.5 px-3">
+<span class="text-secondary hover:underline font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">description</span>
+                      2 файла
+                    </span>
+</td>
+<td class="py-2.5 px-3 text-right">
+<button class="h-6 px-2 bg-surface-container hover:bg-surface-container-high text-secondary rounded-DEFAULT text-label-sm font-label-sm" onclick="event.stopPropagation(); openDocPreview('rhinitis')">Источник</button>
+</td>
+</tr>
+<!-- Condition 3: Iron Deficiency (Unverified / Review) -->
+<tr class="hover:bg-surface-container-low/60 cursor-pointer transition-colors">
+<td class="py-2.5 px-3 font-code text-warning text-tertiary">E61.1</td>
+<td class="py-2.5 px-3">
+<div class="font-semibold text-on-surface flex items-center gap-2">
+<span>Дефицит железа латентный</span>
+<span class="px-1.5 py-0.2 bg-[#FFF3E0] text-[#E68A00] text-[10px] rounded-DEFAULT font-code">Требует уточнения</span>
+</div>
+<div class="text-[11px] text-secondary">Обнаружен по анализу биохимии от 14.10.2026 (Ферритин 18 мкг/л).</div>
+</td>
+<td class="py-2.5 px-3">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 bg-[#FFF3E0] text-[#E68A00] rounded-DEFAULT font-code text-[11px]">На проверке</span>
+</td>
+<td class="py-2.5 px-3 font-code text-secondary">14.10.2026</td>
+<td class="py-2.5 px-3 font-code text-secondary">14.10.2026</td>
+<td class="py-2.5 px-3">
+<span class="text-primary hover:underline font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">description</span>
+                      1 файл
+                    </span>
+</td>
+<td class="py-2.5 px-3 text-right">
+<button class="h-6 px-2 bg-primary/10 hover:bg-primary hover:text-on-primary text-primary rounded-DEFAULT text-label-sm font-label-sm transition-colors" onclick="event.stopPropagation(); openVerificationModal('ferritin')">Верифицировать</button>
+</td>
+</tr>
+<!-- Condition 4: [SECRET CATEGORY] Gastroduodenitis -->
+<tr class="secret-data-item hover:bg-surface-container-low/60 cursor-pointer transition-colors bg-surface-container/20" id="secretRowCondition">
+<td class="py-2.5 px-3 font-code text-primary">K29.5</td>
+<td class="py-2.5 px-3">
+<div class="font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[14px]">lock</span>
+<span>Гастродуоденит хронический, ст. ремиссии</span>
+<span class="px-1 py-0.2 bg-primary/15 text-primary text-[10px] font-code rounded-DEFAULT">SECRET</span>
+</div>
+<div class="text-[11px] text-secondary">ФГДС от 11.02.2024. H. pylori отрицательный.</div>
+</td>
+<td class="py-2.5 px-3">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 bg-surface-container text-secondary rounded-DEFAULT font-code text-[11px]">В анамнезе</span>
+</td>
+<td class="py-2.5 px-3 font-code text-secondary">11.02.2024</td>
+<td class="py-2.5 px-3 font-code text-secondary">11.02.2024</td>
+<td class="py-2.5 px-3">
+<span class="text-primary hover:underline font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+                      1 файл (Secret)
+                    </span>
+</td>
+<td class="py-2.5 px-3 text-right">
+<button class="h-6 px-2 bg-surface-container hover:bg-surface-container-high text-secondary rounded-DEFAULT text-label-sm font-label-sm" onclick="event.stopPropagation(); openDocPreview('fgds_secret')">Источник</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- C. DETAILED DISEASE DASHBOARD (HYPERTENSION SUB-VIEW) -->
+<div class="hidden space-y-space-md" id="diseaseDetailView">
+<div class="flex items-center justify-between pb-space-xs border-b border-outline-variant/30">
+<button class="h-7 px-2.5 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-DEFAULT font-label-md text-label-md flex items-center gap-1 transition-colors" onclick="closeDiseaseDetail()">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span>Назад к реестру заболеваний</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-DEFAULT bg-[#E8F5E9] text-[#2E7D32] font-code text-code text-[11px]">Статус: Активно</span>
+<span class="px-2 py-0.5 rounded-DEFAULT bg-primary/10 text-primary font-code text-code text-[11px]">Сверено с источником</span>
+</div>
+</div>
+<!-- Disease Header Details -->
+<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/40 space-y-space-xs">
+<div class="flex items-baseline justify-between flex-wrap gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">Гипертоническая болезнь II стадии, риск 2</h2>
+<span class="font-code text-body-sm text-secondary">Код МКБ-10: I11.9 · Первичная фиксация: 14.05.2021</span>
+</div>
+<p class="font-body-md text-body-md text-secondary">Хроническое повышение артериального давления без поражения органов-мишеней в декомпенсированной форме. Целевое артериальное давление по протоколу: 120–129 / 70–79 мм рт. ст.</p>
+</div>
+<!-- Pressure Trend Interactive Chart -->
+<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/40 space-y-space-sm">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Динамика артериального давления (САД / ДАД)</h3>
+<p class="font-body-sm text-body-sm text-secondary">Показатели тонометра (утренние и вечерние замеры за последние 30 дней)</p>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm">
+<button class="px-2 py-0.5 bg-primary text-on-primary font-semibold rounded-DEFAULT" id="bpBtn-30" onclick="updateBPTimeframe('30')">30 дней</button>
+<button class="px-2 py-0.5 bg-surface-container text-secondary rounded-DEFAULT" id="bpBtn-90" onclick="updateBPTimeframe('90')">90 дней</button>
+<button class="px-2 py-0.5 bg-surface-container text-secondary rounded-DEFAULT" id="bpBtn-365" onclick="updateBPTimeframe('365')">1 год</button>
+</div>
+</div>
+<!-- SVG Line Chart for Blood Pressure -->
+<div class="w-full bg-surface-container-low rounded-DEFAULT p-3 overflow-x-auto">
+<div class="min-w-[620px] h-52 relative flex flex-col justify-between">
+<!-- SVG Chart Body -->
+<svg class="w-full h-full text-secondary" viewbox="0 0 700 180">
+<!-- Shaded Normal Target Zone (115-130 / 70-80) -->
+<rect fill="#298F89" fill-opacity="0.08" height="40" width="630" x="50" y="45"></rect>
+<line stroke="#298F89" stroke-dasharray="3,3" stroke-width="0.8" x1="50" x2="680" y1="45" y2="45"></line>
+<line stroke="#298F89" stroke-dasharray="3,3" stroke-width="0.8" x1="50" x2="680" y1="85" y2="85"></line>
+<text fill="#298F89" font-family="JetBrains Mono" font-size="9" x="682" y="48">130 (порог САД)</text>
+<text fill="#298F89" font-family="JetBrains Mono" font-size="9" x="682" y="88">80 (порог ДАД)</text>
+<!-- Horizontal Grid Lines -->
+<line stroke="#DCE3E5" stroke-width="1" x1="50" x2="680" y1="20" y2="20"></line>
+<text fill="#69777D" font-family="JetBrains Mono" font-size="10" x="15" y="24">150</text>
+<line stroke="#DCE3E5" stroke-width="1" x1="50" x2="680" y1="65" y2="65"></line>
+<text fill="#69777D" font-family="JetBrains Mono" font-size="10" x="15" y="69">120</text>
+<line stroke="#DCE3E5" stroke-width="1" x1="50" x2="680" y1="110" y2="110"></line>
+<text fill="#69777D" font-family="JetBrains Mono" font-size="10" x="15" y="114">90</text>
+<line stroke="#DCE3E5" stroke-width="1" x1="50" x2="680" y1="155" y2="155"></line>
+<text fill="#69777D" font-family="JetBrains Mono" font-size="10" x="15" y="159">60</text>
+<!-- Systolic Line (Red/Amber) -->
+<polyline fill="none" points="
+                    60,58 110,50 160,52 210,42 260,60 310,56 360,48 410,53 460,51 510,49 560,54 610,47 660,50
+                  " stroke="#ba1a1a" stroke-width="2"></polyline>
+<!-- Diastolic Line (Teal/Primary) -->
+<polyline fill="none" points="
+                    60,118 110,112 160,115 210,105 260,122 310,116 360,110 410,114 460,112 510,110 560,115 610,108 660,112
+                  " stroke="#006763" stroke-width="2"></polyline>
+<!-- Data Points (Interactive Hover dots) -->
+<circle class="cursor-pointer" cx="660" cy="50" fill="#ba1a1a" onclick="showChartPointInfo('24.10: 124 / 78 mmHg')" r="4"></circle>
+<circle class="cursor-pointer" cx="660" cy="112" fill="#006763" onclick="showChartPointInfo('24.10: 124 / 78 mmHg')" r="4"></circle>
+<circle cx="610" cy="47" fill="#ba1a1a" r="3.5"></circle>
+<circle cx="610" cy="108" fill="#006763" r="3.5"></circle>
+<circle class="cursor-pointer" cx="210" cy="42" fill="#ba1a1a" onclick="showChartPointInfo('Пик 10.10: 138 / 88 mmHg')" r="4"></circle>
+<!-- Date markers -->
+<text fill="#69777D" font-family="JetBrains Mono" font-size="9" x="60" y="172">25 Сен</text>
+<text fill="#69777D" font-family="JetBrains Mono" font-size="9" x="210" y="172">05 Окт</text>
+<text fill="#69777D" font-family="JetBrains Mono" font-size="9" x="360" y="172">12 Окт</text>
+<text fill="#69777D" font-family="JetBrains Mono" font-size="9" x="510" y="172">19 Окт</text>
+<text fill="#69777D" font-family="JetBrains Mono" font-size="9" x="640" y="172">24 Окт</text>
+</svg>
+</div>
+<div class="flex items-center justify-between text-body-sm pt-2 text-secondary font-code border-t border-outline-variant/20">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1.5"><span class="w-3 h-1 bg-[#ba1a1a] inline-block"></span> САД (Систолическое)</span>
+<span class="flex items-center gap-1.5"><span class="w-3 h-1 bg-[#006763] inline-block"></span> ДАД (Диастолическое)</span>
+<span class="flex items-center gap-1.5"><span class="w-3 h-3 bg-primary/20 inline-block border border-primary/30"></span> Целевой коридор нормы</span>
+</div>
+<div class="text-primary font-semibold" id="chartPointInfo">Посл. замер: 124 / 78 мм рт. ст. (В норме)</div>
+</div>
+</div>
+</div>
+<!-- Treatment & Linked Sources Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Treatment Regimen -->
+<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/40 space-y-space-sm">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Назначенная терапия</h4>
+<div class="space-y-2">
+<div class="p-2.5 bg-surface-container-low rounded-DEFAULT border border-outline-variant/30 flex justify-between items-start">
+<div>
+<span class="font-semibold text-on-surface">Периндоприл 5 мг</span>
+<p class="text-[12px] text-secondary">Утром, 1 таблетка натощак. Контроль давления.</p>
+<span class="text-[11px] text-primary font-code">Назначен: 12.09.2026 кардиологом Смирновой Е.А.</span>
+</div>
+<span class="px-1.5 py-0.5 bg-[#E8F5E9] text-[#2E7D32] text-[10px] font-code rounded-DEFAULT">Принимается</span>
+</div>
+<div class="p-2.5 bg-surface-container-low rounded-DEFAULT border border-outline-variant/30 flex justify-between items-start">
+<div>
+<span class="font-semibold text-on-surface">Индапамид 1.5 мг (ретард)</span>
+<p class="text-[12px] text-secondary">В анамнезе (отменен ввиду нормализации показателей).</p>
+<span class="text-[11px] text-secondary font-code">Курс: Май 2021 – Август 2023</span>
+</div>
+<span class="px-1.5 py-0.5 bg-surface-container text-secondary text-[10px] font-code rounded-DEFAULT">Отменен</span>
+</div>
+</div>
+</div>
+<!-- Linked Documents & Consultations -->
+<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/40 space-y-space-sm">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Связанные архивные источники</h4>
+<div class="space-y-1.5 font-body-sm text-body-sm">
+<div class="flex items-center justify-between p-2 bg-surface-container-low rounded-DEFAULT border border-outline-variant/20 hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">description</span>
+<div>
+<div class="font-semibold text-on-surface">Консультация кардиолога_12.09.2026.pdf</div>
+<div class="text-[11px] text-secondary">ГКБ №1, к.м.н. Смирнова Е.А. · Стр. 1-2</div>
+</div>
+</div>
+<button class="h-6 px-2 bg-primary text-on-primary font-label-sm text-label-sm rounded-DEFAULT" onclick="openDocPreview('cardio_sept')">Оригинал</button>
+</div>
+<div class="flex items-center justify-between p-2 bg-surface-container-low rounded-DEFAULT border border-outline-variant/20 hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">description</span>
+<div>
+<div class="font-semibold text-on-surface">Эхокардиография (УЗИ сердца)_2024.pdf</div>
+<div class="text-[11px] text-secondary">Фракция выброса 64%, гипертрофия ЛЖ умеренная</div>
+</div>
+</div>
+<button class="h-6 px-2 bg-surface-container text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm rounded-DEFAULT" onclick="openDocPreview('echo_heart')">Оригинал</button>
+</div>
+<div class="flex items-center justify-between p-2 bg-surface-container-low rounded-DEFAULT border border-outline-variant/20 hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-error">warning</span>
+<div>
+<div class="font-semibold text-on-surface">Справка_диспансеризация_2021.pdf</div>
+<div class="text-[11px] text-error">Файл перемещен или внешний диск не подключен</div>
+</div>
+</div>
+<button class="h-6 px-2 bg-error/10 text-error font-label-sm text-label-sm rounded-DEFAULT" onclick="openDocPreview('missing_file')">Проверить</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== TAB 3: LABS (LABORATORY & DIAGNOSTICS) ==================== -->
+<section class="hidden space-y-space-md" id="section-labs">
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-xs border-b border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Лабораторные исследования</span>
+<span class="text-secondary font-code text-body-sm">(Биохимия, ОАК, Гормоны)</span>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm">
+<button class="px-2 py-0.5 bg-surface-container-high text-primary font-semibold rounded-DEFAULT" onclick="filterLabs('all')">Все</button>
+<button class="px-2 py-0.5 bg-surface-container-low text-secondary rounded-DEFAULT" onclick="filterLabs('biochem')">Биохимия</button>
+<button class="px-2 py-0.5 bg-surface-container-low text-secondary rounded-DEFAULT" onclick="filterLabs('blood')">ОАК</button>
+<button class="px-2 py-0.5 bg-surface-container-low text-secondary rounded-DEFAULT" onclick="filterLabs('hormones')">Гормоны</button>
+</div>
+</div>
+<!-- Split Grid: Labs List + Longitudinal Chart -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Labs Table (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-DEFAULT border border-outline-variant/40 overflow-hidden">
+<table class="w-full text-left border-collapse text-body-sm font-body-sm">
+<thead>
+<tr class="bg-surface-container-low text-secondary uppercase font-label-sm text-label-sm border-b border-outline-variant/40">
+<th class="py-2 px-3">Анализ</th>
+<th class="py-2 px-3">Значение</th>
+<th class="py-2 px-3">Референс</th>
+<th class="py-2 px-3">Дата</th>
+<th class="py-2 px-3 text-right">Статус</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<!-- Ferritin (Low) -->
+<tr class="bg-primary/5 hover:bg-surface-container-low cursor-pointer transition-colors border-l-2 border-primary" id="labRow-ferritin" onclick="selectLabTest('ferritin')">
+<td class="py-2.5 px-3">
+<div class="font-semibold text-on-surface">Ферритин</div>
+<div class="text-[11px] text-secondary">Инвитро · Венозная кровь</div>
+</td>
+<td class="py-2.5 px-3 font-code font-bold text-error">18 мкг/л</td>
+<td class="py-2.5 px-3 font-code text-secondary">20.0 — 250.0</td>
+<td class="py-2.5 px-3 font-code text-secondary">14.10.2026</td>
+<td class="py-2.5 px-3 text-right">
+<span class="px-1.5 py-0.5 bg-[#FFEBEE] text-[#D32F2F] text-[10px] font-code rounded-DEFAULT">Ниже нормы</span>
+</td>
+</tr>
+<!-- Hemoglobin -->
+<tr class="hover:bg-surface-container-low cursor-pointer transition-colors" id="labRow-hemoglobin" onclick="selectLabTest('hemoglobin')">
+<td class="py-2.5 px-3">
+<div class="font-semibold text-on-surface">Гемоглобин (Hb)</div>
+<div class="text-[11px] text-secondary">Инвитро · ОАК</div>
+</td>
+<td class="py-2.5 px-3 font-code font-semibold text-on-surface">138 г/л</td>
+<td class="py-2.5 px-3 font-code text-secondary">130.0 — 160.0</td>
+<td class="py-2.5 px-3 font-code text-secondary">14.10.2026</td>
+<td class="py-2.5 px-3 text-right">
+<span class="px-1.5 py-0.5 bg-[#E8F5E9] text-[#2E7D32] text-[10px] font-code rounded-DEFAULT">Норма</span>
+</td>
+</tr>
+<!-- Total Cholesterol -->
+<tr class="hover:bg-surface-container-low cursor-pointer transition-colors" id="labRow-cholesterol" onclick="selectLabTest('cholesterol')">
+<td class="py-2.5 px-3">
+<div class="font-semibold text-on-surface">Холестерин общий</div>
+<div class="text-[11px] text-secondary">Хеликс · Липидный профиль</div>
+</td>
+<td class="py-2.5 px-3 font-code font-semibold text-on-surface">4.82 ммоль/л</td>
+<td class="py-2.5 px-3 font-code text-secondary">3.50 — 5.20</td>
+<td class="py-2.5 px-3 font-code text-secondary">14.10.2026</td>
+<td class="py-2.5 px-3 text-right">
+<span class="px-1.5 py-0.5 bg-[#E8F5E9] text-[#2E7D32] text-[10px] font-code rounded-DEFAULT">Норма</span>
+</td>
+</tr>
+<!-- LDL Cholesterol -->
+<tr class="hover:bg-surface-container-low cursor-pointer transition-colors" id="labRow-ldl" onclick="selectLabTest('ldl')">
+<td class="py-2.5 px-3">
+<div class="font-semibold text-on-surface">Холестерин ЛПНП</div>
+<div class="text-[11px] text-secondary">Хеликс · Липидограмма</div>
+</td>
+<td class="py-2.5 px-3 font-code font-semibold text-on-surface">2.41 ммоль/л</td>
+<td class="py-2.5 px-3 font-code text-secondary">&lt; 3.00</td>
+<td class="py-2.5 px-3 font-code text-secondary">14.10.2026</td>
+<td class="py-2.5 px-3 text-right">
+<span class="px-1.5 py-0.5 bg-[#E8F5E9] text-[#2E7D32] text-[10px] font-code rounded-DEFAULT">Норма</span>
+</td>
+</tr>
+<!-- Fasting Glucose -->
+<tr class="hover:bg-surface-container-low cursor-pointer transition-colors" id="labRow-glucose" onclick="selectLabTest('glucose')">
+<td class="py-2.5 px-3">
+<div class="font-semibold text-on-surface">Глюкоза плазмы натощак</div>
+<div class="text-[11px] text-secondary">Инвитро · Биохимия</div>
+</td>
+<td class="py-2.5 px-3 font-code font-semibold text-on-surface">5.1 ммоль/л</td>
+<td class="py-2.5 px-3 font-code text-secondary">4.1 — 5.9</td>
+<td class="py-2.5 px-3 font-code text-secondary">14.10.2026</td>
+<td class="py-2.5 px-3 text-right">
+<span class="px-1.5 py-0.5 bg-[#E8F5E9] text-[#2E7D32] text-[10px] font-code rounded-DEFAULT">Норма</span>
+</td>
+</tr>
+<!-- TSH (Thyroid) - Secret Category Item -->
+<tr class="secret-data-item hover:bg-surface-container-low cursor-pointer transition-colors bg-surface-container/20" id="secretRowLab" onclick="selectLabTest('tsh')">
+<td class="py-2.5 px-3">
+<div class="font-semibold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-primary">lock</span>
+<span>ТТГ (Тиреотропный гормон)</span>
+<span class="px-1 py-0.2 bg-primary/10 text-primary text-[10px] font-code">SECRET</span>
+</div>
+<div class="text-[11px] text-secondary">Гемотест · Гормональный статус</div>
+</td>
+<td class="py-2.5 px-3 font-code font-semibold text-on-surface">2.14 мЕд/л</td>
+<td class="py-2.5 px-3 font-code text-secondary">0.40 — 4.00</td>
+<td class="py-2.5 px-3 font-code text-secondary">15.04.2026</td>
+<td class="py-2.5 px-3 text-right">
+<span class="px-1.5 py-0.5 bg-[#E8F5E9] text-[#2E7D32] text-[10px] font-code rounded-DEFAULT">Норма</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Dynamic Trend View for Selected Lab (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/40 flex flex-col justify-between space-y-space-md">
+<div>
+<div class="flex items-center justify-between pb-space-xs border-b border-outline-variant/20">
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface" id="labDetailName">Ферритин (мкг/л)</h4>
+<span class="text-secondary font-body-sm text-[11px]" id="labDetailSubtitle">Динамика за 24 месяца (3 измерения)</span>
+</div>
+<button class="h-6 px-2 bg-primary/10 text-primary hover:bg-primary hover:text-on-primary rounded-DEFAULT text-label-sm font-label-sm transition-colors" onclick="openDocPreview('lab_invitro_oct')">Сертификат лаборатории</button>
+</div>
+<!-- Sparkline / Trend SVG -->
+<div class="mt-space-md bg-surface-container-low p-2 rounded-DEFAULT">
+<svg class="w-full h-36" viewbox="0 0 350 140">
+<!-- Shaded Normal Band (20 - 250) -->
+<rect fill="#298F89" fill-opacity="0.1" height="75" width="290" x="30" y="25"></rect>
+<line stroke="#298F89" stroke-dasharray="2,2" stroke-width="0.8" x1="30" x2="320" y1="25" y2="25"></line>
+<line stroke="#ba1a1a" stroke-dasharray="2,2" stroke-width="0.8" x1="30" x2="320" y1="100" y2="100"></line>
+<text fill="#298F89" font-family="JetBrains Mono" font-size="8" x="322" y="28">250</text>
+<text fill="#ba1a1a" font-family="JetBrains Mono" font-size="8" x="322" y="103">20 min</text>
+<!-- Measured Points Line -->
+<!-- Nov 2024: 45, May 2025: 32, Oct 2026: 18 -->
+<polyline fill="none" points="60,82 175,93 290,108" stroke="#298F89" stroke-width="2"></polyline>
+<!-- Points -->
+<circle cx="60" cy="82" fill="#298F89" r="4"></circle>
+<text fill="#111d23" font-family="JetBrains Mono" font-size="9" x="50" y="75">45</text>
+<text fill="#69777D" font-family="JetBrains Mono" font-size="8" x="45" y="125">12.11.24</text>
+<circle cx="175" cy="93" fill="#298F89" r="4"></circle>
+<text fill="#111d23" font-family="JetBrains Mono" font-size="9" x="165" y="86">32</text>
+<text fill="#69777D" font-family="JetBrains Mono" font-size="8" x="160" y="125">20.05.25</text>
+<circle cx="290" cy="108" fill="#ba1a1a" r="4"></circle>
+<text fill="#ba1a1a" font-family="JetBrains Mono" font-size="9" font-weight="bold" x="280" y="120">18 ↓</text>
+<text fill="#69777D" font-family="JetBrains Mono" font-size="8" x="275" y="135">14.10.26</text>
+</svg>
+</div>
+<!-- Lab Interpretation Details -->
+<div class="mt- space-sm space-y-1.5 text-body-sm font-body-sm">
+<div class="flex items-center justify-between">
+<span class="text-secondary">Текущий показатель:</span>
+<span class="font-code font-bold text-error">18 мкг/л (Дефицит)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-secondary">Референсный интервал:</span>
+<span class="font-code text-on-surface">20.0 — 250.0 мкг/л</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-secondary">Файл в архиве:</span>
+<span class="font-code text-primary text-[11px] truncate max-w-[200px]">INVITRO_14102026_8831.pdf</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-secondary">Контрольная сумма:</span>
+<span class="font-code text-[10px] text-secondary">sha256:4a8c9e...1b02</span>
+</div>
+</div>
+</div>
+<div class="pt-2 border-t border-outline-variant/20 flex gap-2">
+<button class="w-full h-7 bg-primary text-on-primary font-label-sm text-label-sm rounded-DEFAULT flex items-center justify-center gap-1 hover:bg-primary-container transition-colors" onclick="openDocPreview('lab_invitro_oct')">
+<span class="material-symbols-outlined text-[15px]">file_open</span>
+<span>Открыть оригинал бланка</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== TAB 4: MEDICATIONS ==================== -->
+<section class="hidden space-y-space-md" id="section-medications">
+<div class="flex items-center justify-between pb-space-xs border-b border-outline-variant/30">
+<span class="font-headline-sm text-headline-sm text-on-surface">Схема медикаментозной терапии</span>
+<span class="text-secondary font-code text-body-sm">Фармакотерапия / Рецепты</span>
+</div>
+<div class="space-y-space-md">
+<!-- Group 1: Current Confirmed Medications -->
+<div class="space-y-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<h4 class="font-label-md text-label-md uppercase tracking-wider text-primary">Текущие подтверждённые препараты (1)</h4>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/40 flex flex-wrap items-center justify-between gap-space-md">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Периндоприл (Perindopril)</span>
+<span class="px-1.5 py-0.5 bg-primary/10 text-primary text-[11px] font-code rounded-DEFAULT">5 мг · Таблетки</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Схема: 1 таблетка утром натощак. Для снижения артериального давления.</p>
+<div class="flex items-center gap-3 text-[11px] text-secondary font-code">
+<span>Рецепт от 10.09.2026</span>
+<span>•</span>
+<span>Врач: Смирнова Е.А.</span>
+<span>•</span>
+<span>Срок курса: Постоянно</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-7 px-3 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm rounded-DEFAULT flex items-center gap-1 transition-colors" onclick="openDocPreview('cardio_sept')">
+<span class="material-symbols-outlined text-[15px]">receipt_long</span>
+<span>Рецептурный бланк</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Group 2: Requires Clarification -->
+<div class="space-y-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-warning text-tertiary"></span>
+<h4 class="font-label-md text-label-md uppercase tracking-wider text-tertiary">Назначения, требующие уточнения (1)</h4>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/40 flex flex-wrap items-center justify-between gap-space-md">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Магне B6 форте</span>
+<span class="px-1.5 py-0.5 bg-[#FFF3E0] text-[#E68A00] text-[11px] font-code rounded-DEFAULT">Таблетки</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Рекомендация в выписке от 12.10.2026. Курс 30 дней. Требуется подтверждение факта начала приёма.</p>
+<div class="text-[11px] text-tertiary font-code">Не внесено в регулярный календарь</div>
+</div>
+<button class="h-7 px-3 bg-primary text-on-primary font-label-sm text-label-sm rounded-DEFAULT flex items-center gap-1 hover:bg-primary-container transition-colors" onclick="openVerificationModal('magne')">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span>Подтвердить приём</span>
+</button>
+</div>
+</div>
+<!-- Group 3: History / Completed Courses -->
+<div class="space-y-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<h4 class="font-label-md text-label-md uppercase tracking-wider text-secondary">В анамнезе / Завершенные курсы (2)</h4>
+</div>
+<div class="bg-surface-container-lowest rounded-DEFAULT border border-outline-variant/40 divide-y divide-outline-variant/20">
+<div class="p-space-sm flex justify-between items-center text-body-sm">
+<div>
+<span class="font-semibold text-on-surface">Амоксиклав (Амоксициллин + Клавулановая к-та) 1000 мг</span>
+<p class="text-[11px] text-secondary">Курс 7 дней при бронхите. Завершен 15.02.2025.</p>
+</div>
+<span class="text-secondary font-code text-[11px]">Завершен</span>
+</div>
+<div class="p-space-sm flex justify-between items-center text-body-sm">
+<div>
+<span class="font-semibold text-on-surface">Супрастинекс (Левоцетиризин) 5 мг</span>
+<p class="text-[11px] text-secondary">Сезонный курс при поллинозе. Май 2025.</p>
+</div>
+<span class="text-secondary font-code text-[11px]">Завершен</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== TAB 5: VACCINES ==================== -->
+<section class="hidden space-y-space-md" id="section-vaccines">
+<div class="flex items-center justify-between pb-space-xs border-b border-outline-variant/30">
+<span class="font-headline-sm text-headline-sm text-on-surface">Карта профилактических прививок</span>
+<span class="text-secondary font-code text-body-sm">Сертификаты и ревакцинация</span>
+</div>
+<div class="bg-surface-container-lowest rounded-DEFAULT border border-outline-variant/40 overflow-hidden">
+<table class="w-full text-left border-collapse text-body-sm font-body-sm">
+<thead>
+<tr class="bg-surface-container-low text-secondary uppercase font-label-sm text-label-sm border-b border-outline-variant/40">
+<th class="py-2 px-3">Инфекция / Препарат</th>
+<th class="py-2 px-3">Серия / Партия</th>
+<th class="py-2 px-3">Дата введения</th>
+<th class="py-2 px-3">Медицинская организация</th>
+<th class="py-2 px-3">Ревакцинация</th>
+<th class="py-2 px-3 text-right">Сертификат</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<tr>
+<td class="py-2.5 px-3">
+<div class="font-semibold text-on-surface">Грипп (Ваксигрип Тетра)</div>
+<div class="text-[11px] text-secondary">Сезонная иммунизация 2025/2026</div>
+</td>
+<td class="py-2.5 px-3 font-code text-secondary">U1840-2</td>
+<td class="py-2.5 px-3 font-code text-on-surface">18.10.2025</td>
+<td class="py-2.5 px-3 text-secondary">Поликлиника №4, Москва</td>
+<td class="py-2.5 px-3 font-code text-secondary">Осень 2026</td>
+<td class="py-2.5 px-3 text-right">
+<button class="h-6 px-2 bg-surface-container hover:bg-surface-container-high text-secondary rounded-DEFAULT text-label-sm" onclick="openDocPreview('vaccine_flu')">PDF</button>
+</td>
+</tr>
+<tr>
+<td class="py-2.5 px-3">
+<div class="font-semibold text-on-surface">Дифтерия, столбняк (АДС-М)</div>
+<div class="text-[11px] text-secondary">Плановая ревакцинация взрослых</div>
+</td>
+<td class="py-2.5 px-3 font-code text-secondary">B-4491</td>
+<td class="py-2.5 px-3 font-code text-on-surface">12.06.2018</td>
+<td class="py-2.5 px-3 text-secondary">ГП №115</td>
+<td class="py-2.5 px-3 font-code text-primary font-semibold">Июнь 2028</td>
+<td class="py-2.5 px-3 text-right">
+<button class="h-6 px-2 bg-surface-container hover:bg-surface-container-high text-secondary rounded-DEFAULT text-label-sm" onclick="openDocPreview('vaccine_adsm')">PDF</button>
+</td>
+</tr>
+<tr>
+<td class="py-2.5 px-3">
+<div class="font-semibold text-on-surface">Гепатит В (Эувакс В)</div>
+<div class="text-[11px] text-secondary">Полный курс V1, V2, V3</div>
+</td>
+<td class="py-2.5 px-3 font-code text-secondary">K-9021</td>
+<td class="py-2.5 px-3 font-code text-on-surface">2010 (V3)</td>
+<td class="py-2.5 px-3 text-secondary">Студенческая поликлиника</td>
+<td class="py-2.5 px-3 font-code text-secondary">Титр антител в норме</td>
+<td class="py-2.5 px-3 text-right">
+<button class="h-6 px-2 bg-surface-container hover:bg-surface-container-high text-secondary rounded-DEFAULT text-label-sm" onclick="openDocPreview('vaccine_hepb')">PDF</button>
+</td>
+</tr>
+<tr>
+<td class="py-2.5 px-3">
+<div class="font-semibold text-on-surface">COVID-19 (Спутник Лайт)</div>
+<div class="text-[11px] text-secondary">Бустерная доза</div>
+</td>
+<td class="py-2.5 px-3 font-code text-secondary">SL-40291</td>
+<td class="py-2.5 px-3 font-code text-on-surface">04.11.2022</td>
+<td class="py-2.5 px-3 text-secondary">Центр вакцинации Гостиный двор</td>
+<td class="py-2.5 px-3 font-code text-secondary">По эпидпоказаниям</td>
+<td class="py-2.5 px-3 text-right">
+<button class="h-6 px-2 bg-surface-container hover:bg-surface-container-high text-secondary rounded-DEFAULT text-label-sm" onclick="openDocPreview('vaccine_covid')">PDF</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- ==================== TAB 6: FITNESS & SLEEP ==================== -->
+<section class="hidden space-y-space-md" id="section-fitness">
+<!-- Header & Date Controls -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-xs border-b border-outline-variant/30">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Активность и сон — Носимое устройство</h3>
+<span class="text-secondary font-code text-body-sm">Импортировано: 24.10.2026, 08:30 via Apple Health CSV</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center bg-surface-container rounded-DEFAULT p-0.5 border border-outline-variant/40 font-label-sm">
+<button class="px-2 py-0.5 text-secondary hover:text-on-surface" onclick="changeTrackerDay(-1)">‹</button>
+<span class="px-2 font-code text-on-surface" id="trackerSelectedDate">24 октября 2026</span>
+<button class="px-2 py-0.5 text-secondary hover:text-on-surface" onclick="changeTrackerDay(1)">›</button>
+</div>
+<button class="h-7 px-2.5 bg-primary text-on-primary font-label-sm text-label-sm rounded-DEFAULT flex items-center gap-1 hover:bg-primary-container transition-colors" onclick="openImportModal()">
+<span class="material-symbols-outlined text-[15px]">file_upload</span>
+<span>Импорт CSV / JSON</span>
+</button>
+</div>
+</div>
+<!-- 5 Metric Tiles -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-space-sm">
+<div class="bg-surface-container-lowest p-space-sm rounded-DEFAULT border border-outline-variant/40">
+<span class="text-secondary font-label-sm text-label-sm uppercase">Сон за ночь</span>
+<div class="text-headline-md font-headline-md text-on-surface mt-0.5">7 ч 35 мин</div>
+<span class="text-[11px] text-[#2E7D32] font-code">+20 мин от среднего</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-DEFAULT border border-outline-variant/40">
+<span class="text-secondary font-label-sm text-label-sm uppercase">ЧСС в покое</span>
+<div class="text-headline-md font-headline-md text-on-surface mt-0.5">62 <span class="text-xs font-normal text-secondary">уд/мин</span></div>
+<span class="text-[11px] text-primary font-code">Оптимально</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-DEFAULT border border-outline-variant/40">
+<span class="text-secondary font-label-sm text-label-sm uppercase">Шаги</span>
+<div class="text-headline-md font-headline-md text-on-surface mt-0.5">8 420</div>
+<span class="text-[11px] text-secondary font-code">Цель: 10 000 (84%)</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-DEFAULT border border-outline-variant/40">
+<span class="text-secondary font-label-sm text-label-sm uppercase">Активность</span>
+<div class="text-headline-md font-headline-md text-on-surface mt-0.5">46 <span class="text-xs font-normal text-secondary">мин</span></div>
+<span class="text-[11px] text-[#2E7D32] font-code">Норма выполнена</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-DEFAULT border border-outline-variant/40">
+<span class="text-secondary font-label-sm text-label-sm uppercase">Сатурация SpO2</span>
+<div class="text-headline-md font-headline-md text-on-surface mt-0.5">98%</div>
+<span class="text-[11px] text-[#2E7D32] font-code">Нормоксия</span>
+</div>
+</div>
+<!-- Hypnogram (Sleep Stages Timeline) -->
+<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/40 space-y-space-sm">
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Гипнограмма стадий сна (23:45 — 07:20)</h4>
+<p class="font-body-sm text-body-sm text-secondary">Фазовый состав: Глубокий сон 1ч 40м (22%) · Быстрый (REM) 1ч 50м (24%) · Легкий 3ч 45м (50%) · Бодрствование 20м</p>
+</div>
+<span class="font-code text-label-sm text-primary bg-primary/10 px-2 py-0.5 rounded-DEFAULT">Эффективность сна: 91%</span>
+</div>
+<!-- Interactive Sleep Stages Bar -->
+<div class="w-full bg-surface-container-low rounded-DEFAULT p-3">
+<div class="h-10 w-full flex rounded-DEFAULT overflow-hidden">
+<div class="bg-[#FFA726] h-full" style="width: 4%;" title="Бодрствование (23:45 - 00:05)"></div>
+<div class="bg-[#4DB6AC] h-full" style="width: 25%;" title="Легкий сон"></div>
+<div class="bg-[#006763] h-full" style="width: 22%;" title="Глубокий сон (01:10 - 02:40)"></div>
+<div class="bg-[#7E57C2] h-full" style="width: 14%;" title="REM-сон (02:40 - 03:35)"></div>
+<div class="bg-[#4DB6AC] h-full" style="width: 18%;" title="Легкий сон"></div>
+<div class="bg-[#7E57C2] h-full" style="width: 10%;" title="REM-сон (05:40 - 06:20)"></div>
+<div class="bg-[#4DB6AC] h-full" style="width: 7%;" title="Легкий сон"></div>
+</div>
+<!-- Stage Color Legend -->
+<div class="flex items-center flex-wrap gap-4 text-[11px] font-code text-secondary mt-2">
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-[#FFA726]"></span> Бодрствование (20 мин)</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-[#7E57C2]"></span> Быстрый REM (1 ч 50 мин)</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-[#4DB6AC]"></span> Лёгкий сон (3 ч 45 мин)</span>
+<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-[#006763]"></span> Глубокий сон (1 ч 40 мин)</span>
+</div>
+</div>
+</div>
+<!-- 7-Day Steps Bar Chart + Heart Rate Daytime Curve -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Steps Chart -->
+<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/40 space-y-space-sm">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Шаги за последние 7 дней</h4>
+<div class="h-36 flex items-end justify-between gap-2 pt-4 px-2">
+<div class="flex-1 flex flex-col items-center gap-1">
+<span class="font-code text-[10px] text-secondary">7.1k</span>
+<div class="w-full bg-primary/40 rounded-t-sm" style="height: 65%;"></div>
+<span class="font-code text-[10px] text-secondary">Пн</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1">
+<span class="font-code text-[10px] text-secondary">9.4k</span>
+<div class="w-full bg-primary/70 rounded-t-sm" style="height: 85%;"></div>
+<span class="font-code text-[10px] text-secondary">Вт</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1">
+<span class="font-code text-[10px] text-secondary">11.2k</span>
+<div class="w-full bg-primary rounded-t-sm" style="height: 100%;"></div>
+<span class="font-code text-[10px] text-secondary">Ср</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1">
+<span class="font-code text-[10px] text-secondary">6.8k</span>
+<div class="w-full bg-primary/40 rounded-t-sm" style="height: 60%;"></div>
+<span class="font-code text-[10px] text-secondary">Чт</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1">
+<span class="font-code text-[10px] text-secondary">8.9k</span>
+<div class="w-full bg-primary/70 rounded-t-sm" style="height: 80%;"></div>
+<span class="font-code text-[10px] text-secondary">Пт</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1">
+<span class="font-code text-[10px] text-secondary">10.1k</span>
+<div class="w-full bg-primary rounded-t-sm" style="height: 92%;"></div>
+<span class="font-code text-[10px] text-secondary">Сб</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1">
+<span class="font-code text-[10px] text-primary font-bold">8.4k</span>
+<div class="w-full bg-primary rounded-t-sm border-t-2 border-primary-container" style="height: 78%;"></div>
+<span class="font-code text-[10px] text-primary font-bold">Вс</span>
+</div>
+</div>
+</div>
+<!-- HR Daytime Curve -->
+<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/40 space-y-space-sm">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Пульс в течение дня (ЧСС)</h4>
+<div class="h-36 bg-surface-container-low rounded-DEFAULT p-2">
+<svg class="w-full h-full" viewbox="0 0 300 110">
+<!-- Zone thresholds -->
+<line stroke="#DCE3E5" stroke-dasharray="2,2" x1="20" x2="290" y1="20" y2="20"></line>
+<text fill="#69777D" font-family="JetBrains Mono" font-size="7" x="5" y="23">120</text>
+<line stroke="#DCE3E5" stroke-dasharray="2,2" x1="20" x2="290" y1="60" y2="60"></line>
+<text fill="#69777D" font-family="JetBrains Mono" font-size="7" x="5" y="63">75</text>
+<line stroke="#DCE3E5" stroke-dasharray="2,2" x1="20" x2="290" y1="95" y2="95"></line>
+<text fill="#69777D" font-family="JetBrains Mono" font-size="7" x="5" y="98">50</text>
+<!-- Daytime Heart Rate curve -->
+<path d="M 20 85 Q 50 80, 80 70 T 140 35 T 200 65 T 260 55 T 290 68" fill="none" stroke="#ba1a1a" stroke-width="1.8"></path>
+<circle cx="140" cy="35" fill="#ba1a1a" r="3"></circle>
+<text fill="#ba1a1a" font-family="JetBrains Mono" font-size="8" x="125" y="30">118 уд (Прогулка)</text>
+</svg>
+</div>
+<div class="flex items-center justify-between text-[11px] font-code text-secondary pt-1">
+<span>Мин: 54 уд/мин</span>
+<span>Средний: 72 уд/мин</span>
+<span>Макс: 118 уд/мин</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== TAB 7: HISTORY (CLINICAL TIMELINE) ==================== -->
+<section class="hidden space-y-space-md" id="section-history">
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-xs border-b border-outline-variant/30">
+<span class="font-headline-sm text-headline-sm text-on-surface">Хронологическая лента медицинских событий</span>
+<div class="flex items-center gap-1 font-label-sm">
+<span class="text-secondary mr-1">Фильтр:</span>
+<button class="px-2 py-0.5 bg-surface-container-high text-primary font-semibold rounded-DEFAULT">Все</button>
+<button class="px-2 py-0.5 bg-surface-container text-secondary rounded-DEFAULT">Консультации</button>
+<button class="px-2 py-0.5 bg-surface-container text-secondary rounded-DEFAULT">Анализы</button>
+<button class="px-2 py-0.5 bg-surface-container text-secondary rounded-DEFAULT">Рецепты</button>
+</div>
+</div>
+<div class="space-y-4 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-outline-variant/30">
+<!-- Event 1: 14 Oct 2026 -->
+<div class="relative flex items-start gap-3 pl-8">
+<span class="absolute left-2 top-1.5 w-3.5 h-3.5 rounded-full bg-primary border-2 border-surface-container-lowest"></span>
+<div class="flex-1 bg-surface-container-lowest p-3 rounded-DEFAULT border border-outline-variant/40 space-y-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-code text-[11px] bg-primary/10 text-primary px-1.5 py-0.2 rounded-DEFAULT">Лаборатория</span>
+<span class="font-semibold text-on-surface">Исследование венозной крови (5 показателей)</span>
+</div>
+<span class="font-code text-secondary text-[11px]">14.10.2026</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Лаборатория «Инвитро». Ферритин 18 мкг/л (ниже референса), гемоглобин 138 г/л, глюкоза 5.1 ммоль/л.</p>
+<div class="pt-1">
+<button class="text-primary hover:underline text-[12px] font-label-sm" onclick="openDocPreview('lab_invitro_oct')">Открыть бланк (PDF)</button>
+</div>
+</div>
+</div>
+<!-- Event 2: 12 Sep 2026 -->
+<div class="relative flex items-start gap-3 pl-8">
+<span class="absolute left-2 top-1.5 w-3.5 h-3.5 rounded-full bg-secondary border-2 border-surface-container-lowest"></span>
+<div class="flex-1 bg-surface-container-lowest p-3 rounded-DEFAULT border border-outline-variant/40 space-y-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-code text-[11px] bg-surface-container text-on-surface px-1.5 py-0.2 rounded-DEFAULT">Приём врача</span>
+<span class="font-semibold text-on-surface">Консультация кардиолога (Плановый осмотр)</span>
+</div>
+<span class="font-code text-secondary text-[11px]">12.09.2026</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">ГКБ №1. Подтверждена гипертоническая болезнь II стадии, риск 2. Продлена терапия: Периндоприл 5 мг.</p>
+<div class="pt-1">
+<button class="text-primary hover:underline text-[12px] font-label-sm" onclick="openDocPreview('cardio_sept')">Консультативное заключение (PDF)</button>
+</div>
+</div>
+</div>
+<!-- Event 3: 18 Oct 2025 -->
+<div class="relative flex items-start gap-3 pl-8">
+<span class="absolute left-2 top-1.5 w-3.5 h-3.5 rounded-full bg-primary-container border-2 border-surface-container-lowest"></span>
+<div class="flex-1 bg-surface-container-lowest p-3 rounded-DEFAULT border border-outline-variant/40 space-y-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-code text-[11px] bg-primary/10 text-primary px-1.5 py-0.2 rounded-DEFAULT">Вакцинация</span>
+<span class="font-semibold text-on-surface">Ваксигрип Тетра (Сезонный грипп)</span>
+</div>
+<span class="font-code text-secondary text-[11px]">18.10.2025</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Вакцинация проведена без осложнений. Серия U1840-2.</p>
+</div>
+</div>
+<!-- Event 4: [SECRET] 11 Feb 2024 -->
+<div class="secret-data-item relative flex items-start gap-3 pl-8" id="secretHistoryItem">
+<span class="absolute left-2 top-1.5 w-3.5 h-3.5 rounded-full bg-primary border-2 border-surface-container-lowest"></span>
+<div class="flex-1 bg-surface-container-lowest p-3 rounded-DEFAULT border border-primary/40 space-y-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[13px] text-primary">lock</span>
+<span class="font-code text-[11px] bg-primary/15 text-primary px-1.5 py-0.2 rounded-DEFAULT">SECRET · Эндоскопия</span>
+<span class="font-semibold text-on-surface">Видеогастродуоденоскопия (ФГДС)</span>
+</div>
+<span class="font-code text-secondary text-[11px]">11.02.2024</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Заключение: Хронический эритематозный гастродуоденит вне обострения. Биопсия на хеликобактер отриц.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== TAB 8: MEDICAL SUMMARY / REPORTS ==================== -->
+<section class="hidden space-y-space-md" id="section-summary">
+<!-- Configuration Controls Bar -->
+<div class="bg-surface-container-lowest p-space-md rounded-DEFAULT border border-outline-variant/40 space-y-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-xs border-b border-outline-variant/30">
+<span class="font-headline-sm text-headline-sm text-on-surface">Конструктор медицинского резюме</span>
+<div class="flex items-center gap-2">
+<button class="h-7 px-3 bg-primary text-on-primary font-label-md text-label-md rounded-DEFAULT flex items-center gap-1.5 hover:bg-primary-container transition-colors" onclick="printOrExportSummary()">
+<span class="material-symbols-outlined text-[16px]">print</span>
+<span>Экспорт в PDF / Печать</span>
+</button>
+</div>
+</div>
+<!-- Report Options -->
+<div class="flex flex-wrap items-center justify-between gap-space-md text-body-sm">
+<!-- Format selector -->
+<div class="flex items-center gap-2">
+<span class="text-secondary font-semibold">Тип резюме:</span>
+<select class="h-7 px-2 bg-surface-container-low text-on-surface border border-outline-variant/50 rounded-DEFAULT text-body-sm" id="reportTypeSelect" onchange="updateReportTemplate()">
+<option value="emergency">Экстренная карточка (Emergency Summary)</option>
+<option value="brief">Краткое медицинское резюме (1-2 стр.)</option>
+<option value="full">Полная медицинская выписка (Анамнез + Исследования)</option>
+</select>
+</div>
+<!-- Language for Medical Summary -->
+<div class="flex items-center gap-2">
+<span class="text-secondary font-semibold">Язык отчёта:</span>
+<div class="flex items-center bg-surface-container rounded-DEFAULT p-0.5 border border-outline-variant/40 font-label-sm">
+<button class="px-2 py-0.5 rounded-DEFAULT text-secondary hover:text-on-surface" id="repLang-RU" onclick="setReportLang('RU')">Русский</button>
+<button class="px-2 py-0.5 rounded-DEFAULT text-secondary hover:text-on-surface" id="repLang-EN" onclick="setReportLang('EN')">English</button>
+<button class="px-2 py-0.5 rounded-DEFAULT bg-primary text-on-primary font-semibold" id="repLang-FR" onclick="setReportLang('FR')">Français</button>
+</div>
+</div>
+<!-- Checkbox toggles -->
+<div class="flex items-center gap-4 text-[12px] text-secondary">
+<label class="flex items-center gap-1 cursor-pointer">
+<input checked="" class="accent-primary" id="chkIncludeSecret" onchange="renderReportPreview()" type="checkbox"/>
+<span>Включить Secret (если открыт)</span>
+</label>
+<label class="flex items-center gap-1 cursor-pointer">
+<input checked="" class="accent-primary" id="chkIncludeQR" onchange="renderReportPreview()" type="checkbox"/>
+<span>QR-код верификации</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Realistic A4 Paper Preview Container -->
+<div class="w-full flex justify-center py-4 bg-surface-container-high/60 rounded-DEFAULT overflow-x-auto">
+<!-- A4 Sheet Mockup (International Emergency Medical Card) -->
+<div class="w-[720px] min-h-[920px] bg-white text-[#111d23] shadow-md p-10 font-body-sm text-body-sm border border-outline-variant/50 flex flex-col justify-between" id="a4ReportSheet">
+<!-- Sheet Header -->
+<div class="space-y-4">
+<div class="flex justify-between items-start border-b-2 border-primary pb-3">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">health_and_safety</span>
+<h1 class="font-headline-lg text-headline-lg font-bold tracking-tight text-primary" id="repTitleHeading">RÉSUMÉ MÉDICAL D'URGENCE</h1>
+</div>
+<div class="text-xs text-secondary tracking-wider uppercase font-code" id="repSubtitleHeading">DOCUMENTATION MÉDICALE LOCALE · VAULT ID: PV-8492-FR</div>
+</div>
+<div class="text-right text-xs font-code text-secondary">
+<div>DATE: 24/10/2026</div>
+<div>VALIDE: INTERNATIONAL</div>
+</div>
+</div>
+<!-- Patient Identification Strip -->
+<div class="grid grid-cols-3 gap-2 p-3 bg-surface-container-low rounded-DEFAULT border border-outline-variant/30 text-xs">
+<div>
+<span class="text-secondary font-semibold" id="repLblPatient">PATIENT:</span>
+<div class="font-bold text-sm text-on-surface">IVANOV, ALEKSEI</div>
+</div>
+<div>
+<span class="text-secondary font-semibold" id="repLblDOB">NÉ LE / SEXE:</span>
+<div class="font-bold text-on-surface">14/05/1988 (38 ans) · M</div>
+</div>
+<div>
+<span class="text-secondary font-semibold" id="repLblBlood">GROUPE SANGUIN:</span>
+<div class="font-bold text-on-surface text-error">A (II) Rh+ Positif</div>
+</div>
+</div>
+<!-- Allergies & Critical Warnings -->
+<div class="p-3 bg-error-container/20 rounded-DEFAULT border border-error/30">
+<div class="flex items-center gap-1.5 text-error font-bold text-xs uppercase mb-1">
+<span class="material-symbols-outlined text-[15px]">warning</span>
+<span id="repLblAllergies">ALLERGIES ET INTOLÉRANCES:</span>
+</div>
+<p class="text-xs font-semibold text-on-surface" id="repTxtAllergies">• Rhinite allergique saisonnière (Pollen de bouleau / Graminées). Pas d'allergie médicamenteuse connue (Pénicillines: RAS).</p>
+</div>
+<!-- Diagnoses / Conditions -->
+<div class="space-y-1.5">
+<div class="font-bold text-xs uppercase tracking-wider text-primary border-b border-outline-variant/30 pb-0.5" id="repLblPathologies">
+                  PATHOLOGIES ACTIVES &amp; ANTÉCÉDENTS:
+                </div>
+<div class="space-y-1 text-xs">
+<div class="flex justify-between py-1 border-b border-outline-variant/10">
+<span class="font-bold">1. Hypertension artérielle essentielle Stade II (CIM-10: I11.9)</span>
+<span class="text-secondary font-code">Sous traitement · Stabilisée</span>
+</div>
+<div class="flex justify-between py-1 border-b border-outline-variant/10 bg-primary/5 px-1" id="repSecretRowReport">
+<span class="font-bold">2. Gastroduodénite chronique (CIM-10: K29.5) [Catégorie Protégée]</span>
+<span class="text-secondary font-code">En rémission</span>
+</div>
+<div class="flex justify-between py-1 border-b border-outline-variant/10">
+<span class="font-bold">3. Carence martiale latente (CIM-10: E61.1)</span>
+<span class="text-secondary font-code">Ferritine 18 µg/L (14/10/2026)</span>
+</div>
+</div>
+</div>
+<!-- Current Regular Treatments -->
+<div class="space-y-1.5">
+<div class="font-bold text-xs uppercase tracking-wider text-primary border-b border-outline-variant/30 pb-0.5" id="repLblTreatments">
+                  TRAITEMENTS EN COURS:
+                </div>
+<div class="space-y-1 text-xs">
+<div class="flex justify-between py-1 bg-surface-container-low px-2 rounded-DEFAULT">
+<span class="font-semibold">• Périndopril 5 mg</span>
+<span>1 comprimé le matin au lever (Voie orale)</span>
+</div>
+</div>
+</div>
+<!-- Recent Labs -->
+<div class="space-y-1.5">
+<div class="font-bold text-xs uppercase tracking-wider text-primary border-b border-outline-variant/30 pb-0.5" id="repLblBiochemistry">
+                  DERNIERS RÉSULTATS BIOLOGIQUES (14/10/2026):
+                </div>
+<div class="grid grid-cols-2 gap-2 text-xs font-code">
+<div class="p-1.5 bg-surface-container-low rounded-DEFAULT">Ferritine: <strong class="text-error">18 µg/L</strong> (Norme: 20-250)</div>
+<div class="p-1.5 bg-surface-container-low rounded-DEFAULT">Hémoglobine: <strong>138 g/L</strong> (Norme: 130-160)</div>
+<div class="p-1.5 bg-surface-container-low rounded-DEFAULT">Cholestérol total: <strong>4.82 mmol/L</strong></div>
+<div class="p-1.5 bg-surface-container-low rounded-DEFAULT">Glycémie à jeun: <strong>5.1 mmol/L</strong></div>
+</div>
+</div>
+</div>
+<!-- Sheet Footer: QR Code & Signature -->
+<div class="pt-6 border-t border-outline-variant/30 flex items-center justify-between text-xs">
+<div class="flex items-center gap-3">
+<div class="w-14 h-14 bg-surface-container-high border border-outline-variant/40 flex items-center justify-center p-1">
+<!-- Vector QR Code representation -->
+<svg class="w-full h-full text-on-surface" viewbox="0 0 24 24">
+<path d="M2,2H10V10H2V2M4,4V8H8V4H4M14,2H22V10H14V2M16,4V8H20V4H16M2,14H10V22H2V14M4,16V20H8V16H4M14,14H17V17H14V14M19,14H22V17H19V14M17,17H19V19H17V17M14,19H17V22H14V19M19,19H22V22H19V19Z" fill="currentColor"></path>
+</svg>
+</div>
+<div class="space-y-0.5 text-secondary text-[11px]">
+<div>Généré localement via <strong>PersonalVault 2.0</strong></div>
+<div>Chiffrement AES-256 · Aucune transmission réseau</div>
+<div class="font-code">SHA: 7c9a...ef12</div>
+</div>
+</div>
+<div class="text-right space-y-1">
+<div class="text-secondary text-[11px]">SIGNATURE DU PRATICIEN / PATIENT:</div>
+<div class="h-8 w-36 border-b border-dashed border-secondary/50"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- ==================== CONTEXTUAL RIGHT SIDE PANEL (DOCUMENT SOURCE PREVIEW) ==================== -->
+<aside class="hidden w-80 lg:w-96 bg-surface-container-lowest border-l border-outline-variant/40 flex flex-col justify-between z-20 shrink-0 animate-in slide-in-from-right duration-200" id="docPreviewSidePanel">
+<div class="p-space-md border-b border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="material-symbols-outlined text-primary text-[18px]">description</span>
+<span class="font-label-md text-label-md text-on-surface truncate" id="docSidePanelTitle">Консультация кардиолога_12.09.2026.pdf</span>
+</div>
+<button class="w-6 h-6 flex items-center justify-center text-secondary hover:text-on-surface rounded-DEFAULT hover:bg-surface-container" onclick="closeDocPreview()">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<!-- Preview Body -->
+<div class="p-space-md flex-1 overflow-y-auto space-y-space-md text-body-sm font-body-sm">
+<!-- Missing File Notice (Demo 12) -->
+<div class="hidden p-3 bg-error-container text-on-error-container rounded-DEFAULT space-y-1" id="missingFileWarning">
+<div class="flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[16px]">error</span>
+<span>Источник недоступен</span>
+</div>
+<p class="text-[12px]">Файл был перемещен, переименован или том хранения отключен. Путь: D:\Vault\Open\Medical\Archive_2021\</p>
+</div>
+<!-- Rendered Document Page Preview Card -->
+<div class="bg-surface-container-low rounded-DEFAULT border border-outline-variant/30 p-3 space-y-2">
+<div class="flex justify-between items-center text-[11px] text-secondary font-code pb-1 border-b border-outline-variant/20">
+<span>СТРАНИЦА 1 ИЗ 2</span>
+<span>300 DPI · READ-ONLY</span>
+</div>
+<!-- Document Snippet Mockup -->
+<div class="p-3 bg-white rounded border border-outline-variant/30 font-code text-[11px] text-[#111d23] leading-relaxed select-text space-y-1.5 shadow-sm">
+<div class="font-bold text-center border-b pb-1 text-primary">ГКБ №1 им. Н.И. Пирогова · Кардиология</div>
+<div><strong>Пациент:</strong> Иванов Алексей Викторович, 1988 г.р.</div>
+<div><strong>Дата приёма:</strong> 12 сентября 2026 г.</div>
+<div class="bg-primary/10 p-1 rounded font-semibold text-primary">
+              «Диагноз основной: Гипертоническая болезнь II стадии, риск 2. Достигнуто целевое АД на монотерапии. Рекомендовано продолжать приём Периндоприла 5 мг утром...»
+            </div>
+<div class="text-secondary text-[10px]">Врач-кардиолог: Смирнова Е.А. (Подпись / Печать)</div>
+</div>
+</div>
+<!-- Metadata & Path Info -->
+<div class="space-y-1 text-xs">
+<span class="font-semibold text-secondary uppercase text-[10px] tracking-wider">Параметры безопасности</span>
+<div class="p-2 bg-surface-container-low rounded-DEFAULT font-code text-[11px] space-y-1 text-secondary">
+<div><strong class="text-on-surface">Том:</strong> <span id="docMetaVolume">PersonalVault / Open (D:\)</span></div>
+<div><strong class="text-on-surface">SHA-256:</strong> <span class="break-all">9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08</span></div>
+<div><strong class="text-on-surface">Статус:</strong> <span class="text-[#2E7D32]">Целостность подтверждена</span></div>
+</div>
+</div>
+</div>
+<!-- Action buttons -->
+<div class="p-space-md border-t border-outline-variant/30 flex gap-2">
+<button class="flex-1 h-7 bg-primary text-on-primary font-label-sm text-label-sm rounded-DEFAULT flex items-center justify-center gap-1 hover:bg-primary-container transition-colors" onclick="alert('Открытие внешней системной программы просмотра PDF PersonalVault...')">
+<span class="material-symbols-outlined text-[15px]">open_in_new</span>
+<span>Открыть во внешнем вьюере</span>
+</button>
+</div>
+</aside>
+</div>
+<!-- MODAL: VERIFICATION DIALOG (DEMO 5) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/40 backdrop-blur-sm p-4" id="verificationModal">
+<div class="bg-surface-container-lowest max-w-lg w-full rounded-DEFAULT border border-outline-variant/50 shadow-xl overflow-hidden space-y-space-md animate-in zoom-in-95 duration-150">
+<div class="px-space-md py-space-sm bg-surface-container-low flex justify-between items-center border-b border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">fact_check</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Верификация обнаруженного факта</span>
+</div>
+<button class="text-secondary hover:text-on-surface" onclick="closeVerificationModal()">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div class="p-space-md space-y-space-sm text-body-sm font-body-sm">
+<div class="p-2.5 bg-surface-container-low rounded-DEFAULT border border-outline-variant/30 space-y-1">
+<div class="text-[11px] font-code text-secondary">Распознанный фрагмент выписки:</div>
+<p class="font-semibold text-on-surface font-code text-xs" id="verifySnippetText">«Рекомендовано: Магне B6 форте по 1 таблетке 2 раза в сутки во время еды — 1 месяц»</p>
+</div>
+<div class="space-y-1">
+<label class="font-semibold text-on-surface text-xs">Действие над фактом:</label>
+<div class="space-y-1">
+<label class="flex items-center gap-2 p-1.5 bg-surface-container-low rounded-DEFAULT cursor-pointer">
+<input checked="" class="accent-primary" name="verifyAction" type="radio" value="add"/>
+<span>Добавить в активный список назначений с отслеживанием приёма</span>
+</label>
+<label class="flex items-center gap-2 p-1.5 bg-surface-container-low rounded-DEFAULT cursor-pointer">
+<input class="accent-primary" name="verifyAction" type="radio" value="anamnesis"/>
+<span>Сохранить только как факт в клиническую историю (в анамнез)</span>
+</label>
+<label class="flex items-center gap-2 p-1.5 bg-surface-container-low rounded-DEFAULT cursor-pointer">
+<input class="accent-primary" name="verifyAction" type="radio" value="reject"/>
+<span>Отклонить (ошибка автоматического распознавания)</span>
+</label>
+</div>
+</div>
+</div>
+<div class="px-space-md py-space-sm bg-surface-container-low border-t border-outline-variant/30 flex justify-end gap-2">
+<button class="h-7 px-3 bg-surface-container text-on-surface rounded-DEFAULT font-label-sm text-label-sm" onclick="closeVerificationModal()">Отмена</button>
+<button class="h-7 px-4 bg-primary text-on-primary rounded-DEFAULT font-label-md text-label-md hover:bg-primary-container transition-colors" onclick="confirmVerification()">Применить</button>
+</div>
+</div>
+</div>
+<!-- MODAL: FITNESS TRACKER IMPORT CSV/JSON (DEMO 9 & 10) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/40 backdrop-blur-sm p-4" id="importModal">
+<div class="bg-surface-container-lowest max-w-md w-full rounded-DEFAULT border border-outline-variant/50 shadow-xl overflow-hidden space-y-space-md animate-in zoom-in-95 duration-150">
+<div class="px-space-md py-space-sm bg-surface-container-low flex justify-between items-center border-b border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">upload_file</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Импорт данных носимого устройства</span>
+</div>
+<button class="text-secondary hover:text-on-surface" onclick="closeImportModal()">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div class="p-space-md space-y-space-sm text-body-sm font-body-sm">
+<p class="text-secondary">Поддерживаются выгрузки: Apple Health (export.xml / csv), Garmin Connect (.fit / .csv), Xiaomi Mi Fitness (.json).</p>
+<!-- Drag & drop box mockup -->
+<div class="border border-dashed border-primary/50 hover:border-primary p-6 rounded-DEFAULT bg-surface-container-low/50 text-center cursor-pointer space-y-2" onclick="simulateFilePick()">
+<span class="material-symbols-outlined text-primary text-3xl">cloud_upload</span>
+<div class="font-semibold text-on-surface text-xs">Нажмите для выбора файла или перетащите сюда</div>
+<span class="text-[11px] text-secondary font-code" id="importFileName">apple_health_export_2026.csv (14.2 МБ)</span>
+</div>
+<div class="hidden p-2.5 bg-error-container text-on-error-container rounded-DEFAULT text-xs space-y-1" id="importErrorAlert">
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px]">error</span>
+<span>Ошибка разбора файла:</span>
+</div>
+<p>Некорректная кодировка заголовков CSV или поврежден JSON-манифест трекера (строка 144: unexpected token).</p>
+</div>
+</div>
+<div class="px-space-md py-space-sm bg-surface-container-low border-t border-outline-variant/30 flex justify-between items-center">
+<button class="text-error font-label-sm text-[11px] hover:underline" onclick="triggerImportError()">Имитировать ошибку</button>
+<div class="flex gap-2">
+<button class="h-7 px-3 bg-surface-container text-on-surface rounded-DEFAULT font-label-sm text-label-sm" onclick="closeImportModal()">Отмена</button>
+<button class="h-7 px-4 bg-primary text-on-primary rounded-DEFAULT font-label-md text-label-md hover:bg-primary-container transition-colors" onclick="executeImport()">Импортировать</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- CLIENT JAVASCRIPT: LOGIC & DEMO CONTROLLER -->
+<script>
+  // State Store
+  const HealthState = {
+    activeTab: 'overview',
+    currentLanguage: 'RU',
+    reportLanguage: 'FR',
+    securityMode: 'OPEN_SECRET', // 'OPEN_SECRET' or 'OPEN_ONLY'
+    isSecretLocked: false,
+    selectedLabTest: 'ferritin',
+    selectedCondition: null,
+    hasHealthData: true,
+    hasBraceletData: true
+  };
+
+  // 1. Tab Switching Logic
+  function switchTab(tabId) {
+    HealthState.activeTab = tabId;
+    
+    // Update tab bar visuals
+    document.querySelectorAll('.tab-button').forEach(btn => {
+      btn.classList.remove('border-primary', 'text-primary');
+      btn.classList.add('border-transparent', 'text-secondary');
+    });
+
+    const activeBtn = document.getElementById(`tabBtn-${tabId}`);
+    if (activeBtn) {
+      activeBtn.classList.remove('border-transparent', 'text-secondary');
+      activeBtn.classList.add('border-primary', 'text-primary');
+    }
+
+    // Toggle Content Sections
+    const allSections = ['overview', 'conditions', 'labs', 'medications', 'vaccines', 'fitness', 'history', 'summary'];
+    allSections.forEach(sec => {
+      const el = document.getElementById(`section-${sec}`);
+      if (el) {
+        if (sec === tabId) {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      }
+    });
+
+    // If switching back to conditions, make sure list is shown unless explicitly in detail
+    if (tabId === 'conditions' && !HealthState.selectedCondition) {
+      document.getElementById('conditionsListView')?.classList.remove('hidden');
+      document.getElementById('diseaseDetailView')?.classList.add('hidden');
+    }
+  }
+
+  // 2. Open / Close Detailed Disease View
+  function openDiseaseDetail(diseaseKey) {
+    HealthState.selectedCondition = diseaseKey;
+    switchTab('conditions');
+    document.getElementById('conditionsListView')?.classList.add('hidden');
+    document.getElementById('diseaseDetailView')?.classList.remove('hidden');
+  }
+
+  function closeDiseaseDetail() {
+    HealthState.selectedCondition = null;
+    document.getElementById('conditionsListView')?.classList.remove('hidden');
+    document.getElementById('diseaseDetailView')?.classList.add('hidden');
+  }
+
+  // 3. Document Source Preview Panel
+  function openDocPreview(docKey) {
+    const sidePanel = document.getElementById('docPreviewSidePanel');
+    const titleEl = document.getElementById('docSidePanelTitle');
+    const missingWarning = document.getElementById('missingFileWarning');
+    const volumeEl = document.getElementById('docMetaVolume');
+
+    sidePanel.classList.remove('hidden');
+    missingWarning.classList.add('hidden');
+
+    if (docKey === 'missing_file') {
+      titleEl.innerText = 'Справка_диспансеризация_2021.pdf';
+      missingWarning.classList.remove('hidden');
+      volumeEl.innerText = 'Внешний диск E: (Офлайн)';
+    } else if (docKey === 'fgds_secret') {
+      titleEl.innerText = 'ФГДС_протокол_11.02.2024.pdf (Secret)';
+      volumeEl.innerText = 'PersonalVault / Secret Encrypted (D:\\)';
+    } else if (docKey === 'lab_invitro_oct') {
+      titleEl.innerText = 'Анализ_крови_Инвитро_14.10.2026.pdf';
+      volumeEl.innerText = 'PersonalVault / Open (D:\\)';
+    } else {
+      titleEl.innerText = 'Консультация кардиолога_12.09.2026.pdf';
+      volumeEl.innerText = 'PersonalVault / Open (D:\\)';
+    }
+  }
+
+  function closeDocPreview() {
+    document.getElementById('docPreviewSidePanel').classList.add('hidden');
+  }
+
+  // 4. Lab Tests Selection
+  function selectLabTest(testKey) {
+    HealthState.selectedLabTest = testKey;
+    
+    // highlight selected row
+    const rowIds = ['ferritin', 'hemoglobin', 'cholesterol', 'ldl', 'glucose'];
+    rowIds.forEach(id => {
+      const row = document.getElementById(`labRow-${id}`);
+      if (row) {
+        if (id === testKey) {
+          row.classList.add('border-l-2', 'border-primary', 'bg-primary/5');
+        } else {
+          row.classList.remove('border-l-2', 'border-primary', 'bg-primary/5');
+        }
+      }
+    });
+
+    const titleEl = document.getElementById('labDetailName');
+    const subtitleEl = document.getElementById('labDetailSubtitle');
+
+    if (testKey === 'hemoglobin') {
+      titleEl.innerText = 'Гемоглобин Hb (г/л)';
+      subtitleEl.innerText = 'Динамика за 24 месяца (В пределах нормы)';
+    } else if (testKey === 'cholesterol') {
+      titleEl.innerText = 'Холестерин общий (ммоль/л)';
+      subtitleEl.innerText = 'Липидный профиль (Оптимальный уровень)';
+    } else {
+      titleEl.innerText = 'Ферритин (мкг/л)';
+      subtitleEl.innerText = 'Динамика за 24 месяца (3 измерения)';
+    }
+  }
+
+  // 5. Security Zone Control & Emergency Cut-off (UX-032)
+  function toggleSecurityZoneMenu() {
+    const menu = document.getElementById('securityZoneDropdown');
+    menu.classList.toggle('hidden');
+  }
+
+  function setSecurityMode(mode) {
+    HealthState.securityMode = mode;
+    document.getElementById('securityZoneDropdown').classList.add('hidden');
+    
+    const zoneText = document.getElementById('securityZoneText');
+    const checkAll = document.getElementById('secCheckAll');
+    const checkOpen = document.getElementById('secCheckOpen');
+    const secretItems = document.querySelectorAll('.secret-data-item');
+
+    if (mode === 'OPEN_ONLY') {
+      zoneText.innerText = 'Только Open';
+      checkAll.classList.add('hidden');
+      checkOpen.classList.remove('hidden');
+      secretItems.forEach(el => el.classList.add('hidden'));
+    } else {
+      zoneText.innerText = 'Open + Secret';
+      checkAll.classList.remove('hidden');
+      checkOpen.classList.add('hidden');
+      secretItems.forEach(el => el.classList.remove('hidden'));
+    }
+  }
+
+  function simulateSecretDisconnect() {
+    HealthState.isSecretLocked = true;
+    setSecurityMode('OPEN_ONLY');
+    document.getElementById('secretDisconnectedBanner').classList.remove('hidden');
+    document.getElementById('chkIncludeSecret').checked = false;
+    document.getElementById('chkIncludeSecret').disabled = true;
+    renderReportPreview();
+  }
+
+  function dismissSecretBanner() {
+    document.getElementById('secretDisconnectedBanner').classList.add('hidden');
+  }
+
+  // 6. Language Switcher (RU / EN / FR)
+  const translations = {
+    RU: {
+      title: "Сводка здоровья",
+      subtitle: "Медицинская история, исследования и показатели здоровья",
+      tabOverview: "Обзор",
+      tabConditions: "Заболевания",
+      tabLabs: "Исследования",
+      tabMedications: "Лекарства",
+      tabVaccines: "Прививки",
+      tabFitness: "Активность и сон",
+      tabHistory: "История",
+      tabSummary: "Резюме",
+      btnSummary: "Создать резюме"
+    },
+    EN: {
+      title: "Health Summary",
+      subtitle: "Medical history, lab diagnostics, and vitals",
+      tabOverview: "Overview",
+      tabConditions: "Conditions",
+      tabLabs: "Diagnostics",
+      tabMedications: "Medications",
+      tabVaccines: "Vaccinations",
+      tabFitness: "Activity & Sleep",
+      tabHistory: "History",
+      tabSummary: "Summary",
+      btnSummary: "Generate Summary"
+    },
+    FR: {
+      title: "Résumé de Santé",
+      subtitle: "Historique médical, examens biologiques et paramètres vitaux",
+      tabOverview: "Aperçu",
+      tabConditions: "Pathologies",
+      tabLabs: "Analyses",
+      tabMedications: "Traitements",
+      tabVaccines: "Vaccins",
+      tabFitness: "Activité & Sommeil",
+      tabHistory: "Historique",
+      tabSummary: "Synthèse",
+      btnSummary: "Créer résumé"
+    }
+  };
+
+  function setLang(lang) {
+    HealthState.currentLanguage = lang;
+    ['RU', 'EN', 'FR'].forEach(l => {
+      const btn = document.getElementById(`lang${l.charAt(0) + l.slice(1).toLowerCase()}Btn`);
+      if (l === lang) {
+        btn.classList.add('bg-primary', 'text-on-primary', 'font-semibold');
+        btn.classList.remove('text-secondary');
+      } else {
+        btn.classList.remove('bg-primary', 'text-on-primary', 'font-semibold');
+        btn.classList.add('text-secondary');
+      }
+    });
+
+    const t = translations[lang];
+    document.getElementById('headerTitle').innerText = t.title;
+    document.getElementById('headerSubtitle').innerText = t.subtitle;
+    document.getElementById('btnCreateSummaryLabel').innerText = t.btnSummary;
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key]) el.innerText = t[key];
+    });
+  }
+
+  // 7. Medical Report Language & Rendering
+  function setReportLang(lang) {
+    HealthState.reportLanguage = lang;
+    ['RU', 'EN', 'FR'].forEach(l => {
+      const btn = document.getElementById(`repLang-${l}`);
+      if (l === lang) {
+        btn.className = 'px-2 py-0.5 rounded-DEFAULT bg-primary text-on-primary font-semibold';
+      } else {
+        btn.className = 'px-2 py-0.5 rounded-DEFAULT text-secondary hover:text-on-surface';
+      }
+    });
+    renderReportPreview();
+  }
+
+  function renderReportPreview() {
+    const lang = HealthState.reportLanguage;
+    const includeSecret = document.getElementById('chkIncludeSecret')?.checked && (HealthState.securityMode === 'OPEN_SECRET');
+    const secretRow = document.getElementById('repSecretRowReport');
+
+    if (secretRow) {
+      if (includeSecret) {
+        secretRow.classList.remove('hidden');
+      } else {
+        secretRow.classList.add('hidden');
+      }
+    }
+
+    const titleEl = document.getElementById('repTitleHeading');
+    const subtitleEl = document.getElementById('repSubtitleHeading');
+
+    if (lang === 'FR') {
+      titleEl.innerText = "RÉSUMÉ MÉDICAL D'URGENCE";
+      subtitleEl.innerText = "DOCUMENTATION MÉDICALE LOCALE · VAULT ID: PV-8492-FR";
+      document.getElementById('repLblPathologies').innerText = "PATHOLOGIES ACTIVES & ANTÉCÉDENTS:";
+      document.getElementById('repLblTreatments').innerText = "TRAITEMENTS EN COURS:";
+      document.getElementById('repLblBiochemistry').innerText = "DERNIERS RÉSULTATS BIOLOGIQUES (14/10/2026):";
+    } else if (lang === 'EN') {
+      titleEl.innerText = "EMERGENCY MEDICAL SUMMARY";
+      subtitleEl.innerText = "LOCAL ARCHIVAL MEDICAL RECORD · VAULT ID: PV-8492-EN";
+      document.getElementById('repLblPathologies').innerText = "ACTIVE CONDITIONS & HISTORY:";
+      document.getElementById('repLblTreatments').innerText = "CURRENT MEDICATIONS:";
+      document.getElementById('repLblBiochemistry').innerText = "RECENT LAB RESULTS (14/10/2026):";
+    } else {
+      titleEl.innerText = "ЭКСТРЕННАЯ МЕДИЦИНСКАЯ КАРТОЧКА";
+      subtitleEl.innerText = "ЛОКАЛЬНЫЙ АРХИВ PERSONALVAULT · ID: PV-8492-RU";
+      document.getElementById('repLblPathologies').innerText = "АКТИВНЫЕ ЗАБОЛЕВАНИЯ И АНАМНЕЗ:";
+      document.getElementById('repLblTreatments').innerText = "ТЕКУЩИЕ ПРЕПАРАТЫ И ДОЗИРОВКИ:";
+      document.getElementById('repLblBiochemistry').innerText = "ПОСЛЕДНИЕ РЕЗУЛЬТАТЫ ИССЛЕДОВАНИЙ (14.10.2026):";
+    }
+  }
+
+  function openReportView() {
+    switchTab('summary');
+    renderReportPreview();
+  }
+
+  function printOrExportSummary() {
+    alert("Создание локального подписанного PDF-документа: Summary_Ivanov_2026.pdf (300 DPI)");
+  }
+
+  // 8. Verification Modal (Demo 5)
+  function openVerificationModal(type) {
+    const modal = document.getElementById('verificationModal');
+    const textEl = document.getElementById('verifySnippetText');
+    if (type === 'magne') {
+      textEl.innerText = "«Рекомендовано: Магне B6 форте по 1 таблетке 2 раза в сутки во время еды — 1 месяц» (Выписка терапевта ГКБ_12.10.2026.pdf, Стр. 2)";
+    } else {
+      textEl.innerText = "«Ферритин: 18 мкг/л (Референс 20-250 мкг/л). Заключение лаборатории: признаки латентного железодефицита» (Инвитро_14.10.2026.pdf)";
+    }
+    modal.classList.remove('hidden');
+  }
+
+  function closeVerificationModal() {
+    document.getElementById('verificationModal').classList.add('hidden');
+  }
+
+  function confirmVerification() {
+    closeVerificationModal();
+    alert("Факт успешно верифицирован и внесен в локальную базу данных здоровья.");
+  }
+
+  function dismissVerificationItem(btn) {
+    const card = btn.closest('.p-space-sm');
+    if (card) {
+      card.style.opacity = '0.3';
+      card.style.pointerEvents = 'none';
+    }
+  }
+
+  // 9. Tracker Import Simulator (Demo 9 & 10)
+  function openImportModal() {
+    document.getElementById('importErrorAlert').classList.add('hidden');
+    document.getElementById('importModal').classList.remove('hidden');
+  }
+
+  function closeImportModal() {
+    document.getElementById('importModal').classList.add('hidden');
+  }
+
+  function triggerImportError() {
+    document.getElementById('importErrorAlert').classList.remove('hidden');
+  }
+
+  function simulateFilePick() {
+    document.getElementById('importFileName').innerText = "apple_health_synced_export.csv (Готов к разбору)";
+  }
+
+  function executeImport() {
+    closeImportModal();
+    alert("Успешно импортировано: 120 480 измерений ЧСС, 7 дней фаз сна и 56 км шагов.");
+  }
+
+  // 10. Demo Scenario Controller (14 states)
+  function applyDemoState(stateNum) {
+    const badgeLabel = document.getElementById('demoStateLabel');
+    badgeLabel.innerText = `DEMO-${stateNum.padStart(2, '0')}`;
+
+    // Reset base alerts & views
+    document.getElementById('secretDisconnectedBanner').classList.add('hidden');
+    document.getElementById('overviewEmptyState').classList.add('hidden');
+    document.getElementById('overviewDataContent').classList.remove('hidden');
+    document.getElementById('workspaceLayout').style.maxWidth = 'none';
+
+    switch (stateNum) {
+      case '1': // Standard Open
+        setSecurityMode('OPEN_ONLY');
+        switchTab('overview');
+        break;
+
+      case '2': // Open + Secret
+        setSecurityMode('OPEN_SECRET');
+        switchTab('overview');
+        break;
+
+      case '3': // Secret Locked
+        setSecurityMode('OPEN_ONLY');
+        switchTab('overview');
+        break;
+
+      case '4': // Empty State
+        switchTab('overview');
+        document.getElementById('overviewEmptyState').classList.remove('hidden');
+        document.getElementById('overviewDataContent').classList.add('hidden');
+        break;
+
+      case '5': // Pending Fact Verification
+        switchTab('overview');
+        openVerificationModal('magne');
+        break;
+
+      case '6': // Condition Details
+        openDiseaseDetail('hypertension');
+        break;
+
+      case '7': // Lab Dynamics
+        switchTab('labs');
+        selectLabTest('ferritin');
+        break;
+
+      case '8': // Activity & Sleep
+        switchTab('fitness');
+        break;
+
+      case '9': // No bracelet data
+        switchTab('fitness');
+        openImportModal();
+        break;
+
+      case '10': // Import Error
+        switchTab('fitness');
+        openImportModal();
+        triggerImportError();
+        break;
+
+      case '11': // French Medical Summary
+        switchTab('summary');
+        setReportLang('FR');
+        break;
+
+      case '12': // Missing source document
+        openDiseaseDetail('hypertension');
+        openDocPreview('missing_file');
+        break;
+
+      case '13': // Narrow window (900x760)
+        document.getElementById('workspaceLayout').style.maxWidth = '900px';
+        switchTab('overview');
+        break;
+
+      case '14': // Emergency Secret Disconnect
+        switchTab('conditions');
+        simulateSecretDisconnect();
+        break;
+    }
+  }
+
+  function resetToDefaultDemo() {
+    document.getElementById('demoStateSelect').value = '1';
+    applyDemoState('1');
+  }
+
+  function showChartPointInfo(text) {
+    document.getElementById('chartPointInfo').innerText = text;
+  }
+
+  function updateBPTimeframe(days) {
+    ['30', '90', '365'].forEach(d => {
+      const btn = document.getElementById(`bpBtn-${d}`);
+      if (d === days) {
+        btn.className = 'px-2 py-0.5 bg-primary text-on-primary font-semibold rounded-DEFAULT';
+      } else {
+        btn.className = 'px-2 py-0.5 bg-surface-container text-secondary rounded-DEFAULT';
+      }
+    });
+    showChartPointInfo(`Интервал: ${days} дней · Среднее САД: 126 / ДАД: 79`);
+  }
+
+  function changeTrackerDay(delta) {
+    const el = document.getElementById('trackerSelectedDate');
+    if (delta > 0) {
+      el.innerText = '25 октября 2026 (План)';
+    } else {
+      el.innerText = '23 октября 2026';
+    }
+  }
+
+  function handleSearch(q) {
+    if (!q) return;
+    // quick jump to conditions or labs if keywords matched
+    const query = q.toLowerCase();
+    if (query.includes('гипер') || query.includes('давлен') || query.includes('аг')) {
+      switchTab('conditions');
+    } else if (query.includes('ферр') || query.includes('холест') || query.includes('кров')) {
+      switchTab('labs');
+    }
+  }
+
+  // Initialize defaults on load
+  document.addEventListener('DOMContentLoaded', () => {
+    setSecurityMode('OPEN_SECRET');
+  });
+</script></main></div></body></html>

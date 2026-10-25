@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary-fixed-dim":"#bbc9c8","surface-container-highest":"#d7e4ec","surface":"#f4faff","surface-variant":"#d7e4ec","tertiary-container":"#6a7777","on-primary-fixed":"#00201e","primary-fixed":"#95f3eb","surface-bright":"#f4faff","surface-tint":"#006a65","on-secondary-fixed-variant":"#3b494e","surface-container":"#e3f0f8","tertiary-fixed":"#d7e5e4","outline":"#6e7978","on-error-container":"#93000a","secondary-fixed-dim":"#bac9cf","inverse-surface":"#263238","surface-dim":"#cfdce4","primary-container":"#12827c","secondary-fixed":"#d6e5ec","surface-container-lowest":"#ffffff","on-primary-fixed-variant":"#00504c","tertiary":"#515e5e","on-background":"#111d23","on-error":"#ffffff","error":"#ba1a1a","on-surface-variant":"#3e4948","on-primary":"#ffffff","surface-container-high":"#ddeaf2","on-tertiary":"#ffffff","on-tertiary-fixed":"#111e1d","background":"#f4faff","on-tertiary-fixed-variant":"#3c4949","on-secondary":"#ffffff","inverse-on-surface":"#e6f3fb","primary":"#006763","on-tertiary-container":"#f3fffe","error-container":"#ffdad6","inverse-primary":"#79d6cf","on-secondary-container":"#59676c","primary-fixed-dim":"#79d6cf","on-surface":"#111d23","surface-container-low":"#e9f6fd","secondary-container":"#d6e5ec","on-secondary-fixed":"#101d22","outline-variant":"#bdc9c7","secondary":"#536166","on-primary-container":"#f3fffd"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-xs":"0.25rem","gutter":"0.75rem","space-md":"0.5rem","space-lg":"0.75rem","space-sm":"0.375rem","space-xl":"1rem","margin":"1rem"},fontFamily:{"body-md":["Segoe UI"],"body-sm":["Segoe UI"],"label-md":["Segoe UI"],"body-lg":["Segoe UI"],"headline-sm":["Segoe UI"],"headline-md":["Segoe UI"],"code":["JetBrains Mono"],"headline-lg":["Segoe UI"],"label-sm":["Segoe UI"]},fontSize:{"body-md":["13px",{lineHeight:"18px",fontWeight:"400"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",fontWeight:"600"}],"body-lg":["14px",{lineHeight:"20px",fontWeight:"400"}],"headline-sm":["15px",{lineHeight:"20px",fontWeight:"600"}],"headline-md":["18px",{lineHeight:"24px",fontWeight:"600"}],"code":["12px",{lineHeight:"16px",fontWeight:"400"}],"headline-lg":["22px",{lineHeight:"28px",fontWeight:"600"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.02em",fontWeight:"500"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased select-none"><header class="fixed top-0 left-0 right-0 h-9 bg-surface-container-low z-50 flex items-center justify-between px-space-md select-none border-b border-surface-container-highest"><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs text-primary mr-space-md"><span class="material-symbols-outlined text-[16px]">lock</span><span class="font-label-md text-label-md tracking-tight text-on-surface">PersonalVault 2.0</span></div><div class="flex items-center gap-space-xs px-space-sm py-[2px] rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary" id="hdr-storage-dot"></span><span id="hdr-storage-name">Локальное хранилище</span><span class="text-outline text-[10px]">|</span><span class="font-code text-code text-secondary" id="hdr-storage-path">C:\Vault\PersonalData</span></div></div><div class="flex-1 max-w-xs mx-space-xl"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-2 text-[14px] text-outline pointer-events-none">search</span><input class="w-full h-[24px] pl-6 pr-2 bg-surface text-on-surface font-body-sm text-body-sm rounded border border-surface-container-highest focus:outline-none focus:border-primary placeholder-outline" placeholder="Быстрый поиск (Ctrl+K)..." type="text"/></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs text-secondary text-[14px] mr-space-sm" id="hdr-sync-status"><span class="material-symbols-outlined text-[14px] text-primary" id="hdr-sync-icon">sync_saved_locally</span><span class="font-label-sm text-label-sm text-on-surface-variant" id="hdr-sync-text">Синхронизировано</span></div><div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[14px]">person</span></div><div class="flex items-center ml-space-sm"><button class="w-7 h-6 flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[12px]">minimize</span></button><button class="w-7 h-6 flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[12px]">crop_square</span></button><button class="w-7 h-6 flex items-center justify-center text-on-surface-variant hover:bg-error hover:text-on-error transition-colors"><span class="material-symbols-outlined text-[12px]">close</span></button></div></div></header><aside class="fixed left-0 top-9 bottom-0 w-48 bg-surface-container-low z-40 flex flex-col justify-between border-r border-surface-container-highest"><div class="flex flex-col pt-space-xs overflow-y-auto"><div class="px-space-md py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">ДОКУМЕНТЫ</div><nav class="flex flex-col px-space-xs gap-[1px]"><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" href="#"><span class="">Журнал</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" href="#"><span class="">Входящие</span><span class="px-1.5 py-[1px] rounded bg-primary-container text-on-primary-container font-label-sm text-[10px]">5</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" href="#"><span class="">Черновики</span><span class="px-1.5 py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-[10px]">2</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" href="#"><span class="">Планы</span><span class="px-1.5 py-[1px] rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-[10px]">2</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" href="#"><span class="">Убранные</span></a><div class="my-space-xs mx-space-xs border-t border-surface-container-highest"></div><div class="px-space-md py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">СПРАВОЧНИКИ</div><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" href="#"><span class="">Мои данные</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" href="#"><span class="">Шаблоны</span></a><div class="my-space-xs mx-space-xs border-t border-surface-container-highest"></div><div class="px-space-md py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">СИСТЕМА</div><a aria-current="page" class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT transition-colors bg-surface-container text-primary font-label-md border-l-2 border-primary mb-[1px]" href="#"><span class="">Обслуживание архива</span></a><a class="flex items-center justify-between h-[30px] px-space-sm rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-body-sm text-body-sm transition-colors" href="#"><span class="">Настройки</span></a></nav></div><div class="p-space-xs border-t border-surface-container-highest bg-surface-container-low flex flex-col gap-1 text-[11px] font-code text-secondary"><div class="flex items-center justify-between px-space-xs"><span class="">SQLite:</span><span class="text-on-surface font-medium" id="side-sqlite-ver">3.45.1 WAL</span></div><div class="flex items-center justify-between px-space-xs"><span class="">Схема архива:</span><span class="text-primary font-medium" id="side-vault-rev">v2.4-strict</span></div></div></aside><div class="pl-48"><main class="w-full pt-9 min-h-screen bg-surface"><div class="flex flex-col w-full text-on-surface">
+<!-- State Selector Bar -->
+<div class="w-full bg-surface-container-low px-space-md py-1.5 flex items-center justify-between gap-space-sm select-none border-b border-surface-container-highest">
+<div class="flex items-center gap-space-xs overflow-x-auto text-[11px] font-label-sm" id="state-selector-bar">
+<span class="text-outline uppercase tracking-wider font-code mr-1">Состояние архива:</span>
+<button class="px-2.5 py-1 rounded transition-all font-semibold flex items-center gap-1 shadow-sm bg-primary text-on-primary" id="btn-state-healthy" onclick="switchState('healthy')">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+<span>1. Все исправно</span>
+</button>
+<button class="px-2.5 py-1 rounded transition-all font-medium flex items-center gap-1 bg-surface-container hover:bg-surface-container-high text-on-surface-variant" id="btn-state-warning" onclick="switchState('warning')">
+<span class="material-symbols-outlined text-[13px] text-amber-600">warning</span>
+<span>2. Требует внимания</span>
+<span class="w-4 h-4 rounded-full bg-amber-600 text-white flex items-center justify-center text-[9px] font-bold">2</span>
+</button>
+<button class="px-2.5 py-1 rounded transition-all font-medium flex items-center gap-1 bg-surface-container hover:bg-surface-container-high text-on-surface-variant" id="btn-state-corrupt" onclick="switchState('corrupt')">
+<span class="material-symbols-outlined text-[13px] text-error">dangerous</span>
+<span>3. Сбой БД / Ошибка</span>
+<span class="w-4 h-4 rounded-full bg-error text-white flex items-center justify-center text-[9px] font-bold">1</span>
+</button>
+<button class="px-2.5 py-1 rounded transition-all font-medium flex items-center gap-1 bg-surface-container hover:bg-surface-container-high text-on-surface-variant" id="btn-state-secret_locked" onclick="switchState('secret_locked')">
+<span class="material-symbols-outlined text-[13px]">lock</span>
+<span>4. Secret отключен (UX-032)</span>
+</button>
+<button class="px-2.5 py-1 rounded transition-all font-medium flex items-center gap-1 bg-surface-container hover:bg-surface-container-high text-on-surface-variant" id="btn-state-checking" onclick="switchState('checking')">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping mr-0.5"></span>
+<span>5. Проверяется...</span>
+</button>
+</div>
+<div class="flex items-center gap-space-xs shrink-0 font-code text-[11px] text-secondary">
+<span class="w-2 h-2 rounded-full bg-primary" id="system-indicator-dot"></span>
+<span id="system-status-indicator">Workstation Ready</span>
+</div>
+</div>
+<!-- Header / Breadcrumbs & Top Action Status -->
+<div class="w-full bg-surface-container-lowest px-space-xl py-space-md flex flex-col md:flex-row md:items-center justify-between gap-space-sm border-b border-surface-container-highest">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm mb-0.5">
+<span>Хранилище</span>
+<span>/</span>
+<span class="text-on-surface font-medium">Обслуживание архива (SCR-18)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-primary font-code text-label-sm font-semibold">PV2 · SCR-18</span>
+<h1 class="font-headline-md text-headline-md tracking-tight text-on-surface truncate">Обслуживание архива</h1>
+</div>
+</div>
+<!-- Top Dynamic Status Badges & Button -->
+<div class="flex items-center gap-space-sm shrink-0 flex-wrap" id="header-action-zone">
+<!-- Populated dynamically via JS -->
+</div>
+</div>
+<!-- Critical Warning / In-progress Dynamic Banner Container -->
+<div class="w-full px-space-xl pt-space-md -mb-space-sm hidden" id="status-banner-container">
+<!-- Populated by JS when corrupt, warning, checking, or locked -->
+</div>
+<!-- Navigation Tabs -->
+<div class="w-full bg-surface-container-low px-space-xl border-b border-surface-container-highest flex items-center gap-1">
+<button class="h-9 px-4 border-b-2 border-primary font-label-md text-label-md text-primary font-semibold flex items-center gap-1.5 bg-surface-container-lowest transition-colors" id="nav-btn-overview" onclick="switchTab('overview')">
+<span class="material-symbols-outlined text-[16px]">dashboard</span>
+<span>Обзор</span>
+</button>
+<button class="h-9 px-4 border-b-2 border-transparent font-label-sm text-label-sm text-secondary hover:text-on-surface flex items-center gap-1.5 transition-colors" id="nav-btn-backups" onclick="switchTab('backups')">
+<span class="material-symbols-outlined text-[16px]">backup</span>
+<span>Резервные копии</span>
+<span class="px-1.5 py-[0.5px] rounded bg-surface-container text-secondary font-code text-[10px]" id="tab-backup-badge">3</span>
+</button>
+<button class="h-9 px-4 border-b-2 border-transparent font-label-sm text-label-sm text-secondary hover:text-on-surface flex items-center gap-1.5 transition-colors" id="nav-btn-history" onclick="switchTab('history')">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span>История</span>
+<span class="px-1.5 py-[0.5px] rounded bg-surface-container text-secondary font-code text-[10px]" id="tab-history-badge">6</span>
+</button>
+</div>
+<!-- Dynamic Main View Container -->
+<div class="w-full px-space-xl py-space-md flex flex-col gap-space-lg" id="view-content-root">
+<!-- Replaced smoothly via renderContent() -->
+</div>
+<!-- Bottom Status Bar -->
+<div class="w-full bg-surface-container-lowest px-space-xl py-space-xs flex flex-col md:flex-row items-center justify-between gap-space-sm border-t border-surface-container-highest mt-auto text-[11px] font-code text-secondary">
+<div class="flex items-center gap-space-md" id="footer-status-details">
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary" id="footer-db-dot"></span><span id="footer-db-text">БД: sqlite_master OK</span></span>
+<span id="footer-open-storage">Open storage: D:\Vault\Open (1,838)</span>
+<span id="footer-secret-storage">Secret container: V:\Vault\Secret (4)</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span>PersonalVault 2.0 Maintenance Toolkit</span>
+<span>•</span>
+<span>Сборка 2026.10-R2</span>
+</div>
+</div>
+</div></main></div>
+<script>
+// State Store
+let currentState = 'healthy'; // 'healthy' | 'warning' | 'corrupt' | 'secret_locked' | 'checking'
+let currentTab = 'overview';   // 'overview' | 'backups' | 'history'
+let isDiagnosticsExpanded = false;
+
+// Mock Datasets
+const stateProfiles = {
+  healthy: {
+    name: 'Все исправно',
+    badgeClass: 'bg-emerald-50 border-emerald-600/30 text-emerald-700',
+    badgeIcon: 'verified',
+    badgeText: 'Архив полностью исправен',
+    badgeSub: '0 инцидентов • 100% SHA OK',
+    scopeBadge: 'Все доступные (Open + Secret)',
+    scopeCode: 'Open + Secret (VeraCrypt)',
+    totalDocs: '1,842',
+    openDocs: '1,838',
+    secretDocs: '4',
+    secretDisabled: false,
+    indicators: [
+      { id: 'orig', label: 'Оригиналы', val: '1,842 файла OK', sub: 'Хэши SHA-256 сверены', status: 'ok', icon: 'folder' },
+      { id: 'db', label: 'База данных', val: 'SQLite 3.45.1 WAL OK', sub: 'foreign_keys: 0 нарушений', status: 'ok', icon: 'database' },
+      { id: 'meta', label: 'Метаданные', val: '1,842 манифеста (100%)', sub: 'FTS5 актуален, синхро-ОК', status: 'ok', icon: 'description' },
+      { id: 'bak', label: 'Резервные копии', val: 'Актуальна (24.10 23:00)', sub: 'Disaster Drill пройден', status: 'ok', icon: 'backup' },
+      { id: 'last', label: 'Последняя проверка', val: 'Сегодня, 23:00', sub: 'Длительность: 3 мин 12 сек', status: 'ok', icon: 'schedule' },
+      { id: 'issues', label: 'Проблемы', val: '0 проблем', sub: 'Система стабильна', status: 'ok', icon: 'task_alt' }
+    ],
+    showIncidentList: false,
+    incidents: [],
+    integrityBars: [
+      { label: 'Originals/ SHA-256', pct: 100, color: 'bg-emerald-600' },
+      { label: 'Copies/ Деривативы', pct: 100, color: 'bg-emerald-600' },
+      { label: 'Metadata Manifests', pct: 100, color: 'bg-emerald-600' },
+      { label: 'SQLite PRAGMA check', pct: 100, color: 'bg-emerald-600' },
+      { label: 'FTS5 Полнотекстовый', pct: 100, color: 'bg-emerald-600' },
+      { label: 'VeraCrypt Container', pct: 100, color: 'bg-emerald-600' }
+    ]
+  },
+  warning: {
+    name: 'Требует внимания',
+    badgeClass: 'bg-amber-50 border-amber-600/30 text-amber-700',
+    badgeIcon: 'warning',
+    badgeText: 'Архив в норме (2 предупреждения)',
+    badgeSub: 'Проверено: 24.10.2026, 23:00',
+    scopeBadge: 'Все доступные (Open + Secret)',
+    scopeCode: 'Open + Secret (VeraCrypt)',
+    totalDocs: '1,842',
+    openDocs: '1,838',
+    secretDocs: '4',
+    secretDisabled: false,
+    indicators: [
+      { id: 'orig', label: 'Оригиналы', val: '1,842 файла OK', sub: 'Все SHA-256 совпадают', status: 'ok', icon: 'folder' },
+      { id: 'db', label: 'База данных', val: 'SQLite 3.45.1 WAL OK', sub: 'Целостность таблиц в норме', status: 'ok', icon: 'database' },
+      { id: 'meta', label: 'Метаданные', val: '1 несинхрон. индекс FTS5', sub: 'Документ PV-0941 отстает', status: 'warn', icon: 'description' },
+      { id: 'bak', label: 'Резервные копии', val: 'Бэкап не протестирован', sub: 'Drill не проводился >30 дней', status: 'warn', icon: 'backup' },
+      { id: 'last', label: 'Последняя проверка', val: '24.10.2026, 23:00', sub: 'Завершена с замечаниями', status: 'warn', icon: 'schedule' },
+      { id: 'issues', label: 'Проблемы', val: '2 предупреждения', sub: 'Требуется регламентное действие', status: 'warn', icon: 'rule' }
+    ],
+    showIncidentList: true,
+    incidents: [
+      { id: 'INC-204', code: '#01', title: 'Неполный поисковый индекс SQLite для документа PV-0941', desc: 'Файл: Квитанция_газ.pdf. Полнотекстовый индекс FTS5 не содержит текстового слоя страницы 2.', severity: 'Средняя', action: 'Переиндексировать в фоне', actionCode: 'resync_fts', type: 'warn' },
+      { id: 'INC-205', code: '#02', title: 'Резервная копия не протестирована на восстановление', desc: 'Архив: PV_20261024.bak (4.2 ГБ). Прошло 32 дня с момента последнего тренировочного восстановления.', severity: 'Низкая', action: 'Запустить тест распаковки (Drill)', actionCode: 'run_drill', type: 'warn' }
+    ],
+    integrityBars: [
+      { label: 'Originals/ SHA-256', pct: 100, color: 'bg-emerald-600' },
+      { label: 'Copies/ Деривативы', pct: 100, color: 'bg-emerald-600' },
+      { label: 'Metadata Manifests', pct: 100, color: 'bg-emerald-600' },
+      { label: 'SQLite PRAGMA check', pct: 100, color: 'bg-emerald-600' },
+      { label: 'FTS5 Полнотекстовый', pct: 99.4, color: 'bg-amber-500' },
+      { label: 'VeraCrypt Container', pct: 100, color: 'bg-emerald-600' }
+    ]
+  },
+  corrupt: {
+    name: 'Сбой БД / Ошибка',
+    badgeClass: 'bg-error-container border-error/40 text-on-error-container',
+    badgeIcon: 'dangerous',
+    badgeText: 'Критический сбой: База данных повреждена',
+    badgeSub: 'РЕЖИМ ЗАЩИТЫ: ТОЛЬКО ЧТЕНИЕ',
+    scopeBadge: 'Open + Secret (Режим Read-Only)',
+    scopeCode: 'Open + Secret · Read-Only Locked',
+    totalDocs: '1,842*',
+    openDocs: '1,838*',
+    secretDocs: '4*',
+    secretDisabled: false,
+    indicators: [
+      { id: 'orig', label: 'Оригиналы', val: '1,842 файла (В сохранности)', sub: 'Исходники не затронуты', status: 'ok', icon: 'folder' },
+      { id: 'db', label: 'База данных', val: 'Сбой B-Tree в SQLite 3.45.1', sub: 'Лист page #48299 битый', status: 'error', icon: 'database' },
+      { id: 'meta', label: 'Метаданные', val: 'Блокировка транзакций', sub: 'Запись остановлена', status: 'warn', icon: 'description' },
+      { id: 'bak', label: 'Резервные копии', val: 'Доступна для отката', sub: 'Архив PV_20261024.bak цел', status: 'ok', icon: 'backup' },
+      { id: 'last', label: 'Последняя проверка', val: '24.10.2026, 23:00', sub: 'Зафиксирован сбой PRAGMA', status: 'error', icon: 'schedule' },
+      { id: 'issues', label: 'Проблемы', val: '1 критический сбой', sub: 'Необходим откат / восстановление', status: 'error', icon: 'report' }
+    ],
+    showIncidentList: true,
+    incidents: [
+      { id: 'INC-ERR-01', code: '#ERR', title: 'Нарушение целостности страниц SQLite базы данных ERR_SQLITE_CORRUPT_BTREE', desc: 'PRAGMA integrity_check вернула ошибку: page 48299 is never used or tree corrupted. База переведена ядром PersonalVault в аварийный READ-ONLY.', severity: 'Критическая', action: 'Открыть мастер восстановления из бэкапа', actionCode: 'restore_wizard', type: 'error' }
+    ],
+    integrityBars: [
+      { label: 'Originals/ SHA-256', pct: 100, color: 'bg-emerald-600' },
+      { label: 'Copies/ Деривативы', pct: 100, color: 'bg-emerald-600' },
+      { label: 'Metadata Manifests', pct: 100, color: 'bg-emerald-600' },
+      { label: 'SQLite PRAGMA check', pct: 20, color: 'bg-error' },
+      { label: 'FTS5 Полнотекстовый', pct: 0, color: 'bg-outline-variant' },
+      { label: 'VeraCrypt Container', pct: 100, color: 'bg-emerald-600' }
+    ]
+  },
+  secret_locked: {
+    name: 'Secret отключен (UX-032)',
+    badgeClass: 'bg-surface-container-high border-surface-container-highest text-secondary',
+    badgeIcon: 'lock',
+    badgeText: 'Статистика только по Open',
+    badgeSub: 'Secret заблокирован (UX-032)',
+    scopeBadge: 'Только Open (Скрытое отключено)',
+    scopeCode: 'Open Only · Secret Unmounted',
+    totalDocs: '1,838',
+    openDocs: '1,838',
+    secretDocs: '— (скрыто)',
+    secretDisabled: true,
+    indicators: [
+      { id: 'orig', label: 'Оригиналы', val: '1,838 файлов (Open) OK', sub: 'Только открытый раздел', status: 'ok', icon: 'folder' },
+      { id: 'db', label: 'База данных', val: 'SQLite Open Partition OK', sub: 'foreign_keys OK', status: 'ok', icon: 'database' },
+      { id: 'meta', label: 'Метаданные', val: '1,838 манифестов Open', sub: 'Secret исключен из выборки', status: 'ok', icon: 'description' },
+      { id: 'bak', label: 'Резервные копии', val: 'Бэкап Open актуален', sub: 'Резерв Secret изолирован', status: 'ok', icon: 'backup' },
+      { id: 'last', label: 'Последняя проверка', val: '24.10.2026, 23:00', sub: 'Проверена область Open', status: 'ok', icon: 'schedule' },
+      { id: 'issues', label: 'Проблемы', val: '0 проблем в Open', sub: 'Secret закрыт паролем', status: 'locked', icon: 'lock' }
+    ],
+    showIncidentList: false,
+    incidents: [],
+    integrityBars: [
+      { label: 'Originals (Open) SHA-256', pct: 100, color: 'bg-emerald-600' },
+      { label: 'Copies (Open) Деривативы', pct: 100, color: 'bg-emerald-600' },
+      { label: 'Metadata (Open) Manifests', pct: 100, color: 'bg-emerald-600' },
+      { label: 'SQLite PRAGMA (Open scope)', pct: 100, color: 'bg-emerald-600' },
+      { label: 'FTS5 (Open scope)', pct: 100, color: 'bg-emerald-600' },
+      { label: 'Secret Vault (VeraCrypt)', pct: 0, color: 'bg-outline-variant', labelNote: 'Отключен' }
+    ]
+  },
+  checking: {
+    name: 'Проверяется...',
+    badgeClass: 'bg-primary/10 border-primary/40 text-primary',
+    badgeIcon: 'sync',
+    badgeText: 'Выполняется регламентная проверка...',
+    badgeSub: 'Шаг 3 из 6 • 54% завершено',
+    scopeBadge: 'Все доступные (Open + Secret)',
+    scopeCode: 'Active Verification • Non-blocking',
+    totalDocs: '1,842',
+    openDocs: '1,838',
+    secretDocs: '4',
+    secretDisabled: false,
+    indicators: [
+      { id: 'orig', label: 'Оригиналы', val: '1,024 / 1,842 файлов', sub: 'Вычисление SHA-256 (620 МБ/с)', status: 'checking', icon: 'sync' },
+      { id: 'db', label: 'База данных', val: 'PRAGMA quick_check: OK', sub: 'Ожидание foreign_key check', status: 'checking', icon: 'database' },
+      { id: 'meta', label: 'Метаданные', val: '1,842 манифеста в очереди', sub: 'Сверка хешей заголовков', status: 'checking', icon: 'description' },
+      { id: 'bak', label: 'Резервные копии', val: 'Проверка хэша PV_20261024', sub: 'Чтение контрольных сумм', status: 'checking', icon: 'backup' },
+      { id: 'last', label: 'Текущий запуск', val: 'Идет 1 мин 45 сек', sub: 'Расчетное время: ~1 мин', status: 'checking', icon: 'hourglass_top' },
+      { id: 'issues', label: 'Промежуточно', val: 'Инцидентов пока: 0', sub: 'Проверка продолжается', status: 'checking', icon: 'manage_search' }
+    ],
+    showIncidentList: false,
+    incidents: [],
+    integrityBars: [
+      { label: 'Originals/ SHA-256', pct: 54, color: 'bg-primary animate-pulse' },
+      { label: 'Copies/ Деривативы', pct: 100, color: 'bg-emerald-600' },
+      { label: 'Metadata Manifests', pct: 40, color: 'bg-primary' },
+      { label: 'SQLite PRAGMA check', pct: 100, color: 'bg-emerald-600' },
+      { label: 'FTS5 Полнотекстовый', pct: 0, color: 'bg-surface-container-highest' },
+      { label: 'VeraCrypt Container', pct: 100, color: 'bg-emerald-600' }
+    ]
+  }
+};
+
+const backupSnapshots = [
+  { id: 'BAK-04', filename: 'PV_20261024.bak', date: '24.10.2026, 23:00', size: '4.2 ГБ', scope: 'Open + Secret', type: 'Полный инкремент', status: 'verified', statusLabel: 'Проверен (Drill пройден)', notes: 'SHA256: 9f8a...31c4 • Сжатие Zstandard lvl 3' },
+  { id: 'BAK-03', filename: 'PV_20261021.bak', date: '21.10.2026, 23:00', size: '4.18 ГБ', scope: 'Open + Secret', type: 'Полный инкремент', status: 'verified', statusLabel: 'Архив проверен', notes: 'SHA256: 12d4...fa09 • Хранилище NAS' },
+  { id: 'BAK-02', filename: 'PV_20261018.bak', date: '18.10.2026, 23:00', size: '4.15 ГБ', scope: 'Open + Secret', type: 'Полный снимок', status: 'verified', statusLabel: 'Архив проверен', notes: 'SHA256: b8e1...4021 • Внешний диск' },
+  { id: 'BAK-01', filename: 'PV_20261010_monthly.bak', date: '10.10.2026, 04:00', size: '4.10 ГБ', scope: 'Open + Secret', type: 'Ежемесячный архив', status: 'verified', statusLabel: 'Эталонная копия', notes: 'Холодное хранилище • WORM-реплика' }
+];
+
+const auditHistoryLog = [
+  { id: 'AUD-991', date: '24.10.2026, 23:00', scope: 'Open + Secret', result: 'success', resultText: 'Исправно', duration: '3 мин 12 с', docs: '1,842', details: 'Все 1,842 файла Originals и деривативов валидны. PRAGMA integrity_check: ok.' },
+  { id: 'AUD-990', date: '23.10.2026, 23:00', scope: 'Open + Secret', result: 'success', resultText: 'Исправно', duration: '2 мин 58 с', docs: '1,839', details: 'Регулярная ночная сверка. Расхождений не выявлено.' },
+  { id: 'AUD-989', date: '22.10.2026, 23:00', scope: 'Open + Secret', result: 'warning', resultText: 'Предупреждение', duration: '3 мин 05 с', docs: '1,838', details: 'Временный лаг индексации дериватива PV-0941. Автоматически поставлен в очередь.' },
+  { id: 'AUD-988', date: '21.10.2026, 14:15', scope: 'Open (Ручной запуск)', result: 'success', resultText: 'Исправно', duration: '1 мин 40 с', docs: '1,834', details: 'Выборочная сверка раздела Open перед импортом документов БТИ.' },
+  { id: 'AUD-987', date: '15.10.2026, 23:00', scope: 'Open + Secret', result: 'success', resultText: 'Исправно', duration: '3 мин 20 с', docs: '1,820', details: 'Контрольный аудит после планового обновления движка SQLite до 3.45.1.' },
+  { id: 'AUD-986', date: '01.10.2026, 02:00', scope: 'Open + Secret', result: 'success', resultText: 'Исправно', duration: '4 мин 10 с', docs: '1,805', details: 'Ежемесячный регламент глубокой сверки. Бэкап и drill подтверждены.' }
+];
+
+// Switch State Handler
+function switchState(stateKey) {
+  currentState = stateKey;
+  
+  // Update state selector buttons
+  const buttons = ['healthy', 'warning', 'corrupt', 'secret_locked', 'checking'];
+  buttons.forEach(k => {
+    const btn = document.getElementById(`btn-state-${k}`);
+    if (k === stateKey) {
+      btn.className = 'px-2.5 py-1 rounded transition-all font-semibold flex items-center gap-1 shadow-sm bg-primary text-on-primary';
+    } else {
+      btn.className = 'px-2.5 py-1 rounded transition-all font-medium flex items-center gap-1 bg-surface-container hover:bg-surface-container-high text-on-surface-variant';
+    }
+  });
+
+  renderHeaderZone();
+  renderStatusBanner();
+  renderContent();
+  renderFooter();
+}
+
+// Switch Navigation Tab Handler
+function switchTab(tabKey) {
+  currentTab = tabKey;
+  
+  const tabs = ['overview', 'backups', 'history'];
+  tabs.forEach(t => {
+    const btn = document.getElementById(`nav-btn-${t}`);
+    if (t === tabKey) {
+      btn.className = 'h-9 px-4 border-b-2 border-primary font-label-md text-label-md text-primary font-semibold flex items-center gap-1.5 bg-surface-container-lowest transition-colors';
+    } else {
+      btn.className = 'h-9 px-4 border-b-2 border-transparent font-label-sm text-label-sm text-secondary hover:text-on-surface flex items-center gap-1.5 transition-colors';
+    }
+  });
+
+  renderContent();
+}
+
+// Render Top Action & Status Badges
+function renderHeaderZone() {
+  const profile = stateProfiles[currentState];
+  const container = document.getElementById('header-action-zone');
+  
+  let actionButton = '';
+  if (currentState === 'checking') {
+    actionButton = `
+      <button onclick="switchState('healthy')" class="h-7 px-3 rounded bg-surface-container hover:bg-surface-container-high text-error border border-error/30 font-label-sm text-label-sm transition-all flex items-center gap-1.5 shadow-sm">
+        <span class="material-symbols-outlined text-[14px]">cancel</span>
+        <span>Отменить проверку</span>
+      </button>
+    `;
+  } else if (currentState === 'corrupt') {
+    actionButton = `
+      <button onclick="openRestoreModal()" class="h-7 px-3 rounded bg-error hover:bg-error/90 text-on-error font-label-sm text-label-sm transition-all flex items-center gap-1.5 shadow-sm">
+        <span class="material-symbols-outlined text-[14px]">build</span>
+        <span>Мастер восстановления</span>
+      </button>
+    `;
+  } else if (currentState === 'secret_locked') {
+    actionButton = `
+      <button onclick="promptUnlockSecret()" class="h-7 px-3 rounded bg-primary hover:bg-primary-container text-on-primary font-label-sm text-label-sm transition-all flex items-center gap-1.5 shadow-sm">
+        <span class="material-symbols-outlined text-[14px]">key</span>
+        <span>Подключить том VeraCrypt</span>
+      </button>
+      <button onclick="triggerCheck()" class="h-7 px-2.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm transition-all flex items-center gap-1">
+        <span class="material-symbols-outlined text-[14px]">refresh</span>
+        <span>Проверить Open</span>
+      </button>
+    `;
+  } else {
+    actionButton = `
+      <button onclick="triggerCheck()" class="h-7 px-3 rounded bg-primary hover:bg-primary-container text-on-primary font-label-sm text-label-sm transition-all flex items-center gap-1.5 shadow-sm">
+        <span class="material-symbols-outlined text-[14px]">refresh</span>
+        <span>Запустить проверку (F5)</span>
+      </button>
+    `;
+  }
+
+  container.innerHTML = `
+    <div class="flex items-center gap-1.5 px-2.5 py-1 rounded border font-label-sm text-label-sm ${profile.badgeClass}">
+      <span class="material-symbols-outlined text-[15px]">${profile.badgeIcon}</span>
+      <span>Статус: <strong>${profile.badgeText}</strong></span>
+      <span class="text-outline text-[10px]">|</span>
+      <span class="font-code text-[11px]">${profile.badgeSub}</span>
+    </div>
+    <div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-low border border-surface-container-highest text-on-surface font-label-sm text-label-sm">
+      <span class="w-2 h-2 rounded-full ${currentState === 'secret_locked' ? 'bg-secondary' : 'bg-primary'}"></span>
+      <span>Область: <strong>${profile.scopeBadge}</strong></span>
+    </div>
+    ${actionButton}
+  `;
+}
+
+// Render Optional Top Alert / Progress Banner
+function renderStatusBanner() {
+  const container = document.getElementById('status-banner-container');
+  if (currentState === 'corrupt') {
+    container.className = 'w-full px-space-xl pt-space-md -mb-space-sm block';
+    container.innerHTML = `
+      <div class="p-space-md rounded-lg bg-error-container/80 border border-error/40 text-on-error-container flex flex-col md:flex-row md:items-center justify-between gap-space-sm shadow-sm">
+        <div class="flex items-start gap-2.5">
+          <span class="material-symbols-outlined text-error text-[24px] mt-0.5">error</span>
+          <div>
+            <div class="font-headline-sm text-headline-sm font-bold text-error flex items-center gap-2">
+              Критический сбой: Нарушение целостности страниц SQLite базы данных ERR_SQLITE_CORRUPT_BTREE
+              <span class="px-2 py-0.5 rounded bg-error text-white font-code text-[11px]">READ-ONLY ЗАЩИТА</span>
+            </div>
+            <div class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">
+              Сбой обнаружен на листе page #48299. Запись временно заблокирована для защиты физических файлов и манифестов. Рекомендуется откат на снимок <strong>PV_20261024.bak</strong>.
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <button onclick="toggleDiagnostics(true)" class="h-7 px-2.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-[12px] transition-colors flex items-center gap-1">
+            <span class="material-symbols-outlined text-[14px]">terminal</span>
+            <span>Подробный лог PRAGMA</span>
+          </button>
+          <button onclick="openRestoreModal()" class="h-7 px-3 rounded bg-error hover:bg-error/90 text-on-error font-label-sm text-[12px] font-semibold transition-colors flex items-center gap-1 shadow-sm">
+            <span class="material-symbols-outlined text-[14px]">history</span>
+            <span>Мастер отката из бэкапа</span>
+          </button>
+        </div>
+      </div>
+    `;
+  } else if (currentState === 'checking') {
+    container.className = 'w-full px-space-xl pt-space-md -mb-space-sm block';
+    container.innerHTML = `
+      <div class="p-space-md rounded-lg bg-surface-container-low border border-primary/40 shadow-sm flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-[18px] animate-spin">autorenew</span>
+            <span class="font-label-md text-label-md text-on-surface font-semibold">
+              Выполняется глубокая регламентная проверка архива (Шаг 3 из 6: Верификация контрольных сумм SHA-256)...
+            </span>
+          </div>
+          <div class="font-code text-[11px] text-primary font-semibold">
+            54% (1,024 / 1,842 файлов) • 620 МБ/с
+          </div>
+        </div>
+        <div class="w-full bg-surface-container h-2 rounded overflow-hidden">
+          <div class="bg-primary h-full transition-all duration-300 rounded" style="width: 54%"></div>
+        </div>
+        <div class="flex items-center justify-between text-[11px] font-code text-secondary">
+          <span>Текущий файл: D:\\Vault\\Open\\Originals\\2026-10\\SCAN_ACT_0942_FINAL.pdf</span>
+          <span class="text-on-surface-variant">Все операции архивации временно в очереди</span>
+        </div>
+      </div>
+    `;
+  } else if (currentState === 'secret_locked') {
+    container.className = 'w-full px-space-xl pt-space-md -mb-space-sm block';
+    container.innerHTML = `
+      <div class="p-space-sm px-space-md rounded-lg bg-surface-container-low border border-surface-container-highest text-secondary flex items-center justify-between">
+        <div class="flex items-center gap-2 font-body-sm text-[12px]">
+          <span class="material-symbols-outlined text-[16px] text-secondary">lock</span>
+          <span>Режим соответствия UX-032: Secret-том зашифрован и не смонтирован. Метрики, бэкапы и индексы рассчитываются исключительно для хранилища <strong>Open (1,838 документов)</strong>. Скрытые метаданные не раскрываются.</span>
+        </div>
+        <button onclick="promptUnlockSecret()" class="h-6 px-2.5 rounded bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-[11px] font-semibold transition-colors flex items-center gap-1 shrink-0 ml-2">
+          <span>Смонтировать Secret</span>
+          <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+        </button>
+      </div>
+    `;
+  } else {
+    container.className = 'w-full px-space-xl pt-space-md -mb-space-sm hidden';
+    container.innerHTML = '';
+  }
+}
+
+// Render Footer Information
+function renderFooter() {
+  const profile = stateProfiles[currentState];
+  const dbDot = document.getElementById('footer-db-dot');
+  const dbText = document.getElementById('footer-db-text');
+  const sysDot = document.getElementById('system-indicator-dot');
+  const sysText = document.getElementById('system-status-indicator');
+  const secretElem = document.getElementById('footer-secret-storage');
+  const openElem = document.getElementById('footer-open-storage');
+
+  openElem.textContent = `Open storage: D:\\Vault\\Open (${profile.openDocs})`;
+
+  if (currentState === 'corrupt') {
+    dbDot.className = 'w-1.5 h-1.5 rounded-full bg-error';
+    dbText.textContent = 'БД: ERR_SQLITE_CORRUPT_BTREE (Read-Only)';
+    sysDot.className = 'w-2 h-2 rounded-full bg-error';
+    sysText.textContent = 'Maintenance Emergency';
+    secretElem.textContent = 'Secret: Read-Only Locked';
+  } else if (currentState === 'checking') {
+    dbDot.className = 'w-1.5 h-1.5 rounded-full bg-primary animate-ping';
+    dbText.textContent = 'БД: PRAGMA check in-progress';
+    sysDot.className = 'w-2 h-2 rounded-full bg-primary animate-ping';
+    sysText.textContent = 'Verifying Archive...';
+    secretElem.textContent = `Secret container: V:\\Vault\\Secret (${profile.secretDocs})`;
+  } else if (currentState === 'secret_locked') {
+    dbDot.className = 'w-1.5 h-1.5 rounded-full bg-primary';
+    dbText.textContent = 'БД: sqlite_master OK (Open partitioned)';
+    sysDot.className = 'w-2 h-2 rounded-full bg-secondary';
+    sysText.textContent = 'Secret Container Locked (UX-032)';
+    secretElem.textContent = 'Secret container: Не подключен (VeraCrypt AES-XTS)';
+  } else {
+    dbDot.className = 'w-1.5 h-1.5 rounded-full bg-primary';
+    dbText.textContent = 'БД: sqlite_master OK';
+    sysDot.className = 'w-2 h-2 rounded-full bg-primary';
+    sysText.textContent = 'Workstation Ready';
+    secretElem.textContent = `Secret container: V:\\Vault\\Secret (${profile.secretDocs})`;
+  }
+}
+
+// Primary Content Router
+function renderContent() {
+  const root = document.getElementById('view-content-root');
+  if (currentTab === 'overview') {
+    root.innerHTML = getOverviewHtml();
+  } else if (currentTab === 'backups') {
+    root.innerHTML = getBackupsHtml();
+  } else if (currentTab === 'history') {
+    root.innerHTML = getHistoryHtml();
+  }
+}
+
+// TAB 1: Обзор
+function getOverviewHtml() {
+  const p = stateProfiles[currentState];
+
+  // 6 Indicators HTML
+  const indicatorsHtml = p.indicators.map(ind => {
+    let dotColor = 'bg-emerald-600';
+    let textColor = 'text-on-surface';
+    let borderStyle = 'border-surface-container-highest/60';
+    if (ind.status === 'warn') {
+      dotColor = 'bg-amber-600';
+      textColor = 'text-amber-800';
+      borderStyle = 'border-amber-500/40 bg-amber-50/20';
+    } else if (ind.status === 'error') {
+      dotColor = 'bg-error';
+      textColor = 'text-error';
+      borderStyle = 'border-error/40 bg-error-container/10';
+    } else if (ind.status === 'checking') {
+      dotColor = 'bg-primary animate-ping';
+      textColor = 'text-primary';
+    } else if (ind.status === 'locked') {
+      dotColor = 'bg-secondary';
+      textColor = 'text-secondary';
+    }
+
+    return `
+      <div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm border ${borderStyle} flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between text-secondary mb-1">
+            <span class="font-label-sm text-label-sm text-secondary">${ind.label}</span>
+            <span class="material-symbols-outlined text-[16px] text-outline">${ind.icon}</span>
+          </div>
+          <div class="my-1">
+            <div class="font-headline-sm text-headline-sm font-bold ${textColor} truncate" title="${ind.val}">
+              ${ind.val}
+            </div>
+            <div class="text-[11px] font-body-sm text-secondary truncate mt-0.5">
+              ${ind.sub}
+            </div>
+          </div>
+        </div>
+        <div class="pt-2 mt-2 border-t border-surface-container-highest/60 flex items-center justify-between font-code text-[10px] text-secondary">
+          <span class="inline-flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full ${dotColor}"></span>
+            ${ind.status === 'ok' ? 'Исправно' : ind.status === 'warn' ? 'Внимание' : ind.status === 'error' ? 'Ошибка' : ind.status === 'checking' ? 'Проверка' : 'Недоступно'}
+          </span>
+          <span class="font-medium text-outline">PV2 Engine</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // Incidents or All-clear section
+  let incidentSection = '';
+  if (p.showIncidentList && p.incidents.length > 0) {
+    incidentSection = `
+      <div class="bg-surface-container-lowest rounded-lg shadow-sm border border-surface-container-highest/60 overflow-hidden">
+        <div class="h-9 px-space-md bg-surface-container-low flex items-center justify-between border-b border-surface-container-highest">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[16px] ${currentState === 'corrupt' ? 'text-error' : 'text-amber-600'}">notification_important</span>
+            <span class="font-label-md text-label-md text-on-surface font-semibold">Очередь инцидентов и предупреждений</span>
+            <span class="px-1.5 py-[1px] rounded ${currentState === 'corrupt' ? 'bg-error-container text-on-error-container' : 'bg-amber-100 text-amber-800'} font-code text-[11px] font-bold">
+              ${p.incidents.length} ${p.incidents.length === 1 ? 'инцидент' : 'записи'}
+            </span>
+          </div>
+          <div class="font-code text-[11px] text-secondary">Регламент устранения без риска утери данных</div>
+        </div>
+        <div class="w-full overflow-x-auto">
+          <table class="w-full border-collapse text-left font-body-sm text-body-sm">
+            <thead>
+              <tr class="h-8 bg-surface-container text-secondary font-label-sm text-label-sm uppercase tracking-wider">
+                <th class="px-3 py-1 font-semibold w-12">Код</th>
+                <th class="px-3 py-1 font-semibold">Характер проблемы</th>
+                <th class="px-3 py-1 font-semibold w-28">Важность</th>
+                <th class="px-3 py-1 font-semibold w-72 text-right">Рекомендуемые действия</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-surface-container-highest">
+              ${p.incidents.map(inc => `
+                <tr class="h-10 hover:bg-surface-container-low/60 transition-colors ${inc.type === 'error' ? 'bg-error-container/10' : 'bg-amber-50/10'}">
+                  <td class="px-3 py-1 font-code text-code text-secondary">${inc.code}</td>
+                  <td class="px-3 py-1">
+                    <div class="flex items-center gap-1.5">
+                      <span class="material-symbols-outlined ${inc.type === 'error' ? 'text-error' : 'text-amber-600'} text-[16px] shrink-0">
+                        ${inc.type === 'error' ? 'report' : 'warning'}
+                      </span>
+                      <div>
+                        <div class="text-on-surface font-medium leading-tight">${inc.title}</div>
+                        <div class="text-[10px] text-secondary font-code">${inc.desc}</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-3 py-1">
+                    <span class="px-2 py-0.5 rounded ${inc.type === 'error' ? 'bg-error-container text-on-error-container' : 'bg-amber-100 text-amber-800'} font-label-sm text-[11px] font-semibold">
+                      ${inc.severity}
+                    </span>
+                  </td>
+                  <td class="px-3 py-1 text-right">
+                    <div class="inline-flex items-center gap-1">
+                      <button onclick="toggleDiagnostics(true)" class="h-6 px-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-sm text-[11px] transition-colors flex items-center gap-0.5" title="Диагностический лог">
+                        <span class="material-symbols-outlined text-[13px]">info</span>
+                        <span>Диагностика</span>
+                      </button>
+                      <button onclick="handleIncidentAction('${inc.actionCode}')" class="h-6 px-2 rounded ${inc.type === 'error' ? 'bg-error hover:bg-error/90 text-on-error' : 'bg-primary hover:bg-primary-container text-on-primary'} font-label-sm text-[11px] transition-colors font-medium">
+                        ${inc.action}
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  } else {
+    incidentSection = `
+      <div class="bg-surface-container-lowest rounded-lg p-space-md shadow-sm border border-emerald-500/30 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-700 shrink-0">
+            <span class="material-symbols-outlined text-[20px]">task_alt</span>
+          </div>
+          <div>
+            <div class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+              Активных инцидентов нет. Все компоненты и контрольные суммы подтверждены.
+            </div>
+            <div class="text-[12px] font-body-sm text-secondary">
+              База SQLite не имеет поврежденных страниц. Резервные копии синхронизированы и готовы к аварийному развертыванию.
+            </div>
+          </div>
+        </div>
+        <span class="px-2 py-1 rounded bg-emerald-50 text-emerald-700 font-code text-[11px] font-bold border border-emerald-600/20">
+          HEALTH: 100% OK
+        </span>
+      </div>
+    `;
+  }
+
+  // Visual Bars for Integrity Modules
+  const barsHtml = p.integrityBars.map(bar => `
+    <div>
+      <div class="flex justify-between text-[12px] mb-1">
+        <span class="text-on-surface font-medium">${bar.label}</span>
+        <span class="font-code text-secondary font-semibold">${bar.labelNote ? bar.labelNote : bar.pct + '%'}</span>
+      </div>
+      <div class="w-full bg-surface-container h-2 rounded overflow-hidden">
+        <div class="${bar.color} h-full rounded transition-all duration-300" style="width: ${bar.pct}%"></div>
+      </div>
+    </div>
+  `).join('');
+
+  return `
+    <!-- Top 6 Indicators Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-space-md">
+      ${indicatorsHtml}
+    </div>
+
+    <!-- Active Incident / Health Status Panel -->
+    ${incidentSection}
+
+    <!-- Visual Analytics / Health Bar Details Row -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg items-stretch">
+      <!-- Left: Integrity Checks Breakdown -->
+      <div class="bg-surface-container-lowest rounded-lg p-space-md shadow-sm border border-surface-container-highest/60 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between pb-space-sm border-b border-surface-container-highest">
+            <div class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+              <span class="font-headline-sm text-headline-sm text-on-surface">Контроль модулей архива</span>
+            </div>
+            <span class="font-code text-[11px] text-secondary">6 модулей</span>
+          </div>
+          <div class="flex flex-col gap-2.5 pt-space-md font-body-sm text-body-sm">
+            ${barsHtml}
+          </div>
+        </div>
+        <div class="pt-3 mt-3 border-t border-surface-container-highest flex items-center justify-between text-[11px] text-secondary font-code">
+          <span>Регулярный регламент проверки</span>
+          <span class="text-primary font-semibold">24.10.2026, 23:00</span>
+        </div>
+      </div>
+
+      <!-- Middle: Storage Metrics (UX-032 compliant) -->
+      <div class="bg-surface-container-lowest rounded-lg p-space-md shadow-sm border border-surface-container-highest/60 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between pb-space-sm border-b border-surface-container-highest">
+            <div class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px] text-primary">pie_chart</span>
+              <span class="font-headline-sm text-headline-sm text-on-surface">Состав документов архива</span>
+            </div>
+            <span class="font-code text-[11px] text-secondary">${p.totalDocs} учтено</span>
+          </div>
+          <div class="flex flex-col gap-2.5 pt-space-md">
+            <div class="p-2.5 rounded bg-surface-container-low border border-surface-container-highest/60 flex items-center justify-between">
+              <div>
+                <div class="font-label-md text-label-md text-on-surface">Открытое хранилище (Open)</div>
+                <div class="text-[11px] font-code text-secondary">D:\\Vault\\Open\\ • Свободно 140 ГБ</div>
+              </div>
+              <div class="text-right">
+                <div class="font-headline-sm text-headline-sm font-bold text-primary">${p.openDocs}</div>
+                <div class="text-[10px] text-secondary font-code">документов</div>
+              </div>
+            </div>
+
+            <div class="p-2.5 rounded ${p.secretDisabled ? 'bg-surface-container/60 border border-dashed border-outline-variant text-secondary' : 'bg-surface-container-low border border-surface-container-highest/60'} flex items-center justify-between">
+              <div>
+                <div class="font-label-md text-label-md flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[15px] ${p.secretDisabled ? 'text-outline' : 'text-primary'}">lock</span>
+                  <span>Защищенный том (Secret)</span>
+                  ${p.secretDisabled ? '<span class="px-1.5 py-[0.5px] rounded bg-surface-container-highest text-secondary text-[10px] font-code">Заблокирован</span>' : ''}
+                </div>
+                <div class="text-[11px] font-code text-secondary">
+                  ${p.secretDisabled ? 'VeraCrypt AES-XTS (Том отключен)' : 'V:\\Vault\\Secret\\ (Монтирован)'}
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="font-headline-sm text-headline-sm font-bold ${p.secretDisabled ? 'text-secondary' : 'text-on-surface'}">${p.secretDocs}</div>
+                <div class="text-[10px] text-secondary font-code">${p.secretDisabled ? 'скрыто' : 'документов'}</div>
+              </div>
+            </div>
+
+            <div class="text-[11px] text-secondary font-body-sm leading-relaxed">
+              ${p.secretDisabled 
+                ? '<strong>UX-032 правило конфиденциальности:</strong> Никакие названия, размеры или метаданные заблокированного тома не отражаются в выборках и открытых логах.' 
+                : 'Контрольные суммы документов обоих томов хранятся в изолированных манифестах для предотвращения взаимной утечки.'}
+            </div>
+          </div>
+        </div>
+        <div class="pt-3 mt-3 border-t border-surface-container-highest flex items-center justify-between text-[11px] text-secondary font-code">
+          <span>Сверка метаданных</span>
+          <span class="text-emerald-700 font-semibold">Синхронизировано</span>
+        </div>
+      </div>
+
+      <!-- Right: Operational Actions & Snapshot Summary -->
+      <div class="bg-surface-container-lowest rounded-lg p-space-md shadow-sm border border-surface-container-highest/60 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between pb-space-sm border-b border-surface-container-highest">
+            <div class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px] text-primary">security_update_good</span>
+              <span class="font-headline-sm text-headline-sm text-on-surface">Резервная защита и Drill</span>
+            </div>
+            <span class="px-1.5 py-[1px] rounded bg-primary/10 text-primary font-code text-[10px] font-semibold">Zstandard</span>
+          </div>
+          <div class="flex flex-col gap-2 pt-space-md font-body-sm text-[12px]">
+            <div class="p-2 rounded bg-surface-container-low flex justify-between items-center">
+              <span class="text-secondary">Последний снимок:</span>
+              <span class="font-code font-semibold text-on-surface">PV_20261024.bak (4.2 ГБ)</span>
+            </div>
+            <div class="p-2 rounded bg-surface-container-low flex justify-between items-center">
+              <span class="text-secondary">Тест распаковки (Drill):</span>
+              <span class="font-code font-semibold ${currentState === 'warning' ? 'text-amber-700' : 'text-emerald-700'} flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full ${currentState === 'warning' ? 'bg-amber-600' : 'bg-emerald-600'}"></span>
+                ${currentState === 'warning' ? 'Требует обновления' : 'Пройден успешно'}
+              </span>
+            </div>
+            <div class="p-2 rounded bg-surface-container-low flex justify-between items-center">
+              <span class="text-secondary">Целевой диск D:\\Backups:</span>
+              <span class="font-code text-emerald-700 font-semibold">280 ГБ свободно</span>
+            </div>
+          </div>
+        </div>
+        <div class="pt-3 mt-3 border-t border-surface-container-highest flex flex-col gap-2">
+          <div class="flex items-center gap-2">
+            <button onclick="switchTab('backups')" class="flex-1 h-7 rounded bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm transition-colors flex items-center justify-center gap-1 font-semibold">
+              <span class="material-symbols-outlined text-[14px]">backup</span>
+              <span>Реестр копий архива</span>
+            </button>
+            <button onclick="switchTab('history')" class="h-7 px-3 rounded bg-surface-container hover:bg-surface-container-high text-secondary hover:text-on-surface font-label-sm text-label-sm transition-colors flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">history</span>
+              <span>Аудит</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collapsible Diagnostics Console -->
+    ${getDiagnosticsCollapsibleHtml()}
+  `;
+}
+
+// TAB 2: Резервные копии
+function getBackupsHtml() {
+  const profile = stateProfiles[currentState];
+
+  return `
+    <div class="flex flex-col gap-space-lg">
+      <!-- Backup Status Overview Banner -->
+      <div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm border border-surface-container-highest/60 flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded bg-primary/10 flex items-center justify-center text-primary shrink-0">
+            <span class="material-symbols-outlined text-[24px]">cloud_sync</span>
+          </div>
+          <div>
+            <div class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center gap-2">
+              Каталог резервных копий PersonalVault
+              <span class="px-2 py-0.5 rounded bg-surface-container text-primary font-code text-[11px]">Автоматически каждые 24ч</span>
+            </div>
+            <div class="text-[12px] font-body-sm text-secondary">
+              Хранилище: <code class="font-code text-on-surface">D:\\Backups\\</code> (280 ГБ свободно) • Формат сжатия: Zstandard (lvl 3) с встроенным хэшем SHA-256
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <button onclick="triggerCreateBackup()" class="h-8 px-3 rounded bg-primary hover:bg-primary-container text-on-primary font-label-sm text-label-sm transition-all flex items-center gap-1.5 shadow-sm">
+            <span class="material-symbols-outlined text-[15px]">save</span>
+            <span>Создать резервную копию</span>
+          </button>
+          <button onclick="triggerDrill()" class="h-8 px-3 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[15px] text-primary">play_lesson</span>
+            <span>Тест распаковки (Drill)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Disaster Recovery Drills Info Box -->
+      <div class="p-space-md rounded-lg bg-surface-container-low border border-surface-container-highest flex flex-col md:flex-row md:items-center justify-between gap-2">
+        <div class="flex items-center gap-2.5 font-body-sm text-[12px]">
+          <span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+          <span>
+            <strong>Тренировочное восстановление (Disaster Recovery Drill):</strong> периодическая тестовая распаковка архива во временную песочницу без модификации основной рабочей базы. Подтверждает гарантированную читаемость снапшотов.
+          </span>
+        </div>
+        <div class="font-code text-[11px] text-secondary shrink-0">
+          Последний drill: <strong class="text-on-surface">24.10.2026, 23:05 (OK)</strong>
+        </div>
+      </div>
+
+      <!-- Backup Snapshots Table -->
+      <div class="bg-surface-container-lowest rounded-lg shadow-sm border border-surface-container-highest/60 overflow-hidden">
+        <div class="h-9 px-space-md bg-surface-container-low flex items-center justify-between border-b border-surface-container-highest">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[16px] text-primary">inventory_2</span>
+            <span class="font-label-md text-label-md text-on-surface font-semibold">Список доступных снимков (Snapshots)</span>
+            <span class="px-1.5 py-[1px] rounded bg-surface-container text-secondary font-code text-[11px]">Всего: 4</span>
+          </div>
+          <div class="font-code text-[11px] text-secondary">SHA-256 проверен при создании</div>
+        </div>
+        <div class="w-full overflow-x-auto">
+          <table class="w-full border-collapse text-left font-body-sm text-body-sm">
+            <thead>
+              <tr class="h-8 bg-surface-container text-secondary font-label-sm text-label-sm uppercase tracking-wider">
+                <th class="px-3 py-1 font-semibold w-12">Код</th>
+                <th class="px-3 py-1 font-semibold">Файл архива</th>
+                <th class="px-3 py-1 font-semibold w-36">Дата создания</th>
+                <th class="px-3 py-1 font-semibold w-24">Размер</th>
+                <th class="px-3 py-1 font-semibold w-32">Область</th>
+                <th class="px-3 py-1 font-semibold w-36">Статус Drill</th>
+                <th class="px-3 py-1 font-semibold w-64 text-right">Действия</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-surface-container-highest">
+              ${backupSnapshots.map((bak, idx) => `
+                <tr class="h-11 hover:bg-surface-container-low/60 transition-colors ${idx === 0 && currentState === 'corrupt' ? 'bg-amber-50/20' : ''}">
+                  <td class="px-3 py-1 font-code text-secondary text-code">${bak.id}</td>
+                  <td class="px-3 py-1">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-primary text-[18px]">archive</span>
+                      <div>
+                        <div class="font-code text-on-surface font-semibold leading-tight">${bak.filename}</div>
+                        <div class="text-[10px] text-secondary font-code">${bak.notes}</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-3 py-1 font-code text-secondary text-[12px]">${bak.date}</td>
+                  <td class="px-3 py-1 font-code text-on-surface text-[12px] font-medium">${bak.size}</td>
+                  <td class="px-3 py-1">
+                    <span class="px-1.5 py-0.5 rounded bg-surface-container text-secondary font-code text-[11px]">${bak.scope}</span>
+                  </td>
+                  <td class="px-3 py-1">
+                    <span class="inline-flex items-center gap-1 font-code text-[11px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-600/20">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                      ${bak.statusLabel}
+                    </span>
+                  </td>
+                  <td class="px-3 py-1 text-right">
+                    <div class="inline-flex items-center gap-1">
+                      <button onclick="testArchive('${bak.filename}')" class="h-6 px-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-sm text-[11px] transition-colors flex items-center gap-0.5" title="Проверить целостность файла архива">
+                        <span class="material-symbols-outlined text-[13px]">task_alt</span>
+                        <span>Тест</span>
+                      </button>
+                      <button onclick="openRestoreConfirmation('${bak.filename}', '${bak.date}')" class="h-6 px-2 rounded ${currentState === 'corrupt' ? 'bg-error text-white hover:bg-error/90' : 'bg-primary hover:bg-primary-container text-on-primary'} font-label-sm text-[11px] transition-colors font-medium flex items-center gap-0.5">
+                        <span class="material-symbols-outlined text-[13px]">restore</span>
+                        <span>Восстановить</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Safe Restore Safety Policy Note -->
+      <div class="p-space-md rounded-lg bg-surface-container-lowest border border-surface-container-highest/60 flex items-start gap-3">
+        <span class="material-symbols-outlined text-[20px] text-primary shrink-0 mt-0.5">shield</span>
+        <div class="font-body-sm text-[12px] text-secondary space-y-1">
+          <div class="font-label-md text-label-md text-on-surface">Политика безопасного восстановления архива (Safe Recovery Protocol):</div>
+          <p>При запуске восстановления ядро PersonalVault создает пре-снапшот текущей базы (shadow copy), проверяет контрольные суммы целевого архива, отключает фоновые воркеры и производит накат страниц только после валидации PRAGMA. Прямой деструктивный перезапуск невозможен без явного подтверждения.</p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// TAB 3: История
+function getHistoryHtml() {
+  return `
+    <div class="flex flex-col gap-space-lg">
+      <!-- History Top Filter Header -->
+      <div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm border border-surface-container-highest/60 flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded bg-primary/10 flex items-center justify-center text-primary shrink-0">
+            <span class="material-symbols-outlined text-[24px]">history_edu</span>
+          </div>
+          <div>
+            <div class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+              Журнал регламентных проверок и аудита архива
+            </div>
+            <div class="text-[12px] font-body-sm text-secondary">
+              Непрерывная история сверки хэшей SHA-256, проверок целостности PRAGMA и индексов SQLite
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 flex-wrap">
+          <div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded text-[11px] font-label-sm text-secondary">
+            <span>Фильтр:</span>
+            <button class="px-1.5 py-0.5 rounded bg-surface-container-lowest text-on-surface font-semibold">Все (6)</button>
+            <button class="px-1.5 py-0.5 rounded hover:bg-surface-container-high transition-colors">С замечаниями (1)</button>
+          </div>
+          <button onclick="exportAuditLog()" class="h-7 px-2.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-[11px] transition-colors flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px]">file_download</span>
+            <span>Экспорт JSON</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- History Table -->
+      <div class="bg-surface-container-lowest rounded-lg shadow-sm border border-surface-container-highest/60 overflow-hidden">
+        <div class="h-9 px-space-md bg-surface-container-low flex items-center justify-between border-b border-surface-container-highest">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[16px] text-primary">event_note</span>
+            <span class="font-label-md text-label-md text-on-surface font-semibold">Реестр сессий обслуживания</span>
+          </div>
+          <div class="font-code text-[11px] text-secondary">Хранение логов: 365 дней</div>
+        </div>
+        <div class="w-full overflow-x-auto">
+          <table class="w-full border-collapse text-left font-body-sm text-body-sm">
+            <thead>
+              <tr class="h-8 bg-surface-container text-secondary font-label-sm text-label-sm uppercase tracking-wider">
+                <th class="px-3 py-1 font-semibold w-16">ID</th>
+                <th class="px-3 py-1 font-semibold w-36">Дата и время</th>
+                <th class="px-3 py-1 font-semibold w-36">Область аудита</th>
+                <th class="px-3 py-1 font-semibold w-28">Результат</th>
+                <th class="px-3 py-1 font-semibold w-28">Время</th>
+                <th class="px-3 py-1 font-semibold w-24">Документов</th>
+                <th class="px-3 py-1 font-semibold">Результаты и диагностика</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-surface-container-highest">
+              ${auditHistoryLog.map(item => {
+                let badgeClass = 'bg-emerald-50 text-emerald-700 border-emerald-600/20';
+                let dotClass = 'bg-emerald-600';
+                if (item.result === 'warning') {
+                  badgeClass = 'bg-amber-50 text-amber-700 border-amber-600/20';
+                  dotClass = 'bg-amber-600';
+                } else if (item.result === 'error') {
+                  badgeClass = 'bg-error-container text-on-error-container border-error/30';
+                  dotClass = 'bg-error';
+                }
+
+                return `
+                  <tr class="h-10 hover:bg-surface-container-low/60 transition-colors">
+                    <td class="px-3 py-1 font-code text-code text-secondary">${item.id}</td>
+                    <td class="px-3 py-1 font-code text-[12px] text-on-surface">${item.date}</td>
+                    <td class="px-3 py-1 font-code text-[11px] text-secondary">${item.scope}</td>
+                    <td class="px-3 py-1">
+                      <span class="inline-flex items-center gap-1 font-code text-[11px] px-2 py-0.5 rounded border ${badgeClass}">
+                        <span class="w-1.5 h-1.5 rounded-full ${dotClass}"></span>
+                        ${item.resultText}
+                      </span>
+                    </td>
+                    <td class="px-3 py-1 font-code text-[11px] text-secondary">${item.duration}</td>
+                    <td class="px-3 py-1 font-code text-[12px] font-medium text-on-surface">${item.docs}</td>
+                    <td class="px-3 py-1 font-body-sm text-[12px] text-secondary truncate max-w-md" title="${item.details}">
+                      ${item.details}
+                    </td>
+                  </tr>
+                `;
+              }).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// Collapsible Diagnostics Console Component
+function getDiagnosticsCollapsibleHtml() {
+  const p = stateProfiles[currentState];
+  const chevron = isDiagnosticsExpanded ? 'expand_less' : 'expand_more';
+  const displayClass = isDiagnosticsExpanded ? 'block' : 'hidden';
+
+  let logSnippet = '';
+  if (currentState === 'corrupt') {
+    logSnippet = `[2026-10-24 23:00:01.402] [FATAL] SQLite PRAGMA integrity_check;
+*** in database "main" ***
+Page 48299: free space corruption or B-Tree node malformed
+Rowid 1928: out of order in index "idx_docs_updated_at"
+Error code: SQLITE_CORRUPT (11)
+[2026-10-24 23:00:01.450] [SECURITY] Guard activated. Storage forced into READ-ONLY mode.
+[2026-10-24 23:00:01.460] [INFO] Manifests in /Metadata/ are verified and intact via SHA-256.
+[2026-10-24 23:00:01.462] [INFO] Recommend restoring from snapshot PV_20261024.bak.`;
+  } else if (currentState === 'warning') {
+    logSnippet = `[2026-10-24 23:00:01.100] [INFO] SHA-256 verified for 1,842 files in Originals/
+[2026-10-24 23:00:02.320] [INFO] PRAGMA foreign_key_check -> OK (0 violations)
+[2026-10-24 23:00:02.410] [WARN] FTS5 docid 941 (PV-0941) tokens out of sync with raw text payload.
+[2026-10-24 23:00:02.412] [WARN] Action required: execute background re-index on PV-0941.
+[2026-10-24 23:00:03.110] [INFO] Backup verification: PV_20261024.bak hash matches, drill pending.`;
+  } else if (currentState === 'secret_locked') {
+    logSnippet = `[2026-10-24 23:00:01.010] [UX-032] Partition filter applied: SCOPE = 'OPEN_ONLY'
+[2026-10-24 23:00:01.150] [INFO] Open Originals: 1,838 files verified via SHA-256
+[2026-10-24 23:00:01.890] [INFO] SQLite PRAGMA quick_check; -> OK
+[2026-10-24 23:00:01.900] [INFO] Secret volume is UNMOUNTED. Zero data queried or exposed.`;
+  } else if (currentState === 'checking') {
+    logSnippet = `[2026-10-24 23:01:45.012] [RUNNING] Deep integrity audit in-progress...
+[2026-10-24 23:01:45.020] [HASHING] Reading Originals (chunk 1024 of 1842)... Speed: 620 MB/s
+[2026-10-24 23:01:45.030] [DB] PRAGMA quick_check: ok
+[2026-10-24 23:01:45.040] [QUEUE] Waiting for FTS5 fulltext scanner...`;
+  } else {
+    logSnippet = `[2026-10-24 23:00:01.002] [INFO] Starting scheduled integrity scan...
+[2026-10-24 23:00:01.450] [OK] Originals/ 1,842 files validated. All SHA-256 match catalog.
+[2026-10-24 23:00:02.120] [OK] SQLite PRAGMA integrity_check returned "ok".
+[2026-10-24 23:00:02.800] [OK] PRAGMA foreign_key_check returned 0 rows.
+[2026-10-24 23:00:03.010] [OK] 1,842 manifests match database state.
+[2026-10-24 23:00:03.120] [OK] Completed in 3 min 12 sec. Health: 100%.`;
+  }
+
+  return `
+    <div class="bg-surface-container-lowest rounded-lg shadow-sm border border-surface-container-highest/60 overflow-hidden">
+      <button onclick="toggleDiagnostics()" class="w-full h-9 px-space-md bg-surface-container-low flex items-center justify-between hover:bg-surface-container transition-colors text-left">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[16px] text-primary">terminal</span>
+          <span class="font-label-md text-label-md text-on-surface font-semibold">Технический диагностический журнал (PRAGMA, SHA-256, Storage paths)</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="font-code text-[11px] text-secondary">Диагностика PersonalVault</span>
+          <span class="material-symbols-outlined text-[18px] text-secondary">${chevron}</span>
+        </div>
+      </button>
+      <div id="diagnostics-panel-body" class="${displayClass} p-space-md border-t border-surface-container-highest bg-[#121d23] text-surface">
+        <div class="flex items-center justify-between pb-2 mb-2 border-b border-surface-variant/20 font-code text-[11px] text-slate-400">
+          <div class="flex items-center gap-3">
+            <span>Каталог базы: <code class="text-primary-fixed">C:\\Vault\\PersonalData\\metadata.db</code></span>
+            <span>Движок: <code class="text-primary-fixed">SQLite 3.45.1 WAL</code></span>
+          </div>
+          <button onclick="copyDiagnosticsLog()" class="hover:text-white transition-colors flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px]">content_copy</span>
+            <span>Копировать лог</span>
+          </button>
+        </div>
+        <pre class="font-code text-[11px] leading-relaxed text-slate-200 overflow-x-auto whitespace-pre-wrap select-text">${logSnippet}</pre>
+      </div>
+    </div>
+  `;
+}
+
+// User Actions
+function toggleDiagnostics(forceOpen = false) {
+  if (forceOpen) {
+    isDiagnosticsExpanded = true;
+  } else {
+    isDiagnosticsExpanded = !isDiagnosticsExpanded;
+  }
+  renderContent();
+}
+
+function copyDiagnosticsLog() {
+  alert('Диагностический лог скопирован в буфер обмена.');
+}
+
+function triggerCheck() {
+  switchState('checking');
+  setTimeout(() => {
+    switchState('healthy');
+  }, 4000);
+}
+
+function handleIncidentAction(actionCode) {
+  if (actionCode === 'resync_fts') {
+    alert('Запущена фоновая реиндексация FTS5 для документа PV-0941. Задача завершена успешно!');
+    switchState('healthy');
+  } else if (actionCode === 'run_drill') {
+    triggerDrill();
+  } else if (actionCode === 'restore_wizard') {
+    openRestoreModal();
+  }
+}
+
+function triggerDrill() {
+  alert('Запущен тренировочный тест распаковки (Disaster Recovery Drill) в изолированную песочницу...\nТест успешно пройден: 1,842 файла проверены, SHA-256 совпадает на 100%.');
+  if (currentState === 'warning') {
+    switchState('healthy');
+  }
+}
+
+function triggerCreateBackup() {
+  alert('Создание инкрементного снимка архива...\nСнимок PV_20261025.bak успешно создан в D:\\Backups\\ (4.21 ГБ, Zstandard lvl 3).');
+}
+
+function testArchive(filename) {
+  alert(`Проверка контрольной суммы архива ${filename}...\nХэш SHA-256 валиден, архив не поврежден.`);
+}
+
+function openRestoreConfirmation(filename, date) {
+  const confirmed = confirm(`ВНИМАНИЕ: Запустить мастер безопасного отката архива на снимок:\n\n${filename} от ${date}?\n\nПеред откатом будет автоматически создана резервная копия текущего состояния.`);
+  if (confirmed) {
+    alert('Откат выполнен успешно. База данных SQLite восстановлена до стабильного снимка.');
+    switchState('healthy');
+  }
+}
+
+function openRestoreModal() {
+  openRestoreConfirmation('PV_20261024.bak', '24.10.2026, 23:00');
+}
+
+function promptUnlockSecret() {
+  const pwd = prompt('Введите пароль или ключевой файл для контейнера VeraCrypt (V:\\Vault\\Secret):');
+  if (pwd) {
+    alert('Том VeraCrypt успешно смонтирован. Защищенные документы (4 шт.) подключены.');
+    switchState('healthy');
+  }
+}
+
+function exportAuditLog() {
+  alert('Журнал аудита экспортирован в файл PersonalVault_Audit_20261024.json.');
+}
+
+// Initial Bootstrap
+document.addEventListener('DOMContentLoaded', () => {
+  renderHeaderZone();
+  renderStatusBanner();
+  renderContent();
+  renderFooter();
+});
+</script>
+</body></html>

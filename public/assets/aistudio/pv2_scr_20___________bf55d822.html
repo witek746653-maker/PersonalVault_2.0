@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="shell-type" content="web_dashboard">
+  <title>PV2 · Помощник (AI Assistant Interactive)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'surface': '#f4faff',
+            'surface-dim': '#cfdce4',
+            'surface-bright': '#f4faff',
+            'surface-container-lowest': '#ffffff',
+            'surface-container-low': '#e9f6fd',
+            'surface-container': '#e3f0f8',
+            'surface-container-high': '#ddeaf2',
+            'surface-container-highest': '#d7e4ec',
+            'on-surface': '#111d23',
+            'on-surface-variant': '#3e4948',
+            'inverse-surface': '#263238',
+            'outline': '#6e7978',
+            'outline-variant': '#bdc9c7',
+            'primary': '#006763',
+            'on-primary': '#ffffff',
+            'primary-container': '#12827c',
+            'secondary': '#536166',
+            'secondary-container': '#d6e5ec',
+            'on-secondary-container': '#59676c',
+            'error': '#ba1a1a',
+            'error-container': '#ffdad6',
+            'on-error-container': '#93000a',
+            'brand-teal': '#298f89',
+            'brand-teal-light': '#e6f4f3',
+            'brand-teal-dark': '#237a75'
+          },
+          fontFamily: {
+            sans: ['Segoe UI', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @layer base {
+      html, body {
+        height: 100%;
+        overflow: hidden;
+        user-select: none;
+      }
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f4faff;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #bdc9c7;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #6e7978;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+    }
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-sans flex flex-col h-screen text-[13px] antialiased">
+
+  <!-- TOP TITLEBAR & APP STRIP (36px) -->
+  <header class="h-9 bg-surface-container-high border-b border-[#DCE3E5] flex items-center justify-between px-3 shrink-0 z-50">
+    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-1.5 text-primary">
+        <span class="material-symbols-outlined text-[16px] text-brand-teal fill-1">lock</span>
+        <span class="font-semibold text-[13px] text-on-surface tracking-tight">PersonalVault 2.0</span>
+        <span class="text-outline text-[12px]">•</span>
+        <span class="text-on-surface-variant text-[12px]">Локальный архив</span>
+      </div>
+      <div class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-on-secondary-container text-[11px] font-medium border border-outline-variant/40">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+        <span>ONLINE</span>
+      </div>
+    </div>
+
+    <!-- Quick Global Search -->
+    <div class="relative w-80 max-w-sm">
+      <span class="material-symbols-outlined absolute left-2 top-1 text-[16px] text-outline">search</span>
+      <input type="text" placeholder="Быстрый поиск (Ctrl+K)..." class="w-full h-[24px] pl-7 pr-2 text-[12px] bg-surface-container-lowest border border-[#DCE3E5] rounded focus:outline-none focus:border-brand-teal text-on-surface placeholder:text-outline" />
+    </div>
+
+    <!-- Window Controls & User Profile -->
+    <div class="flex items-center gap-2">
+      <div class="w-6 h-6 rounded-full bg-brand-teal text-white flex items-center justify-center text-[12px] font-medium">
+        <span class="material-symbols-outlined text-[16px]">person</span>
+      </div>
+      <div class="flex items-center ml-1 text-on-surface-variant">
+        <button class="w-6 h-6 flex items-center justify-center hover:bg-surface-container-highest rounded"><span class="material-symbols-outlined text-[14px]">remove</span></button>
+        <button class="w-6 h-6 flex items-center justify-center hover:bg-surface-container-highest rounded"><span class="material-symbols-outlined text-[14px]">crop_square</span></button>
+        <button class="w-6 h-6 flex items-center justify-center hover:bg-red-500 hover:text-white rounded"><span class="material-symbols-outlined text-[14px]">close</span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- SUBHEADER: DEMO STATE SELECTOR (Design Review Bar) -->
+  <div class="h-8 bg-surface-container-low border-b border-[#DCE3E5] px-3 flex items-center justify-between shrink-0 text-[12px] z-40">
+    <div class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-[16px] text-brand-teal">science</span>
+      <span class="font-semibold text-brand-teal uppercase tracking-wider text-[11px]">Демо-состояние (13):</span>
+      <select id="demoStateSelector" onchange="setDemoState(this.value)" class="h-6 px-2 text-[12px] bg-surface-container-lowest border border-brand-teal/50 rounded font-medium text-on-surface focus:outline-none focus:ring-1 focus:ring-brand-teal cursor-pointer">
+        <option value="01">01 — Главная (Новый диалог, пустое состояние)</option>
+        <option value="02">02 — Документ выбран (Готов к отправке)</option>
+        <option value="03">03 — Обработка документа (ИИ анализирует файлы)</option>
+        <option value="04" selected>04 — Черновик готов (Сводка в инспекторе)</option>
+        <option value="05">05 — Проверка полей (Сверка цитат со сканом)</option>
+        <option value="06">06 — Требуется решение (Неоднозначные данные)</option>
+        <option value="07">07 — Пакетная очередь (5 файлов в обработке)</option>
+        <option value="08">08 — Агентная задача (Многошаговый план поиска/сверки)</option>
+        <option value="09">09 — Подтверждение изменений (Было/Станет перед сохранением)</option>
+        <option value="10">10 — Результат (Документ зафиксирован в архиве)</option>
+        <option value="11">11 — Ошибка и восстановление (Сбой OCR, безопасный повтор)</option>
+        <option value="12">12 — История бесед (Раскрыт ящик диалогов)</option>
+        <option value="13">13 — Подключение модели (Локальная Ollama / OpenAI API)</option>
+      </select>
+    </div>
+
+    <!-- Active State Pill Indicator -->
+    <div class="flex items-center gap-2">
+      <span id="stateBadge" class="px-2 py-0.5 rounded text-[11px] font-mono bg-brand-teal-light text-brand-teal border border-brand-teal/30 font-medium">STATE 04: DRAFT_READY</span>
+      <button onclick="resetToDefaultState()" class="text-[11px] text-outline hover:text-brand-teal underline cursor-pointer">Сброс</button>
+    </div>
+  </div>
+
+  <!-- MAIN APPLICATION BODY -->
+  <div class="flex flex-1 overflow-hidden relative">
+
+    <!-- 1. LEFT SIDEBAR (PersonalVault Application Navigation) -->
+    <aside id="mainSidebar" class="w-52 bg-surface-container-low border-r border-[#DCE3E5] flex flex-col justify-between shrink-0 transition-all duration-200 select-none z-30">
+      <div class="overflow-y-auto p-2">
+        <!-- Section: ДОКУМЕНТЫ -->
+        <div class="px-2 py-1 text-[11px] font-semibold text-outline uppercase tracking-wider">Документы</div>
+        <nav class="space-y-0.5 mb-3">
+          <a href="#" class="flex items-center justify-between px-2.5 py-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[16px] text-outline">history_edu</span>
+              <span>Журнал</span>
+            </div>
+          </a>
+          <a href="#" class="flex items-center justify-between px-2.5 py-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[16px] text-outline">inbox</span>
+              <span>Входящие</span>
+            </div>
+            <span class="px-1.5 py-0.2 rounded-full text-[10px] bg-secondary-container text-on-secondary-container font-mono">5</span>
+          </a>
+          <a href="#" class="flex items-center justify-between px-2.5 py-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[16px] text-outline">edit_note</span>
+              <span>Черновики</span>
+            </div>
+            <span class="px-1.5 py-0.2 rounded-full text-[10px] bg-secondary-container text-on-secondary-container font-mono">2</span>
+          </a>
+          <a href="#" class="flex items-center justify-between px-2.5 py-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[16px] text-outline">event_upcoming</span>
+              <span>Планы</span>
+            </div>
+            <span class="px-1.5 py-0.2 rounded-full text-[10px] bg-secondary-container text-on-secondary-container font-mono">2</span>
+          </a>
+          <a href="#" class="flex items-center justify-between px-2.5 py-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[16px] text-outline">archive</span>
+              <span>Убранные</span>
+            </div>
+          </a>
+        </nav>
+
+        <!-- Section: СПРАВОЧНИКИ -->
+        <div class="px-2 py-1 text-[11px] font-semibold text-outline uppercase tracking-wider">Справочники</div>
+        <nav class="space-y-0.5 mb-3">
+          <a href="#" class="flex items-center justify-between px-2.5 py-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[16px] text-outline">dataset</span>
+              <span>Мои данные</span>
+            </div>
+          </a>
+          <a href="#" class="flex items-center justify-between px-2.5 py-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[16px] text-outline">dashboard_customize</span>
+              <span>Шаблоны</span>
+            </div>
+          </a>
+        </nav>
+
+        <!-- Section: ДОПОЛНИТЕЛЬНО -->
+        <div class="px-2 py-1 text-[11px] font-semibold text-outline uppercase tracking-wider">Дополнительно</div>
+        <nav class="space-y-0.5">
+          <a href="#" class="flex items-center justify-between px-2.5 py-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[16px] text-outline">monitor_heart</span>
+              <span>Сводка здоровья</span>
+            </div>
+          </a>
+          <!-- CURRENT SELECTED: Помощник -->
+          <a href="#" class="flex items-center justify-between px-2.5 py-1.5 rounded bg-brand-teal-light text-brand-teal font-semibold border-l-2 border-brand-teal">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[16px] text-brand-teal fill-1">smart_toy</span>
+              <span>Помощник</span>
+            </div>
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-teal"></span>
+          </a>
+          <a href="#" class="flex items-center justify-between px-2.5 py-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[16px] text-outline">tune</span>
+              <span>Обслуживание</span>
+            </div>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Bottom System Area: Настройки -->
+      <div class="p-2 border-t border-[#DCE3E5]">
+        <a href="#" class="flex items-center gap-2 px-2.5 py-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface">
+          <span class="material-symbols-outlined text-[16px] text-outline">settings</span>
+          <span class="text-[13px]">Настройки</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- 2. COLLAPSIBLE CHAT HISTORY DRAWER (ChatGPT-style drawer) -->
+    <div id="chatHistoryDrawer" class="hidden w-64 bg-surface-container border-r border-[#DCE3E5] flex flex-col shrink-0 transition-all z-20">
+      <div class="p-2.5 border-b border-[#DCE3E5] flex items-center justify-between">
+        <span class="font-semibold text-on-surface text-[12px] uppercase tracking-wider">История бесед</span>
+        <button onclick="toggleHistoryDrawer()" class="p-1 text-outline hover:text-on-surface rounded"><span class="material-symbols-outlined text-[16px]">chevron_left</span></button>
+      </div>
+      <div class="p-2">
+        <button onclick="newConversation()" class="w-full h-8 px-2.5 bg-surface-container-lowest border border-[#DCE3E5] rounded flex items-center justify-center gap-1.5 text-on-surface hover:border-brand-teal font-medium text-[12px] shadow-sm">
+          <span class="material-symbols-outlined text-[16px] text-brand-teal">add</span>
+          <span>Новый диалог</span>
+        </button>
+      </div>
+      <div class="flex-1 overflow-y-auto px-2 space-y-1">
+        <div class="text-[11px] text-outline px-2 py-1 font-semibold uppercase">Недавние</div>
+        <div class="p-2 rounded bg-surface-container-highest/60 border border-brand-teal/30 cursor-pointer flex items-center justify-between">
+          <div class="truncate">
+            <div class="font-medium text-on-surface text-[12px] truncate">Обработка медицинских документов</div>
+            <div class="text-[11px] text-outline">Сегодня, 14:35 • 4 сообщения</div>
+          </div>
+        </div>
+        <div class="p-2 rounded hover:bg-surface-container-high cursor-pointer flex items-center justify-between text-on-surface-variant">
+          <div class="truncate">
+            <div class="font-medium text-[12px] truncate">Проверка договора найма № 42</div>
+            <div class="text-[11px] text-outline">Вчера • Завершено</div>
+          </div>
+        </div>
+        <div class="p-2 rounded hover:bg-surface-container-high cursor-pointer flex items-center justify-between text-on-surface-variant">
+          <div class="truncate">
+            <div class="font-medium text-[12px] truncate">Поиск справок за 2025 год</div>
+            <div class="text-[11px] text-outline">18 окт • 2 черновика</div>
+          </div>
+        </div>
+        <div class="p-2 rounded hover:bg-surface-container-high cursor-pointer flex items-center justify-between text-on-surface-variant">
+          <div class="truncate">
+            <div class="font-medium text-[12px] truncate">Сравнение лабораторных анализов</div>
+            <div class="text-[11px] text-outline">14 окт • Инвитро vs Гемотест</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. CENTER REGION: AI CONVERSATION & AGENT WORKSPACE -->
+    <section class="flex-1 flex flex-col bg-surface-container-lowest min-w-0 overflow-hidden relative">
+
+      <!-- AI Workspace Header Toolbar -->
+      <div class="h-10 bg-surface-container-lowest border-b border-[#DCE3E5] px-4 flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-3">
+          <!-- Toggle History Drawer Button -->
+          <button onclick="toggleHistoryDrawer()" title="История диалогов" class="p-1 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded flex items-center gap-1 text-[12px]">
+            <span class="material-symbols-outlined text-[18px]">history</span>
+            <span class="hidden md:inline text-[11px] text-outline">Беседы</span>
+          </button>
+          
+          <div class="h-4 w-px bg-[#DCE3E5]"></div>
+
+          <h1 class="font-semibold text-[14px] text-on-surface flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-brand-teal text-[18px]">smart_toy</span>
+            <span>Помощник PersonalVault</span>
+          </h1>
+
+          <!-- Active AI Model Selector -->
+          <div class="relative inline-block text-left ml-2">
+            <button onclick="toggleModelDropdown()" id="modelBadgeBtn" class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-on-surface text-[12px] border border-[#DCE3E5] hover:border-brand-teal">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600" id="modelDot"></span>
+              <span id="modelNameLabel" class="font-medium">Ollama · Qwen2.5-Coder</span>
+              <span class="text-[10px] text-outline bg-surface-container-highest px-1 py-0.2 rounded" id="modelModeTag">Локально</span>
+              <span class="material-symbols-outlined text-[14px] text-outline">expand_more</span>
+            </button>
+
+            <!-- Dropdown Options (State 13 or Click) -->
+            <div id="modelDropdown" class="hidden absolute left-0 mt-1 w-64 bg-surface-container-lowest rounded-md shadow-lg border border-[#DCE3E5] py-1 z-50 text-[12px]">
+              <div class="px-3 py-1.5 text-[11px] font-semibold text-outline uppercase border-b border-[#DCE3E5]">Выбор провайдера ИИ</div>
+              <button onclick="selectModel('Ollama · Qwen2.5-Coder', 'Локально', true)" class="w-full px-3 py-1.5 text-left hover:bg-surface-container flex items-center justify-between">
+                <div>
+                  <div class="font-medium text-on-surface">Ollama · Qwen2.5-Coder</div>
+                  <div class="text-[11px] text-outline">Локально на устройстве • 14B</div>
+                </div>
+                <span class="text-emerald-700 text-[11px] font-mono">OK</span>
+              </button>
+              <button onclick="selectModel('Ollama · Llama 3.2-Vision', 'Локально', true)" class="w-full px-3 py-1.5 text-left hover:bg-surface-container flex items-center justify-between">
+                <div>
+                  <div class="font-medium text-on-surface">Ollama · Llama 3.2-Vision</div>
+                  <div class="text-[11px] text-outline">OCR + текст • 11B Vision</div>
+                </div>
+                <span class="text-emerald-700 text-[11px] font-mono">OK</span>
+              </button>
+              <button onclick="selectModel('OpenAI API · GPT-4o', 'Облако', false)" class="w-full px-3 py-1.5 text-left hover:bg-surface-container flex items-center justify-between border-t border-[#DCE3E5]/60">
+                <div>
+                  <div class="font-medium text-on-surface">OpenAI API · GPT-4o</div>
+                  <div class="text-[11px] text-amber-700">Облачный шлюз • Требуется ключ</div>
+                </div>
+                <span class="text-outline text-[11px] font-mono">API</span>
+              </button>
+              <div class="p-2 border-t border-[#DCE3E5]">
+                <button onclick="setDemoState('13')" class="w-full py-1 text-center text-[11px] text-brand-teal hover:underline font-medium">Настроить подключение моделей...</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Header Items: Context Scope & Panel Toggle -->
+        <div class="flex items-center gap-2">
+          <!-- Context Scope Indicator -->
+          <div class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-on-surface-variant text-[11px] border border-outline-variant/40" title="Область поиска и контекста">
+            <span class="material-symbols-outlined text-[13px] text-brand-teal">folder_limited</span>
+            <span id="scopeLabel">Контекст: Выбранные документы</span>
+          </div>
+
+          <!-- Inspector Panel Toggle -->
+          <button onclick="toggleContextInspector()" title="Инспектор контекста и черновика" class="p-1 text-on-surface-variant hover:text-brand-teal hover:bg-surface-container rounded flex items-center gap-1 text-[12px]">
+            <span class="material-symbols-outlined text-[18px]">dock_to_left</span>
+            <span class="hidden xl:inline text-[11px]">Инспектор</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Scrollable Conversation Feed -->
+      <div id="conversationFeed" class="flex-1 overflow-y-auto p-4 md:px-8 space-y-4">
+        <!-- Content injected dynamically via JavaScript based on state -->
+      </div>
+
+      <!-- Bottom Chat Composer -->
+      <div class="p-3 md:px-8 bg-surface-container-lowest border-t border-[#DCE3E5] shrink-0">
+        <div class="max-w-4xl mx-auto flex flex-col gap-1.5">
+          
+          <!-- Attachment Pill Preview Bar (When file attached) -->
+          <div id="composerAttachmentBar" class="hidden flex items-center gap-2 px-3 py-1.5 rounded bg-surface-container border border-brand-teal/30 text-[12px]">
+            <span class="material-symbols-outlined text-[16px] text-brand-teal">picture_as_pdf</span>
+            <span class="font-medium text-on-surface" id="attachedFileName">Медицинское_заключение.pdf</span>
+            <span class="text-outline text-[11px]">(2 страницы, 1.4 МБ • Зона Open)</span>
+            <button onclick="removeAttachedFile()" class="ml-auto text-outline hover:text-error" title="Убрать вложение"><span class="material-symbols-outlined text-[14px]">close</span></button>
+          </div>
+
+          <!-- Active Task Indicator Bar (When state == 03) -->
+          <div id="composerWorkingBar" class="hidden flex items-center justify-between px-3 py-1 rounded bg-brand-teal-light text-brand-teal text-[11px] font-medium border border-brand-teal/20">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-teal animate-ping"></span>
+              <span>ИИ выполняет анализ и сопоставление данных...</span>
+            </div>
+            <button onclick="stopGeneration()" class="px-2 py-0.5 rounded bg-surface-container-lowest text-error border border-error/20 hover:bg-error-container text-[11px]">Остановить</button>
+          </div>
+
+          <!-- Input Container -->
+          <div class="relative bg-surface-container-lowest border border-[#DCE3E5] rounded-lg shadow-sm focus-within:border-brand-teal focus-within:ring-1 focus-within:ring-brand-teal">
+            <textarea id="composerTextarea" rows="2" placeholder="Задайте вопрос или поручите задачу (например: «Обработай этот акт и заполни карточку»)..." class="w-full px-3 py-2 text-[13px] bg-transparent resize-none focus:outline-none text-on-surface placeholder:text-outline"></textarea>
+            
+            <div class="flex items-center justify-between px-2.5 pb-2 pt-1 border-t border-surface-container/60">
+              <!-- Left Composer Actions -->
+              <div class="flex items-center gap-1 text-on-surface-variant">
+                <button onclick="triggerAttachFile()" title="Прикрепить документ" class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface flex items-center gap-1 text-[11px]">
+                  <span class="material-symbols-outlined text-[18px]">attach_file</span>
+                  <span class="hidden sm:inline">Файл</span>
+                </button>
+                <button onclick="cycleContextScope()" title="Сменить область контекста" class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface flex items-center gap-1 text-[11px]">
+                  <span class="material-symbols-outlined text-[18px]">database</span>
+                  <span id="scopeBtnText" class="hidden sm:inline">Архив: Open</span>
+                </button>
+                <button onclick="setDemoState('07')" title="Пакетная очередь" class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface flex items-center gap-1 text-[11px]">
+                  <span class="material-symbols-outlined text-[18px]">format_list_bulleted</span>
+                  <span class="hidden sm:inline">Очередь (5)</span>
+                </button>
+              </div>
+
+              <!-- Right Send Controls -->
+              <div class="flex items-center gap-1.5">
+                <button id="sendActionBtn" onclick="handleSendClick()" class="h-7 px-3 rounded bg-brand-teal hover:bg-brand-teal-dark text-white font-medium text-[12px] flex items-center gap-1 shadow-sm transition-colors">
+                  <span>Отправить</span>
+                  <span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Safe Local-first Guarantee Note -->
+          <div class="flex items-center justify-between text-[11px] text-outline px-1">
+            <div class="flex items-center gap-1">
+              <span class="material-symbols-outlined text-[13px] text-emerald-700">shield_lock</span>
+              <span id="privacyFooterNote">Локальная обработка: исходные файлы не покидают компьютер. Запись в архив — только с вашего подтверждения.</span>
+            </div>
+            <span class="font-mono text-[10px]">PV2 Agent v2.4-strict</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. RIGHT CONTEXTUAL INSPECTOR (Collapsible Panel) -->
+    <aside id="contextInspector" class="w-80 md:w-96 bg-surface-container-low border-l border-[#DCE3E5] flex flex-col shrink-0 z-20 overflow-hidden">
+      <!-- Inspector Header & Tab Strip -->
+      <div class="h-10 bg-surface-container-high border-b border-[#DCE3E5] px-3 flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-1" id="inspectorTabGroup">
+          <button onclick="switchInspectorTab('draft')" id="tabBtnDraft" class="px-2 py-1 rounded text-[12px] font-semibold bg-surface-container-lowest text-brand-teal shadow-xs">Черновик</button>
+          <button onclick="switchInspectorTab('verify')" id="tabBtnVerify" class="px-2 py-1 rounded text-[12px] text-on-surface-variant hover:text-on-surface">Сверка</button>
+          <button onclick="switchInspectorTab('doc')" id="tabBtnDoc" class="px-2 py-1 rounded text-[12px] text-on-surface-variant hover:text-on-surface">Документ</button>
+          <button onclick="switchInspectorTab('queue')" id="tabBtnQueue" class="px-2 py-1 rounded text-[12px] text-on-surface-variant hover:text-on-surface">Очередь</button>
+        </div>
+        <button onclick="toggleContextInspector()" title="Свернуть инспектор" class="p-1 text-outline hover:text-on-surface rounded">
+          <span class="material-symbols-outlined text-[16px]">close</span>
+        </button>
+      </div>
+
+      <!-- Inspector Body Scrollable -->
+      <div id="inspectorContent" class="flex-1 overflow-y-auto p-3 space-y-3">
+        <!-- Rendered based on selected tab and active state -->
+      </div>
+
+      <!-- Inspector Bottom Safe Action -->
+      <div id="inspectorFooter" class="p-2.5 bg-surface-container border-t border-[#DCE3E5] shrink-0">
+        <!-- Injected actions -->
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- MODAL / OVERLAY: FULL DOCUMENT EDITOR DIALOG (State 14 / Triggered from Action) -->
+  <div id="fullEditorModal" class="hidden fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4 backdrop-blur-xs">
+    <div class="bg-surface-container-lowest rounded-lg border border-[#DCE3E5] shadow-2xl w-full max-w-5xl h-[88vh] flex flex-col overflow-hidden">
+      <!-- Modal Header -->
+      <div class="h-10 bg-surface-container-high border-b border-[#DCE3E5] px-4 flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[18px] text-brand-teal">edit_document</span>
+          <span class="font-semibold text-[13px] text-on-surface">Единый редактор карточки документа (SCR-06 Integration)</span>
+          <span class="px-1.5 py-0.5 rounded text-[10px] bg-brand-teal-light text-brand-teal font-medium">Черновик подготовлен ИИ</span>
+        </div>
+        <button onclick="closeFullEditorModal()" class="p-1 text-outline hover:text-on-surface rounded"><span class="material-symbols-outlined text-[18px]">close</span></button>
+      </div>
+      <!-- Modal Body (Two Column Layout) -->
+      <div class="flex-1 grid grid-cols-12 overflow-hidden">
+        <!-- Left: PDF Original Preview -->
+        <div class="col-span-6 bg-surface-container border-r border-[#DCE3E5] flex flex-col p-3 overflow-y-auto">
+          <div class="text-[11px] font-semibold text-outline uppercase mb-2 flex items-center justify-between">
+            <span>Оригинал: Медицинское_заключение.pdf (Стр. 1 из 2)</span>
+            <span class="text-brand-teal font-mono">300 DPI • SHA-256 Valid</span>
+          </div>
+          <div class="bg-white p-4 shadow-sm border border-[#DCE3E5] rounded text-[11px] font-serif leading-relaxed space-y-2 select-text">
+            <div class="text-center font-bold font-sans text-[12px] uppercase pb-2 border-b border-[#DCE3E5]">Городская клиническая больница № 12<br><span class="text-[10px] font-normal">Консультативное заключение врача-кардиолога</span></div>
+            <p><strong>Пациент:</strong> Смирнов Алексей Викторович, 14.05.1984 г.р.</p>
+            <p><strong>Дата осмотра:</strong> <mark class="bg-brand-teal-light text-brand-teal font-bold px-1 rounded">14 мая 2026 г.</mark></p>
+            <p><strong>Диагноз основной:</strong> <mark class="bg-brand-teal-light text-brand-teal font-bold px-1 rounded">Гипертоническая болезнь II стадии, контролируемая</mark> (I11.9).</p>
+            <p><strong>Назначения:</strong> Периндоприл 5 мг 1 раз в сутки утром. Контроль АД дважды в день.</p>
+            <div class="pt-4 text-right italic font-sans text-[10px] text-outline">Врач: Иванова Т.С. /подпись/</div>
+          </div>
+        </div>
+        <!-- Right: Structured Fields Editor -->
+        <div class="col-span-6 p-4 overflow-y-auto space-y-3 bg-surface-container-lowest">
+          <div class="text-[11px] font-semibold text-outline uppercase">Реквизиты карточки</div>
+          <div>
+            <label class="text-[11px] text-outline font-medium">Название документа *</label>
+            <input type="text" value="Консультативное заключение кардиолога" class="w-full h-7 px-2 border border-[#DCE3E5] rounded text-[12px] mt-0.5 focus:border-brand-teal" />
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="text-[11px] text-outline font-medium">Категория *</label>
+              <input type="text" value="Здоровье и медицина" class="w-full h-7 px-2 border border-[#DCE3E5] rounded text-[12px] mt-0.5" />
+            </div>
+            <div>
+              <label class="text-[11px] text-outline font-medium">Дата документа *</label>
+              <input type="date" value="2026-05-14" class="w-full h-7 px-2 border border-[#DCE3E5] rounded text-[12px] mt-0.5" />
+            </div>
+          </div>
+          <div>
+            <label class="text-[11px] text-outline font-medium">Диагноз / Заключение</label>
+            <input type="text" value="Гипертоническая болезнь II стадии, контролируемая" class="w-full h-7 px-2 border border-[#DCE3E5] rounded text-[12px] mt-0.5" />
+          </div>
+          <div>
+            <label class="text-[11px] text-outline font-medium">Медицинская организация</label>
+            <input type="text" value="ГКБ № 12 г. Санкт-Петербурга" class="w-full h-7 px-2 border border-[#DCE3E5] rounded text-[12px] mt-0.5" />
+          </div>
+          <div class="p-2.5 rounded bg-surface-container text-[11px] text-on-surface-variant flex items-center justify-between">
+            <span>Сверка цитат: <strong>14 из 18 сверено</strong></span>
+            <span class="text-brand-teal font-medium">2 замечания требуют внимания</span>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Footer -->
+      <div class="h-11 bg-surface-container border-t border-[#DCE3E5] px-4 flex items-center justify-between shrink-0">
+        <span class="text-[11px] text-outline">Изменения синхронизируются с рабочим черновиком в памяти</span>
+        <div class="flex items-center gap-2">
+          <button onclick="closeFullEditorModal()" class="h-7 px-3 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-[12px]">Вернуться в Помощник</button>
+          <button onclick="closeFullEditorModal(); setDemoState('09');" class="h-7 px-3 rounded bg-brand-teal text-white hover:bg-brand-teal-dark font-medium text-[12px]">Продолжить к фиксации (SCR-08)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT STATE ENGINE & INTERACTIVE LOGIC -->
+  <script>
+    // State storage
+    let currentState = '04'; // Default to STATE 04 (Черновик готов)
+    let currentInspectorTab = 'draft';
+    let isHistoryOpen = false;
+    let isInspectorOpen = true;
+    let activeModel = 'Ollama · Qwen2.5-Coder';
+    let activeScope = 'Выбранные документы';
+
+    // Mock data repository
+    const mockDoc = {
+      filename: 'Медицинское_заключение.pdf',
+      title: 'Консультативное заключение кардиолога',
+      category: 'Здоровье и медицина',
+      type: 'Заключение специалиста',
+      date: '14.05.2026',
+      org: 'ГКБ № 12 г. Санкт-Петербург',
+      doctor: 'Иванова Т.С.',
+      diagnosis: 'Гипертоническая болезнь II стадии',
+      status: 'Черновик подготовлен',
+      verifiedCount: 16,
+      reviewCount: 2,
+      totalCount: 18
+    };
+
+    // Initialize prototype
+    document.addEventListener('DOMContentLoaded', () => {
+      setDemoState('04');
+    });
+
+    // Master Demo State Switcher
+    function setDemoState(stateId) {
+      currentState = stateId;
+      document.getElementById('demoStateSelector').value = stateId;
+      
+      const badge = document.getElementById('stateBadge');
+      const feed = document.getElementById('conversationFeed');
+      const inspector = document.getElementById('inspectorContent');
+      const inspectorFooter = document.getElementById('inspectorFooter');
+      const attachmentBar = document.getElementById('composerAttachmentBar');
+      const workingBar = document.getElementById('composerWorkingBar');
+      const historyDrawer = document.getElementById('chatHistoryDrawer');
+      const modelDropdown = document.getElementById('modelDropdown');
+      const fullEditorModal = document.getElementById('fullEditorModal');
+
+      // Close modal if open
+      if (fullEditorModal) fullEditorModal.classList.add('hidden');
+      if (modelDropdown) modelDropdown.classList.add('hidden');
+
+      // Update badge label
+      const stateLabels = {
+        '01': 'STATE 01: WELCOME_EMPTY',
+        '02': 'STATE 02: DOC_SELECTED',
+        '03': 'STATE 03: PROCESSING_AGENT',
+        '04': 'STATE 04: DRAFT_READY',
+        '05': 'STATE 05: FIELD_VERIFICATION',
+        '06': 'STATE 06: HUMAN_DECISION',
+        '07': 'STATE 07: BATCH_QUEUE',
+        '08': 'STATE 08: AGENT_MULTI_STEP',
+        '09': 'STATE 09: CONFIRM_CHANGES',
+        '10': 'STATE 10: SAVE_COMPLETED',
+        '11': 'STATE 11: ERROR_RECOVERY',
+        '12': 'STATE 12: CHAT_HISTORY',
+        '13': 'STATE 13: MODEL_SETTINGS'
+      };
+      badge.textContent = stateLabels[stateId] || 'STATE: ACTIVE';
+
+      // Toggle attachment & working bars
+      attachmentBar.classList.toggle('hidden', stateId !== '02' && stateId !== '03');
+      workingBar.classList.toggle('hidden', stateId !== '03');
+
+      // History drawer open in State 12
+      if (stateId === '12') {
+        historyDrawer.classList.remove('hidden');
+      } else if (!isHistoryOpen) {
+        historyDrawer.classList.add('hidden');
+      }
+
+      // Model config visible in State 13
+      if (stateId === '13') {
+        modelDropdown.classList.remove('hidden');
+      }
+
+      // RENDER CONVERSATION FEED
+      renderConversationFeed(stateId);
+
+      // RENDER INSPECTOR PANEL
+      renderInspectorPanel(stateId);
+    }
+
+    // Render Center Conversation Feed
+    function renderConversationFeed(state) {
+      const feed = document.getElementById('conversationFeed');
+      let html = '';
+
+      if (state === '01') {
+        // STATE 01: Welcome / Empty State
+        html = `
+          <div class="h-full flex flex-col items-center justify-center max-w-2xl mx-auto text-center py-12">
+            <div class="w-12 h-12 rounded-full bg-brand-teal-light text-brand-teal flex items-center justify-center mb-3">
+              <span class="material-symbols-outlined text-[28px]">smart_toy</span>
+            </div>
+            <h2 class="text-[20px] font-semibold text-on-surface mb-1">Чем помочь с архивом?</h2>
+            <p class="text-[13px] text-outline max-w-md mb-6">Обрабатывайте документы, находите информацию и поручайте задачи автономному помощнику с полной изоляцией данных.</p>
+            
+            <div class="grid grid-cols-2 gap-2.5 w-full max-w-lg text-left">
+              <button onclick="setDemoState('02')" class="p-3 rounded-lg border border-[#DCE3E5] bg-surface-container-lowest hover:border-brand-teal hover:bg-surface-container transition-all group">
+                <div class="flex items-center gap-2 font-medium text-[13px] text-on-surface group-hover:text-brand-teal">
+                  <span class="material-symbols-outlined text-[18px] text-brand-teal">document_scanner</span>
+                  <span>Обработать документ</span>
+                </div>
+                <p class="text-[11px] text-outline mt-1">Автоматическая классификация, OCR и заполнение карточки</p>
+              </button>
+
+              <button onclick="setDemoState('08')" class="p-3 rounded-lg border border-[#DCE3E5] bg-surface-container-lowest hover:border-brand-teal hover:bg-surface-container transition-all group">
+                <div class="flex items-center gap-2 font-medium text-[13px] text-on-surface group-hover:text-brand-teal">
+                  <span class="material-symbols-outlined text-[18px] text-brand-teal">search_check</span>
+                  <span>Найти информацию</span>
+                </div>
+                <p class="text-[11px] text-outline mt-1">Поиск по тексту сканов с цитатами и номерами страниц</p>
+              </button>
+
+              <button onclick="setDemoState('05')" class="p-3 rounded-lg border border-[#DCE3E5] bg-surface-container-lowest hover:border-brand-teal hover:bg-surface-container transition-all group">
+                <div class="flex items-center gap-2 font-medium text-[13px] text-on-surface group-hover:text-brand-teal">
+                  <span class="material-symbols-outlined text-[18px] text-brand-teal">fact_check</span>
+                  <span>Проверить данные</span>
+                </div>
+                <p class="text-[11px] text-outline mt-1">Сверка реквизитов перед фиксацией в зашифрованный том</p>
+              </button>
+
+              <button onclick="setDemoState('07')" class="p-3 rounded-lg border border-[#DCE3E5] bg-surface-container-lowest hover:border-brand-teal hover:bg-surface-container transition-all group">
+                <div class="flex items-center gap-2 font-medium text-[13px] text-on-surface group-hover:text-brand-teal">
+                  <span class="material-symbols-outlined text-[18px] text-brand-teal">inventory_2</span>
+                  <span>Пакетная очередь</span>
+                </div>
+                <p class="text-[11px] text-outline mt-1">Обработка набора файлов из папки Входящих (Inbox)</p>
+              </button>
+            </div>
+          </div>
+        `;
+      } 
+      else if (state === '02') {
+        // STATE 02: Document Selected, Ready to Process
+        html = `
+          <div class="max-w-3xl mx-auto space-y-4">
+            <div class="flex gap-3 justify-end">
+              <div class="bg-surface-container text-on-surface p-3 rounded-lg max-w-lg border border-[#DCE3E5]">
+                <p class="text-[13px]">Я выбрал файл <strong>Медицинское_заключение.pdf</strong> из очереди Входящих. Подготовь для него архивную карточку и проверь реквизиты.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <div class="w-7 h-7 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[16px]">smart_toy</span>
+              </div>
+              <div class="bg-surface-container-lowest border border-[#DCE3E5] p-3.5 rounded-lg max-w-xl shadow-xs space-y-2.5">
+                <div class="flex items-center justify-between border-b border-[#DCE3E5]/60 pb-2">
+                  <span class="font-semibold text-[13px] text-on-surface flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-brand-teal text-[16px]">task</span>
+                    <span>Документ прикреплён и готов к обработке</span>
+                  </span>
+                  <span class="text-[11px] font-mono bg-surface-container px-1.5 py-0.5 rounded text-outline">PDF • 2 стр.</span>
+                </div>
+                <p class="text-[12px] text-on-surface-variant leading-relaxed">
+                  Файл проверен на целостность (SHA-256 подтверждён). Нажмите <strong>«Обработать с ИИ»</strong> для запуска автономного анализа текста, классификации категории и извлечения реквизитов.
+                </p>
+                <div class="pt-1 flex items-center gap-2">
+                  <button onclick="setDemoState('03')" class="h-8 px-4 bg-brand-teal hover:bg-brand-teal-dark text-white rounded font-medium text-[12px] flex items-center gap-1.5 shadow-sm">
+                    <span class="material-symbols-outlined text-[16px]">play_arrow</span>
+                    <span>Обработать с ИИ (Старт)</span>
+                  </button>
+                  <button onclick="setDemoState('01')" class="h-8 px-3 bg-surface-container text-on-surface rounded hover:bg-surface-container-high text-[12px]">Отмена</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      else if (state === '03') {
+        // STATE 03: Autonomous Document Processing
+        html = `
+          <div class="max-w-3xl mx-auto space-y-4">
+            <div class="flex gap-3 justify-end">
+              <div class="bg-surface-container text-on-surface p-3 rounded-lg max-w-lg border border-[#DCE3E5]">
+                <p class="text-[13px]">Обработай документ <strong>Медицинское_заключение.pdf</strong>.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <div class="w-7 h-7 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[16px]">smart_toy</span>
+              </div>
+              <div class="bg-surface-container-lowest border border-[#DCE3E5] p-4 rounded-lg w-full max-w-xl shadow-xs space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-brand-teal animate-pulse"></span>
+                    <span class="font-semibold text-[13px] text-on-surface">Автономный анализ документа в процессе...</span>
+                  </div>
+                  <span class="text-[11px] font-mono text-brand-teal">Этап 5 из 7</span>
+                </div>
+
+                <!-- Step Progress Checklist -->
+                <div class="space-y-1.5 border-t border-b border-[#DCE3E5]/60 py-2.5 text-[12px]">
+                  <div class="flex items-center gap-2 text-emerald-700">
+                    <span class="material-symbols-outlined text-[16px]">check_circle</span>
+                    <span>1. Проверка файлов (PDF/A, целостность хэша SHA-256)</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-emerald-700">
+                    <span class="material-symbols-outlined text-[16px]">check_circle</span>
+                    <span>2. Распознавание слоев текста (OCR Tesseract Engine)</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-emerald-700">
+                    <span class="material-symbols-outlined text-[16px]">check_circle</span>
+                    <span>3. Определение типа: «Консультативное заключение врача»</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-emerald-700">
+                    <span class="material-symbols-outlined text-[16px]">check_circle</span>
+                    <span>4. Извлечение ключевых фактов (Диагноз, Врач, Дата, Назначения)</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-brand-teal font-semibold">
+                    <span class="material-symbols-outlined text-[16px] animate-spin">sync</span>
+                    <span>5. Заполнение структурированной карточки (18 полей)...</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-outline">
+                    <span class="material-symbols-outlined text-[16px]">radio_button_unchecked</span>
+                    <span>6. Проверка значений по координатам скана</span>
+                  </div>
+                  <div class="flex items-center gap-2 text-outline">
+                    <span class="material-symbols-outlined text-[16px]">radio_button_unchecked</span>
+                    <span>7. Формирование черновика</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between text-[11px] text-outline">
+                  <span>Модель: Qwen2.5-Coder (Local 14B)</span>
+                  <button onclick="setDemoState('04')" class="text-brand-teal font-medium hover:underline">Завершить немедленно (симуляция) →</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      else if (state === '04') {
+        // STATE 04: Prepared Draft Ready (Primary Result State)
+        html = `
+          <div class="max-w-3xl mx-auto space-y-4">
+            <div class="flex gap-3 justify-end">
+              <div class="bg-surface-container text-on-surface p-3 rounded-lg max-w-lg border border-[#DCE3E5]">
+                <p class="text-[13px]">Обработай документ <strong>Медицинское_заключение.pdf</strong>.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <div class="w-7 h-7 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[16px]">smart_toy</span>
+              </div>
+              <div class="bg-surface-container-lowest border border-[#DCE3E5] p-4 rounded-lg w-full max-w-xl shadow-xs space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2 text-emerald-800 font-semibold text-[13px]">
+                    <span class="material-symbols-outlined text-emerald-700 text-[18px]">task_alt</span>
+                    <span>Черновик документа успешно подготовлен</span>
+                  </div>
+                  <span class="px-2 py-0.5 rounded text-[11px] bg-brand-teal-light text-brand-teal font-medium">Черновик в памяти</span>
+                </div>
+
+                <div class="p-3 bg-surface-container-low rounded border border-[#DCE3E5] space-y-1.5 text-[12px]">
+                  <div class="flex justify-between">
+                    <span class="text-outline">Название:</span>
+                    <span class="font-medium text-on-surface">Консультативное заключение кардиолога</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-outline">Категория:</span>
+                    <span class="text-on-surface">Здоровье и медицина • Заключение</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-outline">Дата документа:</span>
+                    <span class="text-on-surface font-mono">14.05.2026 (Стр. 1)</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-outline">Сверка полей:</span>
+                    <span class="text-on-surface font-medium"><strong>16</strong> заполнено • <strong>2</strong> требуют проверки</span>
+                  </div>
+                </div>
+
+                <p class="text-[12px] text-on-surface-variant">
+                  Все реквизиты перенесены в карточку. Данные открыты в правом инспекторе. Вы можете утвердить проект или открыть полный редактор.
+                </p>
+
+                <div class="flex items-center gap-2 pt-1">
+                  <button onclick="openFullEditorModal()" class="h-8 px-3.5 bg-brand-teal hover:bg-brand-teal-dark text-white rounded font-medium text-[12px] flex items-center gap-1.5 shadow-sm">
+                    <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+                    <span>Открыть полный редактор (SCR-06)</span>
+                  </button>
+                  <button onclick="setDemoState('05')" class="h-8 px-3 bg-surface-container hover:bg-surface-container-high text-on-surface rounded text-[12px] flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">fact_check</span>
+                    <span>Проверить замечания (2)</span>
+                  </button>
+                  <button onclick="setDemoState('09')" class="h-8 px-3 text-brand-teal hover:bg-brand-teal-light rounded text-[12px] ml-auto">
+                    К сохранению →
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      else if (state === '05') {
+        // STATE 05: Field Verification Mode
+        html = `
+          <div class="max-w-3xl mx-auto space-y-4">
+            <div class="flex gap-3">
+              <div class="w-7 h-7 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[16px]">smart_toy</span>
+              </div>
+              <div class="bg-surface-container-lowest border border-[#DCE3E5] p-4 rounded-lg w-full max-w-xl shadow-xs space-y-3">
+                <div class="flex items-center justify-between border-b border-[#DCE3E5]/60 pb-2">
+                  <span class="font-semibold text-[13px] text-on-surface flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-brand-teal text-[18px]">fact_check</span>
+                    <span>Пошаговая проверка извлечённых значений (Поле 1 из 2)</span>
+                  </span>
+                  <span class="text-[11px] font-mono text-outline">Стр. 1, строка 12</span>
+                </div>
+
+                <!-- Excerpt Snippet with Quote Matching -->
+                <div class="p-3 bg-amber-50/70 rounded border border-amber-200/80 space-y-2">
+                  <div class="flex items-center justify-between text-[11px]">
+                    <span class="font-semibold text-amber-900 uppercase">Поле: Дата следующего планового осмотра</span>
+                    <span class="text-amber-800">OCR не уверен (84%)</span>
+                  </div>
+                  <div class="p-2 bg-white rounded border border-amber-200 text-[12px] font-serif">
+                    «...повторный контрольный осмотр через 6 месяцев: <mark class="bg-amber-200 px-1 rounded font-bold">ноябрь 2026 г.</mark> (число не указано рукописно)»
+                  </div>
+                </div>
+
+                <div class="space-y-1.5">
+                  <label class="text-[11px] font-medium text-outline">Предлагаемое значение в карточке:</label>
+                  <input type="text" value="2026-11-14 (Приблизительно)" class="w-full h-8 px-2.5 border border-[#DCE3E5] rounded text-[12px] bg-white focus:border-brand-teal focus:outline-none" />
+                </div>
+
+                <div class="flex items-center gap-2 pt-1">
+                  <button onclick="setDemoState('06')" class="h-8 px-3.5 bg-brand-teal hover:bg-brand-teal-dark text-white rounded font-medium text-[12px] flex items-center gap-1 shadow-sm">
+                    <span class="material-symbols-outlined text-[14px]">check</span>
+                    <span>Подтвердить значение</span>
+                  </button>
+                  <button onclick="setDemoState('06')" class="h-8 px-3 bg-surface-container hover:bg-surface-container-high text-on-surface rounded text-[12px]">Оставить без даты</button>
+                  <button onclick="setDemoState('04')" class="h-8 px-2 text-outline hover:text-on-surface text-[12px] ml-auto">Назад к карточке</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      else if (state === '06') {
+        // STATE 06: Human Decision Required
+        html = `
+          <div class="max-w-3xl mx-auto space-y-4">
+            <div class="flex gap-3">
+              <div class="w-7 h-7 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[16px]">smart_toy</span>
+              </div>
+              <div class="bg-surface-container-lowest border border-amber-300 p-4 rounded-lg w-full max-w-xl shadow-xs space-y-3 bg-amber-50/20">
+                <div class="flex items-center justify-between text-amber-900 font-semibold text-[13px]">
+                  <span class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-amber-600 text-[18px]">help_center</span>
+                    <span>Требуется решение: обнаружено несоответствие с «Мои данные»</span>
+                  </span>
+                  <span class="text-[11px] text-amber-800 font-mono">Конфликт ФИО</span>
+                </div>
+
+                <p class="text-[12px] text-on-surface-variant leading-relaxed">
+                  В документе указано ФИО: <strong>«Смирнов А.В.»</strong>, тогда как в справочнике пользователя зарегистрирован <strong>«Смирнов Алексей Викторович»</strong>. Связать этот документ с существующим профилем?
+                </p>
+
+                <div class="grid grid-cols-2 gap-2 text-[12px]">
+                  <button onclick="setDemoState('04')" class="p-2.5 rounded bg-white border border-brand-teal/40 text-left hover:bg-brand-teal-light/40 transition-colors">
+                    <div class="font-semibold text-brand-teal flex items-center gap-1">
+                      <span class="material-symbols-outlined text-[16px]">link</span>
+                      <span>Связать с профилем</span>
+                    </div>
+                    <div class="text-[11px] text-outline mt-0.5">Смирнов Алексей Викторович (Рекомендуется)</div>
+                  </button>
+
+                  <button onclick="setDemoState('04')" class="p-2.5 rounded bg-white border border-[#DCE3E5] text-left hover:bg-surface-container transition-colors">
+                    <div class="font-semibold text-on-surface flex items-center gap-1">
+                      <span class="material-symbols-outlined text-[16px]">person_add</span>
+                      <span>Создать новое лицо</span>
+                    </div>
+                    <div class="text-[11px] text-outline mt-0.5">Оставить как отдельного субъекта «Смирнов А.В.»</div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      else if (state === '07') {
+        // STATE 07: Batch Queue View
+        html = `
+          <div class="max-w-3xl mx-auto space-y-4">
+            <div class="flex gap-3 justify-end">
+              <div class="bg-surface-container text-on-surface p-3 rounded-lg max-w-lg border border-[#DCE3E5]">
+                <p class="text-[13px]">Обработай все 5 входящих документов из папки Inbox.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <div class="w-7 h-7 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[16px]">smart_toy</span>
+              </div>
+              <div class="bg-surface-container-lowest border border-[#DCE3E5] p-4 rounded-lg w-full max-w-xl shadow-xs space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="font-semibold text-[13px] text-on-surface flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-brand-teal text-[18px]">format_list_bulleted</span>
+                    <span>Пакетная обработка входящих документов</span>
+                  </span>
+                  <span class="text-[11px] font-mono text-outline">3 из 5 завершено</span>
+                </div>
+
+                <div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+                  <div class="bg-brand-teal h-full w-3/5"></div>
+                </div>
+
+                <div class="divide-y divide-[#DCE3E5]/60 text-[12px]">
+                  <div class="py-2 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-[16px] text-emerald-600">check_circle</span>
+                      <span class="font-medium text-on-surface">Паспорт_РФ.pdf</span>
+                    </div>
+                    <span class="px-1.5 py-0.5 rounded text-[10px] bg-emerald-50 text-emerald-800 font-medium">Черновик готов</span>
+                  </div>
+                  <div class="py-2 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-[16px] text-emerald-600">check_circle</span>
+                      <span class="font-medium text-on-surface">Медицинское_заключение.pdf</span>
+                    </div>
+                    <span class="px-1.5 py-0.5 rounded text-[10px] bg-emerald-50 text-emerald-800 font-medium">Черновик готов</span>
+                  </div>
+                  <div class="py-2 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-[16px] text-brand-teal animate-spin">sync</span>
+                      <span class="font-medium text-on-surface">Договор_аренды_42.pdf</span>
+                    </div>
+                    <span class="px-1.5 py-0.5 rounded text-[10px] bg-brand-teal-light text-brand-teal font-medium">Обрабатывается...</span>
+                  </div>
+                  <div class="py-2 flex items-center justify-between text-outline">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-[16px]">schedule</span>
+                      <span>Справка_2НДФЛ.pdf</span>
+                    </div>
+                    <span class="text-[11px]">Ожидает очереди</span>
+                  </div>
+                  <div class="py-2 flex items-center justify-between text-error">
+                    <div class="flex items-center gap-2">
+                      <span class="material-symbols-outlined text-[16px]">error</span>
+                      <span class="font-medium">Чек_скан.jpg</span>
+                    </div>
+                    <span class="text-[11px] underline cursor-pointer" onclick="setDemoState('11')">Сбой OCR • Повторить</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-1">
+                  <span class="text-[11px] text-outline">Файлы обрабатываются последовательно</span>
+                  <button onclick="setDemoState('04')" class="text-brand-teal font-medium text-[12px] hover:underline">Открыть выбранный черновик →</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      else if (state === '08') {
+        // STATE 08: Agent Multi-step Task
+        html = `
+          <div class="max-w-3xl mx-auto space-y-4">
+            <div class="flex gap-3 justify-end">
+              <div class="bg-surface-container text-on-surface p-3 rounded-lg max-w-lg border border-[#DCE3E5]">
+                <p class="text-[13px]">Найди все медицинские документы за 2025–2026 год, связанные с артериальным давлением, и подготовь выписку назначенных препаратов.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <div class="w-7 h-7 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[16px]">smart_toy</span>
+              </div>
+              <div class="bg-surface-container-lowest border border-[#DCE3E5] p-4 rounded-lg w-full max-w-xl shadow-xs space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="font-semibold text-[13px] text-on-surface flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-brand-teal text-[18px]">account_tree</span>
+                    <span>Агентный план задачи (Поиск и аналитика архива)</span>
+                  </span>
+                  <span class="text-[11px] font-mono text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">Выполнено 4 из 4</span>
+                </div>
+
+                <!-- Structured Agent Plan Steps -->
+                <div class="space-y-2 border-t border-b border-[#DCE3E5]/60 py-2.5 text-[12px]">
+                  <div class="p-2 rounded bg-surface-container-low flex items-start gap-2">
+                    <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0 mt-0.5">check_circle</span>
+                    <div>
+                      <div class="font-medium text-on-surface">Шаг 1: Сканирование Open-архива по категории «Здоровье»</div>
+                      <div class="text-[11px] text-outline">Найдено 4 документа с релевантными маркерами (АД, кардиолог)</div>
+                    </div>
+                  </div>
+                  <div class="p-2 rounded bg-surface-container-low flex items-start gap-2">
+                    <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0 mt-0.5">check_circle</span>
+                    <div>
+                      <div class="font-medium text-on-surface">Шаг 2: Извлечение назначений лекарственных препаратов</div>
+                      <div class="text-[11px] text-outline">Выявлен приём: «Периндоприл 5 мг», «Индапамид 1.5 мг»</div>
+                    </div>
+                  </div>
+                  <div class="p-2 rounded bg-surface-container-low flex items-start gap-2">
+                    <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0 mt-0.5">check_circle</span>
+                    <div>
+                      <div class="font-medium text-on-surface">Шаг 3: Проверка хронологии рецептов</div>
+                      <div class="text-[11px] text-outline">Схема актуализирована от 14.05.2026 в ГКБ № 12</div>
+                    </div>
+                  </div>
+                  <div class="p-2 rounded bg-surface-container-low flex items-start gap-2">
+                    <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0 mt-0.5">check_circle</span>
+                    <div>
+                      <div class="font-medium text-on-surface">Шаг 4: Формирование сводной таблицы для экспорта</div>
+                      <div class="text-[11px] text-outline">Сформирован структурированный отчет с источниками</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-2 pt-1">
+                  <button onclick="setDemoState('04')" class="h-8 px-3.5 bg-brand-teal text-white rounded font-medium text-[12px] flex items-center gap-1 shadow-sm">
+                    <span class="material-symbols-outlined text-[14px]">table_view</span>
+                    <span>Показать найденные карточки (4)</span>
+                  </button>
+                  <button onclick="setDemoState('01')" class="h-8 px-3 text-outline hover:text-on-surface text-[12px]">Завершить диалог</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      else if (state === '09') {
+        // STATE 09: Confirm Changes (Before/After Diff)
+        html = `
+          <div class="max-w-3xl mx-auto space-y-4">
+            <div class="flex gap-3">
+              <div class="w-7 h-7 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[16px]">smart_toy</span>
+              </div>
+              <div class="bg-surface-container-lowest border border-[#DCE3E5] p-4 rounded-lg w-full max-w-xl shadow-xs space-y-3">
+                <div class="flex items-center justify-between border-b border-[#DCE3E5]/60 pb-2">
+                  <span class="font-semibold text-[13px] text-on-surface flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-brand-teal text-[18px]">difference</span>
+                    <span>Сверка предлагаемых изменений перед записью</span>
+                  </span>
+                  <span class="text-[11px] font-mono text-outline">Сессия #AF-8942</span>
+                </div>
+
+                <p class="text-[12px] text-on-surface-variant">
+                  Помощник не производит запись в SQLite вслепую. Проверьте сравнение старых и новых значений реквизитов:
+                </p>
+
+                <!-- Diff Comparison Table -->
+                <div class="border border-[#DCE3E5] rounded overflow-hidden text-[12px]">
+                  <table class="w-full text-left">
+                    <thead class="bg-surface-container text-[11px] text-outline font-semibold uppercase">
+                      <tr>
+                        <th class="p-2">Реквизит</th>
+                        <th class="p-2">Было в файле</th>
+                        <th class="p-2 text-brand-teal">Станет в архиве</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-[#DCE3E5]">
+                      <tr>
+                        <td class="p-2 font-medium">Название</td>
+                        <td class="p-2 text-outline line-through">scan_0041.pdf</td>
+                        <td class="p-2 text-brand-teal font-semibold">Консультативное заключение кардиолога</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2 font-medium">Категория</td>
+                        <td class="p-2 text-outline">Не определена</td>
+                        <td class="p-2 text-brand-teal font-semibold">Здоровье и медицина</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2 font-medium">Дата</td>
+                        <td class="p-2 text-outline">Не указана</td>
+                        <td class="p-2 text-brand-teal font-mono">14.05.2026</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2 font-medium">Том архива</td>
+                        <td class="p-2 text-outline">Входящие (Inbox)</td>
+                        <td class="p-2 text-brand-teal font-semibold">Open: /2026/Здоровье/</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="flex items-center gap-2 pt-2">
+                  <button onclick="setDemoState('10')" class="h-8 px-4 bg-brand-teal hover:bg-brand-teal-dark text-white rounded font-medium text-[12px] flex items-center gap-1.5 shadow-sm">
+                    <span class="material-symbols-outlined text-[16px]">check_circle</span>
+                    <span>Подтвердить и зафиксировать в архив</span>
+                  </button>
+                  <button onclick="setDemoState('04')" class="h-8 px-3 bg-surface-container text-on-surface rounded hover:bg-surface-container-high text-[12px]">Отмена</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      else if (state === '10') {
+        // STATE 10: Archive Save Completed
+        html = `
+          <div class="max-w-3xl mx-auto space-y-4">
+            <div class="flex gap-3">
+              <div class="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[16px]">verified</span>
+              </div>
+              <div class="bg-surface-container-lowest border border-emerald-200 p-4 rounded-lg w-full max-w-xl shadow-xs space-y-3 bg-emerald-50/20">
+                <div class="flex items-center justify-between text-emerald-900 font-semibold text-[13px]">
+                  <span class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-emerald-600 text-[18px]">lock</span>
+                    <span>Документ успешно зафиксирован в постоянном архиве!</span>
+                  </span>
+                  <span class="font-mono text-[11px] text-emerald-800">PV-0043</span>
+                </div>
+
+                <p class="text-[12px] text-on-surface-variant leading-relaxed">
+                  Запись сохранена в SQLite WAL. Исходный скан перенесён в защищённый каталог с контрольной суммой SHA-256. Карточка доступна в общем <strong>Журнале (SCR-01)</strong>.
+                </p>
+
+                <div class="p-2.5 rounded bg-white border border-emerald-200 text-[12px] space-y-1">
+                  <div class="text-outline text-[11px]">Идентификатор архива: <span class="font-mono text-on-surface">PV-0043 • sha256:d8c2...e41</span></div>
+                  <div class="text-outline text-[11px]">Файл удалён из очереди Входящих без дублирования на диске.</div>
+                </div>
+
+                <div class="flex items-center gap-2 pt-1">
+                  <button onclick="setDemoState('01')" class="h-8 px-3.5 bg-brand-teal text-white rounded font-medium text-[12px] flex items-center gap-1 shadow-sm">
+                    <span class="material-symbols-outlined text-[14px]">add</span>
+                    <span>Обработать следующий документ</span>
+                  </button>
+                  <button onclick="openFullEditorModal()" class="h-8 px-3 bg-surface-container text-on-surface rounded text-[12px]">Просмотреть в Журнале</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      else if (state === '11') {
+        // STATE 11: Error and Recovery
+        html = `
+          <div class="max-w-3xl mx-auto space-y-4">
+            <div class="flex gap-3">
+              <div class="w-7 h-7 rounded-full bg-error text-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[16px]">priority_high</span>
+              </div>
+              <div class="bg-surface-container-lowest border border-error-container p-4 rounded-lg w-full max-w-xl shadow-xs space-y-3 bg-error-container/20">
+                <div class="flex items-center justify-between text-on-error-container font-semibold text-[13px]">
+                  <span class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-error text-[18px]">error</span>
+                    <span>Не удалось надёжно распознать текст документа</span>
+                  </span>
+                  <span class="text-[11px] font-mono text-error">ERR_OCR_LOW_CONFIDENCE</span>
+                </div>
+
+                <p class="text-[12px] text-on-surface-variant leading-relaxed">
+                  Файл <strong>Чек_скан.jpg</strong> имеет низкое разрешение или сильное размытие (уверенность распознавания 38%). ИИ не стал выдумывать значения во избежание порчи данных.
+                </p>
+
+                <div class="p-2.5 rounded bg-white border border-error/20 text-[12px] space-y-1">
+                  <div class="font-medium text-on-surface">Рекомендуемые действия:</div>
+                  <ul class="list-disc pl-4 text-[11px] text-outline space-y-0.5">
+                    <li>Переключить модель на мультимодальную (Llama 3.2-Vision)</li>
+                    <li>Ввести ключевые реквизиты вручную через Редактор</li>
+                    <li>Повторить попытку с улучшением контраста скана</li>
+                  </ul>
+                </div>
+
+                <div class="flex items-center gap-2 pt-1">
+                  <button onclick="setDemoState('03')" class="h-8 px-3.5 bg-brand-teal text-white rounded font-medium text-[12px] flex items-center gap-1 shadow-sm">
+                    <span class="material-symbols-outlined text-[14px]">refresh</span>
+                    <span>Повторить с фильтрацией резкости</span>
+                  </button>
+                  <button onclick="openFullEditorModal()" class="h-8 px-3 bg-surface-container text-on-surface rounded text-[12px]">Ручной ввод</button>
+                  <button onclick="setDemoState('01')" class="h-8 px-2 text-outline hover:text-on-surface text-[12px] ml-auto">Пропустить</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      else {
+        // Fallback or State 12/13 base
+        html = `
+          <div class="max-w-3xl mx-auto space-y-4">
+            <div class="flex gap-3">
+              <div class="w-7 h-7 rounded-full bg-brand-teal text-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[16px]">smart_toy</span>
+              </div>
+              <div class="bg-surface-container-lowest border border-[#DCE3E5] p-4 rounded-lg w-full max-w-xl shadow-xs space-y-3">
+                <div class="font-semibold text-[13px] text-on-surface">Помощник PersonalVault готов к работе</div>
+                <p class="text-[12px] text-on-surface-variant">Используйте переключатель состояний вверху для просмотра всех сценариев проектирования.</p>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      feed.innerHTML = html;
+      feed.scrollTop = feed.scrollHeight;
+    }
+
+    // Render Right Inspector Panel
+    function renderInspectorPanel(state) {
+      const inspector = document.getElementById('inspectorContent');
+      const footer = document.getElementById('inspectorFooter');
+      let html = '';
+      let footerHtml = '';
+
+      if (currentInspectorTab === 'draft' || state === '04' || state === '09') {
+        html = `
+          <div class="space-y-3">
+            <div class="flex items-center justify-between pb-1 border-b border-[#DCE3E5]">
+              <span class="font-semibold text-[12px] uppercase text-outline">Карточка черновика</span>
+              <span class="px-1.5 py-0.5 rounded text-[10px] bg-brand-teal-light text-brand-teal font-medium">Open Storage</span>
+            </div>
+
+            <div class="space-y-2">
+              <div>
+                <span class="text-[11px] text-outline">Название:</span>
+                <div class="font-medium text-on-surface text-[13px]">Консультативное заключение кардиолога</div>
+              </div>
+              <div class="grid grid-cols-2 gap-2 text-[12px]">
+                <div>
+                  <span class="text-[11px] text-outline">Категория:</span>
+                  <div class="text-on-surface">Здоровье</div>
+                </div>
+                <div>
+                  <span class="text-[11px] text-outline">Дата:</span>
+                  <div class="text-on-surface font-mono">14.05.2026</div>
+                </div>
+              </div>
+              <div>
+                <span class="text-[11px] text-outline">Субъект (Пациент):</span>
+                <div class="text-on-surface">Смирнов Алексей Викторович</div>
+              </div>
+              <div>
+                <span class="text-[11px] text-outline">Медицинская организация:</span>
+                <div class="text-on-surface">ГКБ № 12 г. Санкт-Петербурга</div>
+              </div>
+            </div>
+
+            <!-- Validation Health Meters -->
+            <div class="p-2.5 rounded bg-surface-container space-y-2 border border-[#DCE3E5]/60 text-[12px]">
+              <div class="flex justify-between items-center text-[11px]">
+                <span class="font-semibold text-on-surface">Сверка со сканом</span>
+                <span class="font-mono text-brand-teal">16 / 18 полей</span>
+              </div>
+              <div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+                <div class="bg-brand-teal h-full w-[88%]"></div>
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-outline">
+                <span>Обязательные: 100% OK</span>
+                <span class="text-amber-700 font-medium cursor-pointer hover:underline" onclick="setDemoState('05')">2 на проверку →</span>
+              </div>
+            </div>
+
+            <!-- Extracted Structured Tags -->
+            <div>
+              <span class="text-[11px] text-outline block mb-1">Извлечённые реквизиты:</span>
+              <div class="flex flex-wrap gap-1 text-[11px]">
+                <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface border border-[#DCE3E5]">МКБ-10: I11.9</span>
+                <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface border border-[#DCE3E5]">Периндоприл 5 мг</span>
+                <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface border border-[#DCE3E5]">Давление: 135/85</span>
+              </div>
+            </div>
+          </div>
+        `;
+
+        footerHtml = `
+          <div class="flex items-center gap-2">
+            <button onclick="openFullEditorModal()" class="flex-1 h-7 px-2 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-[12px] font-medium flex items-center justify-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">edit</span>
+              <span>В редактор</span>
+            </button>
+            <button onclick="setDemoState('09')" class="flex-1 h-7 px-2 rounded bg-brand-teal hover:bg-brand-teal-dark text-white text-[12px] font-semibold flex items-center justify-center gap-1 shadow-sm">
+              <span class="material-symbols-outlined text-[14px]">save</span>
+              <span>Сохранить</span>
+            </button>
+          </div>
+        `;
+      }
+      else if (currentInspectorTab === 'verify' || state === '05' || state === '06') {
+        html = `
+          <div class="space-y-3">
+            <div class="flex items-center justify-between pb-1 border-b border-[#DCE3E5]">
+              <span class="font-semibold text-[12px] uppercase text-amber-900">Сверка значений (2)</span>
+              <span class="text-[10px] text-outline font-mono">OCR Provenance</span>
+            </div>
+
+            <div class="p-2.5 rounded bg-white border border-amber-300 space-y-1.5 text-[12px]">
+              <div class="flex items-center justify-between">
+                <span class="font-medium text-on-surface">Дата планового осмотра</span>
+                <span class="px-1 py-0.2 rounded text-[10px] bg-amber-100 text-amber-900">Не сверено</span>
+              </div>
+              <div class="text-[11px] text-outline">Цитата со скана: «повторный осмотр через 6 месяцев: ноябрь 2026 г.»</div>
+              <div class="pt-1 flex gap-1">
+                <button onclick="setDemoState('06')" class="px-2 py-0.5 rounded bg-brand-teal text-white text-[11px]">Сверить</button>
+                <button class="px-2 py-0.5 rounded bg-surface-container text-on-surface text-[11px]">Пропустить</button>
+              </div>
+            </div>
+
+            <div class="p-2.5 rounded bg-white border border-[#DCE3E5] space-y-1.5 text-[12px]">
+              <div class="flex items-center justify-between">
+                <span class="font-medium text-on-surface">Дозировка: Периндоприл</span>
+                <span class="px-1 py-0.2 rounded text-[10px] bg-emerald-100 text-emerald-800">Сверено</span>
+              </div>
+              <div class="text-[11px] text-outline">Стр. 1, п. 3: «5 мг один раз в сутки утром»</div>
+            </div>
+          </div>
+        `;
+        footerHtml = `
+          <button onclick="setDemoState('04')" class="w-full h-7 rounded bg-surface-container text-on-surface text-[12px]">Вернуться к сводке черновика</button>
+        `;
+      }
+      else if (currentInspectorTab === 'queue' || state === '07') {
+        html = `
+          <div class="space-y-2">
+            <div class="flex items-center justify-between pb-1 border-b border-[#DCE3E5]">
+              <span class="font-semibold text-[12px] uppercase text-outline">Очередь обработки (5)</span>
+              <span class="text-[11px] text-brand-teal font-mono">3 OK</span>
+            </div>
+            <div class="space-y-1 text-[12px]">
+              <div class="p-2 rounded bg-white border border-[#DCE3E5] flex items-center justify-between">
+                <span>1. Паспорт_РФ.pdf</span>
+                <span class="text-emerald-700 text-[11px] font-medium">Готов</span>
+              </div>
+              <div class="p-2 rounded bg-brand-teal-light border border-brand-teal/40 flex items-center justify-between font-semibold text-brand-teal">
+                <span>2. Медицинское_заключение.pdf</span>
+                <span class="text-[11px]">Активен</span>
+              </div>
+              <div class="p-2 rounded bg-white border border-[#DCE3E5] flex items-center justify-between">
+                <span>3. Договор_аренды_42.pdf</span>
+                <span class="text-outline text-[11px]">Анализ...</span>
+              </div>
+              <div class="p-2 rounded bg-white border border-[#DCE3E5] flex items-center justify-between text-outline">
+                <span>4. Справка_2НДФЛ.pdf</span>
+                <span class="text-[11px]">Ожидает</span>
+              </div>
+              <div class="p-2 rounded bg-white border border-error/20 flex items-center justify-between text-error">
+                <span>5. Чек_скан.jpg</span>
+                <span class="text-[11px]">Сбой OCR</span>
+              </div>
+            </div>
+          </div>
+        `;
+        footerHtml = `
+          <button onclick="setDemoState('04')" class="w-full h-7 rounded bg-brand-teal text-white text-[12px] font-medium">Открыть текущий результат</button>
+        `;
+      }
+      else {
+        // Document / Original Source tab
+        html = `
+          <div class="space-y-3">
+            <div class="flex items-center justify-between pb-1 border-b border-[#DCE3E5]">
+              <span class="font-semibold text-[12px] uppercase text-outline">Исходный скан</span>
+              <span class="text-[11px] font-mono text-outline">Стр. 1 из 2</span>
+            </div>
+            <div class="bg-white p-3 border border-[#DCE3E5] rounded shadow-inner text-[11px] font-serif leading-relaxed">
+              <div class="text-center font-bold text-[11px] uppercase pb-1 border-b border-[#DCE3E5] font-sans">ГКБ № 12 • Кардиология</div>
+              <p class="mt-2">Пациент: Смирнов Алексей Викторович</p>
+              <p>Дата: 14 мая 2026 г.</p>
+              <p>Диагноз: <mark class="bg-brand-teal-light text-brand-teal font-sans">Гипертоническая болезнь II стадии</mark></p>
+              <p>Терапия: Периндоприл 5 мг 1 р/сут.</p>
+            </div>
+            <div class="text-[11px] text-outline">Хэш: sha256:d8c2e91...4a1 • Оригинал Read-Only</div>
+          </div>
+        `;
+        footerHtml = `
+          <button onclick="openFullEditorModal()" class="w-full h-7 rounded bg-surface-container text-on-surface text-[12px]">Развернуть документ на полный экран</button>
+        `;
+      }
+
+      inspector.innerHTML = html;
+      footer.innerHTML = footerHtml;
+    }
+
+    // Switch Inspector Tab
+    function switchInspectorTab(tab) {
+      currentInspectorTab = tab;
+      const tabs = ['draft', 'verify', 'doc', 'queue'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('tabBtn' + capitalize(t));
+        if (btn) {
+          if (t === tab) {
+            btn.className = 'px-2 py-1 rounded text-[12px] font-semibold bg-surface-container-lowest text-brand-teal shadow-xs';
+          } else {
+            btn.className = 'px-2 py-1 rounded text-[12px] text-on-surface-variant hover:text-on-surface';
+          }
+        }
+      });
+      renderInspectorPanel(currentState);
+    }
+
+    // Helper: Capitalize string
+    function capitalize(s) {
+      return s.charAt(0).toUpperCase() + s.slice(1);
+    }
+
+    // Toggle Left Conversation History Drawer
+    function toggleHistoryDrawer() {
+      const drawer = document.getElementById('chatHistoryDrawer');
+      isHistoryOpen = !isHistoryOpen;
+      drawer.classList.toggle('hidden', !isHistoryOpen);
+    }
+
+    // Toggle Right Context Inspector
+    function toggleContextInspector() {
+      const inspector = document.getElementById('contextInspector');
+      isInspectorOpen = !isInspectorOpen;
+      inspector.classList.toggle('hidden', !isInspectorOpen);
+    }
+
+    // Model Dropdown
+    function toggleModelDropdown() {
+      const dd = document.getElementById('modelDropdown');
+      dd.classList.toggle('hidden');
+    }
+
+    function selectModel(name, mode, isLocal) {
+      activeModel = name;
+      document.getElementById('modelNameLabel').textContent = name;
+      document.getElementById('modelModeTag').textContent = mode;
+      document.getElementById('modelDot').className = isLocal ? 'w-1.5 h-1.5 rounded-full bg-emerald-600' : 'w-1.5 h-1.5 rounded-full bg-amber-600';
+      
+      const privacyNote = document.getElementById('privacyFooterNote');
+      if (isLocal) {
+        privacyNote.textContent = 'Локальная обработка: исходные файлы не покидают компьютер. Запись в архив — только с вашего подтверждения.';
+      } else {
+        privacyNote.textContent = 'Внимание: Выбрана облачная модель. Обработка требует передачи контекста на внешние сервера провайдера.';
+      }
+      toggleModelDropdown();
+    }
+
+    // Scope cycle
+    function cycleContextScope() {
+      const scopes = ['Выбранные документы', 'Архив: Open', 'Все доступные (Open + Secret)'];
+      let idx = scopes.indexOf(activeScope);
+      idx = (idx + 1) % scopes.length;
+      activeScope = scopes[idx];
+      document.getElementById('scopeLabel').textContent = 'Контекст: ' + activeScope;
+      document.getElementById('scopeBtnText').textContent = activeScope.split(':')[0];
+    }
+
+    // Send click behavior
+    function handleSendClick() {
+      const txt = document.getElementById('composerTextarea');
+      if (currentState === '01') {
+        setDemoState('02');
+      } else if (currentState === '02') {
+        setDemoState('03');
+      } else {
+        setDemoState('04');
+      }
+      txt.value = '';
+    }
+
+    // Attach File Simulator
+    function triggerAttachFile() {
+      setDemoState('02');
+    }
+
+    function removeAttachedFile() {
+      setDemoState('01');
+    }
+
+    function stopGeneration() {
+      setDemoState('02');
+    }
+
+    function newConversation() {
+      setDemoState('01');
+      if (isHistoryOpen) toggleHistoryDrawer();
+    }
+
+    function resetToDefaultState() {
+      setDemoState('04');
+    }
+
+    // Full Editor Modal
+    function openFullEditorModal() {
+      document.getElementById('fullEditorModal').classList.remove('hidden');
+    }
+
+    function closeFullEditorModal() {
+      document.getElementById('fullEditorModal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
