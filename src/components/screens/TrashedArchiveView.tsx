@@ -45,12 +45,12 @@ export const TrashedArchiveView: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 flex flex-col bg-[#f4faff] h-full overflow-hidden">
+    <div className="flex flex-col w-full text-[#111d23] gap-3">
       {/* Top Banner */}
-      <div className="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between shadow-xs">
+      <div className="bg-white border border-slate-200 rounded-xl px-5 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
         <div>
-          <div className="flex items-center gap-3">
-            <h1 className="text-xl font-bold text-slate-800 tracking-tight">SCR-16: Убранные документы (Изолированный архив)</h1>
+          <div className="flex items-center gap-3 flex-wrap">
+            <h1 className="text-xl font-bold text-slate-800 tracking-tight">Убранные документы (Изолированный архив)</h1>
             <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-50 text-amber-800 border border-amber-200">
               Политика Safe Archive (Без безвозвратного удаления)
             </span>
@@ -60,7 +60,7 @@ export const TrashedArchiveView: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <button 
             onClick={() => setCurrentScreen('SCR-01')}
             className="px-3.5 py-1.5 border border-slate-300 hover:bg-slate-50 text-slate-700 rounded-md text-xs font-medium transition-colors"
@@ -71,15 +71,15 @@ export const TrashedArchiveView: React.FC = () => {
       </div>
 
       {/* Main Split */}
-      <div className="flex-1 flex overflow-hidden">
+      <div className="flex flex-col lg:flex-row bg-white border border-slate-200 rounded-xl shadow-xs overflow-hidden min-h-[560px]">
         {/* Table List */}
-        <div className="flex-1 flex flex-col border-r border-slate-200 bg-white">
-          <div className="p-3 border-b border-slate-100 flex items-center justify-between">
+        <div className="flex-1 min-w-0 flex flex-col border-b lg:border-b-0 lg:border-r border-slate-200 bg-white">
+          <div className="p-3 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
             <div className="text-xs text-slate-500 font-medium">
               Скрыто документов: <span className="font-mono text-slate-800 font-semibold">{visibleDocs.length}</span>
             </div>
 
-            <div className="relative w-64">
+            <div className="relative w-full sm:w-64 lg:w-80">
               <Search className="w-3.5 h-3.5 absolute left-2.5 top-2.5 text-slate-400" />
               <input 
                 type="text"
@@ -96,7 +96,7 @@ export const TrashedArchiveView: React.FC = () => {
               <div className="p-12 text-center text-slate-400 flex flex-col items-center justify-center">
                 <Archive className="w-12 h-12 text-slate-200 mb-3 stroke-[1.5]" />
                 <p className="font-medium text-slate-600">Раздел убранных документов пуст</p>
-                <p className="text-xs text-slate-400 mt-1">Все активные документы отображаются в основном журнале (SCR-01).</p>
+                <p className="text-xs text-slate-400 mt-1">Все активные документы отображаются в основном журнале.</p>
               </div>
             ) : (
               <table className="w-full text-left border-collapse text-xs">
@@ -125,7 +125,7 @@ export const TrashedArchiveView: React.FC = () => {
                             <FileText className="w-4 h-4 text-slate-400 shrink-0" />
                             <div>
                               <p className="font-medium text-slate-800">{doc.title}</p>
-                              <p className="text-[11px] text-slate-400 font-mono truncate max-w-xs">{doc.archivePath}</p>
+                              <p className="text-[11px] text-slate-400 font-mono truncate max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl">{doc.archivePath}</p>
                             </div>
                           </div>
                         </td>
@@ -165,7 +165,7 @@ export const TrashedArchiveView: React.FC = () => {
 
         {/* Right Inspector Drawer */}
         {inspectedDoc && (
-          <div className="w-80 bg-slate-50/80 p-5 flex flex-col justify-between overflow-y-auto">
+          <div className="w-full lg:w-80 xl:w-[350px] 2xl:w-[380px] shrink-0 bg-slate-50/80 p-5 flex flex-col justify-between overflow-y-auto">
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-xs font-semibold text-slate-700 uppercase tracking-wider">
                 <Eye className="w-4 h-4 text-[#006763]" />

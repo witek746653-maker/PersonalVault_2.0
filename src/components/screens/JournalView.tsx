@@ -38,17 +38,13 @@ export const JournalView: React.FC = () => {
     path: true,
   });
 
-  // Effective scenario adjustments
-  const isScenarioEmpty = activeScenario === 'empty';
-  const isScenarioNoSearch = activeScenario === 'nosearch';
-  const isScenarioSecretLocked = activeScenario === 'secret_locked' || !isVeraCryptMounted;
-  const isScenarioList = activeScenario === 'list' || viewMode === 'list';
+  // Real reactive state
+  const isScenarioSecretLocked = !isVeraCryptMounted;
+  const isListView = viewMode === 'list';
+  const isSearchingOrFiltered = searchQuery.trim().length > 0 || quickFilter !== 'all' || zoneFilter !== 'all';
 
   // Filter documents
   const filteredDocs = useMemo(() => {
-    if (isScenarioEmpty) return [];
-    if (isScenarioNoSearch) return [];
-
     let list = documents.filter((d) => d.status === 'active');
 
     // VeraCrypt lock
@@ -86,8 +82,6 @@ export const JournalView: React.FC = () => {
     return list;
   }, [
     documents,
-    isScenarioEmpty,
-    isScenarioNoSearch,
     isScenarioSecretLocked,
     zoneFilter,
     quickFilter,
@@ -125,9 +119,6 @@ export const JournalView: React.FC = () => {
               <h1 className="font-semibold text-[18px] tracking-tight text-[#111d23]">
                 Журнал документов
               </h1>
-              <span className="font-mono text-[11px] px-1.5 py-0.5 rounded bg-[#e3f0f8] text-[#3e4948]">
-                SCR-01
-              </span>
             </div>
             <p className="text-[12px] text-[#536166]">
               Основной каталог архивных записей и документов долговременного хранения
@@ -154,7 +145,7 @@ export const JournalView: React.FC = () => {
               <button
                 onClick={() => setViewMode('table')}
                 className={`flex items-center gap-1 px-2.5 py-1 rounded text-[11px] font-semibold transition-all ${
-                  !isScenarioList
+                  !isListView
                     ? 'bg-white text-[#006763] shadow-xs'
                     : 'text-[#3e4948] hover:text-[#111d23]'
                 }`}
@@ -165,7 +156,7 @@ export const JournalView: React.FC = () => {
               <button
                 onClick={() => setViewMode('list')}
                 className={`flex items-center gap-1 px-2.5 py-1 rounded text-[11px] font-semibold transition-all ${
-                  isScenarioList
+                  isListView
                     ? 'bg-white text-[#006763] shadow-xs'
                     : 'text-[#3e4948] hover:text-[#111d23]'
                 }`}
@@ -198,7 +189,7 @@ export const JournalView: React.FC = () => {
         {/* Filter and Search Bar */}
         <div className="flex items-center justify-between gap-3 p-1.5 rounded bg-[#e9f6fd] border border-[#d7e4ec] flex-wrap">
           {/* Search Input */}
-          <div className="relative flex items-center min-w-[280px] flex-1 max-w-md">
+          <div className="relative flex items-center min-w-[280px] flex-1 max-w-md xl:max-w-xl">
             <span className="material-symbols-outlined absolute left-2 text-[15px] text-[#6e7978] pointer-events-none">
               search
             </span>
@@ -350,14 +341,14 @@ export const JournalView: React.FC = () => {
             <div className="p-12 flex flex-col items-center justify-center text-center gap-2">
               <div className="w-12 h-12 rounded-full bg-[#e3f0f8] flex items-center justify-center text-[#6e7978]">
                 <span className="material-symbols-outlined text-[26px]">
-                  {isScenarioNoSearch ? 'search_off' : 'inventory_2'}
+                  {isSearchingOrFiltered ? 'search_off' : 'inventory_2'}
                 </span>
               </div>
               <h3 className="font-semibold text-[15px] text-[#111d23]">
-                {isScenarioNoSearch ? 'Ничего не найдено' : 'В Журнале пока нет документов'}
+                {isSearchingOrFiltered ? 'Ничего не найдено' : 'В Журнале пока нет документов'}
               </h3>
               <p className="text-[12px] text-[#536166] max-w-sm">
-                {isScenarioNoSearch
+                {isSearchingOrFiltered
                   ? 'По заданным параметрам фильтрации совпадений нет. Проверьте условия поиска или опечатки.'
                   : 'Архив пуст. Вы можете добавить первый документ через раздел «Входящие» или импортировать файл.'}
               </p>
@@ -369,10 +360,10 @@ export const JournalView: React.FC = () => {
                 }}
                 className="mt-2 px-3 py-1.5 rounded bg-[#006763] text-white text-[12px] font-semibold hover:bg-[#12827c] transition-colors"
               >
-                {isScenarioNoSearch ? 'Сбросить фильтры' : 'Вернуть тестовые записи'}
+                {isSearchingOrFiltered ? 'Сбросить фильтры' : 'Сбросить условия'}
               </button>
             </div>
-          ) : !isScenarioList ? (
+          ) : !isListView ? (
             /* Tabular Grid View */
             <div className="overflow-x-auto w-full">
               <table className="w-full text-left border-collapse select-none text-[12px]">
@@ -443,7 +434,7 @@ export const JournalView: React.FC = () => {
                               {doc.id}
                             </span>
                             <span className="text-[#6e7978]">·</span>
-                            <span className="font-medium text-[#111d23] truncate max-w-xs" title={doc.title}>
+                            <span className="font-medium text-[#111d23] truncate max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl" title={doc.title}>
                               {doc.title}
                             </span>
                           </div>
@@ -515,7 +506,7 @@ export const JournalView: React.FC = () => {
                           </td>
                         )}
                         {colVisibility.path && (
-                          <td className="px-2 font-mono text-[10px] text-[#536166] whitespace-nowrap truncate max-w-[120px]">
+                          <td className="px-2 font-mono text-[10px] text-[#536166] whitespace-nowrap truncate max-w-[120px] lg:max-w-[180px] xl:max-w-[260px]">
                             {doc.archivePath.split('→')[1] || doc.category}
                           </td>
                         )}
@@ -583,7 +574,7 @@ export const JournalView: React.FC = () => {
 
         {/* Right Side Inspector Drawer */}
         {isInspectorOpen && activeDoc && (
-          <aside className="w-80 shrink-0 bg-white rounded border border-[#d7e4ec] shadow-xs p-3 flex flex-col gap-3 sticky top-12">
+          <aside className="w-80 lg:w-[340px] xl:w-[360px] 2xl:w-[380px] shrink-0 bg-white rounded border border-[#d7e4ec] shadow-xs p-3 flex flex-col gap-3 sticky top-12">
             <div className="flex items-center justify-between pb-2 border-b border-[#d7e4ec]">
               <div className="flex items-center gap-1.5">
                 <span className="material-symbols-outlined text-[#006763] text-[18px]">info</span>
@@ -729,21 +720,21 @@ export const JournalView: React.FC = () => {
               className="flex items-center gap-1 px-3 py-1 rounded bg-[#006763] text-white hover:bg-[#12827c] transition-colors shadow-xs font-semibold text-[11px]"
             >
               <kbd className="font-mono text-[9px] bg-white/20 px-1 rounded">Enter</kbd>
-              <span>Карточка (SCR-11)</span>
+              <span>Карточка документа</span>
             </button>
             <button
               onClick={() => setCurrentScreen('SCR-06')}
               className="flex items-center gap-1 px-2.5 py-1 rounded bg-white text-[#111d23] hover:bg-[#e9f6fd] transition-colors text-[11px] border border-[#d7e4ec]"
             >
               <kbd className="font-mono text-[9px] bg-[#e3f0f8] px-1 rounded text-[#536166]">F4</kbd>
-              <span>Редактор (SCR-06)</span>
+              <span>Редактор данных</span>
             </button>
             <button
               onClick={() => setCurrentScreen('SCR-07')}
               className="flex items-center gap-1 px-2.5 py-1 rounded bg-white text-[#111d23] hover:bg-[#e9f6fd] transition-colors text-[11px] border border-[#d7e4ec]"
             >
               <kbd className="font-mono text-[9px] bg-[#e3f0f8] px-1 rounded text-[#536166]">F5</kbd>
-              <span>Сверка со сканом (SCR-07)</span>
+              <span>Сверка со сканом</span>
             </button>
             <button
               onClick={() => setIsInspectorOpen((prev) => !prev)}

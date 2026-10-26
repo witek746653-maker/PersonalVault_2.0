@@ -35,12 +35,12 @@ export const SettingsView: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 flex flex-col bg-[#f4faff] h-full overflow-hidden">
+    <div className="flex flex-col w-full text-[#111d23] gap-3">
       {/* Top Banner */}
-      <div className="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between shadow-xs">
+      <div className="bg-white border border-slate-200 rounded-xl px-5 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
         <div>
-          <div className="flex items-center gap-3">
-            <h1 className="text-xl font-bold text-slate-800 tracking-tight">SCR-17: Параметры и конфигурация системы</h1>
+          <div className="flex items-center gap-3 flex-wrap">
+            <h1 className="text-xl font-bold text-slate-800 tracking-tight">Параметры и конфигурация системы</h1>
             <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-50 text-[#006763] border border-teal-200">
               PersonalVault 2.0 Engine
             </span>
@@ -50,13 +50,13 @@ export const SettingsView: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 shrink-0">
           <button
             onClick={() => setCurrentScreen('SCR-18')}
             className="px-3.5 py-1.5 border border-slate-300 hover:bg-slate-50 text-slate-700 rounded-md text-xs font-medium flex items-center gap-1.5 transition-colors"
           >
             <Wrench className="w-3.5 h-3.5 text-[#006763]" />
-            Центр обслуживания (SCR-18)
+            Центр обслуживания
           </button>
           <button 
             onClick={handleSave}
@@ -69,7 +69,7 @@ export const SettingsView: React.FC = () => {
       </div>
 
       {/* Content Form */}
-      <div className="flex-1 overflow-y-auto p-6 max-w-5xl mx-auto w-full space-y-6 text-xs">
+      <div className="w-full space-y-4 text-xs">
         {/* Section 1: Storage Paths */}
         <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs space-y-4">
           <div className="flex items-center gap-2 text-sm font-semibold text-slate-800 border-b border-slate-100 pb-3">

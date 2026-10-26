@@ -194,6 +194,22 @@ export const StateRibbon: React.FC = () => {
           { key: 'secret_locked', label: '4. Secret отключен (UX-032)' },
           { key: 'checking', label: '5. Проверяется...' },
         ];
+      case 'SCR-19':
+        return [
+          { key: 'normal', label: '1. Штатный обзор Open' },
+          { key: 'open_secret', label: '2. Open + Secret' },
+          { key: 'secret_locked', label: '3. Secret закрыта (UX-032)' },
+          { key: 'empty', label: '4. Нет медицинских данных' },
+          { key: 'verification', label: '5. Проверка факта' },
+          { key: 'disease_detail', label: '6. Карточка заболевания' },
+          { key: 'labs_trend', label: '7. Динамика анализов' },
+          { key: 'fitness', label: '8. Активность и сон' },
+          { key: 'no_tracker', label: '9. Нет данных трекера' },
+          { key: 'import_error', label: '10. Ошибка импорта' },
+          { key: 'summary_fr', label: '11. Резюме (Français)' },
+          { key: 'missing_source', label: '12. Источник недоступен' },
+          { key: 'secret_disconnect', label: '14. Аварийный сброс Secret' },
+        ];
       default:
         return [
           { key: 'normal', label: 'Штатный вид' },
@@ -204,7 +220,7 @@ export const StateRibbon: React.FC = () => {
   const scenarios = getScenariosForScreen();
 
   return (
-    <div className="w-full bg-[#ddeaf2] px-3 py-1.5 flex flex-wrap items-center justify-between gap-2 border-b border-[#d7e4ec] select-none text-[12px] z-20">
+    <div className="w-full bg-[#ddeaf2] px-3.5 sm:px-6 lg:px-8 xl:px-10 py-1.5 flex flex-wrap items-center justify-between gap-2 border-b border-[#d7e4ec] select-none text-[12px] z-20">
       {/* Left: Direct Screen Navigator Dropdown */}
       <div className="flex items-center gap-2 flex-wrap">
         <div className="flex items-center gap-1.5 font-semibold text-[#006763]">

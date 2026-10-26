@@ -53,6 +53,8 @@ interface VaultContextType {
   toggleVeraCrypt: () => void;
   isCompact: boolean;
   toggleCompact: () => void;
+  isSidebarCollapsed: boolean;
+  toggleSidebar: () => void;
   
   // Data
   documents: ArchiveDocument[];
@@ -124,6 +126,10 @@ export const VaultProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [activeScenario, setActiveScenario] = useState<string>('normal');
   const [isVeraCryptMounted, setIsVeraCryptMounted] = useState<boolean>(true);
   const [isCompact, setIsCompact] = useState<boolean>(false);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
+  const toggleSidebar = useCallback(() => {
+    setIsSidebarCollapsed(prev => !prev);
+  }, []);
 
   const [documents, setDocuments] = useState<ArchiveDocument[]>(initialArchiveDocuments);
   const [inboxItems, setInboxItems] = useState<InboxItem[]>(initialInboxItems);
@@ -273,7 +279,7 @@ export const VaultProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setDocuments(prev =>
       prev.map(doc => (doc.id === docId ? { ...doc, status: 'active', trashedDate: undefined } : doc))
     );
-    showToast(`Документ ${docId} возвращён в Журнал (SCR-01)`, 'undo');
+    showToast(`Документ ${docId} возвращён в Журнал`, 'undo');
   }, [showToast]);
 
   const softDeleteDocument = useCallback((docId: string, reason: string) => {
@@ -289,7 +295,7 @@ export const VaultProvider: React.FC<{ children: React.ReactNode }> = ({ childre
           : doc
       )
     );
-    showToast(`Документ ${docId} перемещён в раздел «Убранные» (SCR-16)`, 'archive');
+    showToast(`Документ ${docId} перемещён в раздел «Убранные»`, 'archive');
   }, [showToast]);
 
   // User uploaded file
@@ -334,7 +340,7 @@ export const VaultProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       ...prev,
       title: newInboxItem.workingTitle,
     }));
-    showToast(`Файл «${file.name}» добавлен во Входящие (SCR-02)`, 'upload_file');
+    showToast(`Файл «${file.name}» добавлен во Входящие`, 'upload_file');
   }, [showToast]);
 
   const updateVerificationFieldStatus = useCallback((id: number, status: VerificationFieldItem['status'], newValue?: string) => {
@@ -401,6 +407,8 @@ export const VaultProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       toggleVeraCrypt,
       isCompact,
       toggleCompact,
+      isSidebarCollapsed,
+      toggleSidebar,
       documents,
       inboxItems,
       myDataRecords,
@@ -445,6 +453,8 @@ export const VaultProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       toggleVeraCrypt,
       isCompact,
       toggleCompact,
+      isSidebarCollapsed,
+      toggleSidebar,
       documents,
       inboxItems,
       myDataRecords,

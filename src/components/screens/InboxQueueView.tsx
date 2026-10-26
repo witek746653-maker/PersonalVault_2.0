@@ -40,7 +40,7 @@ export const InboxQueueView: React.FC = () => {
     if (!selectedItem) return;
     setPipelineStep(2);
     setCurrentScreen('SCR-03');
-    showToast('Переход к Этапу 2: Состав документа (SCR-03)', 'arrow_forward');
+    showToast('Переход к Этапу 2: Состав документа', 'arrow_forward');
   };
 
   return (
@@ -75,7 +75,7 @@ export const InboxQueueView: React.FC = () => {
               onClick={() => setCurrentScreen('SCR-03')}
               className="px-2 py-0.5 rounded text-[#536166] hover:bg-[#e9f6fd]"
             >
-              2. Состав (SCR-03)
+              2. Состав
             </button>
             <button
               onClick={() => setCurrentScreen('SCR-04')}
@@ -93,7 +93,7 @@ export const InboxQueueView: React.FC = () => {
               onClick={() => setCurrentScreen('SCR-06')}
               className="px-2 py-0.5 rounded text-[#536166] hover:bg-[#e9f6fd]"
             >
-              Редактор (SCR-06)
+              5. Редактор данных
             </button>
           </div>
         </div>
@@ -138,10 +138,10 @@ export const InboxQueueView: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Split: Queue Table (65%) + Inspector (35%) */}
+      {/* Main Split: Queue Table (flex-1) + Inspector (~340-380px) */}
       <div className="w-full flex gap-3 items-stretch">
         {/* Left Queue Table */}
-        <div className="w-[62%] flex flex-col bg-white rounded border border-[#d7e4ec] shadow-xs overflow-hidden min-h-[520px]">
+        <div className="flex-1 min-w-0 flex flex-col bg-white rounded border border-[#d7e4ec] shadow-xs overflow-hidden min-h-[520px]">
           <div className="h-8 bg-[#ddeaf2] px-3 flex items-center justify-between text-[#111d23] text-[11px] font-semibold">
             <div className="flex items-center gap-2">
               <span className="text-[#006763]">Очередь необработанных материалов</span>
@@ -295,23 +295,20 @@ export const InboxQueueView: React.FC = () => {
                 className="h-6 px-2.5 rounded bg-[#006763] hover:bg-[#12827c] text-white font-medium flex items-center gap-1"
               >
                 <span className="material-symbols-outlined text-[13px]">join_inner</span>
-                <span>Объединить в один документ (SCR-03)</span>
+                <span>Объединить в один документ</span>
               </button>
             </div>
           </div>
         </div>
 
-        {/* Right Inspector (38%) */}
+        {/* Right Inspector */}
         {selectedItem && (
-          <div className="w-[38%] flex flex-col bg-white rounded border border-[#d7e4ec] shadow-xs overflow-hidden p-3 gap-3">
+          <div className="w-80 md:w-[340px] xl:w-[360px] 2xl:w-[380px] shrink-0 flex flex-col bg-white rounded border border-[#d7e4ec] shadow-xs overflow-hidden p-3 gap-3">
             <div className="flex items-center justify-between pb-1.5 border-b border-[#d7e4ec]">
               <div className="flex items-center gap-1.5 min-w-0">
                 <span className="material-symbols-outlined text-[#006763] text-[16px]">description</span>
                 <span className="font-semibold text-[13px] truncate">Инспектор входящего объекта</span>
               </div>
-              <span className="px-1.5 py-0.5 rounded bg-[#e3f0f8] font-mono text-[10px] text-[#536166]">
-                SCR-02/INSP
-              </span>
             </div>
 
             {/* Thumbnail Preview Banner */}

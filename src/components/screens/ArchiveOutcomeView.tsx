@@ -185,7 +185,7 @@ export const ArchiveOutcomeView: React.FC = () => {
               </span>
             </button>
 
-            {/* Action 2: Open in Journal (SCR-11) */}
+            {/* Action 2: Open in Journal */}
             <button
               onClick={() => {
                 setCurrentScreen('SCR-11');
@@ -195,22 +195,22 @@ export const ArchiveOutcomeView: React.FC = () => {
             >
               <span className="flex items-center gap-1.5">
                 <span className="material-symbols-outlined text-[15px] text-[#536166]">open_in_new</span>
-                <span>Открыть этот документ в Журнале (SCR-11)</span>
+                <span>Открыть этот документ в Журнале</span>
               </span>
               <span className="font-mono text-[#006763] font-bold">{doc.id}</span>
             </button>
 
-            {/* Action 3: Continue editing in SCR-06 */}
+            {/* Action 3: Continue editing */}
             <button
               onClick={() => {
                 setCurrentScreen('SCR-06');
-                showToast('Открытие редактора реквизитов (SCR-06)');
+                showToast('Открытие редактора реквизитов');
               }}
               className="w-full h-8 px-3 rounded bg-[#e3f0f8] hover:bg-[#ddeaf2] text-[#111d23] font-medium text-[11px] flex items-center justify-between border border-[#d7e4ec] transition-colors"
             >
               <span className="flex items-center gap-1.5">
                 <span className="material-symbols-outlined text-[15px] text-[#536166]">edit_note</span>
-                <span>Продолжить заполнение реквизитов (SCR-06)</span>
+                <span>Продолжить заполнение реквизитов</span>
               </span>
               <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
             </button>

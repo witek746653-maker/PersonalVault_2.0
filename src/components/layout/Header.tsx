@@ -11,7 +11,7 @@ export const Header: React.FC = () => {
   const [searchVal, setSearchVal] = useState('');
 
   return (
-    <header className="fixed top-0 left-0 right-0 h-9 bg-[#e9f6fd] z-50 flex items-center justify-between px-3 select-none border-b border-[#d7e4ec]">
+    <header className="h-9 shrink-0 bg-[#e9f6fd] z-40 flex items-center justify-between px-3 sm:px-4 md:px-6 lg:px-8 xl:px-10 select-none border-b border-[#d7e4ec]">
       {/* Brand & Storage Indicator */}
       <div className="flex items-center gap-2">
         <button
@@ -41,7 +41,7 @@ export const Header: React.FC = () => {
       </div>
 
       {/* Global Quick Search Input */}
-      <div className="flex-1 max-w-sm mx-4">
+      <div className="flex-1 max-w-sm lg:max-w-md xl:max-w-lg mx-4">
         <div className="relative flex items-center w-full">
           <span className="material-symbols-outlined absolute left-2 text-[14px] text-[#6e7978] pointer-events-none">
             search

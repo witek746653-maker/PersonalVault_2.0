@@ -51,7 +51,7 @@ export const DocumentCardView: React.FC = () => {
               title="Вернуться в Журнал (Esc)"
             >
               <span className="material-symbols-outlined text-[14px]">arrow_back</span>
-              <span>Журнал (SCR-01)</span>
+              <span>Журнал</span>
               <kbd className="font-mono text-[9px] bg-white px-1 rounded text-[#536166]">Esc</kbd>
             </button>
             <span className="text-[#6e7978]">/</span>
@@ -82,7 +82,7 @@ export const DocumentCardView: React.FC = () => {
               className="flex items-center gap-1.5 px-3 py-1 rounded bg-[#006763] text-white hover:bg-[#12827c] transition-colors font-semibold shadow-xs"
             >
               <span className="material-symbols-outlined text-[14px]">edit_note</span>
-              <span>Редактор данных (SCR-06)</span>
+              <span>Редактор данных</span>
               <kbd className="font-mono text-[9px] bg-white/20 px-1 rounded">F4</kbd>
             </button>
             <button
@@ -90,7 +90,7 @@ export const DocumentCardView: React.FC = () => {
               className="flex items-center gap-1.5 px-3 py-1 rounded bg-white hover:bg-[#e9f6fd] text-[#111d23] border border-[#d7e4ec] transition-colors font-medium shadow-xs"
             >
               <span className="material-symbols-outlined text-[14px] text-[#006763]">fact_check</span>
-              <span>Сверка со сканом (SCR-07)</span>
+              <span>Сверка со сканом</span>
               <kbd className="font-mono text-[9px] bg-[#e3f0f8] px-1 rounded text-[#536166]">F5</kbd>
             </button>
 
@@ -214,7 +214,7 @@ export const DocumentCardView: React.FC = () => {
                   transformOrigin: 'top center',
                   transition: 'transform 0.15s ease-out',
                 }}
-                className="w-full max-w-[480px] bg-[#fbfdfa] text-[#1a2327] shadow-md p-7 rounded-sm select-text font-serif leading-relaxed text-[12px]"
+                className="w-full max-w-[480px] xl:max-w-[560px] 2xl:max-w-[640px] bg-[#fbfdfa] text-[#1a2327] shadow-md p-7 rounded-sm select-text font-serif leading-relaxed text-[12px]"
               >
                 <div className="text-center mb-3 border-b border-[#d7e4ec] pb-2">
                   <p className="text-[10px] font-mono uppercase text-[#6e7978]">Приложение № 1 к Договору найма № 42</p>

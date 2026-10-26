@@ -34,7 +34,7 @@ export const PreCheckReadinessView: React.FC = () => {
     }
     setPipelineStep(4);
     setCurrentScreen('SCR-05');
-    showToast('Предпроверка пройдена. Переход к Классификации (SCR-05)', 'arrow_forward');
+    showToast('Предпроверка пройдена. Переход к Классификации', 'arrow_forward');
   };
 
   return (
@@ -52,7 +52,7 @@ export const PreCheckReadinessView: React.FC = () => {
             </span>
           </div>
           <span className="font-mono text-[11px] text-[#006763] bg-[#e9f6fd] px-2 py-0.5 rounded border border-[#d7e4ec]">
-            SCR-04 · VERIFY_PIPELINE_OK
+            Проверка целостности
           </span>
         </div>
 
@@ -433,7 +433,7 @@ export const PreCheckReadinessView: React.FC = () => {
           className="h-8 px-3 rounded bg-white hover:bg-[#e9f6fd] text-[#111d23] font-medium flex items-center gap-1 border border-[#d7e4ec]"
         >
           <span className="material-symbols-outlined text-[15px]">arrow_back</span>
-          <span>Назад к составу (SCR-03)</span>
+          <span>Назад к составу пакета</span>
         </button>
 
         <button
@@ -448,7 +448,7 @@ export const PreCheckReadinessView: React.FC = () => {
           <span>
             {isBlocked
               ? 'Классификация заблокирована'
-              : 'Продолжить к классификации (SCR-05)'}
+              : 'Продолжить к классификации'}
           </span>
           <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
         </button>

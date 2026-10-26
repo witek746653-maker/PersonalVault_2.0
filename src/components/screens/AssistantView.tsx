@@ -68,7 +68,7 @@ export const AssistantView: React.FC = () => {
           { label: 'Объект', value: 'г. Москва, ул. Ленина, д. 42, кв. 15', verified: true },
           { label: 'Сумма взаиморасчетов', value: '14 250 000 ₽', verified: true }
         ],
-        actionLabel: 'Открыть карточку в сплит-редакторе (SCR-06)',
+        actionLabel: 'Открыть карточку в сплит-редакторе',
         targetScreen: 'SCR-06'
       }
     }
@@ -95,7 +95,7 @@ export const AssistantView: React.FC = () => {
       let card = undefined;
 
       if (query.includes('анализ') || query.includes('кров') || query.includes('здоров')) {
-        replyText += 'Найдены актуальные показатели ферритина (68.4 мкг/л) и гемоглобина (148 г/л) в Сводке здоровья (SCR-19). Показатели в пределах нормы.';
+        replyText += 'Найдены актуальные показатели ферритина (68.4 мкг/л) и гемоглобина (148 г/л) в Сводке здоровья. Показатели в пределах нормы.';
         card = {
           title: 'Медицинские данные: Биохимический анализ',
           fields: [
@@ -103,7 +103,7 @@ export const AssistantView: React.FC = () => {
             { label: 'Гемоглобин', value: '148 г/л (Норма 130-160)', verified: true },
             { label: 'Динамика', value: 'Положительный прирост +44.3', verified: true }
           ],
-          actionLabel: 'Перейти в Сводку здоровья (SCR-19)',
+          actionLabel: 'Перейти в Сводку здоровья',
           targetScreen: 'SCR-19'
         };
       } else if (query.includes('паспорт') || query.includes('данные')) {
@@ -115,7 +115,7 @@ export const AssistantView: React.FC = () => {
             { label: 'СНИЛС', value: '123-456-789 00', verified: true },
             { label: 'Паспорт', value: 'Серия 4510 № 987654', verified: true }
           ],
-          actionLabel: 'Открыть «Мои данные» (SCR-14)',
+          actionLabel: 'Открыть «Мои данные»',
           targetScreen: 'SCR-14'
         };
       } else {
@@ -143,9 +143,9 @@ export const AssistantView: React.FC = () => {
   ];
 
   return (
-    <div className="flex-1 flex flex-col bg-[#f4faff] h-full overflow-hidden">
+    <div className="flex flex-col w-full text-[#111d23] gap-3">
       {/* Top Banner */}
-      <div className="bg-white border-b border-slate-200 px-6 py-3.5 flex items-center justify-between shadow-xs">
+      <div className="bg-white border border-slate-200 rounded-xl px-5 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
         <div className="flex items-center gap-3">
           <button 
             onClick={() => setIsHistoryOpen(!isHistoryOpen)}
@@ -157,7 +157,7 @@ export const AssistantView: React.FC = () => {
           <div>
             <h1 className="text-xl font-bold text-slate-800 tracking-tight flex items-center gap-2">
               <Bot className="w-5 h-5 text-[#006763]" />
-              SCR-20: Интеллектуальный помощник (AI Assistant)
+              Интеллектуальный помощник (AI Assistant)
             </h1>
             <p className="text-xs text-slate-500 mt-0.5">
               Семантический поиск, извлечение фактов и валидация архива с гарантией приватности.
@@ -166,8 +166,8 @@ export const AssistantView: React.FC = () => {
         </div>
 
         {/* Model Switcher */}
-        <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-lg border border-slate-200 text-xs">
-          <Cpu className="w-3.5 h-3.5 text-[#006763] ml-1.5" />
+        <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-lg border border-slate-200 text-xs shrink-0 flex-wrap">
+          <Cpu className="w-3.5 h-3.5 text-[#006763] ml-1.5 hidden sm:block" />
           <button
             onClick={() => {
               setActiveModel('qwen');
@@ -205,10 +205,10 @@ export const AssistantView: React.FC = () => {
       </div>
 
       {/* Main Split Body */}
-      <div className="flex-1 flex overflow-hidden">
+      <div className="flex-1 flex flex-col lg:flex-row bg-white border border-slate-200 rounded-xl shadow-xs overflow-hidden min-h-[560px]">
         {/* Left History Drawer (collapsible) */}
         {isHistoryOpen && (
-          <div className="w-64 bg-white border-r border-slate-200 flex flex-col p-3 animate-in slide-in-from-left duration-150">
+          <div className="w-full lg:w-64 bg-white border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col p-3 animate-in slide-in-from-left duration-150 shrink-0">
             <div className="flex items-center justify-between pb-2 border-b border-slate-100 mb-2">
               <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">История диалогов</span>
               <button onClick={() => setIsHistoryOpen(false)} className="text-slate-400 hover:text-slate-600 text-xs">✕</button>
@@ -231,23 +231,24 @@ export const AssistantView: React.FC = () => {
         )}
 
         {/* Center Conversation */}
-        <div className="flex-1 flex flex-col bg-slate-50/50 overflow-hidden">
+        <div className="flex-1 min-w-0 flex flex-col bg-slate-50/50 overflow-hidden">
           {/* Messages Feed */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-4">
-            {messages.map(msg => (
-              <div 
-                key={msg.id}
-                className={`flex gap-3 max-w-3xl ${
-                  msg.sender === 'user' ? 'ml-auto flex-row-reverse' : ''
-                }`}
-              >
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-xs text-xs font-bold ${
-                  msg.sender === 'user' 
-                    ? 'bg-[#006763] text-white' 
-                    : 'bg-teal-100 text-[#006763] border border-teal-200'
-                }`}>
-                  {msg.sender === 'user' ? 'Я' : <Bot className="w-4 h-4" />}
-                </div>
+          <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
+            <div className="w-full max-w-3xl xl:max-w-4xl 2xl:max-w-5xl mx-auto space-y-4">
+              {messages.map(msg => (
+                <div 
+                  key={msg.id}
+                  className={`flex gap-3 ${
+                    msg.sender === 'user' ? 'ml-auto flex-row-reverse' : ''
+                  }`}
+                >
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-xs text-xs font-bold ${
+                    msg.sender === 'user' 
+                      ? 'bg-[#006763] text-white' 
+                      : 'bg-teal-100 text-[#006763] border border-teal-200'
+                  }`}>
+                    {msg.sender === 'user' ? 'Я' : <Bot className="w-4 h-4" />}
+                  </div>
 
                 <div className="space-y-2 max-w-xl text-xs">
                   <div className={`p-4 rounded-2xl shadow-xs leading-relaxed ${
@@ -301,11 +302,12 @@ export const AssistantView: React.FC = () => {
                 </div>
               </div>
             ))}
+            </div>
           </div>
 
           {/* Quick Suggestions & Input Composer */}
           <div className="bg-white border-t border-slate-200 p-4">
-            <div className="max-w-3xl mx-auto space-y-3">
+            <div className="w-full max-w-3xl xl:max-w-4xl 2xl:max-w-5xl mx-auto space-y-3">
               {/* Chips */}
               <div className="flex items-center gap-2 overflow-x-auto pb-1 text-xs">
                 {quickPrompts.map((prompt, idx) => (
@@ -345,7 +347,7 @@ export const AssistantView: React.FC = () => {
 
         {/* Right Inspector Panel */}
         {isInspectorOpen && (
-          <div className="w-72 bg-white border-l border-slate-200 p-4 flex flex-col justify-between text-xs space-y-4">
+          <div className="w-full lg:w-72 xl:w-80 shrink-0 bg-white border-t lg:border-t-0 lg:border-l border-slate-200 p-4 flex flex-col justify-between text-xs space-y-4">
             <div className="space-y-4">
               <div className="flex items-center justify-between pb-2 border-b border-slate-100 font-semibold text-slate-800">
                 <span>Инспектор контекста</span>

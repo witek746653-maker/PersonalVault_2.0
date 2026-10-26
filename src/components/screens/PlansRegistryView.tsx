@@ -70,7 +70,7 @@ export const PlansRegistryView: React.FC = () => {
   };
 
   const handleStartImportPipeline = (planId: number) => {
-    showToast('Переход в Пайплайн обработки (SCR-02) с контекстом плана');
+    showToast('Переход во Входящие с контекстом плана');
     setCurrentScreen('SCR-02');
   };
 
@@ -104,12 +104,12 @@ export const PlansRegistryView: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 flex flex-col bg-[#f4faff] h-full overflow-hidden">
+    <div className="flex flex-col w-full text-[#111d23] gap-3">
       {/* Top Banner */}
-      <div className="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between shadow-xs">
+      <div className="bg-white border border-slate-200 rounded-xl px-5 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
         <div>
-          <div className="flex items-center gap-3">
-            <h1 className="text-xl font-bold text-slate-800 tracking-tight">SCR-15: Реестр планов и дедлайнов</h1>
+          <div className="flex items-center gap-3 flex-wrap">
+            <h1 className="text-xl font-bold text-slate-800 tracking-tight">Реестр планов и дедлайнов</h1>
             <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-50 text-[#006763] border border-teal-200">
               События и повторные приемы
             </span>
@@ -119,7 +119,7 @@ export const PlansRegistryView: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 shrink-0">
           <button 
             onClick={() => showToast('Новый план добавлен в реестр')}
             className="px-3.5 py-1.5 bg-[#006763] hover:bg-[#00524f] text-white rounded-md text-xs font-medium flex items-center gap-1.5 shadow-xs transition-colors"
@@ -131,9 +131,9 @@ export const PlansRegistryView: React.FC = () => {
       </div>
 
       {/* Filter Ribbon */}
-      <div className="bg-white border-b border-slate-200 px-6 py-2.5 flex items-center justify-between text-xs">
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-1 bg-slate-100 p-0.5 rounded-md">
+      <div className="bg-white border border-slate-200 rounded-xl px-5 py-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs shadow-xs">
+        <div className="flex items-center gap-3 flex-wrap">
+          <div className="flex items-center gap-1 bg-slate-100 p-0.5 rounded-md overflow-x-auto">
             {[
               { id: 'all', label: 'Все' },
               { id: 'pending', label: 'Активные' },
@@ -155,7 +155,7 @@ export const PlansRegistryView: React.FC = () => {
             ))}
           </div>
 
-          <div className="h-4 w-px bg-slate-200" />
+          <div className="h-4 w-px bg-slate-200 hidden sm:block" />
 
           <select
             value={filterCategory}
@@ -170,7 +170,7 @@ export const PlansRegistryView: React.FC = () => {
           </select>
         </div>
 
-        <div className="relative w-64">
+        <div className="relative w-full sm:w-64 lg:w-80">
           <Search className="w-3.5 h-3.5 absolute left-2.5 top-2.5 text-slate-400" />
           <input 
             type="text"
@@ -183,8 +183,8 @@ export const PlansRegistryView: React.FC = () => {
       </div>
 
       {/* Plans List / Grid */}
-      <div className="flex-1 overflow-y-auto p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4">
           {filteredPlans.map((plan: PlanItem) => {
             const isFinished = plan.status === 'Выполнен' || plan.status === 'Отменён';
 

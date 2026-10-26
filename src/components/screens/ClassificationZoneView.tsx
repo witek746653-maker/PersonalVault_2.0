@@ -19,7 +19,7 @@ export const ClassificationZoneView: React.FC = () => {
   const handleProceed = () => {
     setPipelineStep(5);
     setCurrentScreen('SCR-06');
-    showToast('Параметры классификации зафиксированы. Переход в Редактор данных (SCR-06)', 'arrow_forward');
+    showToast('Параметры классификации зафиксированы. Переход в Редактор данных', 'arrow_forward');
   };
 
   // Compute canonical target path preview
@@ -50,7 +50,7 @@ export const ClassificationZoneView: React.FC = () => {
             </span>
           </div>
           <span className="font-mono text-[11px] text-[#536166] bg-[#e9f6fd] px-2 py-0.5 rounded border border-[#d7e4ec]">
-            PV2-SCR-05 #rev.420
+            Параметры документа
           </span>
         </div>
 
@@ -74,15 +74,15 @@ export const ClassificationZoneView: React.FC = () => {
           </div>
           <div className="flex items-center gap-1.5 px-2 py-1 rounded bg-[#e3f0f8] text-[#6e7978]">
             <span className="material-symbols-outlined text-[13px]">edit_document</span>
-            <span>Редактор (SCR-06)</span>
+            <span>5. Редактор данных</span>
           </div>
         </div>
       </div>
 
       {/* Main 2-Column Workspace */}
       <div className="grid grid-cols-12 gap-3 items-start">
-        {/* Left Column: Preview & Destination Info (35%) */}
-        <div className="col-span-12 lg:col-span-4 flex flex-col gap-2.5">
+        {/* Left Column: Preview & Destination Info (300-380px bounded) */}
+        <div className="col-span-12 lg:col-span-4 xl:col-span-4 2xl:col-span-3 flex flex-col gap-2.5">
           <div className="bg-white p-3 rounded border border-[#d7e4ec] shadow-xs flex flex-col gap-2.5">
             <div className="flex items-center justify-between pb-1 border-b border-[#d7e4ec]">
               <span className="font-semibold text-[13px] text-[#111d23]">Документ #PV-0042</span>
@@ -118,14 +118,14 @@ export const ClassificationZoneView: React.FC = () => {
             <div className="p-2 rounded bg-[#fff3e0] border border-[#e68a00]/30 text-[11px] text-[#e68a00] flex items-start gap-1.5">
               <span className="material-symbols-outlined text-[15px] shrink-0 mt-0.5">info</span>
               <div>
-                <strong>Требует заполнения — можно продолжить.</strong> Документ валиден для предварительного сохранения. Реквизиты будут проверены в SCR-06.
+                <strong>Требует заполнения — можно продолжить.</strong> Документ валиден для предварительного сохранения. Реквизиты будут проверены в Редакторе данных.
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Classification Form (65%) */}
-        <div className="col-span-12 lg:col-span-8 flex flex-col gap-3">
+        {/* Right Column: Classification Form */}
+        <div className="col-span-12 lg:col-span-8 xl:col-span-8 2xl:col-span-9 flex flex-col gap-3">
           <div className="bg-white p-4 rounded border border-[#d7e4ec] shadow-xs flex flex-col gap-3.5">
             {/* 1. Storage Zone */}
             <div className="flex flex-col gap-1.5 p-3 rounded bg-[#e9f6fd] border border-[#d7e4ec]">
@@ -332,7 +332,7 @@ export const ClassificationZoneView: React.FC = () => {
                       onChange={() => updateClassification({ dateMode: 'deferred' })}
                       className="accent-[#006763]"
                     />
-                    <span>Оставить дату необработанной (отложить на шаг SCR-06)</span>
+                    <span>Оставить дату необработанной (отложить на следующий шаг)</span>
                   </div>
                   <span className="font-mono text-[10px] text-[#12827c]">ОТЛОЖЕНО</span>
                 </label>
@@ -344,7 +344,7 @@ export const ClassificationZoneView: React.FC = () => {
             {/* 5. Template & Relations */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-[12px]">
               <div className="flex flex-col gap-1">
-                <label className="font-semibold text-[#536166]">Шаблон для ввода (SCR-06):</label>
+                <label className="font-semibold text-[#536166]">Шаблон для ввода данных:</label>
                 <select
                   value={classificationData.templateId}
                   onChange={(e) => updateClassification({ templateId: e.target.value })}
@@ -390,7 +390,7 @@ export const ClassificationZoneView: React.FC = () => {
           className="h-8 px-3 rounded bg-white hover:bg-[#e9f6fd] text-[#111d23] font-medium flex items-center gap-1 border border-[#d7e4ec]"
         >
           <span className="material-symbols-outlined text-[15px]">arrow_back</span>
-          <span>Назад к предпроверке (SCR-04)</span>
+          <span>Назад к предпроверке</span>
         </button>
 
         <div className="flex items-center gap-2">
@@ -405,7 +405,7 @@ export const ClassificationZoneView: React.FC = () => {
             onClick={handleProceed}
             className="h-8 px-4 rounded bg-[#006763] hover:bg-[#12827c] text-white font-semibold flex items-center gap-1 shadow-xs transition-colors"
           >
-            <span>Продолжить к вводу данных (SCR-06)</span>
+            <span>Продолжить к вводу данных</span>
             <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
           </button>
         </div>

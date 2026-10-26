@@ -7,7 +7,6 @@ import React from 'react';
 import { VaultProvider, useVault } from './context/VaultContext';
 import { Header } from './components/layout/Header';
 import { Sidebar } from './components/layout/Sidebar';
-import { StateRibbon } from './components/layout/StateRibbon';
 
 // Screen Components
 import { JournalView } from './components/screens/JournalView';
@@ -34,7 +33,7 @@ import { AssistantView } from './components/screens/AssistantView';
 import { CheckCircle2, Info } from 'lucide-react';
 
 const MainLayout: React.FC = () => {
-  const { currentScreen, toast, isCompact } = useVault();
+  const { currentScreen, toast } = useVault();
 
   const renderActiveScreen = () => {
     switch (currentScreen) {
@@ -88,22 +87,17 @@ const MainLayout: React.FC = () => {
       {/* 1. Header Titlebar */}
       <Header />
 
-      {/* 2. Interactive Prototype State Ribbon */}
-      <StateRibbon />
-
-      {/* 3. Main Workspace Area */}
-      <div className={`flex-1 flex overflow-hidden ${isCompact ? 'p-3 bg-slate-200/70 items-center justify-center' : ''}`}>
-        <div className={`flex flex-1 h-full overflow-hidden ${
-          isCompact ? 'max-w-[920px] max-h-[760px] bg-white rounded-xl shadow-2xl border border-slate-300' : ''
-        }`}>
-          <Sidebar />
-          <main className="flex-1 flex flex-col h-full overflow-hidden bg-[#f4faff]">
+      {/* 2. Main Workspace with Docked Adaptive Sidebar and Content */}
+      <div className="flex-1 flex min-h-0 overflow-hidden">
+        <Sidebar />
+        <main className="flex-1 min-w-0 h-full overflow-y-auto bg-[#f4faff] px-3.5 py-3 sm:px-6 sm:py-4 lg:px-8 lg:py-5 xl:px-10 xl:py-6 flex flex-col items-center">
+          <div className="w-full max-w-[1800px] 2xl:max-w-[2200px] 3xl:max-w-[2600px] flex-1 flex flex-col">
             {renderActiveScreen()}
-          </main>
-        </div>
+          </div>
+        </main>
       </div>
 
-      {/* 4. Global Toast Notification Container */}
+      {/* 3. Global Toast Notification Container */}
       {toast && (
         <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2 max-w-sm pointer-events-none">
           <div className="pointer-events-auto px-4 py-2.5 rounded-lg shadow-lg border border-slate-800 bg-slate-900 text-white text-xs flex items-center gap-3 animate-in slide-in-from-bottom-2 duration-150">

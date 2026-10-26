@@ -41,7 +41,7 @@ export const DraftsSessionsView: React.FC = () => {
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-[20px] text-[#006763]">draft</span>
             <h1 className="font-semibold text-[16px] text-[#111d23]">
-              Черновики и незавершённые сессии (SCR-10)
+              Черновики и незавершённые сессии
             </h1>
             <span className="px-2 py-0.5 rounded bg-[#e3f0f8] text-[#536166] text-[10px] font-mono">
               Изолированная память
@@ -105,10 +105,10 @@ export const DraftsSessionsView: React.FC = () => {
         </div>
       )}
 
-      {/* Main 2-Column Grid */}
-      <div className="w-full grid grid-cols-12 gap-3 items-start">
-        {/* Left Column: Drafts Table (7 cols) */}
-        <div className="col-span-12 xl:col-span-7 flex flex-col gap-2">
+      {/* Main Layout: Table (flex-1) + Inspector (320-380px) */}
+      <div className="w-full flex flex-col lg:flex-row gap-3 items-start">
+        {/* Left Column: Drafts Table */}
+        <div className="flex-1 min-w-0 flex flex-col gap-2">
           <div className="flex items-center justify-between text-[11px] text-[#536166]">
             <span>
               <strong>{isScenarioEmpty ? 0 : draftSessions.length}</strong> активных черновиков
@@ -192,9 +192,9 @@ export const DraftsSessionsView: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Draft Inspector (5 cols) */}
+        {/* Right Column: Draft Inspector */}
         {currentDraft && !isScenarioEmpty && (
-          <div className="col-span-12 xl:col-span-5 flex flex-col gap-2.5">
+          <div className="w-full lg:w-80 xl:w-[350px] 2xl:w-[380px] shrink-0 flex flex-col gap-2.5">
             <div className="bg-white rounded border border-[#d7e4ec] shadow-xs p-3.5 flex flex-col gap-3">
               <div className="flex items-start justify-between border-b border-[#d7e4ec] pb-2">
                 <div>
@@ -255,7 +255,7 @@ export const DraftsSessionsView: React.FC = () => {
                     }}
                     className="w-full py-1.5 bg-[#006763] text-white font-semibold rounded text-[11px]"
                   >
-                    Перенести выбранные в редактор (SCR-06)
+                    Перенести выбранные в редактор
                   </button>
                 </div>
               )}

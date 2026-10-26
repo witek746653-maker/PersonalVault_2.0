@@ -92,12 +92,12 @@ export const MaintenanceCenterView: React.FC = () => {
   const totalPages = documents.reduce((acc, d) => acc + d.pagesCount, 0);
 
   return (
-    <div className="flex-1 flex flex-col bg-[#f4faff] h-full overflow-hidden">
+    <div className="flex flex-col w-full text-[#111d23] gap-3">
       {/* Top Banner */}
-      <div className="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between shadow-xs">
+      <div className="bg-white border border-slate-200 rounded-xl px-5 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
         <div>
-          <div className="flex items-center gap-3">
-            <h1 className="text-xl font-bold text-slate-800 tracking-tight">SCR-18: Центр технического обслуживания</h1>
+          <div className="flex items-center gap-3 flex-wrap">
+            <h1 className="text-xl font-bold text-slate-800 tracking-tight">Центр технического обслуживания</h1>
             <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-50 text-[#006763] border border-teal-200">
               Database Maintenance & Integrity
             </span>
@@ -107,7 +107,7 @@ export const MaintenanceCenterView: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <span className="px-3 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full text-xs font-medium flex items-center gap-1.5">
             <ShieldCheck className="w-4 h-4" />
             БД в норме (PRAGMA: OK)
@@ -116,9 +116,9 @@ export const MaintenanceCenterView: React.FC = () => {
       </div>
 
       {/* Main Grid */}
-      <div className="flex-1 overflow-y-auto p-6 space-y-6">
+      <div className="w-full space-y-4">
         {/* KPI Row */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
             <div className="flex items-center justify-between text-xs text-slate-500 mb-1">
               <span>Размер базы данных</span>

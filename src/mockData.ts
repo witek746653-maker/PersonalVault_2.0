@@ -848,7 +848,7 @@ export const initialDraftSessions: DraftSession[] = [
   {
     id: 'DRAFT-2026-089',
     title: 'Акт приёма-передачи жилого помещения № 42',
-    stageName: 'Редактор данных (SCR-06)',
+    stageName: 'Редактор данных',
     screenId: 'SCR-06',
     category: 'Жильё / Акт',
     zone: 'Open',
@@ -864,7 +864,7 @@ export const initialDraftSessions: DraftSession[] = [
   {
     id: 'DRAFT-2026-094',
     title: 'Договор купли-продажи оборудования № 88',
-    stageName: 'Сверка со сканом (SCR-07)',
+    stageName: 'Сверка со сканом',
     screenId: 'SCR-07',
     category: 'Бизнес / Сделки',
     zone: 'Secret',
@@ -880,7 +880,7 @@ export const initialDraftSessions: DraftSession[] = [
   {
     id: 'DRAFT-2026-061',
     title: 'Квитанция об оплате комм. услуг (май 2026)',
-    stageName: 'Итог перед сохранением (SCR-08)',
+    stageName: 'Итог перед сохранением',
     screenId: 'SCR-08',
     category: 'Коммунальные',
     zone: 'Open',

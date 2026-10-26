@@ -129,13 +129,13 @@ export const DataEditorSplitView: React.FC = () => {
   const handleProceedToVerification = () => {
     setPipelineStep(6);
     setCurrentScreen('SCR-07');
-    showToast('Переход к пошаговой сверке со сканом (SCR-07)', 'arrow_forward');
+    showToast('Переход к пошаговой сверке со сканом', 'arrow_forward');
   };
 
   const handleProceedToPreSave = () => {
     setPipelineStep(7);
     setCurrentScreen('SCR-08');
-    showToast('Переход к итоговому аудиту перед сохранением (SCR-08)', 'arrow_forward');
+    showToast('Переход к итоговому аудиту перед сохранением', 'arrow_forward');
   };
 
   return (
@@ -146,9 +146,9 @@ export const DataEditorSplitView: React.FC = () => {
           <span className="text-[#6e7978]">1. Входящие → 2. Состав → 3. Предпроверка → 4. Классификация →</span>
           <span className="px-2 py-0.5 rounded bg-[#006763] text-white font-semibold flex items-center gap-1">
             <span className="material-symbols-outlined text-[12px]">edit_document</span>
-            <span>5. Редактор данных (SCR-06)</span>
+            <span>5. Редактор данных</span>
           </span>
-          <span className="text-[#6e7978]">→ 6. Сверка (SCR-07) → 7. Итог (SCR-08)</span>
+          <span className="text-[#6e7978]">→ 6. Сверка → 7. Итог</span>
         </div>
         <span className="font-mono text-[#536166] shrink-0">Пакет #PK-8842-RU</span>
       </div>
@@ -275,7 +275,7 @@ export const DataEditorSplitView: React.FC = () => {
                 transformOrigin: 'top center',
                 transition: 'transform 0.15s ease-out',
               }}
-              className="w-full max-w-[500px] bg-[#fbfdfa] text-[#1a2327] shadow-md p-7 rounded-sm select-text font-serif leading-relaxed text-[12px]"
+              className="w-full max-w-[500px] xl:max-w-[580px] 2xl:max-w-[660px] bg-[#fbfdfa] text-[#1a2327] shadow-md p-7 rounded-sm select-text font-serif leading-relaxed text-[12px]"
             >
               <div className="text-center mb-4 border-b border-[#d7e4ec] pb-2">
                 <p className="text-[10px] font-mono uppercase text-[#6e7978]">
@@ -434,7 +434,7 @@ export const DataEditorSplitView: React.FC = () => {
                 className="px-2.5 py-1 rounded bg-[#006763] hover:bg-[#12827c] text-white font-semibold flex items-center gap-1 shadow-xs ml-auto transition-colors"
               >
                 <span className="material-symbols-outlined text-[13px]">fact_check</span>
-                <span>Сверка (SCR-07) →</span>
+                <span>Сверка со сканом →</span>
               </button>
             </div>
           </div>
@@ -690,7 +690,7 @@ export const DataEditorSplitView: React.FC = () => {
           className="h-8 px-3 rounded bg-white hover:bg-[#e9f6fd] text-[#111d23] font-medium flex items-center gap-1 border border-[#d7e4ec]"
         >
           <span className="material-symbols-outlined text-[15px]">arrow_back</span>
-          <span>Назад к классификации (SCR-05)</span>
+          <span>Назад к классификации</span>
         </button>
 
         <div className="flex items-center gap-2">
@@ -708,7 +708,7 @@ export const DataEditorSplitView: React.FC = () => {
             onClick={handleProceedToPreSave}
             className="h-8 px-4 rounded bg-[#006763] hover:bg-[#12827c] text-white font-semibold flex items-center gap-1 shadow-xs transition-colors"
           >
-            <span>Продолжить к сохранению (SCR-08)</span>
+            <span>Продолжить к сохранению</span>
             <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
           </button>
         </div>

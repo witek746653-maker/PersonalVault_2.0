@@ -55,7 +55,7 @@ export const TemplateBuilderView: React.FC = () => {
             className="hover:text-[#006763] flex items-center gap-1 transition-colors"
           >
             <span className="material-symbols-outlined text-[14px]">inventory_2</span>
-            <span>Каталог шаблонов (SCR-12)</span>
+            <span>Каталог шаблонов</span>
           </button>
           <span>/</span>
           <span className="text-[#111d23] font-semibold">Редактор структуры схемы</span>
@@ -118,7 +118,7 @@ export const TemplateBuilderView: React.FC = () => {
         /* Form Preview Mode */
         <div className="bg-white p-5 rounded border border-[#d7e4ec] shadow-xs flex flex-col gap-4 max-w-2xl mx-auto w-full">
           <div className="flex justify-between items-center border-b pb-2">
-            <span className="font-semibold text-[14px]">Предпросмотр формы (вид для оператора в SCR-06)</span>
+            <span className="font-semibold text-[14px]">Предпросмотр формы (вид для ввода данных)</span>
             <button
               onClick={() => showToast('Возврат в режим конструктора')}
               className="text-[#006763] text-[11px] font-semibold underline"
@@ -158,9 +158,9 @@ export const TemplateBuilderView: React.FC = () => {
         </div>
       ) : (
         /* Standard Builder View */
-        <div className="grid grid-cols-12 gap-3 items-start w-full">
-          {/* Left Column: Schema Tree (7 cols) */}
-          <div className="col-span-12 lg:col-span-7 flex flex-col gap-3">
+        <div className="flex flex-col lg:flex-row gap-3 items-start w-full">
+          {/* Left Column: Schema Tree */}
+          <div className="flex-1 min-w-0 flex flex-col gap-3">
             {/* Section 1 */}
             <div className="bg-white rounded border border-[#d7e4ec] shadow-xs p-3 flex flex-col gap-2">
               <div className="flex items-center justify-between p-2 bg-[#e9f6fd] rounded border border-[#d7e4ec]">
@@ -273,8 +273,8 @@ export const TemplateBuilderView: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Field Inspector & Configuration Panel (5 cols) */}
-          <div className="col-span-12 lg:col-span-5 flex flex-col gap-2.5">
+          {/* Right Column: Field Inspector & Configuration Panel */}
+          <div className="w-full lg:w-80 xl:w-[350px] 2xl:w-[380px] shrink-0 flex flex-col gap-2.5">
             <div className="bg-white rounded border border-[#d7e4ec] shadow-xs p-3.5 flex flex-col gap-3">
               <div className="flex items-center justify-between pb-1.5 border-b border-[#d7e4ec]">
                 <div className="flex items-center gap-1.5 font-semibold text-[13px] text-[#111d23]">

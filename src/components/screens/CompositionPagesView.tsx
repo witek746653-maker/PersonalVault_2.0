@@ -28,7 +28,7 @@ export const CompositionPagesView: React.FC = () => {
   const handleProceed = () => {
     setPipelineStep(3);
     setCurrentScreen('SCR-04');
-    showToast('Порядок страниц утверждён. Переход к Предпроверке (SCR-04)', 'arrow_forward');
+    showToast('Порядок страниц утверждён. Переход к Предпроверке', 'arrow_forward');
   };
 
   return (
@@ -70,7 +70,7 @@ export const CompositionPagesView: React.FC = () => {
           </div>
           <div className="flex flex-col gap-1">
             <div className="h-1.5 rounded-full bg-[#d7e4ec]"></div>
-            <span className="text-[11px] text-[#6e7978]">Редактор (SCR-06)</span>
+            <span className="text-[11px] text-[#6e7978]">5. Редактор данных</span>
           </div>
         </div>
       </div>
@@ -280,14 +280,14 @@ export const CompositionPagesView: React.FC = () => {
           </div>
 
           {/* Paper Canvas */}
-          <div className="bg-[#cfdce4] p-4 rounded-lg flex items-center justify-center overflow-hidden min-h-[380px]">
+          <div className="bg-[#cfdce4] p-4 rounded-lg flex items-center justify-center overflow-hidden min-h-[380px] xl:min-h-[440px]">
             <div
               style={{
                 transform: `scale(${zoomLevel / 100}) rotate(${rotationAngle}deg)`,
                 transformOrigin: 'center center',
                 transition: 'transform 0.15s ease-out',
               }}
-              className="w-[340px] min-h-[460px] bg-white text-[#111d23] shadow-md p-6 rounded-sm flex flex-col justify-between text-[11px] leading-relaxed select-text"
+              className="w-[340px] xl:w-[390px] 2xl:w-[430px] max-w-full min-h-[460px] bg-white text-[#111d23] shadow-md p-6 rounded-sm flex flex-col justify-between text-[11px] leading-relaxed select-text"
             >
               <div>
                 <div className="flex justify-between text-[9px] text-[#6e7978] font-mono border-b border-[#d7e4ec] pb-1">
@@ -364,7 +364,7 @@ export const CompositionPagesView: React.FC = () => {
             onClick={handleProceed}
             className="h-8 px-4 rounded bg-[#006763] hover:bg-[#12827c] text-white font-semibold flex items-center gap-1 shadow-xs transition-colors"
           >
-            <span>Подтвердить порядок и продолжить к проверке (SCR-04)</span>
+            <span>Подтвердить порядок и продолжить к проверке</span>
             <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
           </button>
         </div>

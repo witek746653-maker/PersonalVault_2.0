@@ -60,9 +60,6 @@ export const TemplateCatalogView: React.FC = () => {
           <div>
             <div className="flex items-center gap-2">
               <h1 className="font-semibold text-[16px]">Каталог шаблонов документов</h1>
-              <span className="font-mono text-[10px] bg-[#e3f0f8] px-1.5 py-0.5 rounded text-[#536166]">
-                SCR-12
-              </span>
             </div>
             <p className="text-[12px] text-[#536166]">
               Схемы структурированных данных: перечень полей, секций и таблиц. Обеспечивают типографику ввода.
@@ -83,7 +80,7 @@ export const TemplateCatalogView: React.FC = () => {
             className="h-8 px-3.5 rounded bg-[#006763] hover:bg-[#12827c] text-white font-semibold text-[11px] flex items-center gap-1 shadow-xs transition-colors"
           >
             <span className="material-symbols-outlined text-[15px]">add_circle</span>
-            <span>Создать шаблон (SCR-13)</span>
+            <span>Создать шаблон</span>
           </button>
         </div>
       </div>
@@ -140,10 +137,10 @@ export const TemplateCatalogView: React.FC = () => {
         </div>
       </div>
 
-      {/* 2-Column Split: Catalog Table (7 cols) + Inspector (5 cols) */}
-      <div className="grid grid-cols-12 gap-3 items-start w-full">
+      {/* 2-Column Split: Catalog Table (flex-1) + Inspector (320-380px) */}
+      <div className="flex flex-col lg:flex-row gap-3 items-start w-full">
         {/* Left Column: Table */}
-        <div className="col-span-12 lg:col-span-7 flex flex-col bg-white rounded border border-[#d7e4ec] shadow-xs overflow-hidden">
+        <div className="flex-1 min-w-0 flex flex-col bg-white rounded border border-[#d7e4ec] shadow-xs overflow-hidden">
           <div className="h-8 bg-[#ddeaf2] px-3 flex items-center justify-between font-semibold text-[11px] text-[#536166] uppercase tracking-wider border-b border-[#d7e4ec]">
             <span>Название схемы и тип</span>
             <div className="flex items-center gap-6">
@@ -197,7 +194,7 @@ export const TemplateCatalogView: React.FC = () => {
 
         {/* Right Column: Template Inspector */}
         {selectedTemplate && (
-          <div className="col-span-12 lg:col-span-5 flex flex-col bg-white rounded border border-[#d7e4ec] shadow-xs p-3.5 gap-3">
+          <div className="w-full lg:w-80 xl:w-[350px] 2xl:w-[380px] shrink-0 flex flex-col bg-white rounded border border-[#d7e4ec] shadow-xs p-3.5 gap-3">
             <div className="flex items-start justify-between pb-2 border-b border-[#d7e4ec]">
               <div>
                 <span className="text-[10px] text-[#6e7978] uppercase font-bold">Инспектор шаблона</span>
@@ -268,7 +265,7 @@ export const TemplateCatalogView: React.FC = () => {
                 className="w-full h-7 rounded bg-[#e3f0f8] hover:bg-[#ddeaf2] text-[#111d23] text-[11px] flex items-center justify-center gap-1"
               >
                 <span className="material-symbols-outlined text-[13px]">edit</span>
-                <span>Редактировать структуру схемы (SCR-13)</span>
+                <span>Редактировать структуру схемы</span>
               </button>
             </div>
           </div>

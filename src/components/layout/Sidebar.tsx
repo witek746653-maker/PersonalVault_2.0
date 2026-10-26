@@ -8,10 +8,19 @@ import { useVault } from '../../context/VaultContext';
 import { ScreenId } from '../../types';
 
 export const Sidebar: React.FC = () => {
-  const { currentScreen, setCurrentScreen, inboxItems, draftSessions, plans, documents } = useVault();
+  const {
+    currentScreen,
+    setCurrentScreen,
+    inboxItems,
+    draftSessions,
+    plans,
+    documents,
+    isSidebarCollapsed,
+    toggleSidebar,
+  } = useVault();
 
-  const trashedCount = documents.filter(d => d.status === 'trashed').length;
-  const activePlansCount = plans.filter(p => p.status === 'Запланирован').length;
+  const trashedCount = documents.filter((d) => d.status === 'trashed').length;
+  const activePlansCount = plans.filter((p) => p.status === 'Запланирован').length;
 
   const navItems: { label: string; icon: string; screen: ScreenId; badge?: number | string; badgeColor?: string }[] = [
     { label: 'Журнал', icon: 'menu_book', screen: 'SCR-01' },
@@ -89,13 +98,34 @@ export const Sidebar: React.FC = () => {
   };
 
   return (
-    <aside className="fixed left-0 top-9 bottom-0 w-48 bg-[#e9f6fd] z-40 flex flex-col justify-between border-r border-[#d7e4ec] select-none">
+    <aside
+      className={`shrink-0 bg-[#e9f6fd] z-30 flex flex-col justify-between border-r border-[#d7e4ec] select-none h-full transition-all duration-200 ${
+        isSidebarCollapsed ? 'w-14' : 'w-48'
+      }`}
+    >
       {/* Scrollable nav sections */}
-      <div className="flex flex-col pt-1 overflow-y-auto flex-1 min-h-0">
-        {/* Section 1: ДОКУМЕНТЫ */}
-        <div className="px-3 py-1 text-[10px] font-bold text-[#6e7978] uppercase tracking-wider">
-          ДОКУМЕНТЫ
+      <div className="flex flex-col pt-1.5 overflow-y-auto flex-1 min-h-0">
+        {/* Toggle Collapse Button Top */}
+        <div className="flex items-center justify-between px-2 pb-1">
+          {!isSidebarCollapsed && (
+            <span className="px-1 text-[10px] font-bold text-[#6e7978] uppercase tracking-wider">
+              ДОКУМЕНТЫ
+            </span>
+          )}
+          <button
+            onClick={toggleSidebar}
+            className={`p-1 rounded text-[#536166] hover:bg-[#ddeaf2] hover:text-[#111d23] transition-colors ${
+              isSidebarCollapsed ? 'mx-auto' : 'ml-auto'
+            }`}
+            title={isSidebarCollapsed ? 'Развернуть боковое меню' : 'Свернуть боковое меню'}
+          >
+            <span className="material-symbols-outlined text-[16px]">
+              {isSidebarCollapsed ? 'menu' : 'menu_open'}
+            </span>
+          </button>
         </div>
+
+        {/* Section 1: ДОКУМЕНТЫ */}
         <nav className="flex flex-col px-1 gap-[1px]">
           {navItems.map((item) => {
             const active = isCurrentActive(item.screen);
@@ -103,22 +133,37 @@ export const Sidebar: React.FC = () => {
               <button
                 key={item.screen}
                 onClick={() => setCurrentScreen(item.screen)}
-                className={`flex items-center justify-between h-[30px] px-2 rounded text-[12px] transition-colors text-left ${
+                title={item.label}
+                className={`flex items-center ${
+                  isSidebarCollapsed ? 'justify-center' : 'justify-between'
+                } h-[32px] px-2 rounded text-[12px] transition-colors text-left relative ${
                   active
                     ? 'bg-[#e3f0f8] text-[#006763] font-semibold border-l-2 border-[#006763]'
                     : 'text-[#3e4948] hover:bg-[#ddeaf2] hover:text-[#111d23]'
                 }`}
               >
                 <div className="flex items-center gap-2 truncate">
-                  <span className={`material-symbols-outlined text-[16px] ${active ? 'text-[#006763]' : 'text-[#6e7978]'}`}>
+                  <span
+                    className={`material-symbols-outlined text-[17px] ${
+                      active ? 'text-[#006763]' : 'text-[#6e7978]'
+                    }`}
+                  >
                     {item.icon}
                   </span>
-                  <span className="truncate">{item.label}</span>
+                  {!isSidebarCollapsed && <span className="truncate">{item.label}</span>}
                 </div>
                 {item.badge !== undefined && (
-                  <span className={`px-1.5 py-[1px] rounded text-[10px] font-mono font-medium ${item.badgeColor || 'bg-[#d7e4ec] text-[#3e4948]'}`}>
-                    {item.badge}
-                  </span>
+                  isSidebarCollapsed ? (
+                    <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-[#12827c]" />
+                  ) : (
+                    <span
+                      className={`px-1.5 py-[1px] rounded text-[10px] font-mono font-medium ${
+                        item.badgeColor || 'bg-[#d7e4ec] text-[#3e4948]'
+                      }`}
+                    >
+                      {item.badge}
+                    </span>
+                  )
                 )}
               </button>
             );
@@ -128,9 +173,11 @@ export const Sidebar: React.FC = () => {
         <div className="my-1.5 mx-2 border-t border-[#d7e4ec]"></div>
 
         {/* Section 2: СПРАВОЧНИКИ */}
-        <div className="px-3 py-1 text-[10px] font-bold text-[#6e7978] uppercase tracking-wider">
-          СПРАВОЧНИКИ
-        </div>
+        {!isSidebarCollapsed && (
+          <div className="px-3 py-1 text-[10px] font-bold text-[#6e7978] uppercase tracking-wider">
+            СПРАВОЧНИКИ
+          </div>
+        )}
         <nav className="flex flex-col px-1 gap-[1px]">
           {directoryItems.map((item) => {
             const active = isCurrentActive(item.screen);
@@ -138,17 +185,24 @@ export const Sidebar: React.FC = () => {
               <button
                 key={item.screen}
                 onClick={() => setCurrentScreen(item.screen)}
-                className={`flex items-center justify-between h-[30px] px-2 rounded text-[12px] transition-colors text-left ${
+                title={item.label}
+                className={`flex items-center ${
+                  isSidebarCollapsed ? 'justify-center' : 'justify-between'
+                } h-[32px] px-2 rounded text-[12px] transition-colors text-left ${
                   active
                     ? 'bg-[#e3f0f8] text-[#006763] font-semibold border-l-2 border-[#006763]'
                     : 'text-[#3e4948] hover:bg-[#ddeaf2] hover:text-[#111d23]'
                 }`}
               >
                 <div className="flex items-center gap-2 truncate">
-                  <span className={`material-symbols-outlined text-[16px] ${active ? 'text-[#006763]' : 'text-[#6e7978]'}`}>
+                  <span
+                    className={`material-symbols-outlined text-[17px] ${
+                      active ? 'text-[#006763]' : 'text-[#6e7978]'
+                    }`}
+                  >
                     {item.icon}
                   </span>
-                  <span className="truncate">{item.label}</span>
+                  {!isSidebarCollapsed && <span className="truncate">{item.label}</span>}
                 </div>
               </button>
             );
@@ -158,9 +212,11 @@ export const Sidebar: React.FC = () => {
         <div className="my-1.5 mx-2 border-t border-[#d7e4ec]"></div>
 
         {/* Section 3: ДОПОЛНИТЕЛЬНО */}
-        <div className="px-3 py-1 text-[10px] font-bold text-[#6e7978] uppercase tracking-wider">
-          ДОПОЛНИТЕЛЬНО
-        </div>
+        {!isSidebarCollapsed && (
+          <div className="px-3 py-1 text-[10px] font-bold text-[#6e7978] uppercase tracking-wider">
+            ДОПОЛНИТЕЛЬНО
+          </div>
+        )}
         <nav className="flex flex-col px-1 gap-[1px]">
           {extraItems.map((item) => {
             const active = isCurrentActive(item.screen);
@@ -168,19 +224,26 @@ export const Sidebar: React.FC = () => {
               <button
                 key={item.screen}
                 onClick={() => setCurrentScreen(item.screen)}
-                className={`flex items-center justify-between h-[30px] px-2 rounded text-[12px] transition-colors text-left ${
+                title={item.label}
+                className={`flex items-center ${
+                  isSidebarCollapsed ? 'justify-center' : 'justify-between'
+                } h-[32px] px-2 rounded text-[12px] transition-colors text-left ${
                   active
                     ? 'bg-[#e3f0f8] text-[#006763] font-semibold border-l-2 border-[#006763]'
                     : 'text-[#3e4948] hover:bg-[#ddeaf2] hover:text-[#111d23]'
                 }`}
               >
                 <div className="flex items-center gap-2 truncate">
-                  <span className={`material-symbols-outlined text-[16px] ${active ? 'text-[#006763]' : 'text-[#6e7978]'}`}>
+                  <span
+                    className={`material-symbols-outlined text-[17px] ${
+                      active ? 'text-[#006763]' : 'text-[#6e7978]'
+                    }`}
+                  >
                     {item.icon}
                   </span>
-                  <span className="truncate">{item.label}</span>
+                  {!isSidebarCollapsed && <span className="truncate">{item.label}</span>}
                 </div>
-                {item.tag && (
+                {!isSidebarCollapsed && item.tag && (
                   <span className="px-1 py-[0.5px] rounded bg-[#d6e5ec] text-[#59676c] text-[9px] font-mono">
                     {item.tag}
                   </span>
@@ -193,9 +256,11 @@ export const Sidebar: React.FC = () => {
 
       {/* Pinned Bottom System Section */}
       <div className="p-1 border-t border-[#d7e4ec] bg-[#e9f6fd] shrink-0">
-        <div className="px-3 py-1 text-[10px] font-bold text-[#6e7978] uppercase tracking-wider">
-          СИСТЕМА
-        </div>
+        {!isSidebarCollapsed && (
+          <div className="px-3 py-1 text-[10px] font-bold text-[#6e7978] uppercase tracking-wider">
+            СИСТЕМА
+          </div>
+        )}
         <nav className="flex flex-col gap-[1px] mb-1">
           {systemItems.map((item) => {
             const active = isCurrentActive(item.screen);
@@ -203,17 +268,24 @@ export const Sidebar: React.FC = () => {
               <button
                 key={item.screen}
                 onClick={() => setCurrentScreen(item.screen)}
-                className={`flex items-center justify-between h-[28px] px-2 rounded text-[11px] transition-colors text-left ${
+                title={item.label}
+                className={`flex items-center ${
+                  isSidebarCollapsed ? 'justify-center' : 'justify-between'
+                } h-[28px] px-2 rounded text-[11px] transition-colors text-left ${
                   active
                     ? 'bg-[#e3f0f8] text-[#006763] font-semibold border-l-2 border-[#006763]'
                     : 'text-[#3e4948] hover:bg-[#ddeaf2] hover:text-[#111d23]'
                 }`}
               >
                 <div className="flex items-center gap-2 truncate">
-                  <span className={`material-symbols-outlined text-[15px] ${active ? 'text-[#006763]' : 'text-[#6e7978]'}`}>
+                  <span
+                    className={`material-symbols-outlined text-[16px] ${
+                      active ? 'text-[#006763]' : 'text-[#6e7978]'
+                    }`}
+                  >
                     {item.icon}
                   </span>
-                  <span className="truncate">{item.label}</span>
+                  {!isSidebarCollapsed && <span className="truncate">{item.label}</span>}
                 </div>
               </button>
             );
@@ -221,16 +293,25 @@ export const Sidebar: React.FC = () => {
         </nav>
 
         {/* Disk & Engine Badge */}
-        <div className="p-2 rounded bg-white border border-[#d7e4ec] flex flex-col gap-0.5 text-[10px] font-mono text-[#536166]">
-          <div className="flex items-center justify-between">
-            <span className="text-[#6e7978]">Диск:</span>
-            <span className="text-[#111d23] font-semibold">4.2 ГБ свободно</span>
+        {!isSidebarCollapsed ? (
+          <div className="p-2 rounded bg-white border border-[#d7e4ec] flex flex-col gap-0.5 text-[10px] font-mono text-[#536166]">
+            <div className="flex items-center justify-between">
+              <span className="text-[#6e7978]">Диск:</span>
+              <span className="text-[#111d23] font-semibold">4.2 ГБ свободно</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-[#6e7978]">SQLite:</span>
+              <span className="text-[#006763] font-medium">3.45.1 WAL</span>
+            </div>
           </div>
-          <div className="flex items-center justify-between">
-            <span className="text-[#6e7978]">SQLite:</span>
-            <span className="text-[#006763] font-medium">3.45.1 WAL</span>
+        ) : (
+          <div
+            className="py-1 text-center font-mono text-[9px] text-[#006763] font-bold"
+            title="Диск: 4.2 ГБ свободно • SQLite 3.45.1"
+          >
+            4.2G
           </div>
-        </div>
+        )}
       </div>
     </aside>
   );

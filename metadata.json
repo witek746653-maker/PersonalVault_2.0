@@ -2,5 +2,5 @@
   "name": "PersonalVault 2.0",
   "description": "Локальная защищённая рабочая станция для обработки, предпроверки, классификации, сверки реквизитов и долгосрочной архивации документов.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }

@@ -53,7 +53,7 @@ export const VerificationScanView: React.FC = () => {
   const handleProceedToPreSave = () => {
     setPipelineStep(7);
     setCurrentScreen('SCR-08');
-    showToast('Сверка завершена. Переход к итоговому аудиту перед сохранением (SCR-08)', 'arrow_forward');
+    showToast('Сверка завершена. Переход к итоговому аудиту перед сохранением', 'arrow_forward');
   };
 
   return (
@@ -64,9 +64,9 @@ export const VerificationScanView: React.FC = () => {
           <span className="text-[#6e7978]">Входящие → Состав → Предпроверка → Классификация → Редактор →</span>
           <span className="px-2 py-0.5 rounded bg-[#006763] text-white font-semibold flex items-center gap-1">
             <span className="material-symbols-outlined text-[13px]">find_in_page</span>
-            <span>Сверка со сканом (SCR-07, активен)</span>
+            <span>Сверка со сканом (активен)</span>
           </span>
-          <span className="text-[#6e7978]">→ Итог (SCR-08)</span>
+          <span className="text-[#6e7978]">→ Итог сохранения</span>
         </div>
         <span className="font-mono text-[#006763] font-semibold shrink-0">
           DOC-2026-APP-42 • Локально 256-bit
@@ -349,7 +349,7 @@ export const VerificationScanView: React.FC = () => {
           className="h-8 px-3 rounded bg-white hover:bg-[#e9f6fd] text-[#111d23] font-medium flex items-center gap-1 border border-[#d7e4ec]"
         >
           <span className="material-symbols-outlined text-[15px]">arrow_back</span>
-          <span>Вернуться в редактор (SCR-06)</span>
+          <span>Вернуться в редактор</span>
         </button>
 
         <div className="flex items-center gap-3">
@@ -360,7 +360,7 @@ export const VerificationScanView: React.FC = () => {
             onClick={handleProceedToPreSave}
             className="h-8 px-4 rounded bg-[#006763] hover:bg-[#12827c] text-white font-semibold flex items-center gap-1 shadow-xs transition-colors"
           >
-            <span>Завершить сверку и перейти к итогам (SCR-08)</span>
+            <span>Завершить сверку и перейти к итогам</span>
             <span className="material-symbols-outlined text-[15px]">arrow_forward</span>
           </button>
         </div>

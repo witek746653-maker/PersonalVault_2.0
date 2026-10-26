@@ -53,9 +53,9 @@ export const PreSaveReviewView: React.FC = () => {
           <span className="text-[#6e7978]">Входящие → Состав → Предпроверка → Классификация → Редактор → Сверка →</span>
           <span className="px-2 py-0.5 rounded bg-[#006763] text-white font-semibold flex items-center gap-1">
             <span className="material-symbols-outlined text-[13px]">task_alt</span>
-            <span>Итог перед сохранением (SCR-08, активен)</span>
+            <span>Итог перед сохранением (активен)</span>
           </span>
-          <span className="text-[#6e7978]">→ Результат (SCR-09)</span>
+          <span className="text-[#6e7978]">→ Результат архивации</span>
         </div>
         <span className="font-mono text-[#006763] font-semibold shrink-0">PV-2026-DOC-0042</span>
       </div>
@@ -267,7 +267,7 @@ export const PreSaveReviewView: React.FC = () => {
           className="h-8 px-3 rounded bg-white hover:bg-[#e9f6fd] text-[#111d23] font-medium flex items-center gap-1 border border-[#d7e4ec]"
         >
           <span className="material-symbols-outlined text-[15px]">arrow_back</span>
-          <span>Назад к редактору (SCR-06)</span>
+          <span>Назад к редактору</span>
         </button>
 
         <div className="flex items-center gap-2">
@@ -276,7 +276,7 @@ export const PreSaveReviewView: React.FC = () => {
             className="h-8 px-3 rounded bg-white hover:bg-[#e9f6fd] text-[#111d23] font-medium flex items-center gap-1 border border-[#d7e4ec]"
           >
             <span className="material-symbols-outlined text-[15px]">rule</span>
-            <span>Сверка (SCR-07)</span>
+            <span>Сверка со сканом</span>
           </button>
           <button
             onClick={() => setIsConfirmModalOpen(true)}
