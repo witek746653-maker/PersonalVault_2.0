@@ -1,6 +1,6 @@
 {
-  "summary":  "Comprehensive implementation plan for the PersonalVault 2.0 Assistant screen (SCR-20) integrating all user instructions: 900x760 viewport responsiveness, auto-expanding composer (up to 4-5 lines), scroll-to-bottom navigation, complete visual states, history search and ellipsis context menu, resizable and collapsible inspector, 13 operational scenarios without demo bar, dual-mode SCR-06 editing, and strict local-first styling.",
-  "updatedAt":  "2026-10-26T11:10:42.531455024Z",
+  "summary":  "Обновлен детальный архитектурный план экрана «Обслуживание архива» (SCR-18) с учетом строгих неприкосновенных границ, локальных UI-состояний без бэкенда, точного совпадения с HTML/PNG, трехуровневой независимой модели состояний, кастомных модальных окон без браузерных alert/confirm, интерактивных фильтров истории и счетчика копий 4.",
+  "updatedAt":  "2026-10-26T12:26:57.555152304Z",
   "requestFeedback":  true,
   "userFacing":  true
 }
