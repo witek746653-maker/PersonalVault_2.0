@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { createContext, useContext, useState, useMemo, useCallback } from 'react';
+import React, { createContext, useContext, useState, useMemo, useCallback, useEffect } from 'react';
 import {
   ScreenId,
   SecurityZone,
@@ -94,6 +94,11 @@ interface VaultContextType {
   deleteMyDataRecord: (id: string) => void;
   updateMyDataRecord: (id: string, patch: Partial<MyDataRecord>) => void;
   addMyDataRecord: (rec: Omit<MyDataRecord, 'id'>) => void;
+  hiddenGroupIds: string[];
+  addMyDataCategory: (name: string) => MyDataCategory;
+  deleteMyDataCategory: (id: string) => void;
+  hideMyDataCategory: (id: string) => void;
+  unhideMyDataCategory: (id: string) => void;
   
   // UI & Feedback
   toast: { message: string; icon?: string } | null;
@@ -133,8 +138,58 @@ export const VaultProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const [documents, setDocuments] = useState<ArchiveDocument[]>(initialArchiveDocuments);
   const [inboxItems, setInboxItems] = useState<InboxItem[]>(initialInboxItems);
-  const [myDataRecords, setMyDataRecords] = useState<MyDataRecord[]>(initialMyDataRecords);
-  const [myDataCategories, setMyDataCategories] = useState<MyDataCategory[]>(initialMyDataCategories);
+  const [myDataRecords, setMyDataRecords] = useState<MyDataRecord[]>(() => {
+    try {
+      const saved = localStorage.getItem('personalvault_my_data_records');
+      if (saved) return JSON.parse(saved);
+    } catch (e) {
+      console.error(e);
+    }
+    return initialMyDataRecords;
+  });
+  const [myDataCategories, setMyDataCategories] = useState<MyDataCategory[]>(() => {
+    try {
+      const saved = localStorage.getItem('personalvault_my_data_categories');
+      if (saved) return JSON.parse(saved);
+    } catch (e) {
+      console.error(e);
+    }
+    return initialMyDataCategories;
+  });
+  const [hiddenGroupIds, setHiddenGroupIds] = useState<string[]>(() => {
+    try {
+      const saved = localStorage.getItem('personalvault_hidden_group_ids');
+      if (saved) return JSON.parse(saved);
+    } catch (e) {
+      console.error(e);
+    }
+    return [];
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('personalvault_my_data_records', JSON.stringify(myDataRecords));
+    } catch (e) {
+      console.error(e);
+    }
+  }, [myDataRecords]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('personalvault_my_data_categories', JSON.stringify(myDataCategories));
+    } catch (e) {
+      console.error(e);
+    }
+  }, [myDataCategories]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('personalvault_hidden_group_ids', JSON.stringify(hiddenGroupIds));
+    } catch (e) {
+      console.error(e);
+    }
+  }, [hiddenGroupIds]);
+
   const [templates, setTemplates] = useState<DocumentTemplate[]>(initialTemplates);
   const [plans, setPlans] = useState<PlanItem[]>(initialPlans);
   const [draftSessions, setDraftSessions] = useState<DraftSession[]>(initialDraftSessions);
@@ -397,6 +452,32 @@ export const VaultProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     showToast('Реквизит добавлен в справочник', 'add_circle');
   }, [showToast]);
 
+  const addMyDataCategory = useCallback((name: string): MyDataCategory => {
+    const newCat: MyDataCategory = {
+      id: `cat-${Date.now()}`,
+      name: name.trim(),
+      countOnline: 0,
+      countOffline: 0,
+      hasSecret: false,
+      icon: 'folder',
+    };
+    setMyDataCategories(prev => [...prev, newCat]);
+    return newCat;
+  }, []);
+
+  const deleteMyDataCategory = useCallback((id: string) => {
+    setMyDataCategories(prev => prev.filter(c => c.id !== id));
+    setHiddenGroupIds(prev => prev.filter(gid => gid !== id));
+  }, []);
+
+  const hideMyDataCategory = useCallback((id: string) => {
+    setHiddenGroupIds(prev => (prev.includes(id) ? prev : [...prev, id]));
+  }, []);
+
+  const unhideMyDataCategory = useCallback((id: string) => {
+    setHiddenGroupIds(prev => prev.filter(gid => gid !== id));
+  }, []);
+
   const value = useMemo(
     () => ({
       currentScreen,
@@ -440,6 +521,11 @@ export const VaultProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       deleteMyDataRecord,
       updateMyDataRecord,
       addMyDataRecord,
+      hiddenGroupIds,
+      addMyDataCategory,
+      deleteMyDataCategory,
+      hideMyDataCategory,
+      unhideMyDataCategory,
       toast,
       showToast,
       activeModal,
@@ -459,6 +545,7 @@ export const VaultProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       inboxItems,
       myDataRecords,
       myDataCategories,
+      hiddenGroupIds,
       templates,
       plans,
       draftSessions,
@@ -482,6 +569,10 @@ export const VaultProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       deleteMyDataRecord,
       updateMyDataRecord,
       addMyDataRecord,
+      addMyDataCategory,
+      deleteMyDataCategory,
+      hideMyDataCategory,
+      unhideMyDataCategory,
       toast,
       showToast,
       activeModal,

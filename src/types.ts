@@ -182,6 +182,7 @@ export interface MyDataCategory {
   countOffline: number;
   hasSecret: boolean;
   icon: string;
+  isHidden?: boolean;
 }
 
 export interface PlanItem {
