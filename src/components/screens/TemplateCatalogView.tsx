@@ -11,16 +11,24 @@ export const TemplateCatalogView: React.FC = () => {
   const {
     templates,
     setCurrentScreen,
+    templatesScreenState,
+    setTemplatesScreenState,
     activeScenario,
     showToast,
   } = useVault();
 
-  const [selectedTemplateId, setSelectedTemplateId] = useState<string>('tpl-1');
-  const [filterQuery, setFilterQuery] = useState(activeScenario === 'search' ? 'Акт' : '');
-  const [catFilter, setCatFilter] = useState('all');
-  const [statusTab, setStatusTab] = useState<'all' | 'active' | 'archived'>(
-    activeScenario === 'archived' ? 'archived' : 'all'
-  );
+  const selectedTemplateId = templatesScreenState.selectedTemplateId;
+  const setSelectedTemplateId = (id: string) => setTemplatesScreenState(prev => ({ ...prev, selectedTemplateId: id }));
+
+  const filterQuery = templatesScreenState.filterQuery;
+  const setFilterQuery = (q: string) => setTemplatesScreenState(prev => ({ ...prev, filterQuery: q }));
+
+  const catFilter = templatesScreenState.catFilter;
+  const setCatFilter = (cf: string) => setTemplatesScreenState(prev => ({ ...prev, catFilter: cf }));
+
+  const statusTab = templatesScreenState.statusTab;
+  const setStatusTab = (st: 'all' | 'active' | 'archived') => setTemplatesScreenState(prev => ({ ...prev, statusTab: st }));
+
   const [isDiffDialogOpen, setIsDiffDialogOpen] = useState(activeScenario === 'dialog');
 
   const isScenarioEmpty = activeScenario === 'empty';
@@ -76,7 +84,7 @@ export const TemplateCatalogView: React.FC = () => {
             <span>Копировать</span>
           </button>
           <button
-            onClick={() => setCurrentScreen('SCR-13')}
+            onClick={() => setCurrentScreen('SCR-13', 'Каталог шаблонов')}
             className="h-8 px-3.5 rounded bg-[#006763] hover:bg-[#12827c] text-white font-semibold text-[11px] flex items-center gap-1 shadow-xs transition-colors"
           >
             <span className="material-symbols-outlined text-[15px]">add_circle</span>
@@ -261,7 +269,7 @@ export const TemplateCatalogView: React.FC = () => {
                 <span>Применить шаблон к открытому документу...</span>
               </button>
               <button
-                onClick={() => setCurrentScreen('SCR-13')}
+                onClick={() => setCurrentScreen('SCR-13', 'Каталог шаблонов')}
                 className="w-full h-7 rounded bg-[#e3f0f8] hover:bg-[#ddeaf2] text-[#111d23] text-[11px] flex items-center justify-center gap-1"
               >
                 <span className="material-symbols-outlined text-[13px]">edit</span>

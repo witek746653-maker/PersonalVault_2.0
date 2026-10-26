@@ -9,6 +9,8 @@ import { useVault } from '../../context/VaultContext';
 export const TemplateBuilderView: React.FC = () => {
   const {
     setCurrentScreen,
+    goBack,
+    previousScreenTitle,
     activeScenario,
     showToast,
   } = useVault();
@@ -37,7 +39,7 @@ export const TemplateBuilderView: React.FC = () => {
 
   const handleSaveRevision = () => {
     showToast('Ревизия v1.3 успешно зафиксирована в локальной SQLite базе!', 'save');
-    setCurrentScreen('SCR-12');
+    goBack();
   };
 
   const handleConfirmDeleteField = () => {
@@ -51,11 +53,11 @@ export const TemplateBuilderView: React.FC = () => {
       <div className="flex items-center justify-between text-[11px] text-[#536166]">
         <div className="flex items-center gap-1.5">
           <button
-            onClick={() => setCurrentScreen('SCR-12')}
+            onClick={goBack}
             className="hover:text-[#006763] flex items-center gap-1 transition-colors"
           >
             <span className="material-symbols-outlined text-[14px]">inventory_2</span>
-            <span>Каталог шаблонов</span>
+            <span>{previousScreenTitle || 'Каталог шаблонов'}</span>
           </button>
           <span>/</span>
           <span className="text-[#111d23] font-semibold">Редактор структуры схемы</span>
@@ -92,7 +94,7 @@ export const TemplateBuilderView: React.FC = () => {
             <span>Сохранить изменения (Создать v1.3)</span>
           </button>
           <button
-            onClick={() => setCurrentScreen('SCR-12')}
+            onClick={goBack}
             className="h-8 px-3 rounded bg-white hover:bg-[#e9f6fd] text-[#536166] border border-[#d7e4ec] text-[11px]"
           >
             Отмена

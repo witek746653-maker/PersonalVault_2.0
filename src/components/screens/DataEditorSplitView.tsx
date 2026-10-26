@@ -9,6 +9,9 @@ import { useVault } from '../../context/VaultContext';
 export const DataEditorSplitView: React.FC = () => {
   const {
     setCurrentScreen,
+    goBack,
+    previousScreen,
+    previousScreenTitle,
     setPipelineStep,
     classificationData,
     updateClassification,
@@ -686,11 +689,23 @@ export const DataEditorSplitView: React.FC = () => {
       {/* Sticky Bottom Progression Bar */}
       <div className="sticky bottom-0 bg-[#ddeaf2] p-2.5 rounded border border-[#d7e4ec] flex items-center justify-between text-[12px] shadow-sm">
         <button
-          onClick={() => setCurrentScreen('SCR-05')}
+          onClick={goBack}
           className="h-8 px-3 rounded bg-white hover:bg-[#e9f6fd] text-[#111d23] font-medium flex items-center gap-1 border border-[#d7e4ec]"
         >
           <span className="material-symbols-outlined text-[15px]">arrow_back</span>
-          <span>Назад к классификации</span>
+          <span>
+            {previousScreen === 'SCR-11'
+              ? 'Назад к карточке'
+              : previousScreen === 'SCR-01'
+              ? 'Назад в Журнал'
+              : previousScreen === 'SCR-15'
+              ? 'Назад к планам'
+              : previousScreen === 'SCR-20'
+              ? 'Назад к ассистенту'
+              : previousScreenTitle && previousScreen !== 'SCR-05'
+              ? `Назад: ${previousScreenTitle}`
+              : 'Назад к классификации'}
+          </span>
         </button>
 
         <div className="flex items-center gap-2">

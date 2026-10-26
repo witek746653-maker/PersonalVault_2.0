@@ -16,6 +16,14 @@ import {
   DocumentTemplate,
   PlanItem,
   DraftSession,
+  NavigationEntry,
+  SCREEN_TITLES,
+  JournalScreenState,
+  PlansScreenState,
+  MyDataScreenState,
+  TemplatesCatalogScreenState,
+  HealthSummaryScreenState,
+  TrashedScreenState,
 } from '../types';
 import {
   initialArchiveDocuments,
@@ -46,7 +54,28 @@ interface ClassificationState {
 
 interface VaultContextType {
   currentScreen: ScreenId;
-  setCurrentScreen: (screen: ScreenId) => void;
+  setCurrentScreen: (screen: ScreenId, title?: string) => void;
+  resetToScreen: (screen: ScreenId, title?: string) => void;
+  goBack: () => void;
+  canGoBack: boolean;
+  previousScreen: ScreenId | null;
+  previousScreenTitle: string | null;
+  navigationHistory: NavigationEntry[];
+  
+  // Preserved Screen States (tabs, filters, search, selection)
+  journalState: JournalScreenState;
+  setJournalState: React.Dispatch<React.SetStateAction<JournalScreenState>>;
+  plansState: PlansScreenState;
+  setPlansState: React.Dispatch<React.SetStateAction<PlansScreenState>>;
+  myDataScreenState: MyDataScreenState;
+  setMyDataScreenState: React.Dispatch<React.SetStateAction<MyDataScreenState>>;
+  templatesScreenState: TemplatesCatalogScreenState;
+  setTemplatesScreenState: React.Dispatch<React.SetStateAction<TemplatesCatalogScreenState>>;
+  healthScreenState: HealthSummaryScreenState;
+  setHealthScreenState: React.Dispatch<React.SetStateAction<HealthSummaryScreenState>>;
+  trashedScreenState: TrashedScreenState;
+  setTrashedScreenState: React.Dispatch<React.SetStateAction<TrashedScreenState>>;
+
   activeScenario: string;
   setActiveScenario: (scen: string) => void;
   isVeraCryptMounted: boolean;
@@ -127,7 +156,111 @@ const defaultClassification: ClassificationState = {
 const VaultContext = createContext<VaultContextType | undefined>(undefined);
 
 export const VaultProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [currentScreen, setCurrentScreen] = useState<ScreenId>('SCR-01');
+  // Navigation stack state
+  const [navigationHistory, setNavigationHistory] = useState<NavigationEntry[]>([
+    { screen: 'SCR-01', title: 'Журнал' },
+  ]);
+
+  const currentScreen = useMemo(() => {
+    return navigationHistory[navigationHistory.length - 1]?.screen || 'SCR-01';
+  }, [navigationHistory]);
+
+  const previousScreen = useMemo(() => {
+    return navigationHistory.length > 1
+      ? navigationHistory[navigationHistory.length - 2].screen
+      : null;
+  }, [navigationHistory]);
+
+  const previousScreenTitle = useMemo(() => {
+    return navigationHistory.length > 1
+      ? navigationHistory[navigationHistory.length - 2].title
+      : null;
+  }, [navigationHistory]);
+
+  const canGoBack = navigationHistory.length > 1;
+
+  const setCurrentScreen = useCallback((screen: ScreenId, customTitle?: string) => {
+    const title = customTitle || SCREEN_TITLES[screen] || screen;
+    setNavigationHistory(prev => {
+      const current = prev[prev.length - 1];
+      if (current && current.screen === screen) return prev;
+      // If navigating to the immediate previous screen in history, it acts as a back step
+      if (prev.length > 1 && prev[prev.length - 2].screen === screen) {
+        return prev.slice(0, -1);
+      }
+      return [...prev, { screen, title }];
+    });
+  }, []);
+
+  const resetToScreen = useCallback((screen: ScreenId, customTitle?: string) => {
+    const title = customTitle || SCREEN_TITLES[screen] || screen;
+    setNavigationHistory([{ screen, title }]);
+  }, []);
+
+  const goBack = useCallback(() => {
+    setNavigationHistory(prev => {
+      if (prev.length <= 1) {
+        return [{ screen: 'SCR-01', title: 'Журнал' }];
+      }
+      return prev.slice(0, -1);
+    });
+  }, []);
+
+  // Preserved Screen States (tabs, filters, query, selection)
+  const [journalState, setJournalState] = useState<JournalScreenState>({
+    viewMode: 'table',
+    isInspectorOpen: true,
+    zoneFilter: 'all',
+    quickFilter: 'all',
+    searchQuery: '',
+    selectedIds: ['PV-0042'],
+    colVisibility: {
+      zone: true,
+      category: true,
+      date: true,
+      completeness: true,
+      verification: true,
+      relations: true,
+      transcript: true,
+      path: true,
+    },
+  });
+
+  const [plansState, setPlansState] = useState<PlansScreenState>({
+    filterStatus: 'all',
+    filterCategory: 'all',
+    searchQuery: '',
+  });
+
+  const [myDataScreenState, setMyDataScreenState] = useState<MyDataScreenState>({
+    activeGroupId: 'cat-passport',
+    searchQuery: '',
+    isHiddenSectionExpanded: false,
+  });
+
+  const [templatesScreenState, setTemplatesScreenState] = useState<TemplatesCatalogScreenState>({
+    selectedTemplateId: 'tpl-1',
+    filterQuery: '',
+    catFilter: 'all',
+    statusTab: 'all',
+  });
+
+  const [healthScreenState, setHealthScreenState] = useState<HealthSummaryScreenState>({
+    activeTab: 'overview',
+    searchQuery: '',
+    conditionStatusFilter: 'all',
+    labCategoryFilter: 'all',
+    historyFilter: 'all',
+    selectedConditionDetail: null,
+    selectedLabTest: 'ferritin',
+    bpTimeframe: '30',
+  });
+
+  const [trashedScreenState, setTrashedScreenState] = useState<TrashedScreenState>({
+    searchQuery: '',
+    selectedDocForInspect: null,
+  });
+
   const [activeScenario, setActiveScenario] = useState<string>('normal');
   const [isVeraCryptMounted, setIsVeraCryptMounted] = useState<boolean>(true);
   const [isCompact, setIsCompact] = useState<boolean>(false);
@@ -482,6 +615,24 @@ export const VaultProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     () => ({
       currentScreen,
       setCurrentScreen,
+      resetToScreen,
+      goBack,
+      canGoBack,
+      previousScreen,
+      previousScreenTitle,
+      navigationHistory,
+      journalState,
+      setJournalState,
+      plansState,
+      setPlansState,
+      myDataScreenState,
+      setMyDataScreenState,
+      templatesScreenState,
+      setTemplatesScreenState,
+      healthScreenState,
+      setHealthScreenState,
+      trashedScreenState,
+      setTrashedScreenState,
       activeScenario,
       setActiveScenario,
       isVeraCryptMounted,
@@ -534,6 +685,19 @@ export const VaultProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }),
     [
       currentScreen,
+      setCurrentScreen,
+      resetToScreen,
+      goBack,
+      canGoBack,
+      previousScreen,
+      previousScreenTitle,
+      navigationHistory,
+      journalState,
+      plansState,
+      myDataScreenState,
+      templatesScreenState,
+      healthScreenState,
+      trashedScreenState,
       activeScenario,
       isVeraCryptMounted,
       toggleVeraCrypt,

@@ -25,6 +25,88 @@ export type ScreenId =
   | 'SCR-19' // Сводка здоровья
   | 'SCR-20'; // Помощник ИИ
 
+export interface NavigationEntry {
+  screen: ScreenId;
+  title: string;
+}
+
+export const SCREEN_TITLES: Record<ScreenId, string> = {
+  'SCR-01': 'Журнал',
+  'SCR-02': 'Входящие',
+  'SCR-03': 'Состав документа',
+  'SCR-04': 'Предпроверка',
+  'SCR-05': 'Классификация',
+  'SCR-06': 'Редактор данных',
+  'SCR-07': 'Сверка со сканом',
+  'SCR-08': 'Предпросмотр',
+  'SCR-09': 'Итог архивации',
+  'SCR-10': 'Черновики',
+  'SCR-11': 'Карточка документа',
+  'SCR-12': 'Каталог шаблонов',
+  'SCR-13': 'Конструктор шаблона',
+  'SCR-14': 'Мои данные',
+  'SCR-15': 'Реестр планов',
+  'SCR-16': 'Убранные документы',
+  'SCR-17': 'Настройки',
+  'SCR-18': 'Обслуживание архива',
+  'SCR-19': 'Сводка здоровья',
+  'SCR-20': 'Помощник',
+};
+
+export interface JournalScreenState {
+  viewMode: 'table' | 'list';
+  isInspectorOpen: boolean;
+  zoneFilter: 'all' | 'open' | 'secret';
+  quickFilter: string;
+  searchQuery: string;
+  selectedIds: string[];
+  colVisibility: {
+    zone: boolean;
+    category: boolean;
+    date: boolean;
+    completeness: boolean;
+    verification: boolean;
+    relations: boolean;
+    transcript: boolean;
+    path: boolean;
+  };
+}
+
+export interface PlansScreenState {
+  filterStatus: string;
+  filterCategory: string;
+  searchQuery: string;
+}
+
+export interface MyDataScreenState {
+  activeGroupId: string;
+  searchQuery: string;
+  isHiddenSectionExpanded: boolean;
+}
+
+export interface TemplatesCatalogScreenState {
+  selectedTemplateId: string;
+  filterQuery: string;
+  catFilter: string;
+  statusTab: 'all' | 'active' | 'archived';
+}
+
+export interface HealthSummaryScreenState {
+  activeTab: 'overview' | 'conditions' | 'labs' | 'medications' | 'vaccines' | 'fitness' | 'history' | 'summary';
+  searchQuery: string;
+  conditionStatusFilter: 'all' | 'active' | 'anamnesis' | 'review';
+  labCategoryFilter: 'all' | 'biochem' | 'blood' | 'hormones';
+  historyFilter: 'all' | 'consult' | 'labs' | 'prescriptions';
+  selectedConditionDetail: string | null;
+  selectedLabTest: string;
+  bpTimeframe: '30' | '90' | '365';
+}
+
+export interface TrashedScreenState {
+  searchQuery: string;
+  selectedDocForInspect: string | null;
+}
+
 export type SecurityZone = 'open' | 'secret';
 
 export interface ArchiveDocument {

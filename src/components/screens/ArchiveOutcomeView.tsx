@@ -188,7 +188,7 @@ export const ArchiveOutcomeView: React.FC = () => {
             {/* Action 2: Open in Journal */}
             <button
               onClick={() => {
-                setCurrentScreen('SCR-11');
+                setCurrentScreen('SCR-11', 'Итог архивации');
                 showToast(`Открытие карточки документа ${doc.id}`);
               }}
               className="w-full h-8 px-3 rounded bg-[#e3f0f8] hover:bg-[#ddeaf2] text-[#111d23] font-medium text-[11px] flex items-center justify-between border border-[#d7e4ec] transition-colors"
@@ -203,7 +203,7 @@ export const ArchiveOutcomeView: React.FC = () => {
             {/* Action 3: Continue editing */}
             <button
               onClick={() => {
-                setCurrentScreen('SCR-06');
+                setCurrentScreen('SCR-06', 'Итог архивации');
                 showToast('Открытие редактора реквизитов');
               }}
               className="w-full h-8 px-3 rounded bg-[#e3f0f8] hover:bg-[#ddeaf2] text-[#111d23] font-medium text-[11px] flex items-center justify-between border border-[#d7e4ec] transition-colors"

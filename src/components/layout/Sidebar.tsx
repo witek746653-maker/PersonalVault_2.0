@@ -11,6 +11,8 @@ export const Sidebar: React.FC = () => {
   const {
     currentScreen,
     setCurrentScreen,
+    resetToScreen,
+    previousScreen,
     inboxItems,
     draftSessions,
     plans,
@@ -70,6 +72,21 @@ export const Sidebar: React.FC = () => {
   ];
 
   const isCurrentActive = (scr: ScreenId) => {
+    // If inside document card SCR-11, treat as active under originating section
+    if (currentScreen === 'SCR-11') {
+      if (previousScreen && scr === previousScreen) {
+        return true;
+      }
+      return scr === 'SCR-01';
+    }
+    // If inside template editor SCR-13, treat as active under Templates
+    if (scr === 'SCR-12' && currentScreen === 'SCR-13') {
+      return true;
+    }
+    // If inside editor SCR-06 or verification SCR-07 opened directly from Journal
+    if ((currentScreen === 'SCR-06' || currentScreen === 'SCR-07') && previousScreen === 'SCR-01') {
+      return scr === 'SCR-01';
+    }
     // If user is inside pipeline steps 2-9, treat as active under Inbox
     if (
       scr === 'SCR-02' &&
@@ -84,14 +101,6 @@ export const Sidebar: React.FC = () => {
         'SCR-09',
       ].includes(currentScreen)
     ) {
-      return true;
-    }
-    // If inside template editor SCR-13, treat as active under Templates
-    if (scr === 'SCR-12' && currentScreen === 'SCR-13') {
-      return true;
-    }
-    // If inside document card SCR-11, treat as active under Journal
-    if (scr === 'SCR-01' && currentScreen === 'SCR-11') {
       return true;
     }
     return currentScreen === scr;
@@ -132,7 +141,7 @@ export const Sidebar: React.FC = () => {
             return (
               <button
                 key={item.screen}
-                onClick={() => setCurrentScreen(item.screen)}
+                onClick={() => resetToScreen(item.screen, item.label)}
                 title={item.label}
                 className={`flex items-center ${
                   isSidebarCollapsed ? 'justify-center' : 'justify-between'
@@ -184,7 +193,7 @@ export const Sidebar: React.FC = () => {
             return (
               <button
                 key={item.screen}
-                onClick={() => setCurrentScreen(item.screen)}
+                onClick={() => resetToScreen(item.screen, item.label)}
                 title={item.label}
                 className={`flex items-center ${
                   isSidebarCollapsed ? 'justify-center' : 'justify-between'
@@ -223,7 +232,7 @@ export const Sidebar: React.FC = () => {
             return (
               <button
                 key={item.screen}
-                onClick={() => setCurrentScreen(item.screen)}
+                onClick={() => resetToScreen(item.screen, item.label)}
                 title={item.label}
                 className={`flex items-center ${
                   isSidebarCollapsed ? 'justify-center' : 'justify-between'
@@ -267,7 +276,7 @@ export const Sidebar: React.FC = () => {
             return (
               <button
                 key={item.screen}
-                onClick={() => setCurrentScreen(item.screen)}
+                onClick={() => resetToScreen(item.screen, item.label)}
                 title={item.label}
                 className={`flex items-center ${
                   isSidebarCollapsed ? 'justify-center' : 'justify-between'

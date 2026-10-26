@@ -16,12 +16,18 @@ export const TrashedArchiveView: React.FC = () => {
     documents, 
     restoreDocumentFromTrash, 
     setCurrentScreen, 
+    goBack,
+    previousScreen,
+    previousScreenTitle,
     setActiveDocId,
     isVeraCryptMounted,
-    showToast 
+    showToast,
+    trashedScreenState,
+    setTrashedScreenState,
   } = useVault();
 
-  const [searchQuery, setSearchQuery] = useState('');
+  const searchQuery = trashedScreenState.searchQuery;
+  const setSearchQuery = (q: string) => setTrashedScreenState(prev => ({ ...prev, searchQuery: q }));
   
   const trashedDocs = documents.filter((d: ArchiveDocument) => d.status === 'trashed');
 
@@ -33,9 +39,8 @@ export const TrashedArchiveView: React.FC = () => {
            d.archivePath.toLowerCase().includes(searchQuery.toLowerCase());
   });
 
-  const [selectedDocForInspect, setSelectedDocForInspect] = useState<string | null>(
-    visibleDocs[0]?.id || null
-  );
+  const selectedDocForInspect = trashedScreenState.selectedDocForInspect ?? (visibleDocs[0]?.id || null);
+  const setSelectedDocForInspect = (id: string | null) => setTrashedScreenState(prev => ({ ...prev, selectedDocForInspect: id }));
 
   const inspectedDoc = visibleDocs.find((d: ArchiveDocument) => d.id === selectedDocForInspect) || visibleDocs[0];
 
@@ -62,10 +67,10 @@ export const TrashedArchiveView: React.FC = () => {
 
         <div className="flex items-center gap-2 shrink-0">
           <button 
-            onClick={() => setCurrentScreen('SCR-01')}
+            onClick={goBack}
             className="px-3.5 py-1.5 border border-slate-300 hover:bg-slate-50 text-slate-700 rounded-md text-xs font-medium transition-colors"
           >
-            ← В Журнал документов
+            {previousScreen && previousScreen !== 'SCR-01' ? `← В ${previousScreenTitle}` : '← В Журнал документов'}
           </button>
         </div>
       </div>

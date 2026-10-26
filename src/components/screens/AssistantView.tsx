@@ -922,7 +922,7 @@ export const AssistantView: React.FC = () => {
                         <button
                           onClick={() => {
                             showToast('Открываем единый редактор документа SCR-06', 'edit_document');
-                            setCurrentScreen('SCR-06');
+                            setCurrentScreen('SCR-06', 'Помощник');
                           }}
                           className="h-8 px-3.5 bg-[#006763] hover:bg-[#237a75] text-white rounded-lg font-medium text-[12px] flex items-center gap-1.5 shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#006763]"
                         >
@@ -1370,7 +1370,7 @@ export const AssistantView: React.FC = () => {
                         <button
                           onClick={() => {
                             showToast('Переход в Журнал архива (SCR-01)', 'menu_book');
-                            setCurrentScreen('SCR-01');
+                            setCurrentScreen('SCR-01', 'Помощник');
                           }}
                           className="h-8 px-3 bg-[#e9f6fd] hover:bg-[#e3f0f8] text-[#111d23] rounded-lg text-[12px]"
                         >
@@ -1427,7 +1427,7 @@ export const AssistantView: React.FC = () => {
                         <button
                           onClick={() => {
                             showToast('Переход к ручному заполнению в SCR-06', 'edit_document');
-                            setCurrentScreen('SCR-06');
+                            setCurrentScreen('SCR-06', 'Помощник');
                           }}
                           className="h-8 px-3 bg-[#e9f6fd] hover:bg-[#e3f0f8] text-[#111d23] rounded-lg text-[12px]"
                         >
@@ -1895,7 +1895,7 @@ export const AssistantView: React.FC = () => {
                   <button
                     onClick={() => {
                       showToast('Переход в полный редактор SCR-06', 'edit');
-                      setCurrentScreen('SCR-06');
+                      setCurrentScreen('SCR-06', 'Помощник');
                     }}
                     className="flex-1 h-8 px-2 rounded-lg bg-white hover:bg-[#f4faff] text-[#111d23] border border-[#DCE3E5] text-[12px] font-semibold flex items-center justify-center gap-1 shadow-2xs transition-colors"
                   >
@@ -1928,7 +1928,7 @@ export const AssistantView: React.FC = () => {
                 <button
                   onClick={() => {
                     showToast('Разворачиваем документ в SCR-06', 'open_in_new');
-                    setCurrentScreen('SCR-06');
+                    setCurrentScreen('SCR-06', 'Помощник');
                   }}
                   className="w-full h-8 rounded-lg bg-white hover:bg-[#f4faff] text-[#111d23] border border-[#DCE3E5] text-[12px] font-semibold transition-colors"
                 >

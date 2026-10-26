@@ -16,27 +16,45 @@ export const JournalView: React.FC = () => {
     isVeraCryptMounted,
     activeScenario,
     showToast,
+    journalState,
+    setJournalState,
   } = useVault();
 
-  const [viewMode, setViewMode] = useState<'table' | 'list'>('table');
-  const [isInspectorOpen, setIsInspectorOpen] = useState(true);
-  const [zoneFilter, setZoneFilter] = useState<'all' | 'open' | 'secret'>('all');
-  const [quickFilter, setQuickFilter] = useState<string>('all');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set(['PV-0042']));
+  const viewMode = journalState.viewMode;
+  const setViewMode = (mode: 'table' | 'list') => setJournalState(prev => ({ ...prev, viewMode: mode }));
+
+  const isInspectorOpen = journalState.isInspectorOpen;
+  const setIsInspectorOpen = (open: boolean | ((p: boolean) => boolean)) =>
+    setJournalState(prev => ({ ...prev, isInspectorOpen: typeof open === 'function' ? open(prev.isInspectorOpen) : open }));
+
+  const zoneFilter = journalState.zoneFilter;
+  const setZoneFilter = (zf: 'all' | 'open' | 'secret') => setJournalState(prev => ({ ...prev, zoneFilter: zf }));
+
+  const quickFilter = journalState.quickFilter;
+  const setQuickFilter = (qf: string) => setJournalState(prev => ({ ...prev, quickFilter: qf }));
+
+  const searchQuery = journalState.searchQuery;
+  const setSearchQuery = (q: string) => setJournalState(prev => ({ ...prev, searchQuery: q }));
+
+  const selectedIds = useMemo(() => new Set(journalState.selectedIds), [journalState.selectedIds]);
+  const setSelectedIds = (idsOrFn: Set<string> | ((prev: Set<string>) => Set<string>)) => {
+    setJournalState(prev => {
+      const nextSet = typeof idsOrFn === 'function' ? idsOrFn(new Set(prev.selectedIds)) : idsOrFn;
+      return { ...prev, selectedIds: Array.from(nextSet) };
+    });
+  };
+
   const [isColumnsModalOpen, setIsColumnsModalOpen] = useState(false);
 
   // Column visibility state
-  const [colVisibility, setColVisibility] = useState({
-    zone: true,
-    category: true,
-    date: true,
-    completeness: true,
-    verification: true,
-    relations: true,
-    transcript: true,
-    path: true,
-  });
+  type ColVis = typeof journalState.colVisibility;
+  const colVisibility = journalState.colVisibility;
+  const setColVisibility = (colsOrFn: ColVis | ((prev: ColVis) => ColVis)) => {
+    setJournalState(prev => {
+      const nextCols = typeof colsOrFn === 'function' ? colsOrFn(prev.colVisibility) : colsOrFn;
+      return { ...prev, colVisibility: nextCols };
+    });
+  };
 
   // Real reactive state
   const isScenarioSecretLocked = !isVeraCryptMounted;
@@ -716,21 +734,21 @@ export const JournalView: React.FC = () => {
 
           <div className="flex items-center gap-1.5 flex-wrap">
             <button
-              onClick={() => setCurrentScreen('SCR-11')}
+              onClick={() => setCurrentScreen('SCR-11', 'Журнал')}
               className="flex items-center gap-1 px-3 py-1 rounded bg-[#006763] text-white hover:bg-[#12827c] transition-colors shadow-xs font-semibold text-[11px]"
             >
               <kbd className="font-mono text-[9px] bg-white/20 px-1 rounded">Enter</kbd>
               <span>Карточка документа</span>
             </button>
             <button
-              onClick={() => setCurrentScreen('SCR-06')}
+              onClick={() => setCurrentScreen('SCR-06', 'Журнал')}
               className="flex items-center gap-1 px-2.5 py-1 rounded bg-white text-[#111d23] hover:bg-[#e9f6fd] transition-colors text-[11px] border border-[#d7e4ec]"
             >
               <kbd className="font-mono text-[9px] bg-[#e3f0f8] px-1 rounded text-[#536166]">F4</kbd>
               <span>Редактор данных</span>
             </button>
             <button
-              onClick={() => setCurrentScreen('SCR-07')}
+              onClick={() => setCurrentScreen('SCR-07', 'Журнал')}
               className="flex items-center gap-1 px-2.5 py-1 rounded bg-white text-[#111d23] hover:bg-[#e9f6fd] transition-colors text-[11px] border border-[#d7e4ec]"
             >
               <kbd className="font-mono text-[9px] bg-[#e3f0f8] px-1 rounded text-[#536166]">F5</kbd>

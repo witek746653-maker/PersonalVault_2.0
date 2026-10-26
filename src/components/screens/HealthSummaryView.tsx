@@ -40,33 +40,70 @@ export const HealthSummaryView: React.FC = () => {
     setCurrentScreen, 
     setActiveDocId, 
     showToast, 
-    activeScenario 
+    activeScenario,
+    healthScreenState,
+    setHealthScreenState,
   } = useVault();
 
   // Tab Navigation: 8 tabs as required
-  const [activeTab, setActiveTab] = useState<
-    'overview' | 'conditions' | 'labs' | 'medications' | 'vaccines' | 'fitness' | 'history' | 'summary'
-  >('overview');
+  const activeTab = healthScreenState.activeTab;
+  const setActiveTab = (tab: any) => setHealthScreenState(prev => ({
+    ...prev,
+    activeTab: typeof tab === 'function' ? tab(prev.activeTab) : tab,
+  }));
 
   // Controls & Filters
   const [lang, setLang] = useState<'RU' | 'EN' | 'FR'>('RU');
   const [reportLang, setReportLang] = useState<'RU' | 'EN' | 'FR'>('FR');
-  const [searchQuery, setSearchQuery] = useState('');
+  const searchQuery = healthScreenState.searchQuery;
+  const setSearchQuery = (q: any) => setHealthScreenState(prev => ({
+    ...prev,
+    searchQuery: typeof q === 'function' ? q(prev.searchQuery) : q,
+  }));
   const [securityFilterMode, setSecurityFilterMode] = useState<'ALL' | 'OPEN_ONLY'>('ALL');
   const [isSecurityDropdownOpen, setIsSecurityDropdownOpen] = useState(false);
   const [showSecretDisconnectedBanner, setShowSecretDisconnectedBanner] = useState(false);
 
   // Sub-views & Inspect Drawers
-  const [selectedConditionDetail, setSelectedConditionDetail] = useState<string | null>(null);
-  const [selectedLabTest, setSelectedLabTest] = useState<string>('ferritin');
-  const [bpTimeframe, setBpTimeframe] = useState<'30' | '90' | '365'>('30');
+  const selectedConditionDetail = healthScreenState.selectedConditionDetail;
+  const setSelectedConditionDetail = (cd: any) => setHealthScreenState(prev => ({
+    ...prev,
+    selectedConditionDetail: typeof cd === 'function' ? cd(prev.selectedConditionDetail) : cd,
+  }));
+
+  const selectedLabTest = healthScreenState.selectedLabTest;
+  const setSelectedLabTest = (lt: any) => setHealthScreenState(prev => ({
+    ...prev,
+    selectedLabTest: typeof lt === 'function' ? lt(prev.selectedLabTest) : lt,
+  }));
+
+  const bpTimeframe = healthScreenState.bpTimeframe;
+  const setBpTimeframe = (bt: any) => setHealthScreenState(prev => ({
+    ...prev,
+    bpTimeframe: typeof bt === 'function' ? bt(prev.bpTimeframe) : bt,
+  }));
+
   const [chartPointInfo, setChartPointInfo] = useState<string>('Посл. замер: 124 / 78 мм рт. ст. (В норме)');
   const [trackerDateOffset, setTrackerDateOffset] = useState<number>(0);
 
   // Filters within tabs
-  const [conditionStatusFilter, setConditionStatusFilter] = useState<'all' | 'active' | 'anamnesis' | 'review'>('all');
-  const [labCategoryFilter, setLabCategoryFilter] = useState<'all' | 'biochem' | 'blood' | 'hormones'>('all');
-  const [historyFilter, setHistoryFilter] = useState<'all' | 'consult' | 'labs' | 'prescriptions'>('all');
+  const conditionStatusFilter = healthScreenState.conditionStatusFilter;
+  const setConditionStatusFilter = (cs: any) => setHealthScreenState(prev => ({
+    ...prev,
+    conditionStatusFilter: typeof cs === 'function' ? cs(prev.conditionStatusFilter) : cs,
+  }));
+
+  const labCategoryFilter = healthScreenState.labCategoryFilter;
+  const setLabCategoryFilter = (lc: any) => setHealthScreenState(prev => ({
+    ...prev,
+    labCategoryFilter: typeof lc === 'function' ? lc(prev.labCategoryFilter) : lc,
+  }));
+
+  const historyFilter = healthScreenState.historyFilter;
+  const setHistoryFilter = (hf: any) => setHealthScreenState(prev => ({
+    ...prev,
+    historyFilter: typeof hf === 'function' ? hf(prev.historyFilter) : hf,
+  }));
 
   // Modals & Panels
   const [docPreviewKey, setDocPreviewKey] = useState<string | null>(null);

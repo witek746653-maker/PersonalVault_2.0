@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useVault } from '../../context/VaultContext';
 
 export const DocumentCardView: React.FC = () => {
@@ -11,6 +11,8 @@ export const DocumentCardView: React.FC = () => {
     activeDocId,
     documents,
     setCurrentScreen,
+    goBack,
+    previousScreenTitle,
     activeScenario,
     isVeraCryptMounted,
     showToast,
@@ -27,6 +29,17 @@ export const DocumentCardView: React.FC = () => {
   const [isMoveModalOpen, setIsMoveModalOpen] = useState(activeScenario === 'move');
   const [isTranscriptModalOpen, setIsTranscriptModalOpen] = useState(activeScenario === 'transcript');
   const [transcriptTab, setTranscriptTab] = useState<'normal' | 'empty' | 'secret'>('normal');
+
+  // Handle Esc key to go back if no modal is open
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && !isHistoryDrawerOpen && !isMoveModalOpen && !isTranscriptModalOpen) {
+        goBack();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [goBack, isHistoryDrawerOpen, isMoveModalOpen, isTranscriptModalOpen]);
 
   // Scenarios
   const isMissing = activeScenario === 'missing';
@@ -46,12 +59,12 @@ export const DocumentCardView: React.FC = () => {
         <div className="flex items-center justify-between flex-wrap gap-2">
           <div className="flex items-center gap-2 min-w-0">
             <button
-              onClick={() => setCurrentScreen('SCR-01')}
+              onClick={goBack}
               className="flex items-center gap-1 px-2.5 py-1 rounded bg-[#e3f0f8] hover:bg-[#ddeaf2] text-[#3e4948] text-[11px] font-medium border border-[#d7e4ec]"
-              title="Вернуться в Журнал (Esc)"
+              title={`Вернуться: ${previousScreenTitle || 'Журнал'} (Esc)`}
             >
               <span className="material-symbols-outlined text-[14px]">arrow_back</span>
-              <span>Журнал</span>
+              <span>{previousScreenTitle || 'Журнал'}</span>
               <kbd className="font-mono text-[9px] bg-white px-1 rounded text-[#536166]">Esc</kbd>
             </button>
             <span className="text-[#6e7978]">/</span>
@@ -78,7 +91,7 @@ export const DocumentCardView: React.FC = () => {
         <div className="flex items-center justify-between pt-1 border-t border-[#d7e4ec] flex-wrap gap-2 text-[11px]">
           <div className="flex items-center gap-2 flex-wrap">
             <button
-              onClick={() => setCurrentScreen('SCR-06')}
+              onClick={() => setCurrentScreen('SCR-06', 'Карточка документа')}
               className="flex items-center gap-1.5 px-3 py-1 rounded bg-[#006763] text-white hover:bg-[#12827c] transition-colors font-semibold shadow-xs"
             >
               <span className="material-symbols-outlined text-[14px]">edit_note</span>
@@ -86,7 +99,7 @@ export const DocumentCardView: React.FC = () => {
               <kbd className="font-mono text-[9px] bg-white/20 px-1 rounded">F4</kbd>
             </button>
             <button
-              onClick={() => setCurrentScreen('SCR-07')}
+              onClick={() => setCurrentScreen('SCR-07', 'Карточка документа')}
               className="flex items-center gap-1.5 px-3 py-1 rounded bg-white hover:bg-[#e9f6fd] text-[#111d23] border border-[#d7e4ec] transition-colors font-medium shadow-xs"
             >
               <span className="material-symbols-outlined text-[14px] text-[#006763]">fact_check</span>
@@ -306,7 +319,7 @@ export const DocumentCardView: React.FC = () => {
             <div className="flex items-center justify-between pb-1 border-b border-[#d7e4ec]">
               <span className="font-semibold text-[13px] text-[#111d23]">Структурированные реквизиты</span>
               <button
-                onClick={() => setCurrentScreen('SCR-06')}
+                onClick={() => setCurrentScreen('SCR-06', 'Карточка документа')}
                 className="text-[#006763] hover:underline font-semibold text-[11px] flex items-center gap-0.5"
               >
                 <span>Редактировать</span>

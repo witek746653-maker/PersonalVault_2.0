@@ -24,12 +24,19 @@ export const PlansRegistryView: React.FC = () => {
     cancelPlan, 
     setCurrentScreen, 
     setActiveDocId,
-    showToast 
+    showToast,
+    plansState,
+    setPlansState,
   } = useVault();
 
-  const [filterStatus, setFilterStatus] = useState<string>('all');
-  const [filterCategory, setFilterCategory] = useState<string>('all');
-  const [searchQuery, setSearchQuery] = useState('');
+  const filterStatus = plansState.filterStatus;
+  const setFilterStatus = (s: string) => setPlansState(prev => ({ ...prev, filterStatus: s }));
+
+  const filterCategory = plansState.filterCategory;
+  const setFilterCategory = (c: string) => setPlansState(prev => ({ ...prev, filterCategory: c }));
+
+  const searchQuery = plansState.searchQuery;
+  const setSearchQuery = (q: string) => setPlansState(prev => ({ ...prev, searchQuery: q }));
 
   // Path 1 Modal: Bind Existing Document
   const [bindPlanId, setBindPlanId] = useState<number | null>(null);
@@ -71,7 +78,7 @@ export const PlansRegistryView: React.FC = () => {
 
   const handleStartImportPipeline = (planId: number) => {
     showToast('Переход во Входящие с контекстом плана');
-    setCurrentScreen('SCR-02');
+    setCurrentScreen('SCR-02', 'Реестр планов');
   };
 
   const getStatusBadge = (plan: PlanItem) => {
@@ -220,7 +227,7 @@ export const PlansRegistryView: React.FC = () => {
                     <div 
                       onClick={() => {
                         setActiveDocId(plan.linkedDoc!.code);
-                        setCurrentScreen('SCR-11');
+                        setCurrentScreen('SCR-11', 'Реестр планов');
                       }}
                       className="p-2.5 bg-teal-50/70 border border-teal-200/80 rounded-lg text-xs text-[#006763] cursor-pointer hover:bg-teal-100/60 transition-colors flex items-center justify-between group mb-2"
                     >

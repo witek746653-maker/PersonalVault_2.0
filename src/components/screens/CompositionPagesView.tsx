@@ -13,6 +13,7 @@ export const CompositionPagesView: React.FC = () => {
     excludePage,
     restoreExcludedPage,
     setCurrentScreen,
+    goBack,
     setPipelineStep,
     showToast,
   } = useVault();
@@ -345,7 +346,7 @@ export const CompositionPagesView: React.FC = () => {
       {/* Sticky Bottom Progression Bar */}
       <div className="sticky bottom-0 bg-[#ddeaf2] p-2.5 rounded border border-[#d7e4ec] flex items-center justify-between text-[12px] shadow-sm">
         <button
-          onClick={() => setCurrentScreen('SCR-02')}
+          onClick={goBack}
           className="h-8 px-3 rounded bg-white hover:bg-[#e9f6fd] text-[#111d23] font-medium flex items-center gap-1 border border-[#d7e4ec]"
         >
           <span className="material-symbols-outlined text-[15px]">arrow_back</span>

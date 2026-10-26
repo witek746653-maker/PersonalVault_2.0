@@ -35,7 +35,9 @@ export const MyDataRegistryView: React.FC = () => {
     addMyDataRecord, 
     updateMyDataRecord,
     isVeraCryptMounted, 
-    showToast 
+    showToast,
+    myDataScreenState,
+    setMyDataScreenState,
   } = useVault();
 
   const [isGroupsCollapsed, setIsGroupsCollapsed] = useState<boolean>(() => {
@@ -63,13 +65,29 @@ export const MyDataRegistryView: React.FC = () => {
     return myDataCategories.filter((c: MyDataCategory) => hiddenGroupIds.includes(c.id));
   }, [myDataCategories, hiddenGroupIds]);
 
-  const [activeGroupId, setActiveGroupId] = useState<string>(() => {
-    const firstVisible = myDataCategories.find((c: MyDataCategory) => !hiddenGroupIds.includes(c.id));
-    return firstVisible ? firstVisible.id : (myDataCategories[0]?.id || '');
-  });
+  const activeGroupId = myDataScreenState.activeGroupId || (visibleCategories[0]?.id || myDataCategories[0]?.id || '');
+  const setActiveGroupId = (id: string | ((prev: string) => string)) => {
+    setMyDataScreenState(prev => ({
+      ...prev,
+      activeGroupId: typeof id === 'function' ? id(prev.activeGroupId) : id,
+    }));
+  };
 
-  const [isHiddenSectionExpanded, setIsHiddenSectionExpanded] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const isHiddenSectionExpanded = myDataScreenState.isHiddenSectionExpanded;
+  const setIsHiddenSectionExpanded = (v: boolean | ((prev: boolean) => boolean)) => {
+    setMyDataScreenState(prev => ({
+      ...prev,
+      isHiddenSectionExpanded: typeof v === 'function' ? v(prev.isHiddenSectionExpanded) : v,
+    }));
+  };
+
+  const searchQuery = myDataScreenState.searchQuery;
+  const setSearchQuery = (q: string | ((prev: string) => string)) => {
+    setMyDataScreenState(prev => ({
+      ...prev,
+      searchQuery: typeof q === 'function' ? q(prev.searchQuery) : q,
+    }));
+  };
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const searchContainerRef = useRef<HTMLDivElement>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
